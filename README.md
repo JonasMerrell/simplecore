@@ -2,7 +2,7 @@
 
 This was built on 2026-11-07 from Jonas's Onshape Parasolid export (`source/x-carriage-assembly.x_t`, 157 bodies, 18 sub-assemblies, 273 placed parts).
 
-To use it, open `X-carriage.json` in rCAD, or import the ZIP next to this folder as a project. It opens on the **Printer** assembly, the working machine. The model needs rCAD master at or after PR #120. Older builds refuse the file (swept surfaces), drop about 2,400 faces, and hang meshing the Sherpa Mini.
+To use it, open it in rCAD with Open from GitHub, or clone it and open `X-carriage.json`. It opens on the **Printer** assembly, the working machine. The model needs rCAD master at or after PR #120. Older builds refuse the file (swept surfaces), drop about 2,400 faces, and hang meshing the Sherpa Mini.
 
 Opening the full assembly takes about 3 to 4 minutes the first time, mostly meshing the Sherpa Mini and the printer frame. Single Part Studios open quickly.
 
@@ -95,7 +95,7 @@ These are kept for reference, and they use scratch paths.
 
 - **Spinning parts.** Revolute mates now hold the 3010 blower's impeller (both halves) on its pin, the Sherpa Mini's drive shaft (with the 50T gear, the drive gear and the set screw fastened to it), the Sherpa idler gear on its shaft, and the six GT2 idlers on the gantry ends. A gear relation (ratio 1, opposite directions) couples the two Sherpa filament gears. The 40 mm fan is a single body, so it can't spin. The motor's 10T pinion is part of the NEMA14 body, so it doesn't spin either.
 - **CoreXY drive.** Two NEMA 17 steppers (40 mm) now sit in the motor pockets of the AWD motor idlers, shaft down: Motor A on the rear mount, Motor B on the front. Each has a revolute mate to the frame. Two **belt** relations (pitch radius 40/2π mm, a GT2 20T pulley) tie them to the X and Y sliders: Motor A turns with X + Y, Motor B with X − Y. Moving the toolhead 60 mm in X turns both motors 1.5 turns, and moving it 80 mm in Y turns them 2 turns in opposite directions. Which motor is A and which is B is a guess.
-- **Needs rCAD with the belt relation** (PR #129) to open. `X-carriage-no-belts.json` has everything except the two belt relations and opens on master at or after PR #120. `X-carriage-2026-11-07.json` is the file as it was.
+- **Needs rCAD with the belt relation** (PR #129) to open. `X-carriage-no-belts.json` has everything except the two belt relations and opens on master at or after PR #120. The file as it was is in this repository's history.
 
 ## Changes on 2026-11-11: enclosure panels and front door
 
@@ -114,4 +114,4 @@ These are kept for reference, and they use scratch paths.
 - **Assemblies.** **Enclosure** holds the four panels and the four bearing blocks, all fixed. **Front door** holds the door and both arms. Both are inserted into **Printer**: Enclosure is fixed (instance 15) and Front door is instance 16. In X-carriage-no-belts.json they are instances 13 and 14, and the door mate is 15.
 - **Door mate.** The revolute mate **Front door hinge** (mate 17) joins the door to Enclosure on the pivot axis, with limits −240° to 0°. At 0° the door is shut, and negative angles open it outwards. A sweep in 5° to 15° steps found no contact until about 245°, where the folded-back door touches the left side panel. The limit is 240°. Dragging the door past a limit in the GUI pulled it off its hinge. rCAD PR #134 fixes that. Until it merges, don't drag the door past either end.
 - **Checks.** The panels' bounding boxes were checked against every frame part. They touch the spacers and rails and don't overlap anything. The door and arms don't touch the blocks or panels anywhere from 0° to 240°. This was checked in a small test document, because rCAD's interference check times out on the whole Printer.
-- **Files.** X-carriage.json and X-carriage-no-belts.json both have the enclosure. X-carriage-2026-11-10.json is the file as it was before this change. Renders are in `renders/enclosure-*.png`.
+- **Files.** X-carriage.json and X-carriage-no-belts.json both have the enclosure. The version before this change is in the history. Renders are in `renders/enclosure-*.png`.
