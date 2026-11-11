@@ -114,7 +114,7 @@ These are kept for reference, and they use scratch paths.
 - **Assemblies.** **Enclosure** holds the four panels and the four bearing blocks, all fixed. **Front door** holds the door and both arms. Both are inserted into **Printer**: Enclosure is fixed (instance 15) and Front door is instance 16. In X-carriage-no-belts.json they are instances 13 and 14, and the door mate is 15.
 - **Door mate.** The revolute mate **Front door hinge** (mate 17) joins the door to Enclosure on the pivot axis, with limits −240° to 0°. At 0° the door is shut, and negative angles open it outwards. A sweep in 5° to 15° steps found no contact until about 245°, where the folded-back door touches the left side panel. The limit is 240°. Dragging the door past a limit in the GUI pulled it off its hinge. rCAD PR #134 fixes that. Until it merges, don't drag the door past either end.
 - **Checks.** The panels' bounding boxes were checked against every frame part. They touch the spacers and rails and don't overlap anything. The door and arms don't touch the blocks or panels anywhere from 0° to 240°. This was checked in a small test document, because rCAD's interference check times out on the whole Printer.
-- **Files.** X-carriage.json and X-carriage-no-belts.json both have the enclosure. X-carriage-2026-11-10.json is the file as it was before this change. Renders are in `renders/enclosure-*.png`.
+- **Files.** X-carriage.json and X-carriage-no-belts.json both have the enclosure. The file as it was before this change is in the history (commit "Spinning parts and the CoreXY drive"). Renders are in `renders/enclosure-*.png`.
 
 ## Changes on 2026-11-11: PIR insulation
 
@@ -147,5 +147,5 @@ These are kept for reference, and they use scratch paths.
   - PIR base: two through slots for the legs (56 × 14 mm each, 2 mm clearance).
   - PIR back, lower: a 24 × 24 mm through hole for the power cord, centred at y 105, z 169.6.
   - Back aluminium panel: a Ø16 mm hole behind it for a cord grommet.
-- **Model.** Part Studio **Chamber heater** (variables `heater_x`, `heater_y`, `heater_z`), assembly **Chamber heater**, in Printer as instance 19 (instance 17 in X-carriage-no-belts.json). The cut-outs are new features at the end of the PIR insulation and Enclosure panels studios. `X-carriage-2026-11-11-before-heater.json` is the file before this change.
+- **Model.** Part Studio **Chamber heater** (variables `heater_x`, `heater_y`, `heater_z`), assembly **Chamber heater**, in Printer as instance 19 (instance 17 in X-carriage-no-belts.json). The cut-outs are new features at the end of the PIR insulation and Enclosure panels studios. The file before this change is in the history.
 - **Renders:** `renders/heater-overview.png` and `renders/heater-closeup.png` (door and panels hidden, bed at the bottom of Z).
