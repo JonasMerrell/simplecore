@@ -2,7 +2,7 @@
 
 This was built on 2026-11-07 from Jonas's Onshape Parasolid export (`source/x-carriage-assembly.x_t`, 157 bodies, 18 sub-assemblies, 273 placed parts).
 
-To use it, open it in rCAD with Open from GitHub, or clone it and open `X-carriage.json`. It opens on the **Printer** assembly, the working machine. The model needs rCAD master at or after PR #120. Older builds refuse the file (swept surfaces), drop about 2,400 faces, and hang meshing the Sherpa Mini.
+To use it, open `X-carriage.json` in rCAD, or import the ZIP next to this folder as a project. It opens on the **Printer** assembly, the working machine. The model needs rCAD master at or after PR #120. Older builds refuse the file (swept surfaces), drop about 2,400 faces, and hang meshing the Sherpa Mini.
 
 Opening the full assembly takes about 3 to 4 minutes the first time, mostly meshing the Sherpa Mini and the printer frame. Single Part Studios open quickly.
 
@@ -95,7 +95,7 @@ These are kept for reference, and they use scratch paths.
 
 - **Spinning parts.** Revolute mates now hold the 3010 blower's impeller (both halves) on its pin, the Sherpa Mini's drive shaft (with the 50T gear, the drive gear and the set screw fastened to it), the Sherpa idler gear on its shaft, and the six GT2 idlers on the gantry ends. A gear relation (ratio 1, opposite directions) couples the two Sherpa filament gears. The 40 mm fan is a single body, so it can't spin. The motor's 10T pinion is part of the NEMA14 body, so it doesn't spin either.
 - **CoreXY drive.** Two NEMA 17 steppers (40 mm) now sit in the motor pockets of the AWD motor idlers, shaft down: Motor A on the rear mount, Motor B on the front. Each has a revolute mate to the frame. Two **belt** relations (pitch radius 40/2π mm, a GT2 20T pulley) tie them to the X and Y sliders: Motor A turns with X + Y, Motor B with X − Y. Moving the toolhead 60 mm in X turns both motors 1.5 turns, and moving it 80 mm in Y turns them 2 turns in opposite directions. Which motor is A and which is B is a guess.
-- **Needs rCAD with the belt relation** (PR #129) to open. `X-carriage-no-belts.json` has everything except the two belt relations and opens on master at or after PR #120. The file as it was is in this repository's history.
+- **Needs rCAD with the belt relation** (PR #129) to open. `X-carriage-no-belts.json` has everything except the two belt relations and opens on master at or after PR #120. `X-carriage-2026-11-07.json` is the file as it was.
 
 ## Changes on 2026-11-11: enclosure panels and front door
 
@@ -114,4 +114,38 @@ These are kept for reference, and they use scratch paths.
 - **Assemblies.** **Enclosure** holds the four panels and the four bearing blocks, all fixed. **Front door** holds the door and both arms. Both are inserted into **Printer**: Enclosure is fixed (instance 15) and Front door is instance 16. In X-carriage-no-belts.json they are instances 13 and 14, and the door mate is 15.
 - **Door mate.** The revolute mate **Front door hinge** (mate 17) joins the door to Enclosure on the pivot axis, with limits −240° to 0°. At 0° the door is shut, and negative angles open it outwards. A sweep in 5° to 15° steps found no contact until about 245°, where the folded-back door touches the left side panel. The limit is 240°. Dragging the door past a limit in the GUI pulled it off its hinge. rCAD PR #134 fixes that. Until it merges, don't drag the door past either end.
 - **Checks.** The panels' bounding boxes were checked against every frame part. They touch the spacers and rails and don't overlap anything. The door and arms don't touch the blocks or panels anywhere from 0° to 240°. This was checked in a small test document, because rCAD's interference check times out on the whole Printer.
-- **Files.** X-carriage.json and X-carriage-no-belts.json both have the enclosure. The version before this change is in the history. Renders are in `renders/enclosure-*.png`.
+- **Files.** X-carriage.json and X-carriage-no-belts.json both have the enclosure. X-carriage-2026-11-10.json is the file as it was before this change. Renders are in `renders/enclosure-*.png`.
+
+## Changes on 2026-11-11: PIR insulation
+
+- **What.** A new Part Studio, **PIR insulation**, holds eight 25.4 mm (1 inch) PIR foam boards: the base, the top, the back (lower and upper) and both sides (lower and upper). The thickness is the variable `pir_t`. The assembly **PIR insulation** holds them, fixed, and is in **Printer** as instance 18 (instance 16 in X-carriage-no-belts.json). Hide that one instance to see the printer without it. No material is set, because rCAD's only foam (Urethane foam, 0.24 g/cm³) is about seven times denser than PIR.
+- **Where the boards sit.** Each wall board sits in the bay between the extrusions, flat against the inside of its aluminium panel, and stands 4.4 mm (sides) or 0.6 mm (back) proud of the extrusions' inner faces.
+  - **Base:** on top of the existing `Bottom_pannel`, z 104.18 to 129.58, over the whole panel. Notches go round the four uprights.
+  - **Top:** the full top bay between the top extrusions, z 564.8 to 590.2, under the top panel.
+  - **Back:** x 405.1 to 430.5 against the back panel. Lower board z 129.6 to 401 (sits on the base board), upper board z 421 to 570.2.
+  - **Sides:** right (−Y) y −24.5 to 0.9, left (+Y) y 452.1 to 477.5. Lower boards z 129.6 to 398 (they stop under the `backer-y-axis` strips under the mid rails), upper boards z 468 to 564.8 (they stop under the top board).
+  - **Front (door):** not insulated, so the PC door stays clear.
+- **Cut-outs.** Every frame part, motor and moving part was checked against every board. Moving parts were checked over their full travel: the gantry over X 22 to 351, the toolhead over X and Y, and the bed over Z 126.2 to 352.9. Each overlap became a rectangular cut-out with 2 mm clearance. Each cut-out is a feature named after what it clears. If the part reaches through the board, the cut goes through. If not, it's a pocket from the side the part comes from.
+  - **Base:** through holes for the three Z rails and their MGN12H blocks. 18.8 mm pockets from below over the three Z motor mounts, plus shallow ones over the Z motor enclosure caps. 21.6 mm pockets from above where the Z carriage mounts come down at the bottom of Z travel. At the lowest Z the bed frame clears the base board by 5.9 mm, so Z travel is unchanged.
+  - **Sides, lower:** a vertical groove for the Z rail (6.4 mm deep) and for its MGN12H block over its travel (3.4 mm). A notch through at the top for the Z rail top mount.
+  - **Sides, upper:** the gantry ends ride flush with the frame's outer face, so there's no room for a board where they travel. That leaves an uninsulated band from the mid extrusion up to z 468 along both sides (47 mm above the extrusion). There's also a notch through for the AWD motor idler at the back corner.
+  - **Back:** a 1.5 mm groove for the rear Z rail. A 21.5 mm pocket for the rail's top mount. 21.4 mm pockets for the AWD idlers and motors in the upper corners. 6 mm rebates on the panel side over the back-panel spacers.
+  - The NEMA 17 bodies sit 1.6 mm from the upper side boards, and the gantry's 695 bearings sit 1.8 mm away. Both are just inside the 2 mm clearance, so they get no pocket.
+- **What's assumed.** The cut-outs are inferred from the model, not from your boards. The model has no wiring, cable chain runs, fans or electronics, so any pass-throughs for them aren't cut. The cut-outs are rectangles around each part's bounding box, so they are a little generous on round or angled parts.
+- **Checks.** All eight boards build with no feature errors, and their volumes match an independent calculation of the same cuts. The clash check uses bounding boxes, which over-cover every part, so a board can't touch a part's real shape when it clears the box. rCAD's own interference check on the whole Printer still times out.
+- **Renders:** `renders/pir-printer.png` (enclosure and door hidden) and `renders/pir-boards.png`.
+- **Scripts:** `scripts/pir/` regenerates the boards: `walk.py` + `wb.py` (world bounding boxes of every part), `gen.py` (boards and cut-outs, `boards.json`), `mk.py` (the rCAD run script) and `splice.py` (adds the studio and assembly to the document).
+
+## Changes on 2026-11-11: chamber heater
+
+- **What.** A PTCYIDU 500 W 110 V PTC fan heater (Amazon B0CP1XPW67). Its real size isn't published, so the model uses a **placeholder envelope of 52 × 87.5 × 60 mm** (depth × width × height), from PTCYIDU's closest listed fan heater (87.5 × 60 × 52 mm, 400 W). Replace it once the heater is measured: `scripts/heater/mkheater.py X Y Z` rebuilds everything.
+- **Where.** The back-right corner (−Y side), low, behind the bed: x 335.1 to 387.1, y 61.25 to 148.75, z 139.6 to 199.6. The outlet faces the front (−X), so warm air runs under the bed and up past the door. The intake has 18 mm of air to the back insulation.
+  - Why there: it's the only spot that's free over the whole travel and low in the chamber. The bed covers almost all of the floor and comes down to 5.9 mm above the base board, so nothing fits under it. The strip in front of the bed (58 mm deep) would also work, but it is behind the uninsulated door. The back corners are 80 mm deep behind the bed plate (MIC6 ends at x 324.6), and the rear Z rail splits them in two.
+  - Clearances, from swept bounding boxes over all X, Y and Z travel: 10.5 mm to the bed plate's back edge (at the bottom of Z), 18 mm to the back PIR, 60 mm to the right side PIR, about 120 mm to the rear Z rail and its carriage, and nearly 200 mm below the gantry and toolhead.
+- **Stand.** Two 10 mm placeholder legs under the heater, standing on the aluminium `Bottom_pannel` through the base insulation. They hold the heater 10 mm above the foam, so the foam doesn't take the heater's weight or its housing heat.
+- **Cut-outs.**
+  - PIR base: two through slots for the legs (56 × 14 mm each, 2 mm clearance).
+  - PIR back, lower: a 24 × 24 mm through hole for the power cord, centred at y 105, z 169.6.
+  - Back aluminium panel: a Ø16 mm hole behind it for a cord grommet.
+- **Model.** Part Studio **Chamber heater** (variables `heater_x`, `heater_y`, `heater_z`), assembly **Chamber heater**, in Printer as instance 19 (instance 17 in X-carriage-no-belts.json). The cut-outs are new features at the end of the PIR insulation and Enclosure panels studios. `X-carriage-2026-11-11-before-heater.json` is the file before this change.
+- **Renders:** `renders/heater-overview.png` and `renders/heater-closeup.png` (door and panels hidden, bed at the bottom of Z).
