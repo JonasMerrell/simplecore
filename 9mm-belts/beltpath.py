@@ -46,14 +46,14 @@ def draw(fn):
     fig, ax = plt.subplots(figsize=(11, 10))
     for (x0, y0) in [(-25.5, -23.5), (-25.5, 456.5), (404.5, -23.5), (404.5, 456.5)]:
         ax.add_patch(plt.Rectangle((y0, x0), 20, 20, fc="#bbb", ec="k"))
-    for nm, B, col in zip(("U (upper)", "L (lower)"), belts(185.3, 241.5), ("tab:blue", "tab:red")):
+    for nm, B, col in zip(("U, upper level: motors on the left side (+Y)", "L, lower level: motors on the right side (-Y)"), belts(185.3, 241.5), ("tab:blue", "tab:red")):
         segs, wraps, L = path(B, closed=False)
         for i, (p, q, t) in enumerate(segs): ax.plot([p[1], q[1]], [p[0], q[0]], col, lw=1.6, label=nm if i == 0 else None)
         for (n, x, y, r, s) in B[1:-1]:
             ax.add_patch(plt.Circle((y, x), r, fc="none", ec=col, lw=1)); ax.plot(y, x, ".", color=col, ms=3)
             if "motor" in n: ax.add_patch(plt.Rectangle((y - 21, x - 21), 42, 42, fc="none", ec=col, ls=":", lw=0.8))
-    ax.set_aspect("equal"); ax.set_xlabel("Y (mm)"); ax.set_ylabel("X (mm), rear at the top"); ax.legend(loc="center")
-    ax.set_title("simplecore 9 mm belt path (gantry and carriage at mid travel)"); ax.grid(True, lw=0.3); fig.savefig(fn, dpi=110, bbox_inches="tight")
+    ax.set_aspect("equal"); ax.invert_xaxis(); ax.set_xlabel("Y (mm)  |  LEFT side of the printer (seen from the front door) is on the left, RIGHT on the right"); ax.set_ylabel("X (mm)  |  front door at the bottom, rear at the top"); ax.legend(loc="center")
+    ax.set_title("simplecore 9 mm belt path, seen from above (gantry and carriage at mid travel)"); ax.grid(True, lw=0.3); fig.savefig(fn, dpi=110, bbox_inches="tight")
 if __name__ == "__main__":
     for nm, B in zip("UL", belts(185.3, 241.5)):
         segs, wraps, L = path(B, closed=False)

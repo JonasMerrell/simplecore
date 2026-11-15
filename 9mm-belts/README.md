@@ -50,7 +50,8 @@ carries both belts needs a clear height of z 435.0 to 461.1 (26.1 mm) between it
 ## Belt path (from Jonas's photos of 2026-11-15 and the idler positions in the CAD)
 
 `beltpath.py` computes it and draws `beltpath.png`. It also checks that each belt's length stays constant over the whole travel.
-Front is −X, rear is +X.
+Front is −X, rear is +X. Seen from the front door, +Y is the left side and −Y the right side, and the picture is drawn that way (the first version of it was mirrored).
+The upper belt's motors are on the left, the lower belt's on the right.
 
 - **Belt U (upper level):** carriage → +Y joint smooth stack → forward at y 450.67 → **front +Y motor**, 180° →
   back along the +Y side at y ≈ 463.4, through the joint → rear +Y idler A → idler C → **rear +Y motor**, 187° →
