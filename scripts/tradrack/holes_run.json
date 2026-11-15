@@ -16,7 +16,7 @@
 "args": {
 "plane": {
 "kind": "feature_plane",
-"feature": 10
+"feature": 7
 },
 "name": "Trad Rack mounting holes sketch"
 }
@@ -29,34 +29,34 @@
 {
 "type": "circle",
 "center": [
-54.0,
-289.8
+11.1,
+297.25
 ],
-"radius": 1.7
+"radius": 1.25
 },
 {
 "type": "circle",
 "center": [
-54.0,
-375.55
+11.1,
+383.0
 ],
-"radius": 1.7
+"radius": 1.25
 },
 {
 "type": "circle",
 "center": [
-354.0,
-289.8
+311.1,
+297.25
 ],
-"radius": 1.7
+"radius": 1.25
 },
 {
 "type": "circle",
 "center": [
-354.0,
-375.55
+311.1,
+383.0
 ],
-"radius": 1.7
+"radius": 1.25
 }
 ]
 }
@@ -65,7 +65,7 @@
 "tool": "add_feature",
 "args": {
 "kind": "extrude",
-"name": "Trad Rack mounting holes (4x M3)",
+"name": "Trad Rack mounting holes (4x M3 tapped)",
 "params": {
 "profiles": [
 {
@@ -92,13 +92,13 @@
 "tool": "add_feature",
 "args": {
 "kind": "plane",
-"name": "Trad Rack nut pocket plane",
+"name": "Trad Rack screw tip pocket plane",
 "params": {
 "base": {
 "kind": "origin_plane",
 "plane": "Front"
 },
-"offset": "-477.5"
+"offset": "24.5"
 }
 }
 },
@@ -109,7 +109,7 @@
 "kind": "feature_plane",
 "feature": 108
 },
-"name": "Cut-out: Trad Rack mounting nuts sketch"
+"name": "Cut-out: Trad Rack screw tips sketch"
 }
 },
 {
@@ -120,45 +120,45 @@
 {
 "type": "rect",
 "corner1": [
-48.0,
-283.8
+7.1,
+293.25
 ],
 "corner2": [
-60.0,
-295.8
+15.1,
+301.25
 ]
 },
 {
 "type": "rect",
 "corner1": [
-48.0,
-369.55
+7.1,
+379.0
 ],
 "corner2": [
-60.0,
-381.55
+15.1,
+387.0
 ]
 },
 {
 "type": "rect",
 "corner1": [
-348.0,
-283.8
+307.1,
+293.25
 ],
 "corner2": [
-360.0,
-295.8
+315.1,
+301.25
 ]
 },
 {
 "type": "rect",
 "corner1": [
-348.0,
-369.55
+307.1,
+379.0
 ],
 "corner2": [
-360.0,
-381.55
+315.1,
+387.0
 ]
 }
 ]
@@ -168,7 +168,7 @@
 "tool": "add_feature",
 "args": {
 "kind": "extrude",
-"name": "Cut-out: Trad Rack mounting nuts",
+"name": "Cut-out: Trad Rack screw tips",
 "params": {
 "profiles": [
 {
@@ -176,7 +176,7 @@
 }
 ],
 "depth": "10",
-"opposite": false,
+"opposite": true,
 "op": "remove"
 }
 }
@@ -188,7 +188,7 @@
 {
 "tool": "save_document",
 "args": {
-"path": "nb-holes.json"
+"path": "nb-holes2.json"
 }
 }
 ]
