@@ -47,9 +47,38 @@ carries both belts needs a clear height of z 435.0 to 461.1 (26.1 mm) between it
 - Hanging the lower-belt motor from below (shaft up) at the same position doesn't fit: the body (42 mm square) would overlap the rear 2020 (x 404.5 to 424.5, z 401 to 421).
 - M3 screw axles with Ø6.5 printed spacer posts: (385.5, 456.5), (394.5, 416.2), (407.0, 443.7) on the +Y mount, mirrored on the −Y mount.
 
+## Rear motor mount, rev A (2026-11-15)
+
+Jonas chose a separate supported shaft for the motor pulleys, and the parts are to be CNC machined.
+`rear-mount.rhai` builds the +Y rear mount as an editable rCAD document (`rear-mount.json`), with
+`rear-mount-plates.step`, `rear-mount-hardware.step` and the picture `rear-mount-revA.png`.
+
+- **Two 6 mm 6061 plates** with the same outline (43.5 × 80.5 mm, notched round the upright, R3 corners).
+  - Lower plate z 429 to 435, every feature cut from the top face.
+  - Upper plate z 461.2 to 467.2, every feature cut from the underside. One setup each.
+  - The bay between them is 26.2 mm (z 435.0 to 461.2), clear for both belt levels.
+- **Drive shaft** Ø5 × 48 on the old motor axis (403.35, 429.35), in two 695 bearings (5 × 13 × 4): one in a 4 mm
+  pocket in each plate, with an Ø8 hole behind it. The 9 mm 20T pulley sits between them, so it is in double shear
+  on either belt level (a spacer sets the level).
+- **Motor** above on four Ø8 × 35 standoffs (M3 × 45 from counterbores in the bay roof), joined to the shaft by a
+  5 to 5 mm coupler (Ø19 × 25). Motor face at z 502.2, top of a 40 mm motor at z 542.2 (the top PIR board starts at 564.8).
+- **Fixing:** three M5 × 50 go down through upper plate, Ø10 × 26.2 standoff, lower plate and an Ø10 × 8 riser into
+  T-nuts in the top slots of the rear 2020 (414.5, 403 and 414.5, 452) and the side 2020 (399.5, 466.5).
+  A fourth standoff at (386, 402) threads into the lower plate.
+- **Idler pins** Ø5 through both plates at the old mount's three axle positions.
+
+Open in rev A:
+
+- The idler positions are copied from the old mount, which used small M3 idlers. A Ø15 Gates idler at (407.0, 443.7)
+  overlaps the Ø16 pulley flange by 0.7 mm. The positions need the real belt path.
+- Nothing ties the mount to the upright sideways yet. The old part had two M5 into each face of the upright.
+- The −Y mount is the mirror image with the pulley on the lower level. Not built yet.
+- The PIR back board's pockets were cut for the old mount and need re-cutting for the taller one.
+- Not yet in `X-carriage.json` (another thread is editing that file).
+
 ## Open design choices (asked in the thread)
 
-1. How the lower-belt motor pulley gets its second support: long-shaft motor, moving the motor, or a separate supported shaft.
+1. ~~How the lower-belt motor pulley gets its second support~~ Answered: a separate supported shaft.
 2. Where the two front motors go and which way their shafts point.
 3. Idler hardware in the motor mounts (same Gates 9 mm 20T idlers and F695 stacks on Ø5 pins as the joints, or something else).
 
