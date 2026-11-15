@@ -7,7 +7,7 @@ assert not any(s['name']=='Chamber heater' for s in d['studios'])
 for i in (25,27): d['studios'][i]=copy.deepcopy(H['studios'][i])
 st=copy.deepcopy(H['studios'][28])
 st['doc']['parts']={
- '3:0':{'name':'PTC fan heater 500W 110V (envelope)','color':[30,30,30],'material':None,'finish':'matte'},
+ '3:0':{'name':'PTC fan heater 500W 110V (125x80x87)','color':[30,30,30],'material':None,'finish':'matte'},
  '6:0':{'name':'Heater stand leg','color':[170,170,175],'material':None,'finish':'matte'},
  '6:1':{'name':'Heater stand leg','color':[170,170,175],'material':None,'finish':'matte'}}
 si=len(d['studios']); d['studios'].append(st)

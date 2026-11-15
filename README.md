@@ -136,16 +136,19 @@ These are kept for reference, and they use scratch paths.
 - **Renders:** `renders/pir-printer.png` (enclosure and door hidden) and `renders/pir-boards.png`.
 - **Scripts:** `scripts/pir/` regenerates the boards: `walk.py` + `wb.py` (world bounding boxes of every part), `gen.py` (boards and cut-outs, `boards.json`), `mk.py` (the rCAD run script) and `splice.py` (adds the studio and assembly to the document).
 
-## Changes on 2026-11-11: chamber heater
+## Changes on 2026-11-11/12: chamber heater
 
-- **What.** A PTCYIDU 500 W 110 V PTC fan heater (Amazon B0CP1XPW67). Its real size isn't published, so the model uses a **placeholder envelope of 52 × 87.5 × 60 mm** (depth × width × height), from PTCYIDU's closest listed fan heater (87.5 × 60 × 52 mm, 400 W). Replace it once the heater is measured: `scripts/heater/mkheater.py X Y Z` rebuilds everything.
-- **Where.** The back-right corner (−Y side), low, behind the bed: x 335.1 to 387.1, y 61.25 to 148.75, z 139.6 to 199.6. The outlet faces the front (−X), so warm air runs under the bed and up past the door. The intake has 18 mm of air to the back insulation.
-  - Why there: it's the only spot that's free over the whole travel and low in the chamber. The bed covers almost all of the floor and comes down to 5.9 mm above the base board, so nothing fits under it. The strip in front of the bed (58 mm deep) would also work, but it is behind the uninsulated door. The back corners are 80 mm deep behind the bed plate (MIC6 ends at x 324.6), and the rear Z rail splits them in two.
-  - Clearances, from swept bounding boxes over all X, Y and Z travel: 10.5 mm to the bed plate's back edge (at the bottom of Z), 18 mm to the back PIR, 60 mm to the right side PIR, about 120 mm to the rear Z rail and its carriage, and nearly 200 mm below the gantry and toolhead.
-- **Stand.** Two 10 mm placeholder legs under the heater, standing on the aluminium `Bottom_pannel` through the base insulation. They hold the heater 10 mm above the foam, so the foam doesn't take the heater's weight or its housing heat.
+- **What.** A PTCYIDU 500 W 110 V PTC fan heater (Amazon B0CP1XPW67), modelled as its measured envelope, **125 × 80 × 87 mm**. Which face the air leaves from isn't known yet. `scripts/heater/mkheater.py` rebuilds the heater and its cut-outs, and `splice_h.py` adds them to the document.
+- **Where.** The back-right corner (−Y side), low, behind the bed: x 343.1 to 423.1, y 20.9 to 145.9, z 139.6 to 226.6. That's 80 mm deep (front to back), 125 mm wide along the back wall and 87 mm tall.
+  - Why there: it's the only spot that's free over the whole travel and low in the chamber. The bed covers almost all of the floor and comes down to 5.9 mm above the base board, so nothing fits under it. Behind the bed plate (MIC6 ends at x 324.6) there are two 80 mm deep pockets, one each side of the rear Z rail. The strip in front of the bed is also about 80 mm deep, but it's behind the uninsulated door.
+  - No side of the heater fits in 80 mm with room to spare, so it is set 18 mm into the lower back PIR board.
+  - Clearances, from swept bounding boxes over all X, Y and Z travel: 18.5 mm to the bed plate's back edge (at the bottom of Z), 20 mm to the right side PIR, about 65 mm to the rear Z rail's carriage, and about 170 mm below the gantry and toolhead.
+  - Airflow: if the air comes out of a 125 × 87 face, face that side into the chamber, toward the rear Z rail (+Y). If it comes out of the top, it blows up the back wall. It can't blow forward (out of an 80 mm side) here, because that face is against the back wall.
+- **Stand.** Two 10 mm placeholder legs under the heater (60 mm long, stopping in front of the back board), standing on the aluminium `Bottom_pannel` through the base insulation. They hold the heater 10 mm above the foam.
 - **Cut-outs.**
-  - PIR base: two through slots for the legs (56 × 14 mm each, 2 mm clearance).
-  - PIR back, lower: a 24 × 24 mm through hole for the power cord, centred at y 105, z 169.6.
+  - PIR back, lower: a 129 × 91 mm recess, 20 mm deep from the chamber side (5.4 mm of foam stays behind it), at y 18.9 to 147.9, z 137.6 to 228.6. It stays 2 mm clear of the back-panel spacer rebate.
+  - PIR base: two through slots for the legs (64 × 14 mm each, 2 mm clearance).
+  - PIR back, lower: a 24 × 24 mm through hole for the power cord, centred at y 83.4, z 183.1.
   - Back aluminium panel: a Ø16 mm hole behind it for a cord grommet.
-- **Model.** Part Studio **Chamber heater** (variables `heater_x`, `heater_y`, `heater_z`), assembly **Chamber heater**, in Printer as instance 19 (instance 17 in X-carriage-no-belts.json). The cut-outs are new features at the end of the PIR insulation and Enclosure panels studios. The file before this change is in the history.
+- **Model.** Part Studio **Chamber heater** (variables `heater_x`, `heater_y`, `heater_z`), assembly **Chamber heater**, in Printer as instance 19 (instance 17 in X-carriage-no-belts.json). The cut-outs are new features at the end of the PIR insulation and Enclosure panels studios. The file before the heater is in the history.
 - **Renders:** `renders/heater-overview.png` and `renders/heater-closeup.png` (door and panels hidden, bed at the bottom of Z).
