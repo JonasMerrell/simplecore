@@ -1,0 +1,4 @@
+[{"tool":"new_part_studio","args":{"name":"Trad Rack"}},
+{"tool":"import_file","args":{"path":"tradrack.step","name":"Trad Rack (Annex Engineering, R1 2024-03-04)"}},
+{"tool":"describe","args":{}},
+{"tool":"save_document","args":{"path":"tr-doc.json"}}]

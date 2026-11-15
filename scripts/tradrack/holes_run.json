@@ -1,0 +1,194 @@
+[
+{
+"tool": "open_document",
+"args": {
+"path": "nb.json"
+}
+},
+{
+"tool": "switch_part_studio",
+"args": {
+"index": 25
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 10
+},
+"name": "Trad Rack mounting holes sketch"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 21,
+"items": [
+{
+"type": "circle",
+"center": [
+54.0,
+289.8
+],
+"radius": 1.7
+},
+{
+"type": "circle",
+"center": [
+54.0,
+375.55
+],
+"radius": 1.7
+},
+{
+"type": "circle",
+"center": [
+354.0,
+289.8
+],
+"radius": 1.7
+},
+{
+"type": "circle",
+"center": [
+354.0,
+375.55
+],
+"radius": 1.7
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "Trad Rack mounting holes (4x M3)",
+"params": {
+"profiles": [
+{
+"sketch": 21
+}
+],
+"depth": "panel_t",
+"opposite": false,
+"op": "remove"
+}
+}
+},
+{
+"tool": "describe",
+"args": {}
+},
+{
+"tool": "switch_part_studio",
+"args": {
+"index": 27
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "plane",
+"name": "Trad Rack nut pocket plane",
+"params": {
+"base": {
+"kind": "origin_plane",
+"plane": "Front"
+},
+"offset": "-477.5"
+}
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 108
+},
+"name": "Cut-out: Trad Rack mounting nuts sketch"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 109,
+"items": [
+{
+"type": "rect",
+"corner1": [
+48.0,
+283.8
+],
+"corner2": [
+60.0,
+295.8
+]
+},
+{
+"type": "rect",
+"corner1": [
+48.0,
+369.55
+],
+"corner2": [
+60.0,
+381.55
+]
+},
+{
+"type": "rect",
+"corner1": [
+348.0,
+283.8
+],
+"corner2": [
+360.0,
+295.8
+]
+},
+{
+"type": "rect",
+"corner1": [
+348.0,
+369.55
+],
+"corner2": [
+360.0,
+381.55
+]
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "Cut-out: Trad Rack mounting nuts",
+"params": {
+"profiles": [
+{
+"sketch": 109
+}
+],
+"depth": "10",
+"opposite": false,
+"op": "remove"
+}
+}
+},
+{
+"tool": "describe",
+"args": {}
+},
+{
+"tool": "save_document",
+"args": {
+"path": "nb-holes.json"
+}
+}
+]

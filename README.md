@@ -152,3 +152,15 @@ These are kept for reference, and they use scratch paths.
   - Back aluminium panel: a Ø16 mm hole behind it for a cord grommet.
 - **Model.** Part Studio **Chamber heater** (variables `heater_x`, `heater_y`, `heater_z`), assembly **Chamber heater**, in Printer as instance 19 (instance 17 in X-carriage-no-belts.json). The cut-outs are new features at the end of the PIR insulation and Enclosure panels studios. The file before the heater is in the history.
 - **Renders:** `renders/heater-overview.png` and `renders/heater-closeup.png` (door and panels hidden, bed at the bottom of Z).
+
+## Changes on 2026-11-15: Trad Rack filament changer
+
+- **What.** The Annex Engineering **Trad Rack**, from the official CAD in github.com/Annex-Engineering/TradRack (`CAD/Trad_Rack_R1_2024-03-04_STEP.7z`, the `trad_rack_(default)` configuration, CC BY-NC-SA 4.0). It's the whole unit as Annex publishes it: 840 bodies, with 14 lane modules, the selector and its MGN9 rail and belt, the tilting extruder driver, the cable chain, the Nebula board enclosure and the two **K3 side mount** brackets. Names and colours come from the STEP.
+- **Where.** On the left side (+Y), bolted flat to the outside of the left aluminium panel by its two K3 side mount brackets. The lane inputs face up, the selector motor hangs below the rail at the rear end, and the Nebula box sits on top at the rear.
+  - It is centred on the panel front to back (brackets at x 54 to 354) and the brackets span z 285 to 386. The whole unit spans about x 44 to 378, z 275 to 454, and stands out to y 586 (106 mm off the panel).
+  - **This is a guess.** I don't know the height, which end faces the front, or which way up you run it. Moving the one instance in Printer moves all of it.
+- **Mounting holes.** The brackets' four M3 × 16 screws go through the panel. A new feature in **Enclosure panels**, "Trad Rack mounting holes (4x M3)", cuts four Ø3.4 holes at x 54 and 354, z 289.8 and 375.55. Behind them, "Cut-out: Trad Rack mounting nuts" in **PIR insulation** cuts four 12 × 12 mm pockets, 10 mm deep, into the outer face of the left lower board, for the nuts and the screw tips (the screws stand 7 mm past the panel). The top rear pocket runs into the existing notch for the Z rail's top mount.
+- **Model.** Part Studio **Trad Rack** (one STEP import feature), assembly **Trad Rack** (840 fixed instances), in Printer as instance 20 (instance 18 in X-carriage-no-belts.json). The pose is a 180° turn about Y, then t = (209.6, 540.1, 361.3). Nothing moves: the selector and the extruder arm are fixed where the STEP has them.
+- **Size.** The STEP import adds about 40 MB, so the json files are now about 59 MB.
+- **Files.** The files before this change are in the history. `scripts/tradrack/`: `imp.json` (the import, needs rCAD with PR #128 so names and colours survive), `mkholes.py` (the holes and pockets, run on the no-belts file) and `splice_tr.py` (adds the studio, the assembly and the Printer instance).
+- **Renders:** `renders/tradrack-overview.png`, `tradrack-closeup.png`, `tradrack-front.png` and `tradrack-mount-holes.png` (panels and door hidden).
