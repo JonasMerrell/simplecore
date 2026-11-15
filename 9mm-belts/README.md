@@ -53,13 +53,12 @@ carries both belts needs a clear height of z 435.0 to 461.1 (26.1 mm) between it
 Front is −X, rear is +X. Seen from the front door, +Y is the left side and −Y the right side, and the picture is drawn that way (the first version of it was mirrored).
 The upper belt's motors are on the left, the lower belt's on the right.
 
-- **Belt U (upper level):** carriage → +Y joint smooth stack → forward at y 450.67 → **front +Y motor**, 180° →
+- **Belt U (upper level):** carriage → +Y joint smooth stack → forward at y 450.67 → front idler I1 → **front +Y motor**, 180° → front idler I3 →
   back along the +Y side at y ≈ 463.4, through the joint → rear +Y idler A → idler C → **rear +Y motor**, 187° →
   across the back → rear −Y guide B → rear −Y idler A → forward at y −9.87 → −Y joint toothed idler → carriage.
 - **Belt L (lower level)** is the mirror image: −Y joint smooth stack → front −Y motor → −Y side → rear −Y A, C,
   **rear −Y motor** → across the back → rear +Y B, A → +Y joint toothed idler.
 - The two belts cross at the back on their own levels. Each front corner carries one belt, each rear corner both.
-- The front pulley centres follow from the joints: (x free, y 457.04) upper level at +Y and (x free, y −4.04) lower level at −Y.
 
 ## Rear motor mounts, rev B
 
@@ -90,11 +89,25 @@ Open in rev B:
 - The PIR back board's pockets were cut for the old mount and need re-cutting for the taller one.
 - Not yet in `X-carriage.json` (another thread is editing that file).
 
-## Front motor mounts (not modelled yet)
+## Front motor mounts, rev A
 
-- A motor directly above the front pulley (centre y 457.04) reaches y 478.2 with a 42.3 mm NEMA 17. The side panel's inner face is at y 477.5, so it is 0.7 mm into the panel. It also needs x ≥ 17 to clear the front upright.
-- The mount has to bolt to the upright faces, because the rail covers the top slot of the side 2020 and there is no cross extrusion at the front at this height.
-- New front plates stop the gantry earlier than the model's X min of 22.
+Jonas doesn't want the panels cut, so the motor sits inboard. A motor straight above a pulley at the 180° turn would reach y 478.2, 0.7 mm into the side panel.
+`front-mounts.rhai` builds both front mounts (`front-mounts.json`, six named 6061 parts, `front-mount-plates.step`, `front-mount-hardware.step`,
+pictures `front-mount-revA.png` and `front-mount-revA-bay.png`). Positions are for the left (+Y) corner, the right one mirrors about y = 226.5.
+
+- **Belt:** the joint run (y 450.67) meets idler I1 at (16.74, 443.8) on its back and turns inboard, wraps the **motor pulley at (3.5, 422.0) by 180°**,
+  comes back out and turns onto the side run (y 463.4) round idler I3 at (4.64, 455.89). One belt per corner: the upper belt on the left, the lower on the right.
+- **Motor** NEMA 17 above the pulley shaft, same shaft, bearings, coupler and Ø7 × 35 standoffs as the rear mounts. Its body spans y 400.9 to 443.2, 34 mm clear of the side panel and 13 mm clear of the upright.
+- **Two 6 mm plates** 52.6 × 65 mm, notched round the front upright, same z as the rear plates and one setup each.
+- **Spine bar** 19.6 × 12 × 26.2 mm between the plates, against the upright's inner face: two M5 through it into T-nuts in that face's slot (x −15.5, z 442 and 454), and two M4 into each end from the plates.
+- Three Ø8 × 26.2 standoffs with M5 from the top tapped into the lower plate. Idler stacks F695 + 695 + F695 on Ø5 pins, with a plain sleeve on the empty belt level.
+
+Open in rev A:
+
+- **X travel.** The plates reach x 27.3, so the gantry stops at about X 55 where the model (which has no front mounts) allows 22. The real printer already loses travel to its printed front mounts. How much is not known.
+- The mount hangs off one face of the upright through the spine bar. A second fixing would stiffen it.
+- The motor is in the front corner near the door (plate edge 3.5 mm behind the door's inner face).
+- Not yet in `X-carriage.json`.
 
 ## Firmware
 

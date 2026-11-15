@@ -25,13 +25,15 @@ def path(circs, closed=True):
         tin = segs[i - 1][2]; tout = segs[i][2] if i < len(segs) else 0
         s = circs[i][4]; w = (s * (tout - tin)) % (2 * math.pi); wraps.append(math.degrees(w)); L += w * circs[i][3]
     return segs, wraps, L
-def belts(gx, cy, XF=8.0):
+def belts(gx, cy, XF=3.5):
     """gx: gantry centre x, cy: carriage (belt end) y. XF: front pulley x."""
     jx = gx + XJ
     # belt U (upper level): carriage -> +Y smooth joint -> front +Y motor -> rear +Y (A, C, motor P) -> across the back -> rear -Y (B', A') -> -Y toothed joint -> carriage
     U = [("carriage", jx - 3.13, cy, 0.01, 1),
          ("joint +Y smooth", gx + 197.6 - 185.3, 443.8, PS_BACK, 1),
-         ("front +Y motor", XF, 450.67 + PT, PT, -1),
+         ("front +Y I1", XF + 6.37 + PS_BACK, 450.67 - PS_BACK, PS_BACK, 1),      # turns the joint run inboard
+         ("front +Y motor", XF, 422.0, PT, -1),                                 # 180 deg, inboard of the panel
+         ("front +Y I3", XF + 2 * 0 - 6.37 + PS_TEETH, 450.67 + 2 * PT - PS_TEETH, PS_TEETH, -1),   # back out to the side run
          ("rear +Y A", 385.5, 455.36, PS_TEETH, -1),
          ("rear +Y C", 391.0, 422.4, PS_BACK, 1),
          ("rear +Y motor P", 403.3, 433.0, PT, -1),
