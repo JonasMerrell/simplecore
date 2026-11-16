@@ -173,8 +173,8 @@ These are kept for reference, and they use scratch paths.
 
 ## Changes on 2026-11-16: webcam
 
-- **What.** A chamber camera under the front top rail, in the middle, looking back and 38° down at the bed. The camera is a 3DO Enclosure Camera V2.5 (USB, rated to 65 °C). `webcam/README.md` has the reasons, the clearances, the print notes and the streaming setup (crowsnest and Moonraker config files are next to it).
-- **Model.** Part Studio **Webcam** (the printed mount and lens bezel, plus reference blocks for the sensor, lens and USB board), assembly **Webcam**, in Printer as instance 21 (instance 19 in X-carriage-no-belts.json). Nothing else changed.
+- **What.** A chamber camera under the front top rail, in the middle, looking back and 38° down at the bed. The camera is a Logitech C270 with its case removed, held as a bare board (sizes from Jonas's scan). `webcam/README.md` has the measurements, the clearances, the print notes and the streaming setup (crowsnest and Moonraker config files are next to it).
+- **Model.** Part Studio **Webcam** (the printed mount and lens bezel, plus reference blocks for the board and lens), assembly **Webcam**, in Printer as instance 21 (instance 19 in X-carriage-no-belts.json). Nothing else changed.
 - **Not checked.** The toolhead cable chain and the Trad Rack filament tube aren't modelled. The mount can slide along the rail slot if either passes through the front middle.
-- **Renders:** `renders/webcam-front.png`, `webcam-lens-side.png` and `webcam-view-direction.png` (panels, door, insulation and Trad Rack hidden). **STEP:** `step/Webcam mount + bezel.step`.
+- **Renders:** `renders/webcam-front.png`, `webcam-lens-side.png` (panels, door, insulation and Trad Rack hidden) and `webcam-mount-face.png` (the mount alone, seen along the lens axis). **STEP:** `step/Webcam mount + bezel.step`.
 - **Scripts:** `scripts/webcam/mkcam.py` and `splice_cam.py`.
