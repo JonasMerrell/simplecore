@@ -60,3 +60,13 @@ Install steps (not done yet):
 ## First proposal (not used)
 
 The first proposal was a 3DO Enclosure Camera V2.5: 120° lens, rated to 65 °C, 9 × 9 mm sensor. Its mount is in the history (commit "Webcam: 3DO enclosure camera on the front top rail").
+
+## Predicted view
+
+`webcam/predicted-view/` has renders of the model from the lens position with the C270's field of view (55° diagonal, 1280 × 720). The bed is drawn dark with a 50 mm grid, yellow lines through the bed centre, and the orange block is a 50 mm square test part.
+
+- `view-1-toolhead-parked.png`: 44 mm into a print, toolhead parked at the back.
+- `view-2-printing-centre.png`: same, with the toolhead printing at the bed centre. It hides most of the part.
+- `view-3-first-layer.png`: first layer. The picture covers about 220 mm across and 170 mm front to back, around the bed centre.
+
+Made by exporting the Printer assembly with `export_web`, pointing the page at a local copy of three.js (`npm pack three@0.147.0`), and rendering with `scripts/webcam/camera-view-shot.js` in headless Chromium.
