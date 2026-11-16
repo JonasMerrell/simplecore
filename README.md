@@ -170,3 +170,27 @@ These are kept for reference, and they use scratch paths.
   - `mkholes.py`: the holes and pockets, run on the no-belts file. The two studios are then copied into the belts file.
   - `splice_tr.py`: adds the studio, the assembly and the Printer instance.
 - **Renders:** `renders/tradrack-overview.png`, `tradrack-closeup.png` and `tradrack-mount-holes.png` (panels and door hidden).
+
+## Changes on 2026-11-16: purge bucket
+
+- **What.** A printed purge bucket for Trad Rack toolchanges, and the cleat it hangs on. The nozzle scrubber is the one already on the machine: the silicone pad on the bent bracket on the gantry's left end (`Bent bracket (Part 1)` in **X gantry**). Nothing on the gantry or toolhead changes.
+- **Where.** In the gap between the bed's left edge and the left side wall, hung from the left mid frame rail (the 2020 the Y rail sits on). Left is +Y, the door-hinge side, the same side as the filament cutter.
+  - The nozzle can go about 20 mm past the left edge of the bed (bed edge y 382.8, nozzle up to y 402 in the model, about 407 at the firmware's X −5). The scrub pad sits under the first 15 mm of that (y 387 to 401.5). Past the pad's outer edge the nozzle is over open air, 5 mm beside the bracket's arm. That is the purge spot, and the bucket sits under it.
+  - Because the pad rides on the gantry, it is at the nozzle's side at every front-to-back position. So the bucket can sit anywhere along the gap. It is at x 110 to 210, behind the front-left Z rail parts (which end at x 95) and in easy reach of the door. The purge spot is the middle, x 160.
+  - The bed frame doesn't reach into this part of the gap (its cross bar and Z carriage are at x 53 to 83), so the bucket clears the bed over its whole Z travel.
+- **Bucket.** 100 long (front to back) × 62 wide × 100 deep, 2.4 mm walls, open top, about 0.5 litre. Outside: x 110 to 210, y 387 to 449.2, z 290 to 390.
+  - The rim is 11.8 mm below the nozzle tip and 4.8 mm below the wiper bracket, which passes over it.
+  - The bed-side wall is 4.2 mm from the bed plate's edge.
+  - The back wall carries on up to z 424 and ends in a hook: a 2.6 mm bridge over the cleat and a 47 × 2.2 mm tongue that drops 9 mm into the cleat's slot.
+- **Cleat.** 100 × 20 × 7 mm, screwed to the inner face of the rail with two M5 button-head screws and T-nuts (x 122 and 198, on the slot centre, z 411). The heads sit in 3 mm counterbores, flush. A 48 × 3 mm slot, 10 deep, in its top takes the bucket's tongue.
+- **Taking the bucket out.** No tools: lift it 10 mm and pull it toward the bed. The gantry must not be over it (the gantry ends pass 7 mm above the hook). The macro `PURGE_BUCKET_SERVICE` moves the gantry to the back first.
+- **Clearances** (bounding boxes, moving parts swept over their full travel): bed plate 4.2 mm, wiper bracket 4.8 mm, Beacon 10.3 mm, nozzle 11.8 mm, Y-rail carriage 1.9 mm beside the hook, gantry end 7 mm above it, left PIR board 2.9 mm behind the bucket. The Trad Rack and the chamber heater are on the other side (−Y).
+- **Printing.** ASA or ABS (it lives in the heated chamber and catches hot plastic). Bucket: open side up, with support under the hook bridge only. Cleat: on its back (rail face down). `step/Purge bucket.step` and `step/Purge bucket cleat.step` are in local frames.
+- **What's assumed.**
+  - The model's wiper bracket matches the printed one on the machine, and the pad is where the bracket's foot is. From the photos it does.
+  - The model has no wiring, bed heater leads or flex-plate tab on the left edge. If something sticks out past the plate's left edge between x 110 and 210, move the bucket (`X0`, `X1` in `mk.py`).
+  - Firmware Y for the purge spot is an estimate (Y ≈ 127): the model and the firmware agree on X (X0 ≈ y 399 to 402) but the Y offset is only known to about ±6 mm. The bucket is 96 mm long inside, so that's inside the margin. Jog there and check before turning the macro on.
+- **Model.** Part Studio **Purge bucket** (variables `bucket_len`, `bucket_depth`, `wall`; plain sketch-and-extrude features in world position), assembly **Purge bucket** (bucket and cleat, fixed), in Printer as instance 21 (instance 19 in X-carriage-no-belts.json). The files before this change are in the history.
+- **Macros.** In JonasMerrell/simplecore-config, `config/purge.cfg`: `PURGE_AND_WIPE` goes to the bucket, purges, lets the strand cool and scrubs across the pad. Trad Rack's `post_load_gcode` calls it after each load during a print once `_PURGE_VARS.enabled` is True.
+- **Scripts:** `scripts/purge/mk.py` writes the rCAD run script for the studio (`rcad run run.json`), `splice.py` adds it to the documents, and `render.json` makes the renders. Built with rCAD 0.8.0.
+- **Renders:** `renders/purge-overview.png`, `purge-closeup.png`, `purge-front.png` (nozzle at the purge spot, bed at first-layer height, panels and insulation hidden) and `purge-bucket-parts.png`.

@@ -1,0 +1,11 @@
+[{"tool":"open_document","args":{"path":"X-carriage-no-belts.json"}},
+{"tool":"assembly_move","args":{"assembly":22,"instance":13,"hidden":true}},
+{"tool":"assembly_move","args":{"assembly":22,"instance":14,"hidden":true}},
+{"tool":"assembly_move","args":{"assembly":22,"instance":16,"hidden":true}},
+{"tool":"assembly_move","args":{"assembly":22,"instance":2,"position":[-832.3,0.0,0.0]}},
+{"tool":"assembly_move","args":{"assembly":22,"instance":3,"position":[-832.3,108.7,0.0]}},
+{"tool":"assembly_move","args":{"assembly":22,"instance":4,"position":[0.0,0.0,43.7]}},
+{"tool":"render_assembly","args":{"assembly":22,"direction":[-1,0.9,0.8],"width":1600,"height":1200,"path":"purge-overview.png"}},
+{"tool":"render_assembly","args":{"assembly":22,"direction":[-1,-0.25,0.45],"width":1600,"height":1200,"fit_box":[[60,340,280],[260,480,480]],"path":"purge-closeup.png"}},
+{"tool":"render_assembly","args":{"assembly":22,"direction":[-1,0.02,0.05],"width":1600,"height":1200,"fit_box":[[100,360,280],[220,480,480]],"path":"purge-front.png"}},
+{"tool":"check_interference","args":{"assembly":28}}]
