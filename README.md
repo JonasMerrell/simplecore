@@ -136,16 +136,37 @@ These are kept for reference, and they use scratch paths.
 - **Renders:** `renders/pir-printer.png` (enclosure and door hidden) and `renders/pir-boards.png`.
 - **Scripts:** `scripts/pir/` regenerates the boards: `walk.py` + `wb.py` (world bounding boxes of every part), `gen.py` (boards and cut-outs, `boards.json`), `mk.py` (the rCAD run script) and `splice.py` (adds the studio and assembly to the document).
 
-## Changes on 2026-11-11: chamber heater
+## Changes on 2026-11-11/12: chamber heater
 
-- **What.** A PTCYIDU 500 W 110 V PTC fan heater (Amazon B0CP1XPW67). Its real size isn't published, so the model uses a **placeholder envelope of 52 × 87.5 × 60 mm** (depth × width × height), from PTCYIDU's closest listed fan heater (87.5 × 60 × 52 mm, 400 W). Replace it once the heater is measured: `scripts/heater/mkheater.py X Y Z` rebuilds everything.
-- **Where.** The back-right corner (−Y side), low, behind the bed: x 335.1 to 387.1, y 61.25 to 148.75, z 139.6 to 199.6. The outlet faces the front (−X), so warm air runs under the bed and up past the door. The intake has 18 mm of air to the back insulation.
-  - Why there: it's the only spot that's free over the whole travel and low in the chamber. The bed covers almost all of the floor and comes down to 5.9 mm above the base board, so nothing fits under it. The strip in front of the bed (58 mm deep) would also work, but it is behind the uninsulated door. The back corners are 80 mm deep behind the bed plate (MIC6 ends at x 324.6), and the rear Z rail splits them in two.
-  - Clearances, from swept bounding boxes over all X, Y and Z travel: 10.5 mm to the bed plate's back edge (at the bottom of Z), 18 mm to the back PIR, 60 mm to the right side PIR, about 120 mm to the rear Z rail and its carriage, and nearly 200 mm below the gantry and toolhead.
-- **Stand.** Two 10 mm placeholder legs under the heater, standing on the aluminium `Bottom_pannel` through the base insulation. They hold the heater 10 mm above the foam, so the foam doesn't take the heater's weight or its housing heat.
+- **What.** A PTCYIDU 500 W 110 V PTC fan heater (Amazon B0CP1XPW67), modelled as its measured envelope, **125 × 80 × 87 mm**. Which face the air leaves from isn't known yet. `scripts/heater/mkheater.py` rebuilds the heater and its cut-outs, and `splice_h.py` adds them to the document.
+- **Where.** The back-right corner (−Y side), low, behind the bed: x 343.1 to 423.1, y 20.9 to 145.9, z 139.6 to 226.6. That's 80 mm deep (front to back), 125 mm wide along the back wall and 87 mm tall.
+  - Why there: it's the only spot that's free over the whole travel and low in the chamber. The bed covers almost all of the floor and comes down to 5.9 mm above the base board, so nothing fits under it. Behind the bed plate (MIC6 ends at x 324.6) there are two 80 mm deep pockets, one each side of the rear Z rail. The strip in front of the bed is also about 80 mm deep, but it's behind the uninsulated door.
+  - No side of the heater fits in 80 mm with room to spare, so it is set 18 mm into the lower back PIR board.
+  - Clearances, from swept bounding boxes over all X, Y and Z travel: 18.5 mm to the bed plate's back edge (at the bottom of Z), 20 mm to the right side PIR, about 65 mm to the rear Z rail's carriage, and about 170 mm below the gantry and toolhead.
+  - Airflow: if the air comes out of a 125 × 87 face, face that side into the chamber, toward the rear Z rail (+Y). If it comes out of the top, it blows up the back wall. It can't blow forward (out of an 80 mm side) here, because that face is against the back wall.
+- **Stand.** Two 10 mm placeholder legs under the heater (60 mm long, stopping in front of the back board), standing on the aluminium `Bottom_pannel` through the base insulation. They hold the heater 10 mm above the foam.
 - **Cut-outs.**
-  - PIR base: two through slots for the legs (56 × 14 mm each, 2 mm clearance).
-  - PIR back, lower: a 24 × 24 mm through hole for the power cord, centred at y 105, z 169.6.
+  - PIR back, lower: a 129 × 91 mm recess, 20 mm deep from the chamber side (5.4 mm of foam stays behind it), at y 18.9 to 147.9, z 137.6 to 228.6. It stays 2 mm clear of the back-panel spacer rebate.
+  - PIR base: two through slots for the legs (64 × 14 mm each, 2 mm clearance).
+  - PIR back, lower: a 24 × 24 mm through hole for the power cord, centred at y 83.4, z 183.1.
   - Back aluminium panel: a Ø16 mm hole behind it for a cord grommet.
-- **Model.** Part Studio **Chamber heater** (variables `heater_x`, `heater_y`, `heater_z`), assembly **Chamber heater**, in Printer as instance 19 (instance 17 in X-carriage-no-belts.json). The cut-outs are new features at the end of the PIR insulation and Enclosure panels studios. The file before this change is in the history.
+- **Model.** Part Studio **Chamber heater** (variables `heater_x`, `heater_y`, `heater_z`), assembly **Chamber heater**, in Printer as instance 19 (instance 17 in X-carriage-no-belts.json). The cut-outs are new features at the end of the PIR insulation and Enclosure panels studios. The file before the heater is in the history.
 - **Renders:** `renders/heater-overview.png` and `renders/heater-closeup.png` (door and panels hidden, bed at the bottom of Z).
+
+## Changes on 2026-11-15: Trad Rack filament changer
+
+- **What.** The Annex Engineering **Trad Rack**, from the official CAD in github.com/Annex-Engineering/TradRack (`CAD/Trad_Rack_R1_2024-03-04_STEP.7z`, the `trad_rack_(default)` configuration, CC BY-NC-SA 4.0). That file has 14 lanes and the Nebula board box. Jonas's unit has 8 lanes and no Nebula box, so lanes 8 to 13 and the Nebula box, TradBoard and 40 mm fan are **hidden** instances (288 of the 840 bodies; see `scripts/tradrack/hide.py`). Unhide them in the **Trad Rack** assembly to get the full unit back. Names and colours come from the STEP.
+- **Where (from Jonas's photo, 2026-11-15).** It's on the side panel opposite the door hinges, the latch side: the hinges are the K3 bearing blocks on the far edge of the door in the photo, and the brackets with pins next to the Trad Rack are the latches. With the photo taken from the front corner, door on the left and that panel on the right, it's the −Y panel (the right side as you face the door). The door stays hinged on +Y as the model has it.
+  - The two K3 side mount brackets screw flat to the outside of the panel with M3 screws, **drilled and tapped into the 3 mm aluminium**.
+  - The extrusion runs front to back. The lane inputs face down and the cable chain is on top. The selector's belt motor is at the rear end, and the idler is at the front.
+  - The extrusion centre is at z 333. The front bracket's screws are 36.6 mm behind the panel's front edge (x 11.1), and the rear bracket's are 300 mm behind that (x 311.1, the spacing in Annex's CAD).
+  - **Not matched yet.** Jonas's extrusion is longer than Annex's 280 mm: it sticks out past the front edge of the panel and runs back to the rear edge. The model keeps Annex's length and bracket spacing, so its extrusion spans x 21 to 301. The selector is where Annex's file parks it (mid-rail), not at the rear end as in the photo.
+- **Mounting holes.** "Trad Rack mounting holes (4x M3 tapped)" in **Enclosure panels** cuts four Ø2.5 tap-drill holes in the right panel at x 11.1 and 311.1, z 297.25 and 383.0. The M3 × 16 screws stand 7 mm past the panel, so "Cut-out: Trad Rack screw tips" in **PIR insulation** cuts four 8 × 8 mm pockets, 10 mm deep, into the outer face of the right lower board.
+- **Model.** Part Studio **Trad Rack** (one STEP import feature), assembly **Trad Rack** (840 fixed instances), in Printer as instance 20 (instance 18 in X-carriage-no-belts.json). The pose is a 180° turn about Z, then t = (166.7, −87.1, 311.5). Nothing moves: the selector and the extruder arm are fixed where the STEP has them.
+- **Size.** The STEP import adds about 40 MB, so the json files are now about 59 MB.
+- **Files.** The files before this change are in the history. `scripts/tradrack/`:
+  - `imp.json`: the import. It needs rCAD with PR #128, so names and colours survive.
+  - `hide.py`: which bodies to hide, written to `hide.json`.
+  - `mkholes.py`: the holes and pockets, run on the no-belts file. The two studios are then copied into the belts file.
+  - `splice_tr.py`: adds the studio, the assembly and the Printer instance.
+- **Renders:** `renders/tradrack-overview.png`, `tradrack-closeup.png` and `tradrack-mount-holes.png` (panels and door hidden).
