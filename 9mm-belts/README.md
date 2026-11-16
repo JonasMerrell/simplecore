@@ -60,54 +60,71 @@ The upper belt's motors are on the left, the lower belt's on the right.
   **rear −Y motor** → across the back → rear +Y B, A → +Y joint toothed idler.
 - The two belts cross at the back on their own levels. Each front corner carries one belt, each rear corner both.
 
-## Rear motor mounts, rev B
+## The drive, rev C (2026-11-16): every component modelled, in the full printer CAD
 
-Jonas chose a separate supported shaft for the motor pulleys, and the parts are to be CNC machined.
-`rear-mounts.rhai` builds both rear mounts as an editable rCAD document (`rear-mounts.json`, four named 6061 parts), with
-`rear-mount-plates.step`, `rear-mount-hardware.step` and the pictures `rear-mount-revB.png` and `rear-mount-revB-bay.png` (bay from above).
-The −Y mount mirrors the +Y one about y = 226.5. Positions below are for +Y.
+Rev C replaces rear rev B and front rev A (their files are in git history). The layout in plan is unchanged; what changed is the height
+of the bay, because a real 9 mm 20T pulley has a 6 mm hub (Ø16, two set screws) that must not sit in the other belt's level:
+at the rear the crossing belt passes 1.9 mm from the shaft. So each pulley's hub points away from the other belt.
 
-- **Two 6 mm 6061 plates** with the same outline (44.5 × 82.5 mm, notched round the upright, R3 corners).
-  - Lower plate z 429 to 435, every feature cut from the top face. Upper plate z 461.2 to 467.2, every feature cut from the underside. One setup each.
-  - The bay between them is 26.2 mm (z 435.0 to 461.2), clear for both belt levels.
-- **Drive shaft** Ø5 × 48 at (403.3, 433.0) in two 695 bearings (5 × 13 × 4), one in a 4 mm pocket in each plate with an Ø8 hole behind it.
-  The 9 mm 20T pulley sits between them: on the upper belt at +Y, on the lower belt at −Y. The other belt passes the bare shaft with 1.9 mm to spare, so the pulley is held by its set screws and a spacer on its own side only.
-- **Idlers:** two Ø5 pins through both plates, each carrying two F695 + 695 + F695 stacks (one per belt level), the same stack the joints use.
-  - A at (385.5, 455.36) turns both belts off the side runs.
-  - C at (391.0, 422.4): on the motor's level the belt back wraps it 201° and feeds the pulley for a 187° wrap (the old mount gave about 45°). On the other level it guides the crossing belt past the shaft.
-  - Toothed Gates idlers don't fit here: two of them on one pin are 28 mm tall and the bay is 26.2 mm. So the belt teeth run on smooth bearings at A, as they do on small idlers today.
-- **Motor** above on four Ø7 × 35 standoffs (M3 × 45 from counterbores in the bay roof), joined to the shaft by a 5 to 5 mm coupler (Ø19 × 25).
-  Motor face at z 502.2, top of a 40 mm motor at z 542.2.
-- **Fixing:** three M5 × 50 go down through upper plate, Ø8 × 26.2 standoff, lower plate and an Ø10 × 8 riser into T-nuts in the top slots of
-  the rear 2020 (414.5, 400 and 414.5, 441) and the side 2020 (399.5, 466.5). A fourth standoff at (386, 402) threads into the lower plate.
+| | Lower plate | Bay (32.2 mm) | Upper plate | Motor face | Pulley |
+|---|---|---|---|---|---|
+| Left mounts (+Y), upper belt | z 429 to 435 | 435 to 467.2 | 467.2 to 473.2 | z 511.2 | teeth on the upper level, hub up (z 461.06 to 467.06) |
+| Right mounts (−Y), lower belt | z 423 to 429 | 429 to 461.2 | 461.2 to 467.2 | z 505.2 | teeth on the lower level, hub down (z 429.06 to 435.06) |
 
-Open in rev B:
+The right-hand parts are the mirror image about y = 226.5, 6 mm lower. Their lower plates sit beside the Y rail (top z 427.5), so they are cut back round it.
 
-- Tightest gaps: belt to the (414.5, 400) standoff 1.4 mm, motor screw counterbore to pin C 0.1 mm of plate between them.
-- Nothing ties the mount to the upright sideways. The old part had two M5 into each face of the upright.
-- At X max with Y near either end, the toolhead's belt clamp screws reach x 386, into the plate (x from 380). The old mount had the same overlap (it starts at x 378.7).
-- The PIR back board's pockets were cut for the old mount and need re-cutting for the taller one.
-- Not yet in `X-carriage.json` (another thread is editing that file).
+`drive.py` builds everything: it takes the belt outlines from `beltpath.py`, writes `drive.rhai` from `drive.rhai.in` and runs rCAD on it.
 
-## Front motor mounts, rev A
+- `drive.json`: editable rCAD document with the **10 machined parts** (6061, 6 mm plate and two 19.6 × 12.2 × 32.2 bars), all sizes as variables.
+  Lower plates are cut from the top face, upper plates from the underside: one setup each. R3 outside corners, Ø6.4 corner reliefs where a plate wraps an extrusion or the rail end.
+- `drive-plates.step`, `drive-hardware.step`, `drive-parts.json` (name, colour, material of every hardware solid; the motor poses).
+- In `X-carriage.json`: Part Studios "9 mm drive, machined parts" and "9 mm drive, hardware and belts", assembly "9 mm belt drive" (200 instances),
+  placed in the Printer assembly. The two old rear motors and the two old "AWD motor idler V2" mounts are hidden, not deleted.
+  `../scripts/belt9_splice.py` does this and can be re-run after `drive.py`.
 
-Jonas doesn't want the panels cut, so the motor sits inboard. A motor straight above a pulley at the 180° turn would reach y 478.2, 0.7 mm into the side panel.
-`front-mounts.rhai` builds both front mounts (`front-mounts.json`, six named 6061 parts, `front-mount-plates.step`, `front-mount-hardware.step`,
-pictures `front-mount-revA.png` and `front-mount-revA-bay.png`). Positions are for the left (+Y) corner, the right one mirrors about y = 226.5.
+### What is in each mount
 
-- **Belt:** the joint run (y 450.67) meets idler I1 at (16.74, 443.8) on its back and turns inboard, wraps the **motor pulley at (3.5, 422.0) by 180°**,
-  comes back out and turns onto the side run (y 463.4) round idler I3 at (4.64, 455.89). One belt per corner: the upper belt on the left, the lower on the right.
-- **Motor** NEMA 17 above the pulley shaft, same shaft, bearings, coupler and Ø7 × 35 standoffs as the rear mounts. Its body spans y 400.9 to 443.2, 34 mm clear of the side panel and 13 mm clear of the upright.
-- **Two 6 mm plates** 52.6 × 65 mm, notched round the front upright, same z as the rear plates and one setup each.
-- **Spine bar** 19.6 × 12 × 26.2 mm between the plates, against the upright's inner face: two M5 through it into T-nuts in that face's slot (x −15.5, z 442 and 454), and two M4 into each end from the plates.
-- Three Ø8 × 26.2 standoffs with M5 from the top tapped into the lower plate. Idler stacks F695 + 695 + F695 on Ø5 pins, with a plain sleeve on the empty belt level.
+- **Drive shaft** Ø5 × 55 in two 695 bearings (5 × 13 × 4), one in a 4 mm pocket in each plate. On it: the **GT2 20T 9 mm pulley** and an Ø8 × 12 spacer that fills the other belt's level.
+  Rear shafts at (403.3, 433.0), front shafts at (3.5, 422.0), mirrored on the right.
+- **Motor** NEMA 17 (40 mm) shaft down above the upper plate on Ø7 × 38 standoffs with M3 × 45 from counterbores in the bay roof, joined to the shaft by a rigid clamp coupling 5 to 5 mm (Ø19 × 25).
+  Front motors have four screws. **Rear motors have three:** the fourth hole would break into idler pin C's hole (0.1 mm of plate left), so it is left out.
+- **Idlers** on Ø5 × 44 pins through both plates, F695 + 695 + F695 stacks as on the XY joints. Rear: pins A (385.5, 455.36) and C (391.0, 422.4), a stack on each level, 1 mm shim and 7 mm sleeve to fill the bay.
+  Front: pins I1 (16.74, 443.8) and I3 (4.64, 455.89), one stack on the corner's belt level, 13 mm and 7 mm sleeves.
+- **Rear fixing:** three M5 (× 55 left, × 50 right) down through upper plate, Ø8 × 32.2 standoff, lower plate and an Ø9 riser (8 mm left, 2 mm right) into T-nuts in the top slots
+  of the rear 2020 (414.5, 400 and 414.5, 441.5) and the side 2020 (399.5, 466.5). A fourth standoff at (386, 402) with M5 × 45 tapped into the lower plate.
+- **Front fixing:** spine bar against the upright's inner face with two M5 × 16 into T-nuts in that face's slot, two M4 × 12 into each end of the bar from the plates, and three Ø8 × 32.2 standoffs with M5 × 45 tapped into the lower plate.
+- **Belts:** both drawn as the 9 mm backing band in the model pose, 1852 mm each between the clamp points on the carriage (add the length inside the clamps).
 
-Open in rev A:
+Bill of materials (hardware, all four mounts): 4 pulleys GT2 20T 9 mm bore 5; 4 shafts Ø5 × 55; 4 couplings 5-5; 4 NEMA 17; 20 × 695; 24 × F695; 8 pins Ø5 × 44; 4 spacers Ø8 × 5 × 12;
+8 sleeves Ø8 × 5 × 7; 4 sleeves Ø8 × 5 × 13; 4 shims Ø8 × 5 × 1; 14 plate standoffs Ø8 × 5.3 × 32.2; 14 motor standoffs Ø7 × 3.2 × 38; 3 risers Ø9 × 8 and 3 Ø9 × 2;
+14 M3 × 45; 8 M4 × 12; 4 M5 × 16; 8 M5 × 45; 3 M5 × 50; 3 M5 × 55; 10 M5 T-nuts; 2 belts.
 
-- **X travel.** The plates reach x 27.3, so the gantry stops at about X 55 where the model (which has no front mounts) allows 22. The real printer already loses travel to its printed front mounts. How much is not known.
-- The mount hangs off one face of the upright through the spine bar. A second fixing would stiffen it.
-- The motor is in the front corner near the door (plate edge 3.5 mm behind the door's inner face).
-- Not yet in `X-carriage.json`.
+### Checked
+
+`../scripts/belt9_check.py` intersects all 196 new solids with each other and with every imported part of the Printer assembly (model pose).
+Result: no interference, apart from screw threads in their tapped holes and one thing that is not part of the new mounts:
+
+- The drawn belt run from each joint's toothed idler to the carriage (x 201.2) cuts 0.6 mm into the boss round the smooth-stack pin in the gantry end.
+  The joints are existing parts that work, so the real run must sit about 1 mm further out than drawn (the clamp starts at x 202.5).
+
+The PIR boards, panels and the standard NEMA motors are feature-tree parts and are not in that check.
+
+### Pictures (rendered from `X-carriage.json` with `render-full.json`; enclosure, door and PIR hidden)
+
+`full-overview.png`, `full-rear-left.png`, `full-rear-right.png`, `full-front-left.png`, `full-front-right.png`.
+`bay.py` draws each bay from above with the upper plate and motor left out: `bay-rear-left.png`, `bay-rear-right.png`, `bay-front-left.png`, `bay-front-right.png` (rear of the printer at the top, left side on the left).
+Opening `X-carriage.json` needs rCAD 0.8.0 or newer.
+
+### Open
+
+- **X travel.** At the front the bent bracket on the left gantry end (x 151 at the model pose) meets the front-left plates (x 27.3) at gantry X 62; the model's limit was 22.
+  At the rear the joint's toothed idler meets idler A's flanges at X 348 (limit was 351). The real printer already loses front travel to its printed mounts; how much is not known.
+- **Toolhead in the corners.** By bounding box, the toolhead reaches 71 mm in front of the gantry centre and 35 mm behind it. With the gantry within about 36 mm of either X end and the carriage
+  within about 30 mm of either Y end it would meet a mount. This is a conservative estimate, not refined part against part.
+- **PIR back board** pockets were cut for the old motors (face z 463.5). The new rear motors sit 42 to 48 mm higher and 3.7 mm further out in Y, so the pockets need re-cutting.
+- The front mount hangs off one face of the upright through the spine bar. A second fixing would stiffen it. The rear mounts have nothing tying them to the upright sideways.
+- Tight spots: coupling to the (414.5, 441.5) M5 head 0.4 mm, that head to the motor standoff 0.4 mm, belt to the (414.5, 400) standoff 1.4 mm, front idler I1 pin to a motor screw counterbore 0.95 mm.
+- Shaft, spacer and sleeve lengths are nominal; the pulley has 0.14 mm end float to shim.
 
 ## Firmware
 
@@ -119,4 +136,6 @@ The config backup is in JonasMerrell/simplecore-config. Belt tension and input s
 - `section-lower-belt-z442.png`, `section-upper-belt-z454.png`: plan sections through each belt level (X up = rear, Y across). Black frame, blue gantry, red toolhead.
 - `rear-motor-mount.png`: the existing +Y motor mount.
 - `beltpath.py`, `beltpath.png`: the belt path.
+- `drive.py`, `drive.rhai.in`, `drive.rhai`, `drive.json`, `drive-*.step`, `drive-parts.json`, `import.json`, `render-full.json`, `full-*.png`, `bay.py`, `bay-*.png`: the rev C drive (above).
+- `../scripts/belt9_splice.py`, `belt9_check.py`: put the drive into `X-carriage.json`; interference check.
 - `../scripts/belt9_lib.py`, `belt9_sections.py`: the measuring scripts (need `pip install cadquery-ocp`; scratch paths inside).

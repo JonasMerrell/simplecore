@@ -1,0 +1,150 @@
+[
+{
+"tool": "open_document",
+"args": {
+"path": "../X-carriage.json"
+}
+},
+{
+"tool": "assembly_move",
+"args": {
+"assembly": 22,
+"instance": 15,
+"hidden": true
+}
+},
+{
+"tool": "assembly_move",
+"args": {
+"assembly": 22,
+"instance": 16,
+"hidden": true
+}
+},
+{
+"tool": "assembly_move",
+"args": {
+"assembly": 22,
+"instance": 18,
+"hidden": true
+}
+},
+{
+"tool": "render_assembly",
+"args": {
+"assembly": 22,
+"direction": [
+-1,
+-0.55,
+0.75
+],
+"width": 2000,
+"height": 1500,
+"path": "full-overview.png"
+}
+},
+{
+"tool": "render_assembly",
+"args": {
+"assembly": 22,
+"direction": [
+-1,
+-0.7,
+0.8
+],
+"width": 1600,
+"height": 1300,
+"path": "full-rear-left.png",
+"fit_box": [
+[
+372,
+385,
+418
+],
+[
+428,
+480,
+555
+]
+]
+}
+},
+{
+"tool": "render_assembly",
+"args": {
+"assembly": 22,
+"direction": [
+-1,
+0.7,
+0.8
+],
+"width": 1600,
+"height": 1300,
+"path": "full-rear-right.png",
+"fit_box": [
+[
+372,
+-27,
+412
+],
+[
+428,
+68,
+549
+]
+]
+}
+},
+{
+"tool": "render_assembly",
+"args": {
+"assembly": 22,
+"direction": [
+1,
+-0.7,
+0.8
+],
+"width": 1600,
+"height": 1300,
+"path": "full-front-left.png",
+"fit_box": [
+[
+-28,
+395,
+418
+],
+[
+32,
+480,
+555
+]
+]
+}
+},
+{
+"tool": "render_assembly",
+"args": {
+"assembly": 22,
+"direction": [
+1,
+0.7,
+0.8
+],
+"width": 1600,
+"height": 1300,
+"path": "full-front-right.png",
+"fit_box": [
+[
+-28,
+-27,
+412
+],
+[
+32,
+58,
+549
+]
+]
+}
+}
+]

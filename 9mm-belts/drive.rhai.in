@@ -1,0 +1,253 @@
+// 9 mm belt drive, rev C (2026-11-16): four motor mounts with every component modelled, and both belts.
+// World coordinates of the Printer assembly, mm. Front (door) = -X; left = +Y, right = -Y seen from the door.
+// The upper belt is driven by the two LEFT motors, the lower belt by the two RIGHT motors.
+// A real 20T 9 mm pulley has a 6 mm hub that must stay out of the other belt's level, so the hub points away from it:
+//   left mounts  (upper belt, hub up):   lower plate z 429-435, bay 435-467.2, upper plate 467.2-473.2
+//   right mounts (lower belt, hub down): lower plate z 423-429, bay 429-461.2, upper plate 461.2-467.2
+// Right-hand parts are the mirror image about y = 226.5, six mm lower, with the lower plate notched round the Y rail.
+fn zplane(d, z, name) { d.feature("plane", #{mode: "offset", base: #{kind: "origin_plane", plane: "Top"}, offset: z}, name) }
+fn yplane(d, y, name) { d.feature("plane", #{mode: "offset", base: #{kind: "origin_plane", plane: "Front"}, offset: -y}, name) }
+fn ext(d, s, depth, up, op, name) { d.feature("extrude", #{profiles: [s], depth: depth, op: op, opposite: !up}, name) }
+fn exty(d, s, depth, plus, op, name) { d.feature("extrude", #{profiles: [s], depth: depth, op: op, opposite: plus}, name) }
+fn my(p, m) { if m { [p[0], 453.0 - p[1]] } else { p } }
+fn H(name, color, material, shape) { #{n: name, c: color, m: material, s: shape} }
+
+// ---- purchased and turned parts: axis Z, standing on z = 0 ----
+fn sleeve(od, id, l) { revolve([[id / 2.0, 0.0], [od / 2.0, 0.0], [od / 2.0, l], [id / 2.0, l]], 360.0) }
+fn pin(dia, l) { let r = dia / 2.0; revolve([[0.0, 0.0], [r - 0.3, 0.0], [r, 0.3], [r, l - 0.3], [r - 0.3, l], [0.0, l]], 360.0) }
+// 695 (5 x 13 x 4) or F695 (flange 15 x 1 at the bottom) with recessed shields
+fn brg(flange) {
+    let o = if flange { [[7.5, 0.0], [7.5, 1.0], [6.5, 1.0]] } else { [[6.5, 0.0]] };
+    revolve([[2.5, 0.0], [4.0, 0.0], [4.0, 0.3], [5.2, 0.3], [5.2, 0.0]] + o + [[6.5, 4.0], [5.2, 4.0], [5.2, 3.7], [4.0, 3.7], [4.0, 4.0], [2.5, 4.0]], 360.0)
+}
+// ISO 4762 socket head cap screw: seat at z = 0, head above, shank down
+fn shcs(size, l) {
+    let t = if size == "M2.5" { [2.5, 4.5, 2.5, 2.0] } else if size == "M3" { [3.0, 5.5, 3.0, 2.5] } else if size == "M4" { [4.0, 7.0, 4.0, 3.0] } else { [5.0, 8.5, 5.0, 4.0] };
+    let r = t[0] / 2.0; let R = t[1] / 2.0; let k = t[2]; let af = t[3]; let a = af / 1.7320508;
+    let body = revolve([[0.0, -l], [r - 0.3, -l], [r, -l + 0.3], [r, 0.0], [R, 0.0], [R, k - 0.3], [R - 0.3, k], [0.0, k]], 360.0);
+    body - prism([[a, 0.0], [a / 2.0, af / 2.0], [-a / 2.0, af / 2.0], [-a, 0.0], [-a / 2.0, -af / 2.0], [a / 2.0, -af / 2.0]], k).move(0, 0, k * 0.45)
+}
+fn down(s, x, y, z) { s.move(x, y, z) }                      // head on top
+fn up(s, x, y, z) { s.rotate_x(180.0).move(x, y, z) }        // head underneath
+// GT2 20T pulley for 9 mm belt, bore 5: flanges 16 dia x 1.5, 11 mm of teeth, hub 16 dia x 6 on top (z 14-20) with two M3 set screws.
+// Returns [pulley, set screw, set screw].
+fn pulley() {
+    let b = revolve([[2.5, 0.0], [8.0, 0.0], [8.0, 1.5], [6.11, 1.5], [6.11, 12.5], [8.0, 12.5], [8.0, 20.0], [2.5, 20.0]], 360.0);
+    let cuts = [];
+    for i in 0..20 { let a = i * 18.0 * 3.141592653589793 / 180.0; cuts.push(cylinder(vec3(5.915 * a.cos(), 5.915 * a.sin(), 1.5), vec3(0, 0, 1), 0.555, 11.0)); }
+    cuts.push(cylinder(vec3(0, 0, 17), vec3(1, 0, 0), 1.5, 9.0)); cuts.push(cylinder(vec3(0, 0, 17), vec3(0, 1, 0), 1.5, 9.0));
+    [b.cut(cuts), cylinder(vec3(4.0, 0, 17), vec3(1, 0, 0), 1.5, 3.0), cylinder(vec3(0, 4.0, 17), vec3(0, 1, 0), 1.5, 3.0)]
+}
+// rigid clamp coupling 5 x 5, 19 dia x 25, slit, two M2.5 x 8 clamp screws. Returns [coupling, screw, screw].
+fn coupling() {
+    let cuts = [block(vec3(0, -0.5, -1), vec3(10, 0.5, 26))];
+    let out = [];
+    for z in [6.0, 19.0] {
+        cuts.push(cylinder(vec3(5.5, -10, z), vec3(0, 1, 0), 2.4, 7.0)); cuts.push(cylinder(vec3(5.5, -10, z), vec3(0, 1, 0), 1.25, 20.0));
+        out.push(shcs("M2.5", 8.0).place(vec3(5.5, -3.0, z), vec3(0, -1, 0)));
+    }
+    [sleeve(19.0, 5.0, 25.0).cut(cuts)] + out
+}
+// M5 T-nut for a 2020 slot: top of the neck 0.3 under the slot face (z = 0), body under the lips
+fn tnut() { (block(vec3(-4.8, -4.8, -3.9), vec3(4.8, 4.8, -1.9)) + cylinder(vec3(0, 0, -1.9), vec3(0, 0, 1), 2.9, 1.6)) - cylinder(vec3(0, 0, -6), vec3(0, 0, 1), 2.5, 7.0) }
+fn belt(pts, z) { extrude(polygon(pts), vec3(0, 0, 9.0)).move(0, 0, z) }
+
+let ALU = "#b8bec6"; let STEEL = "#a0a0a0"; let BLACK = "#34363a"; let ZINC = "#9aa5af"; let PULLEY = "#d8dade"; let RED = "#b02a2a"; let PIN = "#d6d6da";
+let d = new_document();
+d.variable("plate_t", 6);           // 6061 plate
+d.variable("bay", 32.2);            // between the plates: both belt levels plus the pulley hub
+d.variable("brg_od", 13);           // 695 bearing 5 x 13 x 4, light press fit
+d.variable("brg_w", 4);
+d.variable("pin_d", 5);             // idler pins, same as the XY joints
+d.variable("m5_clear", 5.5);
+d.variable("m5_tap", 4.2);
+d.variable("m4_clear", 4.5);
+d.variable("m4_tap", 3.3);
+d.variable("m3_clear", 3.4);
+d.variable("m3_head", 6.5);
+d.variable("shaft_clear", 8);       // hole behind each bearing for the 5 mm shaft
+d.variable("relief_d", 6.4);        // corner relief where a plate wraps an extrusion or the rail (6 mm cutter)
+
+let hw = []; let names = []; let motors = [];
+
+// ================= rear mounts =================
+let P = [403.3, 433.0];                                          // drive shaft
+let PINS = [[385.5, 455.36], [391.0, 422.4]];                    // A, C
+let FRAME = [[414.5, 400.0], [414.5, 441.5], [399.5, 466.5]];    // M5 through the whole stack into T-nuts in the top slots
+let TIE = [[386.0, 402.0]];                                      // fourth standoff, M5 tapped in the lower plate
+let REL = [405.8, 457.8]; let REL_RAIL = [393.2, 463.2];         // corner reliefs: upright corner, end of the Y rail
+// three motor screws: the fourth hole (-15.5, -15.5) would break into pin C's hole
+let MOTOR = [[P[0] + 15.5, P[1] - 15.5], [P[0] - 15.5, P[1] + 15.5], [P[0] + 15.5, P[1] + 15.5]];
+let OUT = [[380.0, 394.0], [424.5, 394.0], [424.5, 456.3], [404.3, 456.3], [404.3, 476.5], [380.0, 476.5]];   // 0.2 clear of the upright
+// right lower plate sits beside the Y rail (z 421-427.5, ends x 394.5), so it is cut back round it
+let OUT_RAIL = [[380.0, 394.0], [424.5, 394.0], [424.5, 456.3], [404.3, 456.3], [404.3, 476.5], [394.7, 476.5], [394.7, 461.7], [380.0, 461.7]];
+for m in [false, true] {
+    let side = if m { "right" } else { "left" }; let tag = "Rear " + side + " mount: ";
+    let zlo = if m { 423.0 } else { 429.0 }; let zf = zlo + 6.0; let zr = zf + 32.2; let zt = zr + 6.0;
+    let p0 = zplane(d, zlo, tag + "lower plate underside");
+    let s = d.sketch(p0, tag + "lower plate outline"); s.polygon((if m { OUT_RAIL } else { OUT }).map(|p| my(p, m)));
+    ext(d, s, "plate_t", true, "new", tag + "lower plate");
+    let pt = zplane(d, zf, tag + "bay floor");
+    s = d.sketch(pt, tag + "lower plate holes");
+    for p in PINS { s.circle(my(p, m), "pin_d"); }
+    for p in FRAME { s.circle(my(p, m), "m5_clear"); }
+    for p in TIE { s.circle(my(p, m), "m5_tap"); }
+    s.circle(my(REL, m), "relief_d"); if m { s.circle(my(REL_RAIL, m), "relief_d"); }
+    s.circle(my(P, m), "shaft_clear");
+    ext(d, s, "plate_t", false, "remove", tag + "lower plate holes");
+    s = d.sketch(pt, tag + "lower bearing bore"); s.circle(my(P, m), "brg_od");
+    ext(d, s, "brg_w", false, "remove", tag + "lower bearing pocket");
+    let pu = zplane(d, zr, tag + "bay roof");
+    s = d.sketch(pu, tag + "upper plate outline"); s.polygon(OUT.map(|p| my(p, m)));
+    ext(d, s, "plate_t", true, "new", tag + "upper plate");
+    s = d.sketch(pu, tag + "upper plate holes");
+    for p in PINS { s.circle(my(p, m), "pin_d"); }
+    for p in FRAME + TIE { s.circle(my(p, m), "m5_clear"); }
+    for p in MOTOR { s.circle(my(p, m), "m3_clear"); }
+    s.circle(my(REL, m), "relief_d");
+    s.circle(my(P, m), "shaft_clear");
+    ext(d, s, "plate_t", true, "remove", tag + "upper plate holes");
+    s = d.sketch(pu, tag + "upper bearing bore"); s.circle(my(P, m), "brg_od");
+    ext(d, s, "brg_w", true, "remove", tag + "upper bearing pocket");
+    s = d.sketch(pu, tag + "motor screw counterbores");
+    for p in MOTOR { s.circle(my(p, m), "m3_head"); }
+    ext(d, s, 3.4, true, "remove", tag + "motor screw counterbores");
+    names.push("Rear " + side + " motor mount, lower plate"); names.push("Rear " + side + " motor mount, upper plate");
+
+    let q = my(P, m);
+    hw.push(H("Drive shaft 5 x 55", PIN, "Steel", pin(5.0, 55.0).move(q[0], q[1], zt + 13.0 - 55.0)));
+    hw.push(H("695 bearing 5x13x4", STEEL, "Steel", brg(false).move(q[0], q[1], zf - 4.0)));
+    hw.push(H("695 bearing 5x13x4", STEEL, "Steel", brg(false).move(q[0], q[1], zr)));
+    let pl = pulley(); let pn = ["GT2 20T pulley, 9 mm belt, 5 mm bore", "ISO 4026 M3 x 3 set screw", "ISO 4026 M3 x 3 set screw"];
+    for i in 0..3 { hw.push(H(pn[i], if i == 0 { PULLEY } else { BLACK }, if i == 0 { "Aluminium 6061" } else { "Steel" }, if m { up(pl[i], q[0], q[1], 449.06) } else { down(pl[i], q[0], q[1], 447.06) })); }
+    hw.push(H("Shaft spacer 8 x 5 x 12", ALU, "Aluminium 6061", sleeve(8.0, 5.0, 12.0).move(q[0], q[1], if m { 449.1 } else { 435.0 })));
+    let cp = coupling(); let cn = ["Rigid clamp coupling 5-5, 19 x 25", "ISO 4762 M2.5 x 8", "ISO 4762 M2.5 x 8"];
+    for i in 0..3 { hw.push(H(cn[i], if i == 0 { RED } else { BLACK }, if i == 0 { "Aluminium 6061" } else { "Steel" }, cp[i].move(q[0], q[1], zt + 1.0))); }
+    motors.push(["NEMA 17 stepper, 40 mm (rear " + side + ")", q[0], q[1], zt + 38.0]);
+    for p in MOTOR { let a = my(p, m);
+        hw.push(H("Motor standoff 7 x 3.2 x 38", ZINC, "Aluminium 6061", sleeve(7.0, 3.2, 38.0).move(a[0], a[1], zt)));
+        hw.push(H("ISO 4762 M3 x 45", BLACK, "Steel", up(shcs("M3", 45.0), a[0], a[1], zr + 3.4))); }
+    for p in PINS { let a = my(p, m);
+        hw.push(H("Idler pin 5 x 44", PIN, "Steel", pin(5.0, 44.0).move(a[0], a[1], zlo + 0.1)));
+        for z0 in [436.06, 448.06] {
+            hw.push(H("F695 flanged bearing", STEEL, "Steel", brg(true).move(a[0], a[1], z0)));
+            hw.push(H("695 bearing 5x13x4", STEEL, "Steel", brg(false).move(a[0], a[1], z0 + 4.0)));
+            hw.push(H("F695 flanged bearing", STEEL, "Steel", up(brg(true), a[0], a[1], z0 + 12.0))); }
+        hw.push(H(if m { "Idler sleeve 8 x 5 x 7" } else { "Idler shim 8 x 5 x 1" }, ALU, "Aluminium 6061", sleeve(8.0, 5.0, if m { 7.0 } else { 1.0 }).move(a[0], a[1], zf)));
+        hw.push(H(if m { "Idler shim 8 x 5 x 1" } else { "Idler sleeve 8 x 5 x 7" }, ALU, "Aluminium 6061", sleeve(8.0, 5.0, if m { 1.0 } else { 7.0 }).move(a[0], a[1], 460.1))); }
+    for p in FRAME { let a = my(p, m);
+        hw.push(H("Plate standoff 8 x 5.3 x 32.2", ZINC, "Aluminium 6061", sleeve(8.0, 5.3, 32.2).move(a[0], a[1], zf)));
+        hw.push(H(if m { "Riser 9 x 5.3 x 2" } else { "Riser 9 x 5.3 x 8" }, ZINC, "Aluminium 6061", sleeve(9.0, 5.3, zlo - 421.0).move(a[0], a[1], 421.0)));
+        hw.push(H(if m { "ISO 4762 M5 x 50" } else { "ISO 4762 M5 x 55" }, BLACK, "Steel", down(shcs("M5", if m { 50.0 } else { 55.0 }), a[0], a[1], zt)));
+        hw.push(H("T-nut M5, 2020 slot", ZINC, "Steel", tnut().move(a[0], a[1], 421.0))); }
+    for p in TIE { let a = my(p, m);
+        hw.push(H("Plate standoff 8 x 5.3 x 32.2", ZINC, "Aluminium 6061", sleeve(8.0, 5.3, 32.2).move(a[0], a[1], zf)));
+        hw.push(H("ISO 4762 M5 x 45", BLACK, "Steel", down(shcs("M5", 45.0), a[0], a[1], zt))); }
+}
+
+// ================= front mounts =================
+let P = [3.5, 422.0];                                            // drive shaft, inboard of the side panel
+let PINS = [[16.74, 443.8], [4.64, 455.89]];                     // I1, I3
+let STAND = [[20.0, 420.0], [21.0, 456.9], [-14.0, 424.0]];      // M5 from the top, tapped in the lower plate
+let BAR = [[-22.5, 450.3], [-8.5, 450.3]];                       // M4 into the ends of the spine bar
+let MOTOR = [[P[0] - 15.5, P[1] - 15.5], [P[0] + 15.5, P[1] - 15.5], [P[0] - 15.5, P[1] + 15.5], [P[0] + 15.5, P[1] + 15.5]];
+let OUT = [[-25.3, 401.0], [27.3, 401.0], [27.3, 466.0], [-5.3, 466.0], [-5.3, 456.3], [-25.3, 456.3]];       // 0.2 clear of the front upright
+let OUT_RAIL = [[-25.3, 401.0], [27.3, 401.0], [27.3, 461.5], [-1.5, 461.5], [-5.7, 455.7], [-25.3, 455.7]];  // right lower plate stops short of the Y rail
+let REL = [-6.8, 457.8];                                         // corner relief at the upright
+let BAR_BOX = [[-25.3, 444.3], [-5.7, 456.5]];                   // spine bar, seated on the upright's inner face
+for m in [false, true] {
+    let side = if m { "right" } else { "left" }; let tag = "Front " + side + " mount: ";
+    let zlo = if m { 423.0 } else { 429.0 }; let zf = zlo + 6.0; let zr = zf + 32.2; let zt = zr + 6.0;
+    let p0 = zplane(d, zlo, tag + "lower plate underside");
+    let s = d.sketch(p0, tag + "lower plate outline"); s.polygon((if m { OUT_RAIL } else { OUT }).map(|p| my(p, m)));
+    ext(d, s, "plate_t", true, "new", tag + "lower plate");
+    let pt = zplane(d, zf, tag + "bay floor");
+    s = d.sketch(pt, tag + "lower plate holes");
+    for p in PINS { s.circle(my(p, m), "pin_d"); }
+    for p in STAND { s.circle(my(p, m), "m5_tap"); }
+    for p in BAR { s.circle(my(p, m), "m4_clear"); }
+    if !m { s.circle(my(REL, m), "relief_d"); }
+    s.circle(my(P, m), "shaft_clear");
+    ext(d, s, "plate_t", false, "remove", tag + "lower plate holes");
+    s = d.sketch(pt, tag + "lower bearing bore"); s.circle(my(P, m), "brg_od");
+    ext(d, s, "brg_w", false, "remove", tag + "lower bearing pocket");
+    let pu = zplane(d, zr, tag + "bay roof");
+    s = d.sketch(pu, tag + "upper plate outline"); s.polygon(OUT.map(|p| my(p, m)));
+    ext(d, s, "plate_t", true, "new", tag + "upper plate");
+    s = d.sketch(pu, tag + "upper plate holes");
+    for p in PINS { s.circle(my(p, m), "pin_d"); }
+    for p in STAND { s.circle(my(p, m), "m5_clear"); }
+    for p in BAR { s.circle(my(p, m), "m4_clear"); }
+    for p in MOTOR { s.circle(my(p, m), "m3_clear"); }
+    s.circle(my(REL, m), "relief_d");
+    s.circle(my(P, m), "shaft_clear");
+    ext(d, s, "plate_t", true, "remove", tag + "upper plate holes");
+    s = d.sketch(pu, tag + "upper bearing bore"); s.circle(my(P, m), "brg_od");
+    ext(d, s, "brg_w", true, "remove", tag + "upper bearing pocket");
+    s = d.sketch(pu, tag + "motor screw counterbores");
+    for p in MOTOR { s.circle(my(p, m), "m3_head"); }
+    ext(d, s, 3.4, true, "remove", tag + "motor screw counterbores");
+    // spine bar 19.6 x 12.2 x 32.2 between the plates, bolted to the upright's inner face with two M5
+    s = d.sketch(pt, tag + "spine bar section"); s.rect_corners(my(BAR_BOX[0], m), my(BAR_BOX[1], m));
+    ext(d, s, "bay", true, "new", tag + "spine bar");
+    s = d.sketch(pt, tag + "spine bar M4 (bottom)"); for p in BAR { s.circle(my(p, m), "m4_tap"); }
+    ext(d, s, 8, true, "remove", tag + "spine bar M4 tapped, bottom end");
+    s = d.sketch(pu, tag + "spine bar M4 (top)"); for p in BAR { s.circle(my(p, m), "m4_tap"); }
+    ext(d, s, 8, false, "remove", tag + "spine bar M4 tapped, top end");
+    let yface = if m { 453.0 - 444.3 } else { 444.3 };
+    let py = yplane(d, yface, tag + "spine bar inner face");
+    s = d.sketch(py, tag + "spine bar M5 to upright"); s.circle([-15.5, zf + 8.0], "m5_clear"); s.circle([-15.5, zf + 24.2], "m5_clear");
+    exty(d, s, 13, !m, "remove", tag + "spine bar M5 through to the upright");
+    names.push("Front " + side + " motor mount, lower plate"); names.push("Front " + side + " motor mount, upper plate"); names.push("Front " + side + " motor mount, spine bar");
+
+    let q = my(P, m);
+    hw.push(H("Drive shaft 5 x 55", PIN, "Steel", pin(5.0, 55.0).move(q[0], q[1], zt + 13.0 - 55.0)));
+    hw.push(H("695 bearing 5x13x4", STEEL, "Steel", brg(false).move(q[0], q[1], zf - 4.0)));
+    hw.push(H("695 bearing 5x13x4", STEEL, "Steel", brg(false).move(q[0], q[1], zr)));
+    let pl = pulley(); let pn = ["GT2 20T pulley, 9 mm belt, 5 mm bore", "ISO 4026 M3 x 3 set screw", "ISO 4026 M3 x 3 set screw"];
+    for i in 0..3 { hw.push(H(pn[i], if i == 0 { PULLEY } else { BLACK }, if i == 0 { "Aluminium 6061" } else { "Steel" }, if m { up(pl[i], q[0], q[1], 449.06) } else { down(pl[i], q[0], q[1], 447.06) })); }
+    hw.push(H("Shaft spacer 8 x 5 x 12", ALU, "Aluminium 6061", sleeve(8.0, 5.0, 12.0).move(q[0], q[1], if m { 449.1 } else { 435.0 })));
+    let cp = coupling(); let cn = ["Rigid clamp coupling 5-5, 19 x 25", "ISO 4762 M2.5 x 8", "ISO 4762 M2.5 x 8"];
+    for i in 0..3 { hw.push(H(cn[i], if i == 0 { RED } else { BLACK }, if i == 0 { "Aluminium 6061" } else { "Steel" }, cp[i].move(q[0], q[1], zt + 1.0))); }
+    motors.push(["NEMA 17 stepper, 40 mm (front " + side + ")", q[0], q[1], zt + 38.0]);
+    for p in MOTOR { let a = my(p, m);
+        hw.push(H("Motor standoff 7 x 3.2 x 38", ZINC, "Aluminium 6061", sleeve(7.0, 3.2, 38.0).move(a[0], a[1], zt)));
+        hw.push(H("ISO 4762 M3 x 45", BLACK, "Steel", up(shcs("M3", 45.0), a[0], a[1], zr + 3.4))); }
+    let zb = if m { 436.06 } else { 448.06 };      // this corner's belt level
+    for p in PINS { let a = my(p, m);
+        hw.push(H("Idler pin 5 x 44", PIN, "Steel", pin(5.0, 44.0).move(a[0], a[1], zlo + 0.1)));
+        hw.push(H("F695 flanged bearing", STEEL, "Steel", brg(true).move(a[0], a[1], zb)));
+        hw.push(H("695 bearing 5x13x4", STEEL, "Steel", brg(false).move(a[0], a[1], zb + 4.0)));
+        hw.push(H("F695 flanged bearing", STEEL, "Steel", up(brg(true), a[0], a[1], zb + 12.0)));
+        hw.push(H(if m { "Idler sleeve 8 x 5 x 7" } else { "Idler sleeve 8 x 5 x 13" }, ALU, "Aluminium 6061", sleeve(8.0, 5.0, if m { 7.0 } else { 13.0 }).move(a[0], a[1], zf)));
+        hw.push(H(if m { "Idler sleeve 8 x 5 x 13" } else { "Idler sleeve 8 x 5 x 7" }, ALU, "Aluminium 6061", sleeve(8.0, 5.0, if m { 13.0 } else { 7.0 }).move(a[0], a[1], zb + 12.04))); }
+    for p in STAND { let a = my(p, m);
+        hw.push(H("Plate standoff 8 x 5.3 x 32.2", ZINC, "Aluminium 6061", sleeve(8.0, 5.3, 32.2).move(a[0], a[1], zf)));
+        hw.push(H("ISO 4762 M5 x 45", BLACK, "Steel", down(shcs("M5", 45.0), a[0], a[1], zt))); }
+    for p in BAR { let a = my(p, m);
+        hw.push(H("ISO 4762 M4 x 12", BLACK, "Steel", down(shcs("M4", 12.0), a[0], a[1], zt)));
+        hw.push(H("ISO 4762 M4 x 12", BLACK, "Steel", up(shcs("M4", 12.0), a[0], a[1], zlo))); }
+    let yn = if m { 1.0 } else { -1.0 }; let yup = if m { -3.5 } else { 456.5 };
+    for z in [zf + 8.0, zf + 24.2] {
+        hw.push(H("ISO 4762 M5 x 16", BLACK, "Steel", shcs("M5", 16.0).place(vec3(-15.5, yface, z), vec3(0, yn, 0))));
+        hw.push(H("T-nut M5, 2020 slot", ZINC, "Steel", tnut().place(vec3(-15.5, yup, z), vec3(0, yn, 0)))); }
+}
+// ================= belts (backing band, model pose) =================
+hw.push(H("GT2 belt 9 mm, upper (left motors)", "#1c1c1e", "", belt(@BELT_U@, 449.56)));
+hw.push(H("GT2 belt 9 mm, lower (right motors)", "#1c1c1e", "", belt(@BELT_L@, 437.56)));
+
+// R3 on the plates' outline corners (a 6 mm cutter does the inside corners)
+for p in d.parts() {
+    let es = d.edges(#{body: p.body}).filter(|e| e.type == "line" && (e.start[0] - e.end[0]).abs() < 1e-6 && (e.start[1] - e.end[1]).abs() < 1e-6 && e.length_mm > 5.9 && e.length_mm < 6.1);
+    if es.len() > 0 { try { d.fillet(es, 3); } catch { d.fillet(es, 2.5); } }      // 2.5 where two corners are 5.2 mm apart
+}
+let ps = d.parts();
+if ps.len() != names.len() { throw `expected ${names.len()} machined parts, got ${ps.len()}`; }
+for i in 0..ps.len() { d.tool("set_part", #{body: ps[i].body, name: names[i], material: "Aluminium 6061", color: ALU}); }
+for p in d.parts() { print(`${p.name}: body ${p.body}, ${p.volume_mm3} mm3, bbox ${p.bbox_mm}`); }
+d.save("drive.json");
+d.export_file("drive-plates.step");
+for h in hw { if h.s.solid_count() != 1 { throw `${h.n}: ${h.s.solid_count()} solids`; } }
+export_step(hw.map(|h| h.s), "drive-hardware.step");
+for h in hw { print(`HW|${h.n}|${h.c}|${h.m}`); }
+for mt in motors { print(`MOTOR|${mt[0]}|${mt[1]}|${mt[2]}|${mt[3]}`); }

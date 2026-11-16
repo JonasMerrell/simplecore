@@ -1,0 +1,972 @@
+{
+ "hardware": [
+  {
+   "name": "Drive shaft 5 x 55",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "GT2 20T pulley, 9 mm belt, 5 mm bore",
+   "color": "#d8dade",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4026 M3 x 3 set screw",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4026 M3 x 3 set screw",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Shaft spacer 8 x 5 x 12",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Rigid clamp coupling 5-5, 19 x 25",
+   "color": "#b02a2a",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M2.5 x 8",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M2.5 x 8",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler pin 5 x 44",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler shim 8 x 5 x 1",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 7",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler pin 5 x 44",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler shim 8 x 5 x 1",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 7",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Riser 9 x 5.3 x 8",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 55",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "T-nut M5, 2020 slot",
+   "color": "#9aa5af",
+   "material": "Steel"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Riser 9 x 5.3 x 8",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 55",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "T-nut M5, 2020 slot",
+   "color": "#9aa5af",
+   "material": "Steel"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Riser 9 x 5.3 x 8",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 55",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "T-nut M5, 2020 slot",
+   "color": "#9aa5af",
+   "material": "Steel"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Drive shaft 5 x 55",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "GT2 20T pulley, 9 mm belt, 5 mm bore",
+   "color": "#d8dade",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4026 M3 x 3 set screw",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4026 M3 x 3 set screw",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Shaft spacer 8 x 5 x 12",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Rigid clamp coupling 5-5, 19 x 25",
+   "color": "#b02a2a",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M2.5 x 8",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M2.5 x 8",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler pin 5 x 44",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 7",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler shim 8 x 5 x 1",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler pin 5 x 44",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 7",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler shim 8 x 5 x 1",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Riser 9 x 5.3 x 2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 50",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "T-nut M5, 2020 slot",
+   "color": "#9aa5af",
+   "material": "Steel"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Riser 9 x 5.3 x 2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 50",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "T-nut M5, 2020 slot",
+   "color": "#9aa5af",
+   "material": "Steel"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Riser 9 x 5.3 x 2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 50",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "T-nut M5, 2020 slot",
+   "color": "#9aa5af",
+   "material": "Steel"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Drive shaft 5 x 55",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "GT2 20T pulley, 9 mm belt, 5 mm bore",
+   "color": "#d8dade",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4026 M3 x 3 set screw",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4026 M3 x 3 set screw",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Shaft spacer 8 x 5 x 12",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Rigid clamp coupling 5-5, 19 x 25",
+   "color": "#b02a2a",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M2.5 x 8",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M2.5 x 8",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler pin 5 x 44",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 13",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 7",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler pin 5 x 44",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 13",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 7",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M4 x 12",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M4 x 12",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M4 x 12",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M4 x 12",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M5 x 16",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "T-nut M5, 2020 slot",
+   "color": "#9aa5af",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M5 x 16",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "T-nut M5, 2020 slot",
+   "color": "#9aa5af",
+   "material": "Steel"
+  },
+  {
+   "name": "Drive shaft 5 x 55",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "GT2 20T pulley, 9 mm belt, 5 mm bore",
+   "color": "#d8dade",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4026 M3 x 3 set screw",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4026 M3 x 3 set screw",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Shaft spacer 8 x 5 x 12",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Rigid clamp coupling 5-5, 19 x 25",
+   "color": "#b02a2a",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M2.5 x 8",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M2.5 x 8",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Motor standoff 7 x 3.2 x 38",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M3 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler pin 5 x 44",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 7",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 13",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler pin 5 x 44",
+   "color": "#d6d6da",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "695 bearing 5x13x4",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "F695 flanged bearing",
+   "color": "#a0a0a0",
+   "material": "Steel"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 7",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Idler sleeve 8 x 5 x 13",
+   "color": "#b8bec6",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "Plate standoff 8 x 5.3 x 32.2",
+   "color": "#9aa5af",
+   "material": "Aluminium 6061"
+  },
+  {
+   "name": "ISO 4762 M5 x 45",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M4 x 12",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M4 x 12",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M4 x 12",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M4 x 12",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M5 x 16",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "T-nut M5, 2020 slot",
+   "color": "#9aa5af",
+   "material": "Steel"
+  },
+  {
+   "name": "ISO 4762 M5 x 16",
+   "color": "#34363a",
+   "material": "Steel"
+  },
+  {
+   "name": "T-nut M5, 2020 slot",
+   "color": "#9aa5af",
+   "material": "Steel"
+  },
+  {
+   "name": "GT2 belt 9 mm, upper (left motors)",
+   "color": "#1c1c1e",
+   "material": null
+  },
+  {
+   "name": "GT2 belt 9 mm, lower (right motors)",
+   "color": "#1c1c1e",
+   "material": null
+  }
+ ],
+ "motors": [
+  {
+   "name": "NEMA 17 stepper, 40 mm (rear left)",
+   "t": [
+    403.3,
+    433.0,
+    511.2
+   ]
+  },
+  {
+   "name": "NEMA 17 stepper, 40 mm (rear right)",
+   "t": [
+    403.3,
+    20.0,
+    505.2
+   ]
+  },
+  {
+   "name": "NEMA 17 stepper, 40 mm (front left)",
+   "t": [
+    3.5,
+    422.0,
+    511.2
+   ]
+  },
+  {
+   "name": "NEMA 17 stepper, 40 mm (front right)",
+   "t": [
+    3.5,
+    31.0,
+    505.2
+   ]
+  }
+ ],
+ "belt_length_between_clamps_mm": {
+  "upper": 1852.0,
+  "lower": 1852.0
+ }
+}
