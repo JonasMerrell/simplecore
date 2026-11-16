@@ -21,7 +21,7 @@ d['assemblies'].append({"name":"Trad Rack","instances":inst,"mates":[],"next_id"
 P=[a for a in d['assemblies'] if a['name']=='Printer'][0]
 nid=max([P['next_id']-1]+[x['id'] for x in P['instances']]+[m['id'] for m in P['mates']]+[r['id'] for r in P['relations']])+1; P['next_id']=nid+1
 # Trad Rack frame: X along the rack's extrusion, +Y = the side the lanes face, brackets' back face at y = -59.6.
-# Placed from Jonas's photo (2026-11-15) on the door-hinge side, the model's -Y (right) panel: turned 180 deg about Z
+# Placed from Jonas's photo (2026-11-15) on the door-latch side (opposite the hinges), the model's -Y (right) panel: turned 180 deg about Z
 # so the brackets' back face sits on the panel's outer face (y -27.5), lanes face down, selector motor at the rear (+X).
 # Front bracket screws 36.6 mm behind the panel's front edge (x 11.1), extrusion centre at z 333.
 P["instances"].append({"id":nid,"name":"Trad Rack <1>","studio":0,"body":[0,0],"pose":{"r":[-1.0,0,0,0,-1.0,0,0,0,1.0],"t":[166.7,-87.1,311.5]},"fixed":True,"hidden":False,"sub":ai})

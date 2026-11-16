@@ -1,5 +1,5 @@
 # Mounting holes for the Trad Rack's K3 side mount brackets: 4 x M3 tapped (Ø2.5 tap drill) in the right side
-# panel (-Y, the door-hinge side; Jonas drilled and tapped the 3 mm panel), and 8 x 8 mm pockets, 10 deep, in the
+# panel (-Y, the door-latch side; Jonas drilled and tapped the 3 mm panel), and 8 x 8 mm pockets, 10 deep, in the
 # right lower PIR board behind them for the screw tips (they stand 7 mm past the panel).
 # Hole centres = the bracket screw axes (x 11.1/311.1, z 297.25/383.0) with the Trad Rack pose in splice_tr.py.
 import json,sys
