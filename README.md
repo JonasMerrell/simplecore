@@ -178,18 +178,21 @@ These are kept for reference, and they use scratch paths.
   - The nozzle can go about 20 mm past the left edge of the bed (bed edge y 382.8, nozzle up to y 402 in the model, about 407 at the firmware's X −5). The scrub pad sits under the first 15 mm of that (y 387 to 401.5). Past the pad's outer edge the nozzle is over open air, 5 mm beside the bracket's arm. That is the purge spot, and the bucket sits under it.
   - Because the pad rides on the gantry, it is at the nozzle's side at every front-to-back position. So the bucket can sit anywhere along the gap. It is at x 110 to 210, behind the front-left Z rail parts (which end at x 95) and in easy reach of the door. The purge spot is the middle, x 160.
   - The bed frame doesn't reach into this part of the gap (its cross bar and Z carriage are at x 53 to 83), so the bucket clears the bed over its whole Z travel.
-- **Bucket.** 100 long (front to back) × 62 wide × 100 deep, 2.4 mm walls, open top, about 0.5 litre. Outside: x 110 to 210, y 387 to 449.2, z 290 to 390.
-  - The rim is 11.8 mm below the nozzle tip and 4.8 mm below the wiper bracket, which passes over it.
-  - The bed-side wall is 4.2 mm from the bed plate's edge.
-  - The back wall carries on up to z 424 and ends in a hook: a 2.6 mm bridge over the cleat and a 47 × 2.2 mm tongue that drops 9 mm into the cleat's slot.
-- **Cleat.** 100 × 20 × 7 mm, screwed to the inner face of the rail with two M5 button-head screws and T-nuts (x 122 and 198, on the slot centre, z 411). The heads sit in 3 mm counterbores, flush. A 48 × 3 mm slot, 10 deep, in its top takes the bucket's tongue.
-- **Taking the bucket out.** No tools: lift it 10 mm and pull it toward the bed. The gantry must not be over it (the gantry ends pass 7 mm above the hook). The macro `PURGE_BUCKET_SERVICE` moves the gantry to the back first.
-- **Clearances** (bounding boxes, moving parts swept over their full travel): bed plate 4.2 mm, wiper bracket 4.8 mm, Beacon 10.3 mm, nozzle 11.8 mm, Y-rail carriage 1.9 mm beside the hook, gantry end 7 mm above it, left PIR board 2.9 mm behind the bucket. The Trad Rack and the chamber heater are on the other side (−Y).
-- **Printing.** ASA or ABS (it lives in the heated chamber and catches hot plastic). Bucket: open side up, with support under the hook bridge only. Cleat: on its back (rail face down). `step/Purge bucket.step` and `step/Purge bucket cleat.step` are in local frames.
+- **Bucket.** 100 long (front to back) × 61 wide × 175 deep, 2.4 mm walls, open top, about 0.9 litre. Outside: x 110 to 210, y 389.5 to 450.5, z 215 to 390.
+  - The rim can't go higher: it is 4.8 mm below the wiper bracket, which passes over it, and 11.8 mm below the nozzle tip. So the extra depth goes down. The underside (z 215) stays above the bed's top when the bed is parked at END_PRINT's Z215 (z 186.8), so the bucket slides out over a lowered bed.
+  - The bed-side wall is 6.7 mm from the bed plate's edge.
+  - The back wall carries on up to z 420 and has two 11 × 14 mm windows.
+- **Cleat.** 100 × 20 × 6 mm, screwed to the inner face of the rail with two M5 button-head screws and T-nuts (x 122 and 198, on the slot centre, z 411). The heads sit in 3 mm counterbores, flush. Two pegs, 10 wide and 5 long, stick out of its face at x 140 and 180. Each peg's top slopes up at 45° away from the rail, so the bucket's weight pulls its back wall against the cleat.
+- **Taking the bucket out.** No tools: lift it 3 mm, pull it 5.3 mm toward the bed to come off the pegs, then lift it out (or slide it out over the bed when the bed is down). The gantry must not be over it. The macro `PURGE_BUCKET_SERVICE` moves the gantry to the back and lowers the bed first.
+- **Clearances** (bounding boxes, moving parts swept over their full travel): bed plate 6.7 mm, wiper bracket 4.8 mm, Beacon 10.3 mm, nozzle 11.8 mm, Y-rail carriage 3 mm above the back wall and 6 mm beside it, left PIR board 1.6 mm behind the bucket. The Trad Rack and the chamber heater are on the other side (−Y).
+- **Printing, no supports.** ASA or ABS (it lives in the heated chamber and catches hot plastic).
+  - Bucket: open side up, 205 mm tall. Nothing overhangs except the tops of the two windows, which are 11 mm bridges.
+  - Cleat: on its back (rail face down). The pegs widen at 45° as they go up, and the counterbores open upward.
+  - `step/Purge bucket.step` and `step/Purge bucket cleat.step` are in local frames, already in these orientations.
 - **What's assumed.**
   - The model's wiper bracket matches the printed one on the machine, and the pad is where the bracket's foot is. From the photos it does.
   - The model has no wiring, bed heater leads or flex-plate tab on the left edge. If something sticks out past the plate's left edge between x 110 and 210, move the bucket (`X0`, `X1` in `mk.py`).
-  - Firmware Y for the purge spot is an estimate (Y ≈ 127): the model and the firmware agree on X (X0 ≈ y 399 to 402) but the Y offset is only known to about ±6 mm. The bucket is 96 mm long inside, so that's inside the margin. Jog there and check before turning the macro on.
+  - Firmware Y for the purge spot is an estimate (Y ≈ 127): the model and the firmware agree on X (X0 ≈ y 399 to 402) but the Y offset is only known to about ±6 mm. The bucket is 95 mm long inside, so that's inside the margin. Jog there and check before turning the macro on.
 - **Model.** Part Studio **Purge bucket** (variables `bucket_len`, `bucket_depth`, `wall`; plain sketch-and-extrude features in world position), assembly **Purge bucket** (bucket and cleat, fixed), in Printer as instance 21 (instance 19 in X-carriage-no-belts.json). The files before this change are in the history.
 - **Macros.** In JonasMerrell/simplecore-config, `config/purge.cfg`: `PURGE_AND_WIPE` goes to the bucket, purges, lets the strand cool and scrubs across the pad. Trad Rack's `post_load_gcode` calls it after each load during a print once `_PURGE_VARS.enabled` is True.
 - **Scripts:** `scripts/purge/mk.py` writes the rCAD run script for the studio (`rcad run run.json`), `splice.py` adds it to the documents, and `render.json` makes the renders. Built with rCAD 0.8.0.
