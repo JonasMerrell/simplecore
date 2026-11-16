@@ -2,7 +2,13 @@
 
 A chamber camera for the simplecore printer: what to buy, where it goes, and the streaming setup.
 
-## Camera: 3DO Enclosure Camera V2.5
+> **Camera changed on 2026-11-16: Jonas chose a Logitech C270** instead of the 3DO camera below. The streaming files are already set for the C270. The mount in the model is still the 3DO one and will be redrawn once the C270's body and hinge are measured. Things that differ with the C270:
+> - Its lens is narrow (55° diagonal). From the front top rail it sees roughly the middle 215 × 195 mm of the 313 × 267 mm bed.
+> - It is a room-temperature webcam with no published heat rating. It should be fine with the chamber heater off; at 60 °C and up it may drift out of focus or fail.
+> - It is about 72 × 32 × 24 mm (from memory, not measured), far bigger than the 3DO sensor, so it only just fits the free band under the top insulation.
+> - Mounted hanging from its own hinge it is upside down; set `rotation: 180` in the Moonraker webcam section.
+
+## Camera (first proposal): 3DO Enclosure Camera V2.5
 
 - USB UVC camera made for printer enclosures (Sony IMX258, 120° lens, manual focus by turning the lens). github.com/3DO-EU/Enclosure-Nozzle-Camera-V2
 - **Heat:** rated −20 to 65 °C, and 3DO report 48 h in an 80 °C chamber. Ordinary desk webcams are built for room temperature and often fail in heated chambers.
