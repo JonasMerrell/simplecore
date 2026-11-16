@@ -1,18 +1,20 @@
 # Webcam mount for the simplecore printer: bare Logitech C270 board with an M12 wide-angle lens
 # (printed "m12_lens_housing_v2" in place of the stock lens holder), in a printed tray hung from the
-# bottom slot of the front top rail, centred, looking back and down at the bed.
+# bottom slot of the rear top rail, centred, looking forward and down at the bed. It sits in a 108 x 40 opening
+# cut in the top edge of the back upper insulation board (see pir_notch.py).
 # Board sizes: Jonas's "C270" STEP model and his scan "Logitech C270 Chip v2.0.stl" (2026-11-16); they agree within 1 mm,
 # and the pocket takes either.
 # usage: python3 mkcam.py  -> cam_run.json ; rcad run cam_run.json -> cam-doc.json (studio 0 = "Webcam")
 import json, math
 TH=38.0                        # tilt below horizontal
-CX,CY,CZ=-13.0,226.5,550.0     # lens axis at the board's front face (world)
+CX,CY,CZ=412.0,226.5,550.0     # lens axis at the board's front face (world)
 c,s=math.cos(math.radians(TH)),math.sin(math.radians(TH))
-def L(x,z): return (round(CX+c*x+s*z,4), round(CZ-s*x+c*z,4))   # local (view axis, up-ish) -> world (x,z)
+def L(x,z): return (round(CX-c*x-s*z,4), round(CZ-s*x+c*z,4))   # local (view axis, up-ish) -> world (x,z)
 def SK(y,z,x=0.0):                                               # local (y,z) at depth x -> sketch coords on a plane normal to the view axis
-    wx,wz=L(x,z); return [round(CY+y,4), round(wx*s+wz*c,4)]
+    wx,wz=L(x,z); return [round(SX*(CY+y),4), round(SY*(wx*s-wz*c),4)]
 def P3(x,y,z): wx,wz=L(x,z); return [wx, CY+y, wz]
-N=[c,0.0,-s]
+N=[-c,0.0,-s]
+SX,SY=-1,-1   # signs of the sketch frame rcad picks on faces with normal N (checked against the create_sketch results)
 RAIL_Z=570.2; PAD_T=4.0; PAD_Z=RAIL_Z-PAD_T
 # camera-local layout: x along the view axis (0 = board front = top of the tray walls), y along the board, z across it
 F=0.0
@@ -44,16 +46,16 @@ def body(at,name,items,depth):
 for k,v in (('cam_tilt',TH),('pad_t',PAD_T)): add({'tool':'set_variable','args':{'name':k,'expr':str(v)}})
 # 1 tray block + neck up to the rail
 p=yplane(CY+Y0,'Mount side plane')
-sk=sketch({'kind':'feature_plane','feature':p},'Block profile',[poly([L(F,HZ),L(F,-HZ),L(BACK,-HZ),L(BACK,6),(-22,PAD_Z),(-25.5,PAD_Z),(-25.5,RAIL_Z),(-5.5,RAIL_Z),(-5.5,564.0)])])
+sk=sketch({'kind':'feature_plane','feature':p},'Block profile',[poly([L(F,HZ),L(F,-HZ),L(BACK,-HZ),L(BACK,6),(421,PAD_Z),(424.5,PAD_Z),(424.5,RAIL_Z),(404.5,RAIL_Z),(404.5,564.0)])])
 MOUNT=feat('extrude','Tray block',{'profiles':[{'sketch':sk}],'depth':str(round(Y1-Y0,3)),'op':'new','opposite':True})
 # 2 pad ears, one each side, M5 clearance holes (into T-nuts in the rail's bottom slot)
-sk=sketch({'kind':'feature_plane','feature':p},'Pad profile',[rect([-25.5,PAD_Z],[-5.5,RAIL_Z])])
+sk=sketch({'kind':'feature_plane','feature':p},'Pad profile',[rect([404.5,PAD_Z],[424.5,RAIL_Z])])
 feat('extrude','Rail pad ear (-Y)',{'profiles':[{'sketch':sk}],'depth':str(EAR),'op':'add'})
 p2=yplane(CY+Y1,'Mount far side plane')
-sk=sketch({'kind':'feature_plane','feature':p2},'Pad profile 2',[rect([-25.5,PAD_Z],[-5.5,RAIL_Z])])
+sk=sketch({'kind':'feature_plane','feature':p2},'Pad profile 2',[rect([404.5,PAD_Z],[424.5,RAIL_Z])])
 feat('extrude','Rail pad ear (+Y)',{'profiles':[{'sketch':sk}],'depth':str(EAR),'op':'add','opposite':True})
 pt=feat('plane','Pad underside plane',{'base':{'kind':'origin_plane','plane':'Top'},'offset':str(PAD_Z)})
-sk=sketch({'kind':'feature_plane','feature':pt},'M5 holes',[circ([-15.5,CY+Y0-EAR/2],2.65),circ([-15.5,CY+Y1+EAR/2],2.65)])
+sk=sketch({'kind':'feature_plane','feature':pt},'M5 holes',[circ([414.5,CY+Y0-EAR/2],2.65),circ([414.5,CY+Y1+EAR/2],2.65)])
 feat('extrude','M5 clearance holes',{'profiles':[{'sketch':sk}],'depth':'pad_t','op':'remove'})
 # 3 board pocket, cavity for the parts on the back, window for the USB connector and cable
 W=(F,Y0+1.0,0)   # a point on the end wall's top face, which survives every cut
@@ -83,9 +85,9 @@ add({'tool':'set_parts','args':{'parts':[
  {'body':[LB,0],'name':'M12 2.1 mm lens barrel (reference)','color':'#101010'},
  {'body':[LF,0],'name':'M12 2.1 mm lens flange (reference)','color':'#181818'}]}})
 add({'tool':'describe','args':{}})
-for v in ('iso_back_right','iso_front_right'):
+for v in ('iso_back_right','iso_front_right','iso_front_left'):
     add({'tool':'render','args':{'view':v,'width':1100,'height':800,'path':f'cam_{v}.png'}})
-add({'tool':'render','args':{'direction':[c,0.0,-s],'width':1100,'height':800,'path':'cam_face.png'}})
-add({'tool':'render','args':{'direction':[0.5,-0.7,-0.5],'width':1100,'height':800,'path':'cam_34.png'}})
+add({'tool':'render','args':{'direction':[-c,0.0,-s],'width':1100,'height':800,'path':'cam_face.png'}})
+add({'tool':'render','args':{'direction':[-0.5,-0.7,-0.5],'width':1100,'height':800,'path':'cam_34.png'}})
 add({'tool':'save_document','args':{'path':'cam-doc.json'}})
 json.dump(S,open('cam_run.json','w'),indent=0)
