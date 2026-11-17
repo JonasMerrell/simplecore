@@ -171,29 +171,32 @@ These are kept for reference, and they use scratch paths.
   - `splice_tr.py`: adds the studio, the assembly and the Printer instance.
 - **Renders:** `renders/tradrack-overview.png`, `tradrack-closeup.png` and `tradrack-mount-holes.png` (panels and door hidden).
 
-## Changes on 2026-11-16: purge bucket
+## Changes on 2026-11-16: purge bucket and nozzle brush
 
-- **What.** A printed purge bucket for Trad Rack toolchanges, and the cleat it hangs on. The nozzle scrubber is the one already on the machine: the silicone pad on the bent bracket on the gantry's left end (`Bent bracket (Part 1)` in **X gantry**). Nothing on the gantry or toolhead changes.
+- **What.** A printed purge bucket for Trad Rack toolchanges with a silicone nozzle brush in its rim, and the cleat it hangs on.
+- **The old wiper comes off.** The pad arm on the gantry's left end (`Bent bracket (Part 1)` in **X gantry**) would pass through the fixed brush, so it has to be removed from the machine. It is hidden in the model, not deleted: unhide it in **X gantry** to get it back.
 - **Where.** In the gap between the bed's left edge and the left side wall, hung from the left mid frame rail (the 2020 the Y rail sits on). Left is +Y, the door-hinge side, the same side as the filament cutter.
-  - The nozzle can go about 20 mm past the left edge of the bed (bed edge y 382.8, nozzle up to y 402 in the model, about 407 at the firmware's X −5). The scrub pad sits under the first 15 mm of that (y 387 to 401.5). Past the pad's outer edge the nozzle is over open air, 5 mm beside the bracket's arm. That is the purge spot, and the bucket sits under it.
-  - Because the pad rides on the gantry, it is at the nozzle's side at every front-to-back position. So the bucket can sit anywhere along the gap. It is at x 110 to 210, behind the front-left Z rail parts (which end at x 95) and in easy reach of the door. The purge spot is the middle, x 160.
-  - The bed frame doesn't reach into this part of the gap (its cross bar and Z carriage are at x 53 to 83), so the bucket clears the bed over its whole Z travel.
+  - The nozzle can go about 20 mm past the left edge of the bed (bed edge y 382.8, nozzle up to y 402 in the model, about 407 at the firmware's X −5). The brush and the purge spot both live in that strip.
+  - The bucket is at x 110 to 210, behind the front-left Z rail parts (which end at x 95) and in easy reach of the door. The bed frame doesn't reach into this part of the gap (its cross bar and Z carriage are at x 53 to 83), so the bucket clears the bed over its whole Z travel.
+  - **Front half: the brush** (x 115.8 to 157.8, y 391.3 to 403.3). **Rear half: open** (x 159.6 to 207.6), and the purge spot is its middle, x 183.6. The Beacon trails 15 to 49 mm behind the nozzle, so with the brush in front it is over the open half while the nozzle is on the brush.
 - **Bucket.** 100 long (front to back) × 61 wide × 175 deep, 2.4 mm walls, open top, about 0.9 litre. Outside: x 110 to 210, y 389.5 to 450.5, z 215 to 390.
-  - The rim can't go higher: it is 4.8 mm below the wiper bracket, which passes over it, and 11.8 mm below the nozzle tip. So the extra depth goes down. The underside (z 215) stays above the bed's top when the bed is parked at END_PRINT's Z215 (z 186.8), so the bucket slides out over a lowered bed.
-  - The bed-side wall is 6.7 mm from the bed plate's edge.
+  - The rim is 11.8 mm below the nozzle tip. The underside (z 215) stays above the bed's top when the bed is parked at END_PRINT's Z215 (z 186.8), so the bucket slides out over a lowered bed.
+  - The bed-side wall is 6.7 mm from the bed plate's edge. Nothing sticks out past it, the brush pocket included.
   - The back wall carries on up to z 420 and has two 11 × 14 mm windows.
+- **Brush.** A 42 × 12 × 15 mm silicone nozzle brush (the kind sold for Voron purge buckets), pressed into a 42.4 × 12.4 pocket, 6.2 deep, on the inside of the bed-side wall. Its bristle tips are 1.0 mm above the nozzle tip. The pocket is a block whose underside slopes 45° back to the wall. Variables `brush_len`, `brush_w`, `brush_h` and `BR_L`, `BR_W`, `BR_H`, `ENGAGE` in `mk.py` set it for a different brush.
 - **Cleat.** 100 × 20 × 6 mm, screwed to the inner face of the rail with two M5 button-head screws and T-nuts (x 122 and 198, on the slot centre, z 411). The heads sit in 3 mm counterbores, flush. Two pegs, 10 wide and 5 long, stick out of its face at x 140 and 180. Each peg's top slopes up at 45° away from the rail, so the bucket's weight pulls its back wall against the cleat.
-- **Taking the bucket out.** No tools: lift it 3 mm, pull it 5.3 mm toward the bed to come off the pegs, then lift it out (or slide it out over the bed when the bed is down). The gantry must not be over it. The macro `PURGE_BUCKET_SERVICE` moves the gantry to the back and lowers the bed first.
-- **Clearances** (bounding boxes, moving parts swept over their full travel): bed plate 6.7 mm, wiper bracket 4.8 mm, Beacon 10.3 mm, nozzle 11.8 mm, Y-rail carriage 3 mm above the back wall and 6 mm beside it, left PIR board 1.6 mm behind the bucket. The Trad Rack and the chamber heater are on the other side (−Y).
+- **Taking the bucket out.** No tools: lift it 3 mm, pull it 5.3 mm toward the bed to come off the pegs, then lift it out (or slide it out over the bed when the bed is down). The brush comes out with it. The gantry must not be over it. The macro `PURGE_BUCKET_SERVICE` moves the gantry to the back and lowers the bed first.
+- **Clearances** (bounding boxes, moving parts swept over their full travel, wiper arm removed): bed plate 6.7 mm, pocket walls 7.8 mm below the nozzle tip, Y-rail carriage 3 mm above the back wall and 6 mm beside it, left PIR board 1.6 mm behind the bucket. The Trad Rack and the chamber heater are on the other side (−Y).
 - **Printing, no supports.** ASA or ABS (it lives in the heated chamber and catches hot plastic).
-  - Bucket: open side up, 205 mm tall. Nothing overhangs except the tops of the two windows, which are 11 mm bridges.
+  - Bucket: open side up, 205 mm tall. Nothing overhangs past 45° except the tops of the two windows, which are 11 mm bridges.
   - Cleat: on its back (rail face down). The pegs widen at 45° as they go up, and the counterbores open upward.
   - `step/Purge bucket.step` and `step/Purge bucket cleat.step` are in local frames, already in these orientations.
 - **What's assumed.**
-  - The model's wiper bracket matches the printed one on the machine, and the pad is where the bracket's foot is. From the photos it does.
+  - The brush size. 42 × 12 × 15 is a common one, but measure yours before printing.
+  - The Beacon and the part cooling duct. In the model the duct's lip is 1.0 mm above the nozzle tip, level with the bristle tips, and the Beacon is drawn 1.5 mm *below* the tip, which can't be right on the machine. If the Beacon really sits less than 1 mm above the nozzle tip, it will touch the bristles when the nozzle is at the front of the brush. Silicone gives, but check it.
   - The model has no wiring, bed heater leads or flex-plate tab on the left edge. If something sticks out past the plate's left edge between x 110 and 210, move the bucket (`X0`, `X1` in `mk.py`).
-  - Firmware Y for the purge spot is an estimate (Y ≈ 127): the model and the firmware agree on X (X0 ≈ y 399 to 402) but the Y offset is only known to about ±6 mm. The bucket is 95 mm long inside, so that's inside the margin. Jog there and check before turning the macro on.
-- **Model.** Part Studio **Purge bucket** (variables `bucket_len`, `bucket_depth`, `wall`; plain sketch-and-extrude features in world position), assembly **Purge bucket** (bucket and cleat, fixed), in Printer as instance 21 (instance 19 in X-carriage-no-belts.json). The files before this change are in the history.
-- **Macros.** In JonasMerrell/simplecore-config, `config/purge.cfg`: `PURGE_AND_WIPE` goes to the bucket, purges, lets the strand cool and scrubs across the pad. Trad Rack's `post_load_gcode` calls it after each load during a print once `_PURGE_VARS.enabled` is True.
+  - Firmware positions are estimates: the model and the firmware agree on X to a few mm (X0 ≈ y 399 to 402), but the Y offset is only known to about ±6 mm (x ≈ Y + 33). Purge spot ≈ X−3 Y150, brush centre ≈ X3 Y104. Jog there and check before turning the macros on.
+- **Model.** Part Studio **Purge bucket** (plain sketch-and-extrude features in world position), assembly **Purge bucket** (bucket, cleat and the brush, fixed), in Printer as instance 21 (instance 19 in X-carriage-no-belts.json). The files before this change are in the history.
+- **Macros.** In JonasMerrell/simplecore-config, `config/purge.cfg`: `PURGE_AND_WIPE` goes to the purge spot, purges, lets the strand cool, then runs the nozzle along the brush. Trad Rack's `post_load_gcode` calls it after each load during a print once `_PURGE_VARS.enabled` is True.
 - **Scripts:** `scripts/purge/mk.py` writes the rCAD run script for the studio (`rcad run run.json`), `splice.py` adds it to the documents, and `render.json` makes the renders. Built with rCAD 0.8.0.
-- **Renders:** `renders/purge-overview.png`, `purge-closeup.png`, `purge-front.png` (nozzle at the purge spot, bed at first-layer height, panels and insulation hidden) and `purge-bucket-parts.png`.
+- **Renders:** `renders/purge-overview.png`, `purge-closeup.png`, `purge-front.png` (nozzle on the brush, bed at first-layer height, panels and insulation hidden) and `purge-bucket-parts.png`.

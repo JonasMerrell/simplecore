@@ -27,6 +27,18 @@ T=2.4                        # walls and floor
 ZW=420.0                     # top of the back wall
 WINZ0=399.5                  # window bottom
 WINZ1=PEGZ1+T                # window top: sits on the peg's slope with the wall against the cleat face
+# --- brush pocket on the bed-side rim, front half of the bucket (the purge spot is the rear half, x 183) ---
+BR_L,BR_W,BR_H=42.0,12.0,15.0   # silicone nozzle brush: length (front to back), width, height
+ENGAGE=1.0                   # bristle tips this far above the nozzle tip
+W=1.6                        # pocket walls
+BKX0=X0+4.0                  # block starts behind the corner fillet
+BX0=BKX0+W                   # pocket, x
+BX1=BX0+BR_L+0.4
+BY0=Y0+W                     # pocket, y (brush centre y 397.3 = firmware X about +2 to +5)
+BY1=BY0+BR_W+0.4
+BZ=NOZZLE_Z+ENGAGE-BR_H      # pocket floor
+BTOP=394.0                   # top of the pocket walls
+BFLOOR=2.0
 S=[]; add=S.append
 def r(a,b): return {'type':'rect','corner1':[round(a[0],3),round(a[1],3)],'corner2':[round(b[0],3),round(b[1],3)]}
 n=[0]
@@ -48,6 +60,14 @@ top(ZB+T,'Cavity',[r((X0+T,Y0+T),(X1-T,Y1-T))],'Cavity',ZR-ZB-T,'remove')
 feat('fillet','Outer corners',{'edges':[{'kind':'edge','point':[X0,Y0,(ZB+ZR)/2]},{'kind':'edge','point':[X1,Y0,(ZB+ZR)/2]}],'radius':'4'})
 pw=plane('Front',-(Y1-T),'Back wall inner face')     # Front plane normal is -Y; sketch x = world x, y = world z
 ex(sketch(pw,'Hanging windows',[r((px-PEGW/2-0.5,WINZ0),(px+PEGW/2+0.5,WINZ1)) for px in PEGX]),'Windows that hang on the cleat pegs',T+1,'remove',opp=True)
+# brush pocket: a block on the bed-side wall whose underside slopes 45 deg back to the wall (no supports)
+pb=plane('Right',BKX0,'Brush block end')
+yo=BY1+W; zb=BZ-BFLOOR
+ex(sketch(pb,'Brush block profile',[{'type':'polyline','closed':True,'points':[[Y0,BTOP],[yo,BTOP],[yo,zb],[Y0+T-0.5,zb-(yo-(Y0+T-0.5))],[Y0,zb-(yo-(Y0+T-0.5))]]}]),'Brush block (underside slopes 45 deg)',BX1+W-BKX0,'add')
+top(BZ,'Brush pocket',[r((BX0,BY0),(BX1,BY1))],'Pocket for the silicone brush',BTOP-BZ+1,'remove')
+add({'tool':'set_variable','args':{'name':'brush_len','expr':str(BR_L)}}); add({'tool':'set_variable','args':{'name':'brush_w','expr':str(BR_W)}}); add({'tool':'set_variable','args':{'name':'brush_h','expr':str(BR_H)}})
+# the brush itself, for reference (not printed)
+BRUSH=top(BZ,'Brush footprint',[r((BX0+0.2,BY0+0.2),(BX1-0.2,BY1-0.2))],'Silicone brush 42x12x15 (bought)','brush_h','new')
 # cleat
 CLEAT=top(ZC0,'Cleat footprint',[r((X0,YC),(X1,RAIL_FACE))],'Cleat',ZC1-ZC0,'new')
 for i,px in enumerate(PEGX):
@@ -57,6 +77,7 @@ pf=plane('Front',-YC,'Cleat front face')
 ex(sketch(pf,'Screw holes',[{'type':'circle','center':[kx,ZS],'radius':2.75} for kx in KX]),'M5 clearance holes',RAIL_FACE-YC+1,'remove',opp=True)
 ex(sketch(pf,'Counterbores',[{'type':'circle','center':[kx,ZS],'radius':5.0} for kx in KX]),'Counterbores for M5 button heads',3.0,'remove',opp=True)
 add({'tool':'set_part','args':{'body':[BODY,0],'name':'Purge bucket','color':[232,120,32]}})
+add({'tool':'set_part','args':{'body':[BRUSH,0],'name':'Silicone nozzle brush 42x12x15','color':[200,60,50]}})
 add({'tool':'set_part','args':{'body':[CLEAT,0],'name':'Purge bucket cleat','color':[40,40,44]}})
 add({'tool':'describe','args':{}})
 add({'tool':'render','args':{'path':'bucket.png','width':1200,'height':900,'direction':[-1,-0.8,0.7]}})
@@ -64,4 +85,4 @@ add({'tool':'render','args':{'path':'bucket-back.png','width':1200,'height':900,
 add({'tool':'export','args':{'format':'step','path':'purge-bucket-and-cleat.step'}})
 add({'tool':'save_document','args':{'path':'bucket-doc.json'}})
 json.dump(S,open('run.json','w'),indent=0)
-json.dump({'bucket':[BODY,0],'cleat':[CLEAT,0]},open('bodies.json','w'))
+json.dump({'bucket':[BODY,0],'brush':[BRUSH,0],'cleat':[CLEAT,0]},open('bodies.json','w'))
