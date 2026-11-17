@@ -173,9 +173,8 @@ These are kept for reference, and they use scratch paths.
 
 ## Changes on 2026-11-16: webcam
 
-- **What.** A chamber camera under the rear top rail, in the middle, looking forward and 38° down at the bed (first drawn at the front, moved to the back the same day). The camera is a Logitech C270 with its case removed, held as a bare board, with a 2.1 mm M12 wide-angle lens in a printed holder. `webcam/README.md` has the measurements, the clearances, the print notes and the streaming setup (crowsnest and Moonraker config files are next to it).
-- **Model.** Part Studio **Webcam** (the printed mount and two clamp bars, plus reference blocks for the board, lens holder and lens), assembly **Webcam**, in Printer as instance 21 (instance 19 in X-carriage-no-belts.json).
-- **Insulation.** Part Studio **PIR insulation** has one new cut at the end: a 108 × 40 mm opening through the back upper board at its top edge, in the middle, so the mount can reach the rear rail's bottom slot. Nothing else changed.
-- **Not checked.** The toolhead cable chain isn't modelled, and at the back it is the main thing to check. The mount can slide along the rail slot.
-- **Renders:** `renders/webcam-rear.png` (panels, door, insulation and Trad Rack hidden), `webcam-rear-insulation-opening.png` (from inside, looking up at the opening) and `webcam-mount-face.png` (the mount alone). **STEP:** `step/Webcam mount + bezel.step`.
-- **Scripts:** `scripts/webcam/mkcam.py`, `pir_notch.py` and `splice_cam.py`.
+- **What.** A chamber camera high on the right wall, taped to the right upper insulation board with VHB, looking across the bed and 45° down (first drawn under the front rail, then the rear rail, moved to the wall on 2026-11-17 because of the cable chain). The camera is a Logitech C270 with its case removed, held as a bare board, with a 2.1 mm M12 wide-angle lens in a printed holder. `webcam/README.md` has the measurements, the clearances, the print notes and the streaming setup (crowsnest and Moonraker config files are next to it).
+- **Model.** Part Studio **Webcam** (the printed wall mount and two clamp bars, plus reference blocks for the board, lens holder and lens), assembly **Webcam**, in Printer as instance 21 (instance 19 in X-carriage-no-belts.json). Nothing else changed.
+- **Not checked.** Wires or tubes along the right wall aren't modelled. The mount is taped, so it can go anywhere on the wall.
+- **Renders:** `renders/webcam-wall.png` and `webcam-wall-close.png` (from inside the chamber, door and Trad Rack hidden) and `webcam-mount-side.png` (the mount alone, end on). **STEP:** `step/Webcam mount + bezel.step`. **STL for printing:** `webcam/print/`.
+- **Scripts:** `scripts/webcam/mkwall.py` and `splice_cam.py`.

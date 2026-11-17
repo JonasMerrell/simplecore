@@ -1,7 +1,6 @@
 # Add the webcam (printed mount, clamp bars and the reference bodies for the board, lens holder and lens) to the document.
-# usage: python3 pir_notch.py X-carriage.json && rcad run notch_run.json   (cuts the opening in the back insulation board, once)
-#        python3 mkcam.py && rcad run cam_run.json                         (writes cam-doc.json)
-#        python3 splice_cam.py cam-doc.json X-carriage.json                -> writes X-carriage.json.new
+# usage: python3 mkwall.py && rcad run cam_run.json            (writes cam-doc.json)
+#        python3 splice_cam.py cam-doc.json X-carriage.json   -> writes X-carriage.json.new
 # The splice only adds: a new Part Studio "Webcam", a new assembly "Webcam", and one instance in Printer.
 import json,sys,copy
 C=json.load(open(sys.argv[1])); src=sys.argv[2]

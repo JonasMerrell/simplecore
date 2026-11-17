@@ -24,32 +24,33 @@ Other things to expect:
 
 ## Where it goes
 
-Under the **rear top rail, in the middle**, looking forward (toward the door) and 38° down at the bed. Jonas asked for the back instead of the front on 2026-11-16. The lens axis crosses the board's front face at x 412, y 226.5, z 550 (front of the printer is −X).
+On the **right wall, high up**, stuck to the inner face of the right upper insulation board with VHB tape, looking across the bed and 45° down. Jonas chose this on 2026-11-17: at the back the camera was in the way of the toolhead's cable chain, and before that it was drawn under the front rail. Both earlier versions are in the history.
 
-- **The insulation needs an opening.** The back upper insulation board sits right under the rear top rail and covers its bottom slot. The model has a 108 × 40 mm opening cut through that board at its top edge (y 188.4 to 296.4, z 531 to 570.2), in the middle. The mount sits in the opening against the back panel, and the two M5 screws are reached from inside through it. The back panel itself is not cut.
-- The nozzle stays at one height (z ≈ 402) and the bed drops, so a camera above the gantry always sees the current layer. The centre of the picture meets the nozzle plane at x ≈ 222, a little behind the bed centre (191).
-- **What the view is like from the back.** The camera looks at the back of the toolhead (cable chain mount and extruder motor). When the toolhead prints near the back middle it fills most of the picture (`rear-4`). Parts at the front of the bed are seen past the gantry beam.
-- The board's long side runs along the rail. The tray is between x 403.2 and 424.7, 5.8 mm in front of the back panel. The lens sticks out of the opening to x 389.2, and its rim is the lowest point at z 529.5.
-- Clearances with the gantry fully back: the toolhead body reaches x 388 but only up to z 482, 47 mm below the lens. The cable chain mount (top z 537) reaches x 366.6, 22 mm in front of the lens rim. About 1 mm under the top insulation (foam).
-- **Not checked:** the toolhead's cable chain is not in the model, and it is the main thing to check at the back. If it loops up behind the toolhead in the middle, slide the mount along the rail slot (the opening then moves with it) or tell me where the chain runs. The Trad Rack's filament tube is not modelled either.
+- Right is the −Y side, the side the Trad Rack hangs on outside. The lens axis crosses the board's front face at x 150, y 15.5, z 548 (front of the printer is −X, so the lens is 41 mm in front of the bed centre line). The board's long side runs front to back.
+- The mount covers x 123.9 to 207.9 and z 532 to 561.6, and stands 24.7 mm off the wall. The lens rim reaches 36.4 mm off the wall (y 37.3) and is the lowest point at z 526.2. The top of the mount is 3.2 mm under the top insulation board.
+- Clearance: with the toolhead as far right as it goes (Y slider 81), everything on it above the gantry stays 54.5 mm or more off the wall, so 18 mm clear of the lens rim. The extruder tops out at z 521 and the cable chain mount (z 537) stays 60 mm off the wall.
+- The nozzle stays at one height (z ≈ 402) and the bed drops, so the camera always sees the current layer. The centre of the picture meets the nozzle plane 162 mm from the wall, 65 mm short of the bed centre, and the picture reaches from the bed's right edge to past its left edge.
+- **What the view is like.** The door is on the left of the picture and the gantry beam on the right, so the camera sees the nozzle side of the toolhead. When the toolhead is right under the camera it fills the picture (`wall-4`).
+- Because it is taped, it can go anywhere along the wall. Further forward shows more of the toolhead's front, further back more of the beam.
+- **Top insulation.** The model does have a 25.4 mm insulation board under the top panel (its underside is at z 564.8). If the real sheet is thicker or hangs lower, the mount needs to sit lower by the same amount. There is 60 mm of board below it.
+- **Not checked:** wires or tubes along the right wall are not in the model.
 
 ## The mount (Part Studio "Webcam", assembly "Webcam", in Printer)
 
-Three small printed parts plus the lens holder, in ASA or another filament that takes chamber heat:
+Three small printed parts plus the lens holder, in ABS or ASA:
 
-- **Webcam mount.** A pad under the rear rail with an M5 hole at each end (M5 × 8 button heads into T-nuts in the rail's bottom slot) and a shallow tray for the board. The board sits on a 2 mm ledge at each short end, with a 2 mm cavity behind it for the parts on the back and a window right across the back wall for the USB connector and cable.
-- **Two clamp bars**, one over each short end of the board, each with two M2 self-tapping screws into the tray walls. They only touch the bare ends of the board, so the lens holder and lens are free.
+- **Webcam wall mount.** A flat pad, 84 × 29.6 × 3 mm, that takes the VHB tape, with a shallow tray for the board held 45° off it. The tray's lower edge grows out of the pad and a web ties its top edge to the pad. The triangle left open behind the tray is the cable channel, open at both ends. The board sits on a 2 mm ledge at each short end, with a 2 mm cavity behind it for the parts on the back and a window right across the back wall for the USB connector and cable.
+- **Two clamp bars**, one over each short end of the board, each with two M2 self-tapping screws into the tray walls. They only touch the bare ends of the board, so the lens holder and lens are free. They are the same two bars as on the earlier mounts, so the ones printed on 2026-11-16 still fit.
 - **M12 lens holder** (`m12_lens_housing_v2.stl`), printed as it is.
-- Assembly: unscrew the stock lens holder from the back of the board, screw the printed holder on in its place, thread the lens in, lay the board in the tray, fit the two bars. Cut the opening in the back insulation board, then screw the mount to the rail through it and lead the USB cable out of the opening's side.
+- Assembly: unscrew the stock lens holder from the back of the board, screw the printed holder on in its place, thread the lens in, lay the board in the tray with the lens at the front end, fit the two bars, lead the cable out of the channel. Clean the foil face of the insulation, then tape the pad on with the tray's open side facing down and into the chamber.
+- VHB: cover most of the pad (about 25 cm²). The whole camera weighs about 30 g. The tape holds on the insulation's foil facing, so it is only as strong as that facing is bonded to the foam.
 - The board, holder and lens in the model are plain reference blocks.
-- `webcam/print/` has the three printed parts as STL files, already turned the way they print (`webcam-mount.stl`, `webcam-clamp-bar-lens-end.stl`, `webcam-clamp-bar-cable-end.stl`).
-- `step/Webcam mount + bezel.step` has the parts for slicing (it also holds the reference blocks, so pick the mount and the two bars). Print the mount upside down, with the pad face that touches the rail flat on the bed. It then needs no supports: the tray's back leans 38° from vertical, and the only steeper spot is the 3 mm lip of the board pocket and the top edge of the USB window at 52°. The clamp bars print flat.
-- The pocket has 0.3 to 0.5 mm clearance. Print the tray first and test the board in it before fitting it to the printer.
+- `webcam/print/` has the three printed parts as STL files, already turned the way they print (`webcam-wall-mount.stl`, `webcam-clamp-bar-lens-end.stl`, `webcam-clamp-bar-cable-end.stl`). The mount prints with the pad flat on the bed and needs no supports: nothing overhangs more than 45°. The clamp bars print flat.
+- `step/Webcam mount + bezel.step` has the same parts as modelled (it also holds the reference blocks).
+- The pocket has 0.3 to 0.5 mm clearance, the same pocket as the mount printed on 2026-11-16, so that print is a valid test fit for the board.
 - Which way up the picture comes out depends on the sensor's orientation on the board. If it is upside down, set `rotation: 180` in the Moonraker webcam section.
 
-`scripts/webcam/mkcam.py` builds the studio (tilt, position and board sizes are at the top) and `splice_cam.py` adds it to the documents. `pir_notch.py` cuts the opening in the insulation board (two features and a plane at the end of Part Studio "PIR insulation"). Both documents have all of it.
-
-The mount is a mirror image of the first version for the front rail (in the history). The tray is symmetric across the board, so the board fits either way round.
+`scripts/webcam/mkwall.py` builds the studio (tilt, position and board sizes are at the top) and `splice_cam.py` adds it to the documents. Both documents have it. The change only adds a studio, an assembly and one Printer instance. The insulation opening made for the rear position is gone again.
 
 ## Streaming
 
@@ -70,11 +71,11 @@ The first proposal was a 3DO Enclosure Camera V2.5: 120° lens, rated to 65 °C,
 
 ## Predicted view
 
-`webcam/predicted-view/` has renders of the model from the lens position at the back, 1280 × 720, with the 2.1 mm M12 lens taken as 100° diagonal. Real wide lenses also bend straight lines toward the edges, which these renders don't show. The door and the Trad Rack are hidden, so the dark area at the top is where the door is. The bed is drawn dark with a 50 mm grid, yellow lines through the bed centre, and the orange block is a 50 mm square test part.
+`webcam/predicted-view/` has renders of the model from the lens position on the right wall, 1280 × 720, with the 2.1 mm M12 lens taken as 100° diagonal. Real wide lenses also bend straight lines toward the edges, which these renders don't show. The door and the Trad Rack are hidden, so the dark area on the left is where the door is. The bed is drawn dark with a 50 mm grid, yellow lines through the bed centre, and the orange block is a 50 mm square test part.
 
-- `rear-1-toolhead-at-front.png`: 44 mm into a print, toolhead parked at the front.
-- `rear-2-printing-centre.png`: the same, toolhead printing at the bed centre.
-- `rear-3-first-layer.png`: first layer, toolhead front right.
-- `rear-4-toolhead-at-back.png`: toolhead at the back middle, the worst case: its back fills most of the picture.
+- `wall-1-toolhead-parked-back-left.png`: 44 mm into a print, toolhead parked at the back left.
+- `wall-2-printing-centre.png`: the same, toolhead printing at the bed centre.
+- `wall-3-first-layer.png`: first layer, toolhead toward the back left.
+- `wall-4-toolhead-under-camera.png`: toolhead at the far right in front of the camera, the worst case.
 
-Made by exporting the Printer assembly with `export_web`, pointing the page at a local copy of three.js (`npm pack three@0.147.0`), and rendering with `scripts/webcam/camera-view-shot.js` in headless Chromium.
+Made by exporting the Printer assembly with `export_web`, pointing the page at a local copy of three.js (`npm pack three@0.147.0`), and rendering with `scripts/webcam/camera-view-shot.js` in headless Chromium. `renders/webcam-wall.png` and `webcam-wall-close.png` come from the same page with the camera inside the chamber.
