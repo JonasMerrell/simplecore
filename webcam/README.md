@@ -42,7 +42,7 @@ Three small printed parts plus the lens holder, in ASA or another filament that 
 - **M12 lens holder** (`m12_lens_housing_v2.stl`), printed as it is.
 - Assembly: unscrew the stock lens holder from the back of the board, screw the printed holder on in its place, thread the lens in, lay the board in the tray, fit the two bars. Cut the opening in the back insulation board, then screw the mount to the rail through it and lead the USB cable out of the opening's side.
 - The board, holder and lens in the model are plain reference blocks.
-- `step/Webcam mount + bezel.step` has the parts for slicing (it also holds the reference blocks, so pick the mount and the two bars). Print the tray with its back face down.
+- `step/Webcam mount + bezel.step` has the parts for slicing (it also holds the reference blocks, so pick the mount and the two bars). Print the mount upside down, with the pad face that touches the rail flat on the bed. It then needs no supports: the tray's back leans 38° from vertical, and the only steeper spot is the 3 mm lip of the board pocket and the top edge of the USB window at 52°. The clamp bars print flat.
 - The pocket has 0.3 to 0.5 mm clearance. Print the tray first and test the board in it before fitting it to the printer.
 - Which way up the picture comes out depends on the sensor's orientation on the board. If it is upside down, set `rotation: 180` in the Moonraker webcam section.
 
