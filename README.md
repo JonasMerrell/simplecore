@@ -173,8 +173,9 @@ These are kept for reference, and they use scratch paths.
 
 ## Changes on 2026-11-16: webcam
 
-- **What.** A chamber camera high on the right wall, taped to the right upper insulation board with VHB, looking across the bed and 45° down (first drawn under the front rail, then the rear rail, moved to the wall on 2026-11-17 because of the cable chain). The camera is a Logitech C270 with its case removed, held as a bare board, with a 2.1 mm M12 wide-angle lens in a printed holder. `webcam/README.md` has the measurements, the clearances, the print notes and the streaming setup (crowsnest and Moonraker config files are next to it).
-- **Model.** Part Studio **Webcam** (the printed wall mount and two clamp bars, plus reference blocks for the board, lens holder and lens), assembly **Webcam**, in Printer as instance 21 (instance 19 in X-carriage-no-belts.json). Nothing else changed.
+- **What.** A chamber camera high on the right wall, taped to the bare aluminium side panel with VHB, looking across the bed and 45° down (first drawn under the front rail, then the rear rail, moved to the wall on 2026-11-17 because of the cable chain). The camera is a Logitech C270 with its case removed, with a 2.1 mm M12 wide-angle lens. The mount is one printed part that includes the M12 lens holder, and the board screws to the back of it. `webcam/README.md` has the measurements, the clearances, the print notes and the streaming setup (crowsnest and Moonraker config files are next to it).
+- **Model.** Part Studio **Webcam** (the printed mount, plus reference blocks for the board and lens), assembly **Webcam**, in Printer as instance 21 (instance 19 in X-carriage-no-belts.json).
+- **Insulation.** Jonas's printer has no upper side insulation boards, so "PIR right side, upper" and "PIR left side, upper" are hidden in the **PIR insulation** assembly. Nothing else changed.
 - **Not checked.** Wires or tubes along the right wall aren't modelled. The mount is taped, so it can go anywhere on the wall.
-- **Renders:** `renders/webcam-wall.png` and `webcam-wall-close.png` (from inside the chamber, door and Trad Rack hidden) and `webcam-mount-side.png` (the mount alone, end on). **STEP:** `step/Webcam mount + bezel.step`. **STL for printing:** `webcam/print/`.
-- **Scripts:** `scripts/webcam/mkwall.py` and `splice_cam.py`.
+- **Renders:** `renders/webcam-wall.png`, `webcam-wall-close.png` and `webcam-mount-side.png` (from inside the chamber, door and Trad Rack hidden). **STEP:** `step/Webcam mount + bezel.step`. The STL for printing is in the project files (see `webcam/README.md`).
+- **Scripts:** `scripts/webcam/mkmount.py`, `fuse_holder.py`, `hide_upper_pir.py` and `splice_cam.py`.
