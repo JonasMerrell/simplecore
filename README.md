@@ -170,3 +170,7 @@ These are kept for reference, and they use scratch paths.
   - `mkholes.py`: the holes and pockets, run on the no-belts file. The two studios are then copied into the belts file.
   - `splice_tr.py`: adds the studio, the assembly and the Printer instance.
 - **Renders:** `renders/tradrack-overview.png`, `tradrack-closeup.png` and `tradrack-mount-holes.png` (panels and door hidden).
+
+## Changes on 2026-11-17: top lid with gas springs and a seal
+
+The top panel is now a lid hinged along the back, held shut and held open by two over-centre gas springs outside the side panels, with a hollow silicone seal on the top extrusions and the top PIR board bonded underneath. Details, numbers and renders: [`lid/README.md`](lid/README.md). Scripts: `scripts/lid/`.
