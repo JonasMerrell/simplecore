@@ -1,8 +1,8 @@
-# Add the webcam (printed mount, clamp bars and the reference bodies for the board, lens holder and lens) to the document.
-# usage: python3 mkmount.py && rcad run cam_run.json           (writes cam-doc.json and mount-body.stl)
+# Add the webcam (closed two-part box with the lens holder, and the reference bodies for the board and lens) to the document.
+# usage: python3 mkbox.py && rcad run cam_run.json            (writes cam-doc.json, box-body.stl, both.stl, pose.json)
 #        python3 splice_cam.py cam-doc.json X-carriage.json   -> writes X-carriage.json.new
 #        python3 hide_upper_pir.py X-carriage.json.new        (hides the two upper side insulation boards)
-#        python3 fuse_holder.py mount-body.stl m12_lens_housing_v2.stl pose.json out.stl   (the printable STL)
+#        python3 print_files.py box-body.stl both.stl m12_lens_housing_v2.stl pose.json outdir   (the two printable STLs)
 # The splice only adds: a new Part Studio "Webcam", a new assembly "Webcam", and one instance in Printer.
 import json,sys,copy
 C=json.load(open(sys.argv[1])); src=sys.argv[2]

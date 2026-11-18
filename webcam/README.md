@@ -27,31 +27,34 @@ Other things to expect:
 On the **right wall, high up**, taped straight onto the inner face of the aluminium side panel with VHB, looking across the bed and 45° down. Jonas chose the wall on 2026-11-17: at the back the camera was in the way of the toolhead's cable chain, and before that it was drawn under the front rail. The earlier versions are in the history.
 
 - Right is the −Y side, the side the Trad Rack hangs on outside. Jonas's printer has **no upper side insulation boards** (the band above the gantry), so the panel is bare there. The two upper side boards are hidden in the model's "PIR insulation" assembly. The back upper board is left as it was.
-- The lens is on the bed's centre line (x 191.2). The lens axis crosses the board at y −9.9, z 548. The board's long side runs front to back.
-- The mount covers x 156.2 to 226.2 and z 516.6 to 564.3, and stands 34 mm off the panel. The lens rim reaches 36.4 mm off the panel (y 11.9). The pad's top is 5.9 mm under the top side rail.
-- Clearance: with the toolhead as far right as it goes (Y slider 81), everything on it above the gantry stays 80 mm or more off the panel, so 43 mm clear of the lens rim. The gantry end passes 50 mm below the pad.
-- **Tilt.** At 45° the whole bed is in the picture at nozzle height with a little room at the far edge (`wall-3`). Jonas asked for a steeper tilt to see more of the bed. At 50° and 55° the far (left) edge of the bed drops out of the top of the picture while empty space opens under the near edge, so the gain came from setting the camera 25 mm further back on the bare panel and centring it on the bed. `TH` at the top of `mkmount.py` changes the tilt.
+- The lens is on the bed's centre line (x 191.2). The lens axis crosses the board at y −7.4, z 535. The board's long side runs front to back.
+- The box covers x 168.6 to 245.8 and stands 35 mm off the panel. The lens rim reaches 39 mm off the panel (y 14.4) and is the lowest point, at z 513.2. The pad's top is at z 568, 2 mm under the top side rail.
+- Clearance: with the toolhead as far right as it goes (Y slider 81), everything on it above the gantry stays 80 mm or more off the panel, so 41 mm clear of the lens rim. The gantry end passes 47 mm below the lens.
+- **Tilt.** At 45° the whole bed is in the picture at nozzle height with a little room at the far edge (`wall-3`). Jonas asked for a steeper tilt to see more of the bed. At 50° and 55° the far (left) edge of the bed drops out of the top of the picture while empty space opens under the near edge, so the gain came from setting the camera 25 mm further back on the bare panel and centring it on the bed. `TH` at the top of `mkbox.py` changes the tilt.
 - **What the view is like.** The door is on the left of the picture and the gantry beam crosses it, so the camera sees the nozzle side of the toolhead when it prints in front of the beam. When the toolhead is right under the camera it fills the picture (`wall-4`).
 - Because it is taped, it can go anywhere along the wall.
 - **Not checked:** wires or tubes along the right wall are not in the model.
 
 ## The mount (Part Studio "Webcam", assembly "Webcam", in Printer)
 
-**One printed part**, in ABS or ASA: the tape pad and Jonas's M12 lens holder in one piece (Jonas asked for this on 2026-11-17). The tray and the two clamp bars of the earlier versions are gone.
+**A closed box in two printed parts**, in ABS or ASA. Jonas asked on 2026-11-18 for the board to be fully enclosed for protection. Before that the mount was one open part (2026-11-17), and before that a tray with clamp bars.
 
-- A flat pad, 70 × 48 × 3 mm, takes the VHB tape. A rib below the lens holder and a cheek and strut above it tie the holder to the pad at 45°. The rib and the cheek sit just outside the board's two long edges and locate the board between them.
-- The board screws to the back of the lens holder with the stock lens holder's two screws, as in the original camera. Nothing else holds it.
-- Two 5 mm screwdriver holes run straight back from the two screws: one through the strut, one through the pad. Fit the board before taping the mount to the wall.
-- The space between the board and the pad is open at both ends for the USB cable.
-- Assembly: unscrew the stock lens holder from the back of the board, lay the board on the back of the printed holder between the rib and the cheek, drive the two screws through the access holes, thread the lens in and focus it. Clean the panel, then tape the pad on with the lens pointing down and into the chamber.
-- VHB: cover most of the pad (about 30 cm²). The whole camera weighs about 30 g, and aluminium is a good surface for the tape.
-- **The lens holder in the model is simplified** (flange, tower and a plain bore). The printed part uses the real holder: `scripts/webcam/fuse_holder.py` puts `m12_lens_housing_v2.stl` into the mount body and turns it for printing. The result, `webcam-mount-with-lens-holder.stl`, is in the project files under `x-carriage/webcam/print/` and not in this repository, because it contains the holder's model.
+- **Box** (front part): a 77 × 26 × 17 mm shell around the whole board with 2 mm walls and Jonas's M12 lens holder built into its front wall. Only the lens thread comes out of the front.
+- **Back** (rear part): a 2 mm lid that closes the box, and behind it the 3 mm tape pad at 45° with three webs. The pad is 77 × 39 mm.
+- The board screws to the back of the lens holder with the stock lens holder's two screws, as in the original camera. Inside the box it sits between the walls with about 0.5 mm of room all round, and a ledge supports its cable end.
+- Two **M3 × 20** socket head screws go in from the front through a lug at each end of the box (counterbored 5 mm) into 2.8 mm pilot holes in the back, 11 mm deep. They cut their own thread in the plastic.
+- The only opening is a 7 × 4 mm slot in the lower wall at the cable end, for the USB cable. It faces down, so dust and drips don't fall in.
+- Assembly: unscrew the stock lens holder from the back of the board, lay the board into the box from behind, drive the two stock screws, thread the lens in and focus it. Clean the panel and tape the back onto it, pad up against the rail side and lid facing down into the chamber. Lead the cable out through the slot, then screw the box onto the back from the front. The box comes off again with the two screws while the back stays on the wall.
+- VHB: cover most of the pad (about 30 cm²). The whole camera weighs about 40 g, and aluminium is a good surface for the tape.
+- **Heat.** A closed box keeps the board's own heat in, so the board runs warmer than it did in the open mount. If the picture drops out in a hot chamber, that is the first thing to suspect. Vent slots in the lower wall are a small change.
+- **The lens holder in the model is simplified** (flange, tower and a plain bore). The printed box uses the real holder: `scripts/webcam/print_files.py` puts `m12_lens_housing_v2.stl` into the box and turns both parts for printing. The two files, `webcam-box-with-lens-holder.stl` and `webcam-back-with-tape-pad.stl`, are in the project files under `x-carriage/webcam/print/` and not in this repository, because the first one contains the holder's model.
 - The holder's STL is not a closed mesh (a few cracks and T-junctions), so the two shells are written into one STL overlapping each other instead of being fused by a mesh boolean. Slicers fuse overlapping shells of one object. Check the sliced preview once: the lens bore, the square sensor pocket and the two screw slots must be open.
-- Printing: the holder's front face lies on the bed, so the M12 thread prints upright, as it does when the holder is printed on its own. 70 × 48 × 34 mm, no supports. The pad leans at 45°, nothing overhangs more than that, and the only bridges are four 3 mm corners under the holder's flange.
+- Printing the box: front wall on the bed, so the M12 thread prints upright, as it does when the holder is printed on its own. 77 × 26 × 17 mm, no supports. The only flat ceilings are the two counterbore steps and small bridged corners under the holder's flange.
+- Printing the back: tape face on the bed. 77 × 39 × 23 mm, no supports, nothing overhangs more than 45°.
 - The board and lens in the model are plain reference blocks. `step/Webcam mount + bezel.step` has the model's parts.
 - Which way up the picture comes out depends on the sensor's orientation on the board. If it is upside down, set `rotation: 180` in the Moonraker webcam section.
 
-`scripts/webcam/mkmount.py` builds the studio (tilt, position and holder sizes are at the top), `splice_cam.py` adds it to the documents and `hide_upper_pir.py` hides the two insulation boards. Both documents have it.
+`scripts/webcam/mkbox.py` builds the studio (tilt, position and sizes are at the top), `splice_cam.py` adds it to the documents and `hide_upper_pir.py` hides the two insulation boards. Both documents have it.
 
 ## Streaming
 
