@@ -37,12 +37,12 @@ On the **right wall, high up**, taped straight onto the inner face of the alumin
 
 ## The mount (Part Studio "Webcam", assembly "Webcam", in Printer)
 
-**A closed box in two printed parts**, in ABS or ASA. Jonas asked on 2026-11-18 for the board to be fully enclosed for protection. Before that the mount was one open part (2026-11-17), and before that a tray with clamp bars.
+**A closed box in two printed parts**, in ABS or ASA. Jonas asked on 2026-11-18 for the board to be fully enclosed for protection. The same day he asked for it to look nicer, so the outline is rounded, the front edge is chamfered and the back is a closed wedge. Before that the mount was one open part (2026-11-17), and before that a tray with clamp bars.
 
-- **Box** (front part): a 77 × 26 × 17 mm shell around the whole board with 2 mm walls and Jonas's M12 lens holder built into its front wall. Only the lens thread comes out of the front.
-- **Back** (rear part): a 2 mm lid that closes the box, and behind it the 3 mm tape pad at 45° with three webs. The pad is 77 × 39 mm.
+- **Box** (front part): a 77 × 26 × 17 mm shell around the whole board with 2 mm walls and Jonas's M12 lens holder built into its front wall. Only the lens thread comes out of the front. Seen from the front the outline has 8 mm corner radii, and a 1 mm chamfer runs round the front face.
+- **Back** (rear part): a 2 mm lid that closes the box, and behind it a closed wedge that ends in the 3 mm tape pad at 45°. The wedge is hollow with three ribs inside, has the same rounded outline as the box, and its top is flush with the box's top. The pad is 77 × 38 mm.
 - The board screws to the back of the lens holder with the stock lens holder's two screws, as in the original camera. Inside the box it sits between the walls with about 0.5 mm of room all round, and a ledge supports its cable end.
-- Two **M3 × 20** socket head screws go in from the front through a lug at each end of the box (counterbored 5 mm) into 2.8 mm pilot holes in the back, 11 mm deep. They cut their own thread in the plastic.
+- Two **M3 × 20** socket head screws go in from the front through the solid 9 mm at each end of the box (counterbored 5 mm) into 2.8 mm pilot holes in the back, 11 mm deep. They cut their own thread in the plastic.
 - The only opening is a 7 × 4 mm slot in the lower wall at the cable end, for the USB cable. It faces down, so dust and drips don't fall in.
 - Assembly: unscrew the stock lens holder from the back of the board, lay the board into the box from behind, drive the two stock screws, thread the lens in and focus it. Clean the panel and tape the back onto it, pad up against the rail side and lid facing down into the chamber. Lead the cable out through the slot, then screw the box onto the back from the front. The box comes off again with the two screws while the back stays on the wall.
 - VHB: cover most of the pad (about 30 cm²). The whole camera weighs about 40 g, and aluminium is a good surface for the tape.
@@ -50,7 +50,7 @@ On the **right wall, high up**, taped straight onto the inner face of the alumin
 - **The lens holder in the model is simplified** (flange, tower and a plain bore). The printed box uses the real holder: `scripts/webcam/print_files.py` puts `m12_lens_housing_v2.stl` into the box and turns both parts for printing. The two files, `webcam-box-with-lens-holder.stl` and `webcam-back-with-tape-pad.stl`, are in the project files under `x-carriage/webcam/print/` and not in this repository, because the first one contains the holder's model.
 - The holder's STL is not a closed mesh (a few cracks and T-junctions), so the two shells are written into one STL overlapping each other instead of being fused by a mesh boolean. Slicers fuse overlapping shells of one object. Check the sliced preview once: the lens bore, the square sensor pocket and the two screw slots must be open.
 - Printing the box: front wall on the bed, so the M12 thread prints upright, as it does when the holder is printed on its own. 77 × 26 × 17 mm, no supports. The only flat ceilings are the two counterbore steps and small bridged corners under the holder's flange.
-- Printing the back: tape face on the bed. 77 × 39 × 23 mm, no supports, nothing overhangs more than 45°.
+- Printing the back: tape face on the bed. 77 × 38 × 23 mm, no supports, nothing overhangs more than 45°. The two hollows inside the wedge are sealed, which is fine for printing.
 - The board and lens in the model are plain reference blocks. `step/Webcam mount + bezel.step` has the model's parts.
 - Which way up the picture comes out depends on the sensor's orientation on the board. If it is upside down, set `rotation: 180` in the Moonraker webcam section.
 

@@ -19,8 +19,9 @@ def report(name,m):
     if len(fl): print('   flat ceilings at print z',np.unique(zc[fl].round(1)).tolist())
 box=trimesh.load(box_p,process=True); both=trimesh.load(both_p,process=True); hold=trimesh.load(hold_p,process=True)
 parts=sorted(both.split(only_watertight=False),key=lambda m:abs(m.volume-box.volume))
-assert len(parts)==2 and abs(parts[0].volume-box.volume)<1, [p.volume for p in parts]
-back=parts[1]; print('box watertight',box.is_watertight,round(box.volume),'| back watertight',back.is_watertight,round(back.volume))
+assert abs(parts[0].volume-box.volume)<1, [p.volume for p in parts]
+back=trimesh.util.concatenate(parts[1:]);    # the outer shell and the two closed hollows inside the wedge
+print('box watertight',box.is_watertight,round(box.volume),'| back watertight',back.is_watertight,round(back.volume))
 # ---- box + holder, front wall down
 RB=np.array([[0,1,0],[0,0,1],[-1,0,0]],float)          # local -> print: x = along the board, y = across, z = towards the back
 assert abs(np.linalg.det(RB@L)-1)<1e-9                 # a rotation, not a mirror image
