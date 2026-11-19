@@ -63,10 +63,12 @@ On the **right wall, high up**, taped straight onto the inner face of the alumin
 - Timelapse (moonraker-timelapse) renders video on the Pi with ffmpeg. On a 3B that should only run after a print, never during one.
 - The Pi 3B has one USB 2.0 bus for everything, including the Ethernet port and the printer's boards. 720p MJPEG is a few Mbit/s, which is fine.
 
-Install steps (not done yet):
+**Installed on 2026-11-18** (Jonas's go-ahead): crowsnest v5.0.12 with its unattended installer, `crowsnest.conf` as in this folder, `[webcam chamber]` in `moonraker.conf`, one Moonraker restart, no reboot. Mainsail's nginx already forwards `/webcam/` to port 8080. The camera is `/dev/v4l/by-id/usb-046d_C270_HD_WEBCAM_973053A0-video-index0`. ustreamer uses about 1% CPU with nobody watching. Backups on the Pi: `moonraker.conf.bak-20261119-precrowsnest` and `crowsnest.conf.installer-default-20261119`. The config is also in the simplecore-config backup repository.
+
+To redo it on a fresh Pi:
 
 1. Plug the camera in, `ls /dev/v4l/by-id/` and put the path in `crowsnest.conf`.
-2. If crowsnest isn't installed: `git clone https://github.com/mainsail-crew/crowsnest.git && cd crowsnest && sudo make install`.
+2. `git clone https://github.com/mainsail-crew/crowsnest.git && cd crowsnest && sudo make install`.
 3. Copy `crowsnest.conf` to `~/printer_data/config/`, add the Moonraker section, then restart crowsnest and Moonraker. Restarting Moonraker is safe only when no print is running.
 
 ## First proposal (not used)
