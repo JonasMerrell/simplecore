@@ -3,7 +3,7 @@
 #         the repo), turned so the front wall lies on the bed and the M12 thread prints upright.
 #         The holder's STL is not a closed mesh (a few cracks and T-junctions), so a mesh boolean fails on it. The two
 #         shells are written into one STL overlapping each other; slicers fuse overlapping shells of one object.
-#   back: the lid with the tape pad, taken out of both.stl, turned so the pad's tape face lies on the bed.
+#   back: the lid with the wedge base, taken out of both.stl, turned so the face that goes on the panel lies on the bed.
 # usage: python3 print_files.py box-body.stl both.stl m12_lens_housing_v2.stl pose.json outdir
 import sys, json, math, numpy as np, trimesh
 box_p, both_p, hold_p, pose_p, out = sys.argv[1:6]
@@ -18,9 +18,8 @@ def report(name,m):
     fl=down.nonzero()[0][ang>=80]
     if len(fl): print('   flat ceilings at print z',np.unique(zc[fl].round(1)).tolist())
 box=trimesh.load(box_p,process=True); both=trimesh.load(both_p,process=True); hold=trimesh.load(hold_p,process=True)
-parts=sorted(both.split(only_watertight=False),key=lambda m:abs(m.volume-box.volume))
-assert abs(parts[0].volume-box.volume)<1, [p.volume for p in parts]
-back=trimesh.util.concatenate(parts[1:]);    # the outer shell and the two closed hollows inside the wedge
+comps=both.split(only_watertight=False)
+back=trimesh.util.concatenate([m for m in comps if to_local(m.vertices)[:,0].max()<P['XL']-0.01])   # everything behind the box rim (outer shell and any sealed hollows)
 print('box watertight',box.is_watertight,round(box.volume),'| back watertight',back.is_watertight,round(back.volume))
 # ---- box + holder, front wall down
 RB=np.array([[0,1,0],[0,0,1],[-1,0,0]],float)          # local -> print: x = along the board, y = across, z = towards the back
@@ -40,7 +39,7 @@ print('holder print z',H.vertices[:,2].min().round(3),H.vertices[:,2].max().roun
 report('box body',B); report('holder',H)
 t.export(out+'/webcam-box-with-lens-holder.stl')
 # ---- back, tape face down
-ez=np.array([1,0,1])/math.sqrt(2); ex=np.array([0.0,1,0]); ey=np.cross(ex,ez); RK=np.stack([ex,ey,ez])
+ez=np.array([c,0,s]); ex=np.array([0.0,1,0]); ey=np.cross(ex,ez); RK=np.stack([ex,ey,ez])
 assert abs(np.linalg.det(RK@L)-1)<1e-9
 K=trimesh.Trimesh(to_local(back.vertices)@RK.T,back.faces,process=False); K.vertices-=K.vertices.min(0)
-report('back',K); K.export(out+'/webcam-back-with-tape-pad.stl')
+report('back',K); K.export(out+'/webcam-base-screw-on.stl')

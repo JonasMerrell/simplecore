@@ -1,12 +1,13 @@
 # Webcam for the simplecore printer: a closed box around the bare Logitech C270 board.
 #   Part A "box":  front wall with the M12 lens holder (Jonas's "m12_lens_housing_v2") behind it, walls all round the board.
 #                  The board screws to the back of the holder with the stock lens holder's two screws.
-#   Part B "back": the lid that closes the box, in one piece with the VHB tape pad that goes on the aluminium right side panel.
+#   Part B "back": the lid that closes the box, in one piece with a wedge base that screws to the aluminium right side panel
+#                  with two M3 screws into holes tapped in the panel (Jonas, 2026-11-18: tape is not enough, and less tilt).
 #   Two M3 x 20 screws from the front, one at each end, hold the box to the back.
 # usage: python3 mkbox.py -> cam_run.json ; rcad run cam_run.json -> cam-doc.json (studio 0 = "Webcam"),
 #        box-body.stl, both.stl (print_files.py splits them, adds the real holder mesh and turns the parts for printing)
 import json, math
-TH=45.0                        # tilt below horizontal; the pad geometry below assumes 45
+TH=30.0                        # tilt below horizontal (was 45 with the taped base)
 WALL_Y=-24.5                   # inner face of the aluminium right side panel (Jonas's printer has no upper side insulation)
 c,s=math.cos(math.radians(TH)),math.sin(math.radians(TH))
 A=(1.0,0.0,0.0); V=(0.0,c,-s); Wd=(0.0,s,c)       # along the board, view axis, across the board
@@ -23,10 +24,12 @@ LUG=7.0; OY0,OY1=IY0-WT-LUG,IY1+WT+LUG      # solid end lugs for the two M3 scre
 SY=(IY0-(WT+LUG)/2, IY1+(WT+LUG)/2)         # screw positions along the board (z = 0), mid-way in the solid ends
 RC=8.0                         # corner radius of the outline seen from the front
 CH=1.0                         # chamfer round the front face
-PAD_T=3.0
+BASE_T=3.0                     # base thickness at its thinnest (under the lid's lower edge) and thickness of the screw ears
+EAR=11.0                       # each screw ear reaches this far beyond the box end
+M3_CLEAR=1.8                   # radius of the screw holes in the ears (M3 with room to adjust)
 LX=191.2                                      # lens on the bed's centre line
-CY=round(WALL_Y+PAD_T-(c*XB+s*(-OZ)),3)      # the pad's inner face passes through the lid's lower back edge
-CZ=535.0                                      # pad top stays under the top side rail (z 570.2)
+CY=round(WALL_Y+BASE_T-(c*XB+s*(-OZ)),3)     # the lid's lower back edge stands BASE_T off the panel
+CZ=548.0                                      # the base's top edge (z 562.7) stays under the top insulation (z 564.8)
 def P3(x,y,z): return [round((LX,CY,CZ)[i]+A[i]*y+V[i]*x+Wd[i]*z,4) for i in range(3)]   # local (view, along, across) -> world
 def YZ(x,z): p=P3(x,0,z); return (p[1],p[2])
 FR={ 1:((-1.0,0.0,0.0),(0.0,s,c)), -1:((1.0,0.0,0.0),(0.0,s,c)) }   # sketch frames on faces with normal +v / -v (checked by chk.py output)
@@ -64,7 +67,7 @@ def corner_cuts(x,side):
             st,en=(t1,t2) if abs(((a(t2)-a(t1))%(2*math.pi))-math.pi/2)<1e-6 else (t2,t1)
             items+=[{'type':'polyline','points':[t1,q1,q,q2,t2],'closed':False},{'type':'arc','center':cen,'start':st,'end':en}]
     return items
-for k,v in (('cam_tilt',TH),('pad_t',PAD_T)): add({'tool':'set_variable','args':{'name':k,'expr':str(v)}})
+for k,v in (('cam_tilt',TH),('base_t',BASE_T)): add({'tool':'set_variable','args':{'name':k,'expr':str(v)}})
 # ---------------- Part A: box
 pe=xplane(OY0,'End plane (lens end)')
 BOX=prism(pe,'Box block',[(XL,-OZ),(HF,-OZ),(HF,OZ),(XL,OZ)],OY1-OY0,'new')
@@ -87,33 +90,35 @@ onface(FRONT,1,'M3 clearance holes',[circ(SK(y,0,HF),1.7) for y in SY],HF-XL+0.0
 onface(FRONT,1,'M3 head counterbores',[circ(SK(y,0,HF),3.1) for y in SY],5.0,'remove',True)
 onface(RIM,-1,'Cable slot in the lower wall',[rect(-1,XL,33.0,40.0,-OZ-0.5,-IZ+0.5)],4.0,'remove',True)
 add({'tool':'export','args':{'format':'stl','path':'box-body.stl'}})
-# ---------------- Part B: back (lid + tape pad), built after the box so its sketch faces are not confused with the box's rim
-P0=(XB,-OZ); P1=(XB-2*OZ,OZ); d=PAD_T/math.sqrt(2)          # pad inner face runs from the lid's lower back edge up the wall
-XG=XL-0.05      # the lid's inside face, 0.05 off the rim so the two bodies stay separate in the model
-BACK=prism(pe,'Lid and tape pad',[(XG,-OZ),(XG,OZ),(XB,OZ),P0,P1,(P1[0]-d,P1[1]-d),(P0[0]-d,P0[1]-d)],OY1-OY0,'new')
-TRI=[(XB+0.5,-OZ),(XB+0.5,OZ),(P1[0],OZ),(P1[0]-0.3,OZ-0.7),(XB-0.7,-OZ-0.3),P0]      # stays inside the lid and pad outline, overlapping both
-prism(pe,'End web (lens end)',TRI,LUG+WT)
-pf=xplane(OY1-LUG-WT,'End web plane (cable end)')
-prism(pf,'End web (cable end)',TRI,LUG+WT)
-pm=xplane((IY0+IY1)/2-1.5,'Middle web plane')
-prism(pm,'Middle web',TRI,3.0)
-SKN=[(XB+0.5,OZ),(P1[0],OZ),(P1[0]-0.3,OZ-0.7),(P1[0]+1.3,OZ-2.0),(XB+0.5,OZ-2.0)]     # closes the top of the wedge, 2 mm thick
-prism(pe,'Top skin',SKN,OY1-OY0)
-LIDF=(XG,(IY0+IY1)/2,3.0)       # a point on the lid's inside face
-onface(LIDF,1,'Rounded corners of the back',corner_cuts(XG,1),2*OZ+LID_T+PAD_T*1.5+2,'remove',True)
-onface(LIDF,1,'M3 pilot holes (self-tapping, 2.8)',[circ(SK(y,0,XG),1.4) for y in SY],11.0,'remove',True)
-add({'tool':'export','args':{'format':'stl','path':'both.stl'}})
 # ---------------- the lens holder, simplified (the printed part uses the real holder mesh): tower, flange, bore
-onface(CF,-1,'Lens holder tower',[circ(SK(0,0,XF,-1),7.25)],XF-HT,'add',False)
+onface((HT,0.0,8.5),-1,'Lens holder tower',[circ(SK(0,0,HT,-1),7.25)],XF-HT,'add',True)    # from the supports' top face towards the front wall
 onface((HT,0.0,8.5),-1,'Lens holder flange',[rect(-1,HT,-HY,HY,-HZ,HZ)],HT-BF,'add',False)
 onface(FRONT,1,'Lens bore (M12)',[circ(SK(0,0,HF),6.15)],HF-BF+0.1,'remove',True)
+# ---------------- Part B: back (lid + tape pad), built after the box so its sketch faces are not confused with the box's rim
+def to_wall(x,z): d=c*x+s*z-(WALL_Y-CY); return (x-d*c, z-d*s)      # foot of the perpendicular on the panel face, in (view, across)
+XG=XL-0.05      # the lid's inside face, 0.05 off the rim so the two bodies stay separate in the model
+A0=(XB,-OZ); B0=(XB,OZ); A1=to_wall(*A0); B1=to_wall(*B0)
+BACK=prism(pe,'Lid and wedge base',[(XG,-OZ),(XG,OZ),B0,B1,A1,A0],OY1-OY0,'new')
+LIDF=(XG,(IY0+IY1)/2,3.0)       # a point on the lid's inside face
+onface(LIDF,1,'Rounded corners of the back',corner_cuts(XG,1),40.0,'remove',True)
+onface(LIDF,1,'M3 pilot holes (self-tapping, 2.8)',[circ(SK(y,0,XG),1.4) for y in SY],11.0,'remove',True)
+# screw ears: one plate on the panel face that runs under the wedge and sticks out at both ends
+zA=YZ(*A1)[1]; zB=YZ(*B1)[1]
+pp=xplane(OY0-EAR,'Ear plane')
+sk=sketch({'kind':'feature_plane','feature':pp},'Ear plate profile',[poly([(WALL_Y,zA),(WALL_Y+BASE_T,zA),(WALL_Y+BASE_T,zB),(WALL_Y,zB)])])
+feat('extrude','Ear plate',{'profiles':[{'sketch':sk}],'depth':str(round(OY1-OY0+2*EAR,3)),'op':'add'})
+ZS=round((zA+zB)/2,3); XS=[round(LX+OY0-EAR/2-0.5,3),round(LX+OY1+EAR/2+0.5,3)]      # the two screws, world x and z
+ph=feat('plane','Screw hole plane',{'base':{'kind':'origin_plane','plane':'Front'},'offset':str(round(-(WALL_Y+BASE_T+1),4))})   # Front: normal -Y, sketch (x,z)
+sk=sketch({'kind':'feature_plane','feature':ph},'Screw holes sketch',[circ([x,ZS],M3_CLEAR) for x in XS])
+feat('extrude','M3 screw holes into the panel',{'profiles':[{'sketch':sk}],'depth':str(BASE_T+2),'op':'remove'})
+add({'tool':'export','args':{'format':'stl','path':'both.stl'}})
 # ---------------- reference bodies: board, the visible part of the M12 2.1 mm lens (length and flange estimated)
 BRD=onface((BF,5.0,9.0),-1,'Logitech C270 board 58 x 21 x 0.8',[rect(-1,BF,-12.9,45.1,-10.5,10.5)],0.8,'new',False)
 LB=onface(FRONT,1,'M12 lens 2.1 mm, barrel',[circ(SK(0,0,HF),5.9)],17.0-(HF-BF),'new',False)
 LF=onface((BF+17.0,0,0),1,'M12 lens 2.1 mm, front flange',[circ(SK(0,0,BF+17.0),9.0)],5.0,'new',False)
 add({'tool':'set_parts','args':{'parts':[
  {'body':[BOX,0],'name':'Webcam box with M12 lens holder (print, ABS/ASA)','color':'#8a9099'},
- {'body':[BACK,0],'name':'Webcam back with tape pad (print, ABS/ASA)','color':'#5c626b'},
+ {'body':[BACK,0],'name':'Webcam base, screws to the panel (print, ABS/ASA)','color':'#5c626b'},
  {'body':[BRD,0],'name':'Logitech C270 board (reference)','color':'#1c6e3c'},
  {'body':[LB,0],'name':'M12 2.1 mm lens barrel (reference)','color':'#101010'},
  {'body':[LF,0],'name':'M12 2.1 mm lens flange (reference)','color':'#181818'}]}})
@@ -125,5 +130,5 @@ add({'tool':'render','args':{'direction':[-0.5,0.7,0.4],'width':1100,'height':80
 add({'tool':'export','args':{'format':'step','path':'webcam-parts.step'}})
 add({'tool':'save_document','args':{'path':'cam-doc.json'}})
 json.dump(S,open('cam_run.json','w'),indent=0)
-json.dump({'LX':LX,'CY':CY,'CZ':CZ,'TH':TH,'BF':BF,'HF':HF,'XL':XL},open('pose.json','w'))
-print('CY',CY,'pad top z',P3(P1[0]-d,0,P1[1]-d)[2],'pad bottom z',P3(P0[0]-d,0,P0[1]-d)[2])
+json.dump({'LX':LX,'CY':CY,'CZ':CZ,'TH':TH,'BF':BF,'HF':HF,'XL':XL,'screws_world_x':XS,'screws_world_z':ZS},open('pose.json','w'))
+print('CY',CY,'base z',zA,zB,'screws x',XS,'z',ZS)
