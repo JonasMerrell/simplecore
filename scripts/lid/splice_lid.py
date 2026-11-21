@@ -3,6 +3,7 @@
 # lid hinge (revolute, 0..90 deg), each spring body pivoting on the lid's ball stud, each rod on the frame's, and
 # body/rod sliding on one axis (cylindrical). Hides the old top panel and the old top PIR board (the lid carries it).
 # usage: python3 splice_lid.py lid-doc.json TARGET.json [--test]   -> TARGET.json.new
+# TARGET must not have the lid yet (start from main's documents to redo it).
 import json,sys,copy,math
 C=json.load(open(sys.argv[1])); src=sys.argv[2]; test='--test' in sys.argv
 G=json.load(open(sys.argv[1].replace('lid-doc.json','lid_geom.json')))
@@ -14,7 +15,8 @@ st=copy.deepcopy(C['studios'][0]); st['name']='Top lid'; si=len(d['studios']); d
 sp=copy.deepcopy(C['studios'][1]); sp['name']='Lid gas springs'; gi=len(d['studios']); d['studios'].append(sp)
 P={v['name']:list(key(k)) for k,v in st['doc']['parts'].items()}
 def find(s): return [n for n in P if n.startswith(s)]
-moving=find('Top lid panel')+find('Lid insulation')+find('Lid hinge 1, lid')+find('Lid hinge 2, lid')+find('Lid spring bracket')
+MOVES=('Top lid panel','Lid insulation','lid arm','pin, M3','Lid spring bracket','Lid handle')
+moving=[n for n in P if any(t in n for t in MOVES)]
 fixed=[n for n in P if n not in moving]
 HX,HZ=G['H']; BY=G['BALL_Y']; YC=G['YC']; Bx,Bz=G['B']; Lx,Lz=G['L']; STUD_Y=G['LB_Y'][0]
 RX_R={"r":[1,0,0, 0,0,1, 0,-1,0],"t":None}   # columns: local z -> world -y
