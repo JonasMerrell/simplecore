@@ -42,7 +42,7 @@ From `scripts/lid/torque_plot.py` (lid + PIR + brackets ≈ 2.6 kg, CG 236 mm in
 
 - Part Studios **Top lid** (sketch-and-extrude features in world position, variables `lid_t`, `seal_h`, `lid_pir_t`) and **Lid gas springs** (spring body, rod and ball stud imported as STEP in local frames).
 - Assemblies **Top lid** (moves: panel, PIR, lid leaves, lid brackets, lid ball studs) and **Lid frame hardware** (fixed: seal, frame leaves, spacers, frame brackets, frame ball studs).
-- In **Printer**: both, plus each spring's body and rod. Mates: **Top lid hinge** (revolute, 0..90°; mate 23 in X-carriage.json, 21 in X-carriage-no-belts.json), each body on the lid's ball (revolute), each rod on the frame's ball (revolute), body and rod on one axis (cylindrical). The motion slider **Open top lid** opens it 0 → 90° and the springs follow.
+- In **Printer**: both, plus each spring's body and rod. Mates: **Top lid hinge** (revolute, 0..90°; mate 24 in X-carriage.json, 22 in X-carriage-no-belts.json), each body on the lid's ball (revolute), each rod on the frame's ball (revolute), body and rod on one axis (cylindrical). The motion slider **Open top lid** opens it 0 → 90° and the springs follow.
 - The old top panel (Enclosure) and the old top PIR board (PIR insulation) are hidden, not deleted.
 
 ## Rebuild

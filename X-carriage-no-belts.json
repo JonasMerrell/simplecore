@@ -26357,6 +26357,3478 @@
       }
     },
     {
+      "name": "Webcam",
+      "doc": {
+        "format": "cad-rust-app/1",
+        "units": "mm",
+        "variables": [
+          {
+            "name": "cam_tilt",
+            "expr": "30.0"
+          },
+          {
+            "name": "base_t",
+            "expr": "3.0"
+          }
+        ],
+        "features": [
+          {
+            "id": 1,
+            "name": "End plane (lens end)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Right"
+              },
+              "offset": "168.6",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 2,
+            "name": "Box block profile",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 1
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -19.7681,
+                    "y": 539.3283
+                  },
+                  {
+                    "id": 2,
+                    "x": -5.1669,
+                    "y": 530.8983
+                  },
+                  {
+                    "id": 3,
+                    "x": 7.7331,
+                    "y": 553.2417
+                  },
+                  {
+                    "id": 4,
+                    "x": -6.8681,
+                    "y": 561.6717
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  168.6,
+                  0.0,
+                  0.0
+                ],
+                "x": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 3,
+            "name": "Box block",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 2,
+                  "point": [
+                    -5.733966666666667,
+                    541.1561
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "77.2",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 4,
+            "name": "Rounded corners",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "fillet",
+              "edges": [
+                {
+                  "kind": "edge",
+                  "point": [
+                    168.6,
+                    -12.4675,
+                    535.1133
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 5
+                    },
+                    {
+                      "feature": 3,
+                      "role": "start",
+                      "n": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    168.6,
+                    0.4325000000000001,
+                    557.4567
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 7
+                    },
+                    {
+                      "feature": 3,
+                      "role": "start",
+                      "n": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    245.8,
+                    -12.4675,
+                    535.1133
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 5
+                    },
+                    {
+                      "feature": 3,
+                      "role": "end",
+                      "n": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    245.8,
+                    0.4325000000000001,
+                    557.4567
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 7
+                    },
+                    {
+                      "feature": 3,
+                      "role": "end",
+                      "n": 0
+                    }
+                  ]
+                }
+              ],
+              "radius": "8.0",
+              "variable": false,
+              "end_radius": "4"
+            }
+          },
+          {
+            "id": 5,
+            "name": "Chamfer round the front face",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "chamfer",
+              "edges": [
+                {
+                  "kind": "edge",
+                  "point": [
+                    207.2,
+                    7.7331,
+                    553.2417
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 6
+                    },
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 7
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    207.2,
+                    -5.1669,
+                    530.8983
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 5
+                    },
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 6
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    168.6,
+                    1.283099999999997,
+                    542.0699999999999
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 6
+                    },
+                    {
+                      "feature": 3,
+                      "role": "start",
+                      "n": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    245.8,
+                    1.283099999999997,
+                    542.0699999999999
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 6
+                    },
+                    {
+                      "feature": 3,
+                      "role": "end",
+                      "n": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    170.94314575050765,
+                    6.561517985253698,
+                    551.212481531975
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 6
+                    },
+                    {
+                      "feature": 4,
+                      "role": "fillet",
+                      "n": 16258443603861378995
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    170.94314575050765,
+                    -3.995317985253646,
+                    532.927518468025
+                  ],
+                  "name": [
+                    {
+                      "feature": 4,
+                      "role": "fillet",
+                      "n": 12771023091955434737
+                    },
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 6
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    243.4568542494924,
+                    6.561517985253698,
+                    551.212481531975
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 6
+                    },
+                    {
+                      "feature": 4,
+                      "role": "fillet",
+                      "n": 16795833904250802790
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    243.4568542494924,
+                    -3.995317985253646,
+                    532.927518468025
+                  ],
+                  "name": [
+                    {
+                      "feature": 4,
+                      "role": "fillet",
+                      "n": 16094737977723666032
+                    },
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 6
+                    }
+                  ]
+                }
+              ],
+              "distance": "1.0",
+              "mode": "equal",
+              "distance2": "1",
+              "angle": "45"
+            }
+          },
+          {
+            "id": 6,
+            "name": "Cavity for the board sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  173.1,
+                  -9.318095366685563,
+                  557.4281973249488
+                ],
+                "normal": [
+                  1.4677108436476978e-18,
+                  -0.866024932915029,
+                  0.5000008155688545
+                ],
+                "name": [
+                  {
+                    "feature": 3,
+                    "role": "side",
+                    "n": 8
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 177.6,
+                    "y": 459.1879
+                  },
+                  {
+                    "id": 2,
+                    "x": 236.8,
+                    "y": 459.1879
+                  },
+                  {
+                    "id": 3,
+                    "x": 236.8,
+                    "y": 480.988
+                  },
+                  {
+                    "id": 4,
+                    "x": 177.6,
+                    "y": 480.988
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  4.2091636260980245e-16,
+                  -248.36231623528892,
+                  143.39236199149752
+                ],
+                "x": [
+                  1.0,
+                  1.6947674228124145e-18,
+                  9.629665429220964e-35
+                ],
+                "y": [
+                  -8.473850936057328e-19,
+                  0.5000008155688545,
+                  0.866024932915029
+                ],
+                "normal": [
+                  1.4677108436476978e-18,
+                  -0.866024932915029,
+                  0.5000008155688545
+                ]
+              }
+            }
+          },
+          {
+            "id": 7,
+            "name": "Cavity for the board",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 6,
+                  "point": [
+                    217.0666666666667,
+                    466.4546
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "15.36",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 8,
+            "name": "Board ledge at the cable end sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  216.2,
+                  -0.015962840921047716,
+                  542.8199785461492
+                ],
+                "normal": [
+                  0.0,
+                  -0.8660249329150304,
+                  0.500000815568852
+                ],
+                "name": [
+                  {
+                    "feature": 7,
+                    "role": "end",
+                    "n": 0
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 235.3,
+                    "y": 458.8879
+                  },
+                  {
+                    "id": 2,
+                    "x": 237.1,
+                    "y": 458.8879
+                  },
+                  {
+                    "id": 3,
+                    "x": 237.1,
+                    "y": 481.2879
+                  },
+                  {
+                    "id": 4,
+                    "x": 235.3,
+                    "y": 481.2879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  -235.06017326571327,
+                  135.7123494643586
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  -0.0
+                ],
+                "y": [
+                  0.0,
+                  0.500000815568852,
+                  0.8660249329150304
+                ],
+                "normal": [
+                  0.0,
+                  -0.8660249329150304,
+                  0.500000815568852
+                ]
+              }
+            }
+          },
+          {
+            "id": 9,
+            "name": "Board ledge at the cable end",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 8,
+                  "point": [
+                    236.5,
+                    466.35456666666664
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "10.51",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 10,
+            "name": "Holder support, upper sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  216.2,
+                  -0.015962840921096323,
+                  542.8199785461492
+                ],
+                "normal": [
+                  3.9992269826900094e-16,
+                  -0.8660249329150305,
+                  0.5000008155688519
+                ],
+                "name": [
+                  {
+                    "feature": 7,
+                    "role": "end",
+                    "n": 0
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 183.96,
+                    "y": 477.0879
+                  },
+                  {
+                    "id": 2,
+                    "x": 198.44,
+                    "y": 477.0879
+                  },
+                  {
+                    "id": 3,
+                    "x": 198.44,
+                    "y": 481.2879
+                  },
+                  {
+                    "id": 4,
+                    "x": 183.96,
+                    "y": 481.2879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  1.085487209145124e-13,
+                  -235.06017326571336,
+                  135.7123494643586
+                ],
+                "x": [
+                  1.0,
+                  4.617912060832539e-16,
+                  -0.0
+                ],
+                "y": [
+                  -2.308959796641507e-16,
+                  0.5000008155688519,
+                  0.8660249329150305
+                ],
+                "normal": [
+                  3.9992269826900094e-16,
+                  -0.8660249329150305,
+                  0.5000008155688519
+                ]
+              }
+            }
+          },
+          {
+            "id": 11,
+            "name": "Holder support, upper",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 10,
+                  "point": [
+                    193.61333333333332,
+                    478.4879
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "6.52",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 12,
+            "name": "Holder cheek, upper sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  216.2,
+                  -0.015962840921119957,
+                  542.8199785461492
+                ],
+                "normal": [
+                  4.1656897431327663e-16,
+                  -0.8660249329150307,
+                  0.5000008155688513
+                ],
+                "name": [
+                  {
+                    "feature": 7,
+                    "role": "end",
+                    "n": 0
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 183.96,
+                    "y": 480.2879
+                  },
+                  {
+                    "id": 2,
+                    "x": 198.44,
+                    "y": 480.2879
+                  },
+                  {
+                    "id": 3,
+                    "x": 198.44,
+                    "y": 481.2879
+                  },
+                  {
+                    "id": 4,
+                    "x": 183.96,
+                    "y": 481.2879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  1.1306692400830277e-13,
+                  -235.06017326571333,
+                  135.7123494643584
+                ],
+                "x": [
+                  1.0,
+                  4.8101268044455725e-16,
+                  2.4651943498805515e-32
+                ],
+                "y": [
+                  -2.405067325212378e-16,
+                  0.5000008155688513,
+                  0.8660249329150307
+                ],
+                "normal": [
+                  4.1656897431327663e-16,
+                  -0.8660249329150307,
+                  0.5000008155688513
+                ]
+              }
+            }
+          },
+          {
+            "id": 13,
+            "name": "Holder cheek, upper",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 12,
+                  "point": [
+                    193.61333333333332,
+                    480.6212333333333
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "10.51",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 14,
+            "name": "Holder support, lower sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  216.2,
+                  -0.015962840921107647,
+                  542.8199785461492
+                ],
+                "normal": [
+                  4.1656897431327663e-16,
+                  -0.8660249329150307,
+                  0.5000008155688513
+                ],
+                "name": [
+                  {
+                    "feature": 7,
+                    "role": "end",
+                    "n": 0
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 183.96,
+                    "y": 458.8879
+                  },
+                  {
+                    "id": 2,
+                    "x": 198.44,
+                    "y": 458.8879
+                  },
+                  {
+                    "id": 3,
+                    "x": 198.44,
+                    "y": 463.0879
+                  },
+                  {
+                    "id": 4,
+                    "x": 183.96,
+                    "y": 463.0879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  1.1306692400830277e-13,
+                  -235.06017326571333,
+                  135.7123494643584
+                ],
+                "x": [
+                  1.0,
+                  4.8101268044455725e-16,
+                  2.4651943498805515e-32
+                ],
+                "y": [
+                  -2.405067325212378e-16,
+                  0.5000008155688513,
+                  0.8660249329150307
+                ],
+                "normal": [
+                  4.1656897431327663e-16,
+                  -0.8660249329150307,
+                  0.5000008155688513
+                ]
+              }
+            }
+          },
+          {
+            "id": 15,
+            "name": "Holder support, lower",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 14,
+                  "point": [
+                    193.61333333333332,
+                    460.2879
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "6.52",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 16,
+            "name": "Holder cheek, lower sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  216.2,
+                  -0.015962840921135393,
+                  542.8199785461492
+                ],
+                "normal": [
+                  4.3857893057182394e-16,
+                  -0.8660249329150281,
+                  0.5000008155688557
+                ],
+                "name": [
+                  {
+                    "feature": 7,
+                    "role": "end",
+                    "n": 0
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 183.96,
+                    "y": 458.8879
+                  },
+                  {
+                    "id": 2,
+                    "x": 198.44,
+                    "y": 458.8879
+                  },
+                  {
+                    "id": 3,
+                    "x": 198.44,
+                    "y": 459.8879
+                  },
+                  {
+                    "id": 4,
+                    "x": 183.96,
+                    "y": 459.8879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  1.190409600147389e-13,
+                  -235.0601732657147,
+                  135.71234946436076
+                ],
+                "x": [
+                  1.0,
+                  5.064276026044345e-16,
+                  -0.0
+                ],
+                "y": [
+                  -2.532142143287976e-16,
+                  0.5000008155688557,
+                  0.8660249329150281
+                ],
+                "normal": [
+                  4.3857893057182394e-16,
+                  -0.8660249329150281,
+                  0.5000008155688557
+                ]
+              }
+            }
+          },
+          {
+            "id": 17,
+            "name": "Holder cheek, lower",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 16,
+                  "point": [
+                    193.61333333333332,
+                    459.2212333333334
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "10.51",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 18,
+            "name": "Lens opening in the front wall sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  216.2,
+                  1.2831000000000583,
+                  542.07
+                ],
+                "normal": [
+                  5.174123449397539e-16,
+                  0.8660248667903185,
+                  -0.500000930099946
+                ],
+                "name": [
+                  {
+                    "feature": 3,
+                    "role": "side",
+                    "n": 6
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -191.2,
+                    "y": 470.0879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 7.0,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 2,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  -1.3966216898917073e-13,
+                  -233.761162595718,
+                  134.96240489293342
+                ],
+                "x": [
+                  -1.0,
+                  5.974566837294171e-16,
+                  4.930389829124891e-32
+                ],
+                "y": [
+                  2.987288975591378e-16,
+                  0.500000930099946,
+                  0.8660248667903185
+                ],
+                "normal": [
+                  5.174123449397539e-16,
+                  0.8660248667903185,
+                  -0.500000930099946
+                ]
+              }
+            }
+          },
+          {
+            "id": 19,
+            "name": "Lens opening in the front wall",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 18,
+                  "point": [
+                    -190.65410370061093,
+                    468.5880622440648
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "1.6",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 20,
+            "name": "M3 clearance holes sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  216.2,
+                  1.2831000000000343,
+                  542.07
+                ],
+                "normal": [
+                  5.322730608567287e-16,
+                  0.8660248667903185,
+                  -0.5000009300999457
+                ],
+                "name": [
+                  {
+                    "feature": 3,
+                    "role": "side",
+                    "n": 6
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -173.1,
+                    "y": 470.0879
+                  },
+                  {
+                    "id": 3,
+                    "x": -241.3,
+                    "y": 470.0879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 1.7,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 1.7,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 4,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  -1.4367343744458084e-13,
+                  -233.761162595718,
+                  134.96240489293336
+                ],
+                "x": [
+                  -1.0,
+                  6.146163710396119e-16,
+                  0.0
+                ],
+                "y": [
+                  3.0730875717445923e-16,
+                  0.5000009300999458,
+                  0.8660248667903188
+                ],
+                "normal": [
+                  5.322730608567288e-16,
+                  0.8660248667903188,
+                  -0.5000009300999458
+                ]
+              }
+            }
+          },
+          {
+            "id": 21,
+            "name": "M3 clearance holes",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 20,
+                  "point": [
+                    -173.10000000000002,
+                    469.7002771708976
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 20,
+                  "point": [
+                    -241.30000000000004,
+                    469.7002771708976
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "16.89",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 22,
+            "name": "M3 head counterbores sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  216.2,
+                  1.2830999999999988,
+                  542.07
+                ],
+                "normal": [
+                  5.08214291661696e-16,
+                  0.8660248667903189,
+                  -0.5000009300999454
+                ],
+                "name": [
+                  {
+                    "feature": 3,
+                    "role": "side",
+                    "n": 6
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -173.1,
+                    "y": 470.0879
+                  },
+                  {
+                    "id": 3,
+                    "x": -241.3,
+                    "y": 470.0879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 3.1,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 3.1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 4,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  -1.3717939082615428e-13,
+                  -233.7611625957179,
+                  134.96240489293317
+                ],
+                "x": [
+                  -1.0,
+                  5.868356800714645e-16,
+                  0.0
+                ],
+                "y": [
+                  2.934183858515661e-16,
+                  0.5000009300999454,
+                  0.8660248667903189
+                ],
+                "normal": [
+                  5.08214291661696e-16,
+                  0.8660248667903189,
+                  -0.5000009300999454
+                ]
+              }
+            }
+          },
+          {
+            "id": 23,
+            "name": "M3 head counterbores",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 22,
+                  "point": [
+                    -173.1,
+                    470.0879
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 22,
+                  "point": [
+                    -241.3,
+                    470.0879
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "5.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 24,
+            "name": "Cable slot in the lower wall sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  173.1,
+                  -9.31809591911156,
+                  557.4281976438929
+                ],
+                "normal": [
+                  1.3454703759394482e-15,
+                  -0.8660249395277014,
+                  0.5000008041153946
+                ],
+                "name": [
+                  {
+                    "feature": 3,
+                    "role": "side",
+                    "n": 8
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 224.2,
+                    "y": 456.688
+                  },
+                  {
+                    "id": 2,
+                    "x": 231.2,
+                    "y": 456.688
+                  },
+                  {
+                    "id": 3,
+                    "x": 231.2,
+                    "y": 459.6879
+                  },
+                  {
+                    "id": 4,
+                    "x": 224.2,
+                    "y": 459.6879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  3.8585971335178224e-13,
+                  -248.3623132083676,
+                  143.3923558643326
+                ],
+                "x": [
+                  1.0,
+                  1.5536162003293105e-15,
+                  9.8607771736426e-32
+                ],
+                "y": [
+                  -7.768093494513592e-16,
+                  0.5000008041153946,
+                  0.8660249395277014
+                ],
+                "normal": [
+                  1.3454703759394482e-15,
+                  -0.8660249395277014,
+                  0.5000008041153946
+                ]
+              }
+            }
+          },
+          {
+            "id": 25,
+            "name": "Cable slot in the lower wall",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 24,
+                  "point": [
+                    228.86666666666665,
+                    457.6879666666667
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "4.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 26,
+            "name": "Lens holder tower sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  191.2,
+                  -1.412452031946379,
+                  553.4411723055711
+                ],
+                "normal": [
+                  0.0,
+                  -0.8660249329150392,
+                  0.5000008155688369
+                ],
+                "name": [
+                  {
+                    "feature": 11,
+                    "role": "end",
+                    "n": 0
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 191.2,
+                    "y": 470.0879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 7.25,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 2,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  -240.70665582831455,
+                  138.97235478185914
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  -0.0
+                ],
+                "y": [
+                  0.0,
+                  0.5000008155688369,
+                  0.8660249329150392
+                ],
+                "normal": [
+                  0.0,
+                  -0.8660249329150392,
+                  0.5000008155688369
+                ]
+              }
+            }
+          },
+          {
+            "id": 27,
+            "name": "Lens holder tower",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 26,
+                  "point": [
+                    191.7653925957958,
+                    468.5344966099242
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "6.52",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 28,
+            "name": "Lens holder flange sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  191.2,
+                  -1.4124520319464215,
+                  553.4411723055711
+                ],
+                "normal": [
+                  -2.5533767083804865e-16,
+                  -0.8660249329150332,
+                  0.5000008155688468
+                ],
+                "name": [
+                  {
+                    "feature": 11,
+                    "role": "end",
+                    "n": 0
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 183.96,
+                    "y": 459.5079
+                  },
+                  {
+                    "id": 2,
+                    "x": 198.44,
+                    "y": 459.5079
+                  },
+                  {
+                    "id": 3,
+                    "x": 198.44,
+                    "y": 480.6679
+                  },
+                  {
+                    "id": 4,
+                    "x": 183.96,
+                    "y": 480.6679
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  -7.09696390005073e-14,
+                  -240.7066558283177,
+                  138.97235478186468
+                ],
+                "x": [
+                  1.0,
+                  -2.948387062928823e-16,
+                  0.0
+                ],
+                "y": [
+                  1.4741959360770486e-16,
+                  0.5000008155688469,
+                  0.8660249329150335
+                ],
+                "normal": [
+                  -2.553376708380487e-16,
+                  -0.8660249329150335,
+                  0.5000008155688469
+                ]
+              }
+            }
+          },
+          {
+            "id": 29,
+            "name": "Lens holder flange",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 28,
+                  "point": [
+                    193.61333333333332,
+                    466.56123333333335
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "3.99",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 30,
+            "name": "Lens bore (M12) sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  216.2,
+                  1.283100000000028,
+                  542.07
+                ],
+                "normal": [
+                  5.568865221825859e-16,
+                  0.8660248667903184,
+                  -0.5000009300999461
+                ],
+                "name": [
+                  {
+                    "feature": 3,
+                    "role": "side",
+                    "n": 6
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -191.2,
+                    "y": 470.0879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 6.15,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 2,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  -1.503172089523917e-13,
+                  -233.7611625957182,
+                  134.96240489293356
+                ],
+                "x": [
+                  -1.0,
+                  6.430375657070123e-16,
+                  0.0
+                ],
+                "y": [
+                  3.215193809427113e-16,
+                  0.5000009300999461,
+                  0.8660248667903184
+                ],
+                "normal": [
+                  5.568865221825859e-16,
+                  0.8660248667903184,
+                  -0.5000009300999461
+                ]
+              }
+            }
+          },
+          {
+            "id": 31,
+            "name": "Lens bore (M12)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 30,
+                  "point": [
+                    -191.48246285973505,
+                    468.2536309329177
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "12.11",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 32,
+            "name": "Lid and wedge base profile",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 1
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -19.8114,
+                    "y": 539.3533
+                  },
+                  {
+                    "id": 2,
+                    "x": -6.9114,
+                    "y": 561.6967
+                  },
+                  {
+                    "id": 3,
+                    "x": -8.6002,
+                    "y": 562.6717
+                  },
+                  {
+                    "id": 4,
+                    "x": -24.5,
+                    "y": 562.6717
+                  },
+                  {
+                    "id": 5,
+                    "x": -24.5,
+                    "y": 540.3283
+                  },
+                  {
+                    "id": 6,
+                    "x": -21.5002,
+                    "y": 540.3283
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 9,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 10,
+                    "type": "line",
+                    "a": 4,
+                    "b": 5,
+                    "construction": false
+                  },
+                  {
+                    "id": 11,
+                    "type": "line",
+                    "a": 5,
+                    "b": 6,
+                    "construction": false
+                  },
+                  {
+                    "id": 12,
+                    "type": "line",
+                    "a": 6,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 12,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  168.6,
+                  0.0,
+                  0.0
+                ],
+                "x": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 33,
+            "name": "Lid and wedge base",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 32,
+                  "point": [
+                    -17.6372,
+                    554.8989
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "77.2",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 34,
+            "name": "Rounded corners of the back sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  207.2,
+                  -11.861386908902071,
+                  553.1230924418323
+                ],
+                "normal": [
+                  0.0,
+                  0.8660248667903186,
+                  -0.5000009300999455
+                ],
+                "name": [
+                  {
+                    "feature": 33,
+                    "role": "side",
+                    "n": 7
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -176.6,
+                    "y": 457.188
+                  },
+                  {
+                    "id": 2,
+                    "x": -176.6,
+                    "y": 451.1879
+                  },
+                  {
+                    "id": 3,
+                    "x": -162.6,
+                    "y": 451.1879
+                  },
+                  {
+                    "id": 4,
+                    "x": -162.6,
+                    "y": 465.188
+                  },
+                  {
+                    "id": 5,
+                    "x": -168.6,
+                    "y": 465.188
+                  },
+                  {
+                    "id": 10,
+                    "x": -176.6,
+                    "y": 465.188
+                  },
+                  {
+                    "id": 14,
+                    "x": -176.6,
+                    "y": 482.9879
+                  },
+                  {
+                    "id": 15,
+                    "x": -176.6,
+                    "y": 488.988
+                  },
+                  {
+                    "id": 16,
+                    "x": -162.6,
+                    "y": 488.988
+                  },
+                  {
+                    "id": 17,
+                    "x": -162.6,
+                    "y": 474.9879
+                  },
+                  {
+                    "id": 18,
+                    "x": -168.6,
+                    "y": 474.9879
+                  },
+                  {
+                    "id": 23,
+                    "x": -176.6,
+                    "y": 474.9879
+                  },
+                  {
+                    "id": 27,
+                    "x": -237.8,
+                    "y": 457.188
+                  },
+                  {
+                    "id": 28,
+                    "x": -237.8,
+                    "y": 451.1879
+                  },
+                  {
+                    "id": 29,
+                    "x": -251.8,
+                    "y": 451.1879
+                  },
+                  {
+                    "id": 30,
+                    "x": -251.8,
+                    "y": 465.188
+                  },
+                  {
+                    "id": 31,
+                    "x": -245.8,
+                    "y": 465.188
+                  },
+                  {
+                    "id": 36,
+                    "x": -237.8,
+                    "y": 465.188
+                  },
+                  {
+                    "id": 40,
+                    "x": -237.8,
+                    "y": 482.9879
+                  },
+                  {
+                    "id": 41,
+                    "x": -237.8,
+                    "y": 488.988
+                  },
+                  {
+                    "id": 42,
+                    "x": -251.8,
+                    "y": 488.988
+                  },
+                  {
+                    "id": 43,
+                    "x": -251.8,
+                    "y": 474.9879
+                  },
+                  {
+                    "id": 44,
+                    "x": -245.8,
+                    "y": 474.9879
+                  },
+                  {
+                    "id": 49,
+                    "x": -237.8,
+                    "y": 474.9879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 9,
+                    "type": "line",
+                    "a": 4,
+                    "b": 5,
+                    "construction": false
+                  },
+                  {
+                    "id": 13,
+                    "type": "arc",
+                    "c": 10,
+                    "a": 1,
+                    "b": 5,
+                    "construction": false
+                  },
+                  {
+                    "id": 19,
+                    "type": "line",
+                    "a": 14,
+                    "b": 15,
+                    "construction": false
+                  },
+                  {
+                    "id": 20,
+                    "type": "line",
+                    "a": 15,
+                    "b": 16,
+                    "construction": false
+                  },
+                  {
+                    "id": 21,
+                    "type": "line",
+                    "a": 16,
+                    "b": 17,
+                    "construction": false
+                  },
+                  {
+                    "id": 22,
+                    "type": "line",
+                    "a": 17,
+                    "b": 18,
+                    "construction": false
+                  },
+                  {
+                    "id": 26,
+                    "type": "arc",
+                    "c": 23,
+                    "a": 18,
+                    "b": 14,
+                    "construction": false
+                  },
+                  {
+                    "id": 32,
+                    "type": "line",
+                    "a": 27,
+                    "b": 28,
+                    "construction": false
+                  },
+                  {
+                    "id": 33,
+                    "type": "line",
+                    "a": 28,
+                    "b": 29,
+                    "construction": false
+                  },
+                  {
+                    "id": 34,
+                    "type": "line",
+                    "a": 29,
+                    "b": 30,
+                    "construction": false
+                  },
+                  {
+                    "id": 35,
+                    "type": "line",
+                    "a": 30,
+                    "b": 31,
+                    "construction": false
+                  },
+                  {
+                    "id": 39,
+                    "type": "arc",
+                    "c": 36,
+                    "a": 31,
+                    "b": 27,
+                    "construction": false
+                  },
+                  {
+                    "id": 45,
+                    "type": "line",
+                    "a": 40,
+                    "b": 41,
+                    "construction": false
+                  },
+                  {
+                    "id": 46,
+                    "type": "line",
+                    "a": 41,
+                    "b": 42,
+                    "construction": false
+                  },
+                  {
+                    "id": 47,
+                    "type": "line",
+                    "a": 42,
+                    "b": 43,
+                    "construction": false
+                  },
+                  {
+                    "id": 48,
+                    "type": "line",
+                    "a": 43,
+                    "b": 44,
+                    "construction": false
+                  },
+                  {
+                    "id": 52,
+                    "type": "arc",
+                    "c": 49,
+                    "a": 40,
+                    "b": 44,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 52,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  -0.0,
+                  -248.4056509096281,
+                  143.41742513378472
+                ],
+                "x": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.5000009300999456,
+                  0.8660248667903189
+                ],
+                "normal": [
+                  0.0,
+                  0.8660248667903189,
+                  -0.5000009300999456
+                ]
+              }
+            }
+          },
+          {
+            "id": 35,
+            "name": "Rounded corners of the back",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 34,
+                  "point": [
+                    -167.26666666666665,
+                    455.85459999999995
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 34,
+                  "point": [
+                    -167.26666666666665,
+                    484.3213
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 34,
+                  "point": [
+                    -247.13333333333335,
+                    455.85459999999995
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 34,
+                  "point": [
+                    -247.13333333333335,
+                    484.3213
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "40.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 36,
+            "name": "M3 pilot holes (self-tapping, 2.8) sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  207.2,
+                  -11.86138690890207,
+                  553.1230924418323
+                ],
+                "normal": [
+                  -3.9098963189412784e-17,
+                  0.8660248667903188,
+                  -0.5000009300999455
+                ],
+                "name": [
+                  {
+                    "feature": 33,
+                    "role": "side",
+                    "n": 7
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -173.1,
+                    "y": 470.0879
+                  },
+                  {
+                    "id": 3,
+                    "x": -241.3,
+                    "y": 470.0879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 1.4,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 1.4,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 4,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  1.1214924390051295e-14,
+                  -248.40565090962812,
+                  143.41742513378472
+                ],
+                "x": [
+                  -1.0,
+                  -4.514762183945394e-17,
+                  0.0
+                ],
+                "y": [
+                  -2.2573852911527585e-17,
+                  0.5000009300999455,
+                  0.8660248667903188
+                ],
+                "normal": [
+                  -3.9098963189412784e-17,
+                  0.8660248667903188,
+                  -0.5000009300999455
+                ]
+              }
+            }
+          },
+          {
+            "id": 37,
+            "name": "M3 pilot holes (self-tapping, 2.8)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 36,
+                  "point": [
+                    -173.10000000000002,
+                    469.7686811995627
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 36,
+                  "point": [
+                    -241.30000000000004,
+                    469.7686811995627
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "11.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 38,
+            "name": "Ear plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Right"
+              },
+              "offset": "157.6",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 39,
+            "name": "Ear plate profile",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 38
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -24.5,
+                    "y": 540.3283
+                  },
+                  {
+                    "id": 2,
+                    "x": -21.5,
+                    "y": 540.3283
+                  },
+                  {
+                    "id": 3,
+                    "x": -21.5,
+                    "y": 562.6717
+                  },
+                  {
+                    "id": 4,
+                    "x": -24.5,
+                    "y": 562.6717
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  157.6,
+                  0.0,
+                  0.0
+                ],
+                "x": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 40,
+            "name": "Ear plate",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 39,
+                  "point": [
+                    -22.5,
+                    547.7761
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "99.2",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 41,
+            "name": "Screw hole plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Front"
+              },
+              "offset": "20.5",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 42,
+            "name": "Screw holes sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 41
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 162.6,
+                    "y": 551.5
+                  },
+                  {
+                    "id": 3,
+                    "x": 251.8,
+                    "y": 551.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 1.8,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 1.8,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 4,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  -20.5,
+                  0.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 43,
+            "name": "M3 screw holes into the panel",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 42,
+                  "point": [
+                    162.6,
+                    551.0895758280092
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 42,
+                  "point": [
+                    251.80000000000004,
+                    551.0895758280092
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "5.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 44,
+            "name": "Logitech C270 board 58 x 21 x 0.8 sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  196.2,
+                  -4.617888743138348,
+                  555.8691935008349
+                ],
+                "normal": [
+                  7.716707467820648e-17,
+                  -0.8660249702273214,
+                  0.5000007509422033
+                ],
+                "name": [
+                  {
+                    "feature": 13,
+                    "role": "end",
+                    "n": 0
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 178.3,
+                    "y": 459.5879
+                  },
+                  {
+                    "id": 2,
+                    "x": 236.3,
+                    "y": 459.5879
+                  },
+                  {
+                    "id": 3,
+                    "x": 236.3,
+                    "y": 480.588
+                  },
+                  {
+                    "id": 4,
+                    "x": 178.3,
+                    "y": 480.588
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  2.175603909684739e-14,
+                  -244.1620754665312,
+                  140.96732228497712
+                ],
+                "x": [
+                  1.0,
+                  8.910490728454519e-17,
+                  -0.0
+                ],
+                "y": [
+                  -4.4552520554907995e-17,
+                  0.5000007509422033,
+                  0.8660249702273214
+                ],
+                "normal": [
+                  7.716707467820648e-17,
+                  -0.8660249702273214,
+                  0.5000007509422033
+                ]
+              }
+            }
+          },
+          {
+            "id": 45,
+            "name": "Logitech C270 board 58 x 21 x 0.8",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 44,
+                  "point": [
+                    216.9666666666667,
+                    466.5879333333333
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "0.8",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 46,
+            "name": "M12 lens 2.1 mm, barrel sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  216.2,
+                  1.283100000000028,
+                  542.07
+                ],
+                "normal": [
+                  5.568865221825859e-16,
+                  0.8660248667903184,
+                  -0.5000009300999461
+                ],
+                "name": [
+                  {
+                    "feature": 3,
+                    "role": "side",
+                    "n": 6
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -191.2,
+                    "y": 470.0879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 5.9,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 2,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  -1.503172089523917e-13,
+                  -233.7611625957182,
+                  134.96240489293356
+                ],
+                "x": [
+                  -1.0,
+                  6.430375657070123e-16,
+                  0.0
+                ],
+                "y": [
+                  3.215193809427113e-16,
+                  0.5000009300999461,
+                  0.8660248667903184
+                ],
+                "normal": [
+                  5.568865221825859e-16,
+                  0.8660248667903184,
+                  -0.5000009300999461
+                ]
+              }
+            }
+          },
+          {
+            "id": 47,
+            "name": "M12 lens 2.1 mm, barrel",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 46,
+                  "point": [
+                    -191.4709806296645,
+                    468.3281947161324
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "4.99",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 48,
+            "name": "M12 lens 2.1 mm, front flange sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "face",
+                "point": [
+                  191.2,
+                  5.604550073603596,
+                  539.5749710899198
+                ],
+                "normal": [
+                  3.216830835193572e-16,
+                  0.8660248667903178,
+                  -0.5000009300999474
+                ],
+                "name": [
+                  {
+                    "feature": 47,
+                    "role": "end",
+                    "n": 0
+                  }
+                ]
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -191.2,
+                    "y": 470.0879
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 9.0,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 2,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  -8.522488502222019e-14,
+                  -229.43969851043497,
+                  132.46740025173554
+                ],
+                "x": [
+                  -1.0,
+                  3.714478600500085e-16,
+                  0.0
+                ],
+                "y": [
+                  1.8572427550863935e-16,
+                  0.5000009300999474,
+                  0.8660248667903178
+                ],
+                "normal": [
+                  3.216830835193572e-16,
+                  0.8660248667903178,
+                  -0.5000009300999474
+                ]
+              }
+            }
+          },
+          {
+            "id": 49,
+            "name": "M12 lens 2.1 mm, front flange",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 48,
+                  "point": [
+                    -189.9401651132497,
+                    469.4811954946528
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "5.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          }
+        ],
+        "rollback": null,
+        "next_id": 49,
+        "parts": {
+          "33:0": {
+            "name": "Webcam base, screws to the panel (print, ABS/ASA)",
+            "color": [
+              92,
+              98,
+              107
+            ],
+            "material": null
+          },
+          "3:0": {
+            "name": "Webcam box with M12 lens holder (print, ABS/ASA)",
+            "color": [
+              138,
+              144,
+              153
+            ],
+            "material": null
+          },
+          "45:0": {
+            "name": "Logitech C270 board (reference)",
+            "color": [
+              28,
+              110,
+              60
+            ],
+            "material": null
+          },
+          "47:0": {
+            "name": "M12 2.1 mm lens barrel (reference)",
+            "color": [
+              16,
+              16,
+              16
+            ],
+            "material": null
+          },
+          "49:0": {
+            "name": "M12 2.1 mm lens flange (reference)",
+            "color": [
+              24,
+              24,
+              24
+            ],
+            "material": null
+          }
+        },
+        "configs": [],
+        "active_config": null
+      }
+    },
+    {
       "name": "Top lid",
       "doc": {
         "format": "cad-rust-app/1",
@@ -32392,8 +35864,8 @@
         }
       ],
       "turns": {
-        "47": 0.0,
-        "43": 0.0
+        "43": 0.0,
+        "47": 0.0
       }
     },
     {
@@ -40863,11 +44335,11 @@
       "next_id": 28,
       "relations": [],
       "turns": {
-        "26": -3.8828212867159085e-10,
-        "27": 4.340972038454335e-14,
-        "25": 8.822703678745822e-11,
         "24": -2.681164179563211e-10,
+        "26": -3.8828212867159085e-10,
         "28": -8.813975937993489e-11,
+        "25": 8.822703678745822e-11,
+        "27": 4.340972038454335e-14,
         "23": 4.368727625603732e-14
       }
     },
@@ -42938,6 +46410,36 @@
         },
         {
           "id": 19,
+          "name": "Webcam <1>",
+          "studio": 0,
+          "body": [
+            0,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false,
+          "sub": 28
+        },
+        {
+          "id": 20,
           "name": "Lid frame hardware <1>",
           "studio": 0,
           "body": [
@@ -42964,10 +46466,10 @@
           },
           "fixed": true,
           "hidden": false,
-          "sub": 29
+          "sub": 30
         },
         {
-          "id": 20,
+          "id": 21,
           "name": "Top lid <1>",
           "studio": 0,
           "body": [
@@ -42994,12 +46496,12 @@
           },
           "fixed": false,
           "hidden": false,
-          "sub": 28
+          "sub": 29
         },
         {
-          "id": 22,
+          "id": 23,
           "name": "Gas spring body, right <1>",
-          "studio": 31,
+          "studio": 32,
           "body": [
             1,
             0
@@ -43026,9 +46528,9 @@
           "hidden": false
         },
         {
-          "id": 23,
+          "id": 24,
           "name": "Gas spring rod, right <1>",
-          "studio": 31,
+          "studio": 32,
           "body": [
             2,
             0
@@ -43055,9 +46557,9 @@
           "hidden": false
         },
         {
-          "id": 27,
+          "id": 28,
           "name": "Gas spring body, left <1>",
-          "studio": 31,
+          "studio": 32,
           "body": [
             1,
             0
@@ -43084,9 +46586,9 @@
           "hidden": false
         },
         {
-          "id": 28,
+          "id": 29,
           "name": "Gas spring rod, left <1>",
-          "studio": 31,
+          "studio": 32,
           "body": [
             2,
             0
@@ -43443,11 +46945,11 @@
           "suppressed": false
         },
         {
-          "id": 21,
+          "id": 22,
           "name": "Top lid hinge",
           "kind": "Revolute",
           "a": {
-            "inst": 19,
+            "inst": 20,
             "origin": [
               441.0,
               0.0,
@@ -43465,7 +46967,7 @@
             ]
           },
           "b": {
-            "inst": 20,
+            "inst": 21,
             "origin": [
               441.0,
               0.0,
@@ -43496,11 +46998,11 @@
           "suppressed": false
         },
         {
-          "id": 24,
+          "id": 25,
           "name": "Gas spring right, lid ball",
           "kind": "Revolute",
           "a": {
-            "inst": 20,
+            "inst": 21,
             "origin": [
               403.5,
               -45.0,
@@ -43518,7 +47020,7 @@
             ]
           },
           "b": {
-            "inst": 22,
+            "inst": 23,
             "origin": [
               0.0,
               0.0,
@@ -43546,11 +47048,11 @@
           "suppressed": false
         },
         {
-          "id": 25,
+          "id": 26,
           "name": "Gas spring right, frame ball",
           "kind": "Revolute",
           "a": {
-            "inst": 19,
+            "inst": 20,
             "origin": [
               282.5,
               -45.0,
@@ -43568,7 +47070,7 @@
             ]
           },
           "b": {
-            "inst": 23,
+            "inst": 24,
             "origin": [
               0.0,
               0.0,
@@ -43596,11 +47098,11 @@
           "suppressed": false
         },
         {
-          "id": 26,
+          "id": 27,
           "name": "Gas spring right, stroke",
           "kind": "Cylindrical",
           "a": {
-            "inst": 22,
+            "inst": 23,
             "origin": [
               0.0,
               0.0,
@@ -43618,7 +47120,7 @@
             ]
           },
           "b": {
-            "inst": 23,
+            "inst": 24,
             "origin": [
               0.0,
               0.0,
@@ -43646,11 +47148,11 @@
           "suppressed": false
         },
         {
-          "id": 29,
+          "id": 30,
           "name": "Gas spring left, lid ball",
           "kind": "Revolute",
           "a": {
-            "inst": 20,
+            "inst": 21,
             "origin": [
               403.5,
               498.0,
@@ -43668,7 +47170,7 @@
             ]
           },
           "b": {
-            "inst": 27,
+            "inst": 28,
             "origin": [
               0.0,
               0.0,
@@ -43696,11 +47198,11 @@
           "suppressed": false
         },
         {
-          "id": 30,
+          "id": 31,
           "name": "Gas spring left, frame ball",
           "kind": "Revolute",
           "a": {
-            "inst": 19,
+            "inst": 20,
             "origin": [
               282.5,
               498.0,
@@ -43718,7 +47220,7 @@
             ]
           },
           "b": {
-            "inst": 28,
+            "inst": 29,
             "origin": [
               0.0,
               0.0,
@@ -43746,11 +47248,11 @@
           "suppressed": false
         },
         {
-          "id": 31,
+          "id": 32,
           "name": "Gas spring left, stroke",
           "kind": "Cylindrical",
           "a": {
-            "inst": 27,
+            "inst": 28,
             "origin": [
               0.0,
               0.0,
@@ -43768,7 +47270,7 @@
             ]
           },
           "b": {
-            "inst": 28,
+            "inst": 29,
             "origin": [
               0.0,
               0.0,
@@ -43796,21 +47298,21 @@
           "suppressed": false
         }
       ],
-      "next_id": 33,
+      "next_id": 34,
       "relations": [],
       "turns": {
-        "11": 0.0,
         "12": 0.0,
+        "11": 0.0,
         "15": 0.0
       },
       "motions": [
         {
-          "id": 33,
+          "id": 34,
           "name": "Open top lid",
           "links": [
             {
               "target": {
-                "mate": 21
+                "mate": 22
               },
               "from": 0.0,
               "to": 90.0,
@@ -44333,7 +47835,7 @@
             ]
           },
           "fixed": true,
-          "hidden": false
+          "hidden": true
         },
         {
           "id": 7,
@@ -44391,7 +47893,7 @@
             ]
           },
           "fixed": true,
-          "hidden": false
+          "hidden": true
         }
       ],
       "mates": [],
@@ -68862,11 +72364,11 @@
       "relations": []
     },
     {
-      "name": "Top lid",
+      "name": "Webcam",
       "instances": [
         {
           "id": 1,
-          "name": "Top lid panel (3 mm 6061) <1>",
+          "name": "Webcam box with M12 lens holder (print, ABS/ASA) <1>",
           "studio": 30,
           "body": [
             3,
@@ -68895,8 +72397,161 @@
         },
         {
           "id": 2,
-          "name": "Lid insulation, PIR 25.4 mm (bonded under the lid) <2>",
+          "name": "Webcam base, screws to the panel (print, ABS/ASA) <2>",
           "studio": 30,
+          "body": [
+            33,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        },
+        {
+          "id": 3,
+          "name": "Logitech C270 board (reference) <3>",
+          "studio": 30,
+          "body": [
+            45,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        },
+        {
+          "id": 4,
+          "name": "M12 2.1 mm lens barrel (reference) <4>",
+          "studio": 30,
+          "body": [
+            47,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        },
+        {
+          "id": 5,
+          "name": "M12 2.1 mm lens flange (reference) <5>",
+          "studio": 30,
+          "body": [
+            49,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        }
+      ],
+      "mates": [],
+      "next_id": 6,
+      "relations": []
+    },
+    {
+      "name": "Top lid",
+      "instances": [
+        {
+          "id": 1,
+          "name": "Top lid panel (3 mm 6061) <1>",
+          "studio": 31,
+          "body": [
+            3,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        },
+        {
+          "id": 2,
+          "name": "Lid insulation, PIR 25.4 mm (bonded under the lid) <2>",
+          "studio": 31,
           "body": [
             5,
             0
@@ -68925,7 +72580,7 @@
         {
           "id": 3,
           "name": "Lid hinge 1, lid leaf <3>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             11,
             0
@@ -68954,7 +72609,7 @@
         {
           "id": 4,
           "name": "Lid hinge 2, lid leaf <4>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             20,
             0
@@ -68983,7 +72638,7 @@
         {
           "id": 5,
           "name": "Lid spring bracket, right (6 mm 6061, CNC) <5>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             36,
             0
@@ -69012,7 +72667,7 @@
         {
           "id": 6,
           "name": "Lid spring bracket, left (6 mm 6061, CNC) <6>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             51,
             0
@@ -69041,7 +72696,7 @@
         {
           "id": 7,
           "name": "Ball stud M6, lid, right <1>",
-          "studio": 31,
+          "studio": 32,
           "body": [
             3,
             0
@@ -69070,7 +72725,7 @@
         {
           "id": 8,
           "name": "Ball stud M6, lid, left <2>",
-          "studio": 31,
+          "studio": 32,
           "body": [
             3,
             0
@@ -69107,7 +72762,7 @@
         {
           "id": 1,
           "name": "Lid hinge 1, frame leaf and pin <1>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             13,
             0
@@ -69136,7 +72791,7 @@
         {
           "id": 2,
           "name": "Lid hinge 1 spacer, 6061 20 x 8 x 50 (on the rear-most top rail) <2>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             18,
             0
@@ -69165,7 +72820,7 @@
         {
           "id": 3,
           "name": "Lid hinge 2, frame leaf and pin <3>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             22,
             0
@@ -69194,7 +72849,7 @@
         {
           "id": 4,
           "name": "Lid hinge 2 spacer, 6061 20 x 8 x 50 (on the rear-most top rail) <4>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             27,
             0
@@ -69223,7 +72878,7 @@
         {
           "id": 5,
           "name": "Frame spring bracket, right (8 mm 6061, CNC) <5>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             30,
             0
@@ -69252,7 +72907,7 @@
         {
           "id": 6,
           "name": "Frame spring bracket, left (8 mm 6061, CNC) <6>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             45,
             0
@@ -69281,7 +72936,7 @@
         {
           "id": 7,
           "name": "Lid seal, hollow silicone D 10 x 8 (shown compressed to 5) <7>",
-          "studio": 30,
+          "studio": 31,
           "body": [
             8,
             0
@@ -69310,7 +72965,7 @@
         {
           "id": 8,
           "name": "Ball stud M6, frame, right <1>",
-          "studio": 31,
+          "studio": 32,
           "body": [
             3,
             0
@@ -69339,7 +72994,7 @@
         {
           "id": 9,
           "name": "Ball stud M6, frame, left <2>",
-          "studio": 31,
+          "studio": 32,
           "body": [
             3,
             0

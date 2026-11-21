@@ -171,6 +171,15 @@ These are kept for reference, and they use scratch paths.
   - `splice_tr.py`: adds the studio, the assembly and the Printer instance.
 - **Renders:** `renders/tradrack-overview.png`, `tradrack-closeup.png` and `tradrack-mount-holes.png` (panels and door hidden).
 
+## Changes on 2026-11-16: webcam
+
+- **What.** A chamber camera high on the right wall, screwed to the bare aluminium side panel with two M3 screws into tapped holes, looking across the bed and 30° down (first drawn under the front rail, then the rear rail, moved to the wall on 2026-11-17 because of the cable chain). The camera is a Logitech C270 with its case removed, with a 2.1 mm M12 wide-angle lens. The mount is a closed two-part box around the board with a rounded outline (2026-11-18): the front part includes the M12 lens holder, and the back part is a wedge base that screws to the panel and holds the box with two M3 × 20 screws. Streaming (crowsnest) was installed on the Pi the same day. `webcam/README.md` has the measurements, the clearances, the print notes and the streaming setup (crowsnest and Moonraker config files are next to it).
+- **Model.** Part Studio **Webcam** (the printed box and back, plus reference blocks for the board and lens), assembly **Webcam**, in Printer as instance 21 (instance 19 in X-carriage-no-belts.json).
+- **Insulation.** Jonas's printer has no upper side insulation boards, so "PIR right side, upper" and "PIR left side, upper" are hidden in the **PIR insulation** assembly. Nothing else changed.
+- **Not checked.** Wires or tubes along the right wall aren't modelled, and neither is what sits on the outside of the panel where the two M3 holes go.
+- **Renders:** `renders/webcam-wall.png`, `webcam-wall-close.png` and `webcam-mount-side.png` (from inside the chamber, door and Trad Rack hidden). **STEP:** `step/Webcam mount + bezel.step`. The STLs for printing are in `webcam/print/`.
+- **Scripts:** `scripts/webcam/mkbox.py`, `print_files.py`, `hide_upper_pir.py` and `splice_cam.py`.
+
 ## Changes on 2026-11-17: top lid with gas springs and a seal
 
 The top panel is now a lid hinged along the back, held shut and held open by two over-centre gas springs outside the side panels, with a hollow silicone seal on the top extrusions and the top PIR board bonded underneath. Details, numbers and renders: [`lid/README.md`](lid/README.md). Scripts: `scripts/lid/`.
