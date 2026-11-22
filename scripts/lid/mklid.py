@@ -161,7 +161,7 @@ add({'tool':'describe','args':{}})
 add({'tool':'new_part_studio','args':{'name':'Lid gas springs'}})
 for f in ('gas_spring_body','gas_spring_rod','ball_stud'):
     add({'tool':'import_file','args':{'path':os.path.abspath(os.path.join(OUT,f+'.step')),'name':f}})
-add({'tool':'set_parts','args':{'parts':[{'body':[1,0],'name':'Gas spring body, 250 mm / 80 stroke, 60 N (Ø15 tube)','color':'#202020'},{'body':[2,0],'name':'Gas spring rod with ball socket (Ø6 rod)','color':'#c8c8c8'},{'body':[3,0],'name':'Ball stud M6, Ø10 ball','color':'#c8c8c8'}]}})
+add({'tool':'set_parts','args':{'parts':[{'body':[1,0],'name':'Gas spring body, 250 mm / 80 stroke, 80 N (18 lb) (Ø15 tube)','color':'#202020'},{'body':[2,0],'name':'Gas spring rod with ball socket (Ø6 rod)','color':'#c8c8c8'},{'body':[3,0],'name':'Ball stud M6, Ø10 ball','color':'#c8c8c8'}]}})
 add({'tool':'describe','args':{}})
 add({'tool':'save_document','args':{'path':os.path.abspath(os.path.join(OUT,'lid-doc.json'))}})
 json.dump(S,open(os.path.join(OUT,'lid_run.json'),'w'),indent=0)

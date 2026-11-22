@@ -1,6 +1,6 @@
 # Top lid with over-centre gas springs and a seal
 
-The top panel is now a lid hinged along the back on two printed corner hinges that turn on 623 ball bearings. Two gas springs pull it shut when it is closed and push it open past about 38°, and it stays up at 85° by itself. A hollow silicone seal runs round the top of the frame. The top PIR board is bonded under the lid, so it lifts out of the way with it.
+The top panel is now a lid hinged along the back on two printed corner hinges that turn on 623 ball bearings. Two gas springs pull it shut when it is closed and push it open past about 36°, and it stays up at 85° by itself. A hollow silicone seal runs round the top of the frame. The top PIR board is bonded under the lid, so it lifts out of the way with it.
 
 Rev 3 (2026-11-22): heavier hinges moved to the lid's rear corners, each one printed in one piece with an arm that runs forward along the lid's side edge to the spring lever, so the spring force goes lever → arm → pin and not through the 3 mm lid. The springs and their brackets moved forward so that everything outside the side panel is in front of the filament tube, and the brackets clear the M5 button heads that hold the side panels.
 
@@ -18,22 +18,22 @@ Rev 3 (2026-11-22): heavier hinges moved to the lid's rear corners, each one pri
 | Lid | 3 mm 6061, the same 459 × 508 footprint as the old top panel (x −25.5..433.5, y −27.5..480.5), front corners rounded R12. It sits on the seal, so it is now at z 595.2–598.2 (5 mm higher). |
 | Insulation | The old top board (25.4 mm PIR) is bonded under the lid: x −3.5..402.5, y −1.5..454.5, z 569.8..595.2. It is 2 mm clear of the top extrusions all round. When the lid opens it swings up and forward, away from the rear rail. |
 | Seal | Self-adhesive hollow silicone D-profile, about 10 wide × 8 high, on the top face of the four top extrusions (centred on each rail; centre-line rectangle 430 × 480, about 1.82 m). It is modelled compressed to 5 mm. A close catalogue profile is Parker TechSeal hollow-D D010 (12.4 × 7.9) with the PSA backing, ordered in silicone. |
-| Gas springs | Two, one on each side, OUTSIDE the side panels (y −50 and 503), so they stay at room temperature and clear of everything in the chamber. Size: **250 mm extended (ball to ball), 80 mm stroke, Ø15 body, Ø6 rod, 60 N** each, Ø10 ball sockets on M6 ball studs. This is the common 10 inch cabinet lid strut; any 245–250 mm strut with at least 76 mm of stroke works. |
+| Gas springs | Two, one on each side, OUTSIDE the side panels (y −50 and 503), so they stay at room temperature and clear of everything in the chamber. Size: **250 mm extended (ball to ball), 80 mm stroke, Ø15 body, Ø6 rod, 80 N (18 lb)** each, Ø10 ball sockets on M6 ball studs. This is the common 10 inch cabinet lid strut; any 245–250 mm strut with at least 76 mm of stroke works. Jonas picked a 10 inch / 18 lb pair (2026-11-21); its kit has ball studs on screw plates, so either buy four M6 threaded Ø10 ball studs or the brackets get redrawn for the plates. |
 | Lid spring levers | Machined 8 mm 6061 plates, x 322–358, hanging outside the side panels 5 mm off them (2.2 mm over the 2.75 mm button heads). Ball stud at (344, 536.95) when closed. |
 | Frame brackets | Machined 13 mm 6061 blocks, 60 × 32 (x 121–181, z 558–590.2), on the side panels with 2× M5 × 20 through the panel into the top side rail's slot (x 131 and 171, z 580). A 12 × 3.2 mm channel runs along the back at z 574–586, so the bracket sits over the panel's M5 button heads wherever they are. Ball stud at (151, 577). If one of the panel's own screws lands on a bracket hole, use that position with a longer screw. |
 | Handle | Printed arch at the middle of the front edge, 110 long, 22 high, with an 80 × 16 finger opening. 2× M4 from under the lid, fitted before the insulation is bonded on. |
 
 ### Over-centre numbers
 
-From `scripts/lid/torque_plot.py` (lid + PIR + arms ≈ 2.6 kg, CG 239 mm in front of the pin, 60 N springs with F2/F1 = 1.3):
+From `scripts/lid/torque_plot.py` (lid + PIR + arms ≈ 2.6 kg, CG 239 mm in front of the pin, 80 N springs with F2/F1 = 1.3):
 
 ![torque](renders/torque.png)
 
-- **Closed:** 18.1 N·m holding it shut (12.0 from the springs, 6.1 from the lid's weight). That is about 75 N on the seal (≈ 4 N per 100 mm), and you lift with about 39 N at the front edge to open it.
+- **Closed:** 22.1 N·m holding it shut (16.0 from the springs, 6.1 from the lid's weight). That is about 92 N on the seal (≈ 5 N per 100 mm), and you lift with about 47 N at the front edge to open it.
 - **Springs' dead point:** 28°, where they are shortest (174.8 mm, 4.8 mm before they bottom out).
-- **Past 38°** it opens by itself. **At 85°** the springs hold it open with 13.3 N·m and are fully extended (250 mm), so the springs themselves are the end stop. Closing works the other way round: push it down past 38° and it pulls itself shut.
-- The torques scale with spring force: 50 N springs give 16.1 N·m shut / 11.0 N·m open, 80 N give 22.1 / 18.0.
-- Spring length over the swing: 197.1 (closed) → 174.8 (28°) → 250 (85°), checked in the assembly (the mates solve the loop: no failed mates at 0°, 28° and 85°). Highest spring force 77 N per side.
+- **Past 36°** it opens by itself. **At 85°** the springs hold it open with 18.0 N·m and are fully extended (250 mm), so the springs themselves are the end stop. Closing works the other way round: push it down past 36° and it pulls itself shut.
+- The torques scale with spring force: 45 N (10 lb) springs give 15.1 N·m shut / 9.8 N·m open, 60 N (13 lb) give 18.1 / 13.3.
+- Spring length over the swing: 197.1 (closed) → 174.8 (28°) → 250 (85°), checked in the assembly (the mates solve the loop: no failed mates at 0°, 28° and 85°). Highest spring force 103 N per side.
 
 `scripts/lid/search.py` is the search that picked the geometry: spring sizes, open angles and ball positions, keeping the ones that hold shut and open with the lid ball at least 27 mm in front of the filament tube hole and the frame ball beside the top side rail.
 
@@ -104,10 +104,10 @@ python3 scripts/lid/print_files.py lid-prints.stl lid/print      # the four STLs
 ## Not checked / open
 
 - The real top insulation: the CAD had a 25.4 mm PIR board in the top bay; if your sheet is a different thickness or sits under the rails, the plug changes.
-- Seal compression force is an estimate for a soft hollow profile; the closed torque gives ≈ 80 N over 1.82 m. If the profile you buy is much stiffer, go up a spring force.
+- Seal compression force is an estimate for a soft hollow profile; the closed torque gives ≈ 92 N over 1.82 m. If the profile you buy is much stiffer, go up a spring force.
 - The springs act as the 85° end stop. A rubber bump stop on the rear rail would take that load off them.
 - No latch: the springs hold it shut.
-- The printed hinges carry the springs' reaction (up to about 77 N per side). The ears are 10 mm thick with 4.5 mm of plastic round the bearing; printed on the side as above the load runs along the layers.
+- The printed hinges carry the springs' reaction (up to about 103 N per side). The ears are 10 mm thick with 4.5 mm of plastic round the bearing; printed on the side as above the load runs along the layers.
 - The tube and screw positions are read from photos (± a few mm). The exact spacing of the top row of panel screws is not known, so the frame bracket holes are not lined up with them yet.
 - Only the right side's tube is known; the left side is a mirror image.
 - Mounting holes in the lid panel itself (corner arms, handle) are not cut in the model.

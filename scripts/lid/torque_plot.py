@@ -6,7 +6,7 @@ H=np.array([444.0,601.95]); B=np.array([151.0,577.0])      # hinge axis and fram
 U,V=100.0,-65.0                                             # lid ball: 100 in front of the hinge axis, 65 below it
 LEXT,STROKE,OPEN=250,80,85                                  # spring size, and the angle where it is fully extended
 MASS,UCG,VCG=2.6,239.0,-11.0                                 # lid + PIR + brackets (kg), CG from the hinge axis
-F1,K=60.0,1.3                                               # force at full extension per spring (N), F2/F1
+F1,K=80.0,1.3                                               # force at full extension per spring (N), F2/F1
 R=evaluate(H,B,U,V,LEXT,STROKE,F1,K,MASS,UCG,VCG,OPEN,n=2)
 th,T,Ts,Tg,l=R['th'],R['T'],R['Ts'],R['Tg'],R['l']
 lever=H[0]+25.5
