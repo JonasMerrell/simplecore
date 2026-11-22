@@ -76,6 +76,20 @@ STLs in print orientation are in `lid/print/` (ASA or ABS; the hinges sit outsid
 
 Hardware: 4× 623 bearing, 2× M3 × 25 socket screw + locknut, 4× M5 × 12 + T-nut (blocks), 12× M4 (corner arms), 4× M5 × 30 + nut (levers), 4× M5 × 20 + T-nut (frame brackets), 4× M6 ball stud, 2× M4 (handle). The bearing pockets are drawn at exactly 10.0 mm, so set your usual press-fit allowance in the slicer or ream them. The screw head and the nut sit in 6.8 mm bores in the ears and bear on the inner races only; hold the nut with needle-nose pliers.
 
+## Drilling jigs
+
+Printed jigs for the holes you drill yourself, in `lid/jigs/` (STLs lips-up, no supports; any filament; model `lid-drill-jigs.json`, built by `scripts/lid/mkjigs.py` and `jig_files.py`). Every guide hole is 3.4 mm for a 3.3 mm pilot drill; open the holes up afterwards (4.3 for M4, 5.5 for M5). Run the drill through the printed guides once before use.
+
+![jigs](jigs/lid-drill-jigs.png)
+
+| Jig | Qty | Registers on | Holes |
+|---|---|---|---|
+| `lid-jig-corner-right.stl`, `-left.stl` (121.5 × 71.5 × 10.8) | 1 each | Top of the lid, lips against the lid's rear edge and side edge | The corner arm's 6× M4: three 7 mm in front of the rear edge, three 4.5 mm in from the side edge |
+| `lid-jig-handle.stl` (41.5 × 120 × 10.8) | 1 | Top of the lid, lip against the front edge; line the sight slot up with a centre line scribed 254 mm from either side edge | The handle's 2× M4, 95 mm apart, 24.5 mm behind the front edge |
+| `lid-jig-side-panel-right.stl`, `-left.stl` (214.5 × 32.2 × 17) | 1 each | Outside of the side panel with the old top panel off: lips over the panel's top edge and front edge (door open) | The frame bracket's 2× M5 at 156.5 and 196.5 mm from the panel's front edge, 10.2 mm below its top edge (the top side rail's slot). A channel on the back clears the M5 button heads |
+
+If one of the side panel's own screws already sits within a few millimetres of a bracket hole, tell me and I'll move the bracket holes onto it. Drill the side panel only through the 3 mm sheet: the rail's slot is right behind it.
+
 ## Rebuild
 
 ```
