@@ -1,8 +1,8 @@
 // Off-the-shelf lid hardware as solids. Spring parts in a local frame (x along the spring, ball centre at 0).
-// Gas spring: 150 mm extended (ball centre to ball centre), 50 mm stroke, Ø15 body, Ø6 rod, Ø10 ball sockets.
+// Gas spring: 250 mm extended (ball centre to ball centre), 80 mm stroke, Ø15 body, Ø6 rod, Ø10 ball sockets.
 let SO = 12.0;            // ball centre to the socket's end
-let BODY = 76.0;          // body tube = 150 - 50 - 2*12
-let ROD = 64.0;           // 50 stroke + 14 inside the body at full extension
+let BODY = 146.0;         // body tube = 250 - 80 - 2*12
+let ROD = 94.0;           // 80 stroke + 14 inside the body at full extension
 let x = vec3(1, 0, 0);
 let sock_b = cylinder(vec3(-6.5, 0, 0), x, 6.5, SO + 6.5);
 let body = fuse([sock_b, cylinder(vec3(SO, 0, 0), x, 7.5, BODY)]);

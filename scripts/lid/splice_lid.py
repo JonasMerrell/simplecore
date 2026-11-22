@@ -1,6 +1,6 @@
 # Add the top lid to a document: Part Studios "Top lid" and "Lid gas springs", assemblies "Top lid" (moves) and
 # "Lid frame hardware" (fixed), and in the target assembly: both, two gas spring bodies and rods, and the mates:
-# lid hinge (revolute, 0..90 deg), each spring body pivoting on the lid's ball stud, each rod on the frame's, and
+# lid hinge (revolute, 0..85 deg), each spring body pivoting on the lid's ball stud, each rod on the frame's, and
 # body/rod sliding on one axis (cylindrical). Hides the old top panel and the old top PIR board (the lid carries it).
 # usage: python3 splice_lid.py lid-doc.json TARGET.json [--test]   -> TARGET.json.new
 # TARGET must not have the lid yet (start from main's documents to redo it).
@@ -15,7 +15,7 @@ st=copy.deepcopy(C['studios'][0]); st['name']='Top lid'; si=len(d['studios']); d
 sp=copy.deepcopy(C['studios'][1]); sp['name']='Lid gas springs'; gi=len(d['studios']); d['studios'].append(sp)
 P={v['name']:list(key(k)) for k,v in st['doc']['parts'].items()}
 def find(s): return [n for n in P if n.startswith(s)]
-MOVES=('Top lid panel','Lid insulation','lid arm','pin, M3','Lid spring bracket','Lid handle')
+MOVES=('Top lid panel','Lid insulation','corner arm','pin, M3','Lid spring lever','Lid handle')
 moving=[n for n in P if any(t in n for t in MOVES)]
 fixed=[n for n in P if n not in moving]
 HX,HZ=G['H']; BY=G['BALL_Y']; YC=G['YC']; Bx,Bz=G['B']; Lx,Lz=G['L']; STUD_Y=G['LB_Y'][0]
@@ -51,7 +51,7 @@ def mate(name,kind,a,b,limits=None,flip=True):
     T['mates'].append({"id":new(),"name":name,"kind":kind,"a":a,"b":b,"flip":flip,"offset":0.0,"offset_xy":[0.0,0.0],"rotation":0.0,"limits":limits,"suppressed":False}); return nid[0]
 hw=put('Lid frame hardware <1>',0,[0,0],I(),True,hw_a)
 lid=put('Top lid <1>',0,[0,0],I(),False,lid_a)
-hinge=mate('Top lid hinge','Revolute',conn(hw,[HX,0,HZ],[0,1,0],[1,0,0]),conn(lid,[HX,0,HZ],[0,1,0],[1,0,0]),[0.0,90.0])
+hinge=mate('Top lid hinge','Revolute',conn(hw,[HX,0,HZ],[0,1,0],[1,0,0]),conn(lid,[HX,0,HZ],[0,1,0],[1,0,0]),[0.0,G['OPEN']])
 dx,dz=Bx-Lx,Bz-Lz; n=math.hypot(dx,dz); ux,uz=dx/n,dz/n
 for side,left in (('right',False),('left',True)):
     y=2*YC-BY if left else BY

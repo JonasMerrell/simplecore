@@ -18,12 +18,13 @@ def psi(th):
     t=math.radians(th); u,v=H[0]-L0[0],L0[1]-H[1]; c,s=math.cos(t),math.sin(t)
     return math.degrees(math.atan2(B[1]-(H[1]+u*s+v*c),B[0]-(H[0]-u*c+v*s)))
 dpsi=lambda th:(psi(th)-psi(0)+180)%360-180
-links=[{'mate':ids['Top lid hinge'],'from':0,'to':90}]
-for k in range(18):
+OPEN=G.get('OPEN',90.0); N=round(OPEN/5)
+links=[{'mate':ids['Top lid hinge'],'from':0,'to':OPEN}]
+for k in range(N):
     a,b=5*k,5*k+5
     for side in ('right','left'):
-        links.append({'mate':ids[f'Gas spring {side}, frame ball'],'from':-dpsi(a),'to':-dpsi(b),'start':a/90,'end':b/90})
-        links.append({'mate':ids[f'Gas spring {side}, lid ball'],'from':-dpsi(a)-a,'to':-dpsi(b)-b,'start':a/90,'end':b/90})
+        links.append({'mate':ids[f'Gas spring {side}, frame ball'],'from':-dpsi(a),'to':-dpsi(b),'start':a/OPEN,'end':b/OPEN})
+        links.append({'mate':ids[f'Gas spring {side}, lid ball'],'from':-dpsi(a)-a,'to':-dpsi(b)-b,'start':a/OPEN,'end':b/OPEN})
 json.dump([{'tool':'open_document','args':{'path':tmp}},
  {'tool':'assembly_animation','args':{'assembly':ai,'motions':[{'name':'Open top lid','links':links}],'animations':[{'name':'Open and close the lid','repeat':'bounce','clips':[{'motion':'Open top lid','length':4,'ease':'smooth'}]}]}},
  {'tool':'export_web','args':{'assembly':ai,'path':os.path.abspath(out)}}],open('web_run.json','w'))

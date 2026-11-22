@@ -182,4 +182,4 @@ These are kept for reference, and they use scratch paths.
 
 ## Changes on 2026-11-17: top lid with gas springs and a seal
 
-The top panel is now a lid hinged along the back, turning on two printed hinges with 623 bearings, held shut and held open by two over-centre gas springs outside the side panels, with a hollow silicone seal on the top extrusions and the top PIR board bonded underneath. Details, numbers and renders: [`lid/README.md`](lid/README.md). Scripts: `scripts/lid/`.
+The top panel is now a lid hinged along the back, turning on two printed corner hinges with 623 bearings, held shut and held open by two over-centre gas springs outside the side panels, with a hollow silicone seal on the top extrusions and the top PIR board bonded underneath. Details, numbers and renders: [`lid/README.md`](lid/README.md). Scripts: `scripts/lid/`.
