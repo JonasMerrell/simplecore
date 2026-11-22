@@ -11,7 +11,7 @@ Opening the full assembly takes about 3 to 4 minutes the first time, mostly mesh
 | Tabs | Contents |
 |---|---|
 | 19 printed-part studios | One Part Studio per printed part, in its own local frame (see the table below). |
-| Purchased parts | Screws, bearings, GT2 idlers, the MGN9 rail, the Beacon probe and the LSD fan (28 bodies). |
+| Purchased parts | Screws, bearings, GT2 idlers, the MGN9 rail, the Beacon probe and the Goliath hotend (28 bodies). |
 | 3010 blower fan, MGN9H carriage, Sherpa Mini extruder | Each vendor sub-assembly gets its own studio, with parts kept separate and named as in the file. |
 | Frame (simplecore_hevort) | The printer frame the carriage was drawn against. |
 | 18 assemblies | Built bottom up to mirror the Onshape tree (Corner_B, Z_motor_enclosure, Bed, MGN12H, MGN9-H, Frame, …). **X-carriage** is the top one. Every instance is fixed where the file put it. |
@@ -26,7 +26,7 @@ The **Printer** tab is the machine with working motion. It is made of four group
 |---|---|
 | Frame (static) | Fixed. Extrusions, panels, feet, corners, the Y rails, the Z rails, the Z motor mounts and enclosures, the Z idler and rail mounts, and both AWD motor idlers. |
 | X gantry | The 1 inch tube (X beam), its MGN9 rail, the front and rear gantry ends and caps, the GT2 idlers and bearings on the ends, the bent bracket, and the two MGN9-H blocks that ride the frame rails. |
-| Toolhead | The MGN9H block on the beam rail, the carriage top, fan and side plates, the belt clamps, the Sherpa Mini, the LSD hotend, the 3010 blower and the 40 mm fan, the duct, the probe mount, the Beacon, the cable chain mount, and their screws. |
+| Toolhead | The MGN9H block on the beam rail, the carriage top, fan and side plates, the belt clamps, the Sherpa Mini, the VzBoT Goliath air-cooled hotend (body "LSD Air cooled_1", replaced by the official Goliath STEP, see scripts/goliath), the 3010 blower and the 40 mm fan, the duct, the probe mount, the Beacon, the cable chain mount, and their screws. |
 | Bed (Z) | The bed frame and MIC6 plate, the bed mounts, the three MGN12H blocks, the Z carriage mounts, and the Z bed brackets. |
 
 There are three slider mates, with limits taken from where the parts would hit something:
