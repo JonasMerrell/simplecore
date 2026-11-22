@@ -47,6 +47,16 @@ From `scripts/lid/torque_plot.py` (lid + PIR + brackets ≈ 2.6 kg, CG 236 mm in
 - In **Printer**: both, plus each spring's body and rod. Mates: **Top lid hinge** (revolute, 0..90°; mate 24 in X-carriage.json, 22 in X-carriage-no-belts.json), each body on the lid's ball (revolute), each rod on the frame's ball (revolute), body and rod on one axis (cylindrical). The motion slider **Open top lid** opens it 0 → 90° and the springs follow.
 - The old top panel (Enclosure) and the old top PIR board (PIR insulation) are hidden, not deleted.
 
+## Interactive 3D page
+
+`lid/web/top-lid-only.html` is rCAD's `export_web` page of the lid, hinges, springs and seal on their own (0.5 MB, needs internet for three.js). Drag the **Open top lid** slider or press Play. The page for the whole printer is 31 MB without the Trad Rack (120 MB with it), so it is not in the repository; build it with:
+
+```
+python3 scripts/lid/web_export.py X-carriage.json Printer lid_geom.json printer-with-top-lid.html "--hide=Trad Rack" && rcad run web_run.json
+```
+
+The page does not solve closed loops, so the gas springs would come apart as the lid opens. `web_export.py` works on a temporary copy: it suppresses the springs' sliding mates and makes the **Open top lid** slider drive the four ball joints with the angles the springs really take, so they stay in line. The single **Top lid hinge** slider further down moves the lid alone, without the springs. The documents themselves are unchanged.
+
 ## Printed parts
 
 STLs in print orientation are in `lid/print/` (ASA or ABS; the hinges sit outside the chamber on top of the frame).
