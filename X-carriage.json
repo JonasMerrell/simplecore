@@ -37635,6 +37635,1925 @@
         "configs": [],
         "active_config": null
       }
+    },
+    {
+      "name": "Purge bucket",
+      "doc": {
+        "format": "cad-rust-app/1",
+        "units": "mm",
+        "variables": [
+          {
+            "name": "bucket_len",
+            "expr": "100.0"
+          },
+          {
+            "name": "bucket_depth",
+            "expr": "175.0"
+          },
+          {
+            "name": "wall",
+            "expr": "2.4"
+          },
+          {
+            "name": "brush_len",
+            "expr": "42.0"
+          },
+          {
+            "name": "brush_w",
+            "expr": "12.0"
+          },
+          {
+            "name": "brush_h",
+            "expr": "15.0"
+          }
+        ],
+        "features": [
+          {
+            "id": 1,
+            "name": "Bucket footprint plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "215.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 2,
+            "name": "Bucket footprint",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 1
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 110.0,
+                    "y": 389.5
+                  },
+                  {
+                    "id": 2,
+                    "x": 210.0,
+                    "y": 389.5
+                  },
+                  {
+                    "id": 3,
+                    "x": 210.0,
+                    "y": 450.5
+                  },
+                  {
+                    "id": 4,
+                    "x": 110.0,
+                    "y": 450.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  215.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 3,
+            "name": "Bucket body",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 2,
+                  "point": [
+                    176.66666666666666,
+                    409.8333333333333
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "bucket_depth",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 4,
+            "name": "Back wall plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "390.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 5,
+            "name": "Back wall",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 4
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 110.0,
+                    "y": 448.1
+                  },
+                  {
+                    "id": 2,
+                    "x": 210.0,
+                    "y": 448.1
+                  },
+                  {
+                    "id": 3,
+                    "x": 210.0,
+                    "y": 450.5
+                  },
+                  {
+                    "id": 4,
+                    "x": 110.0,
+                    "y": 450.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  390.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 6,
+            "name": "Back wall up to the cleat",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 5,
+                  "point": [
+                    176.66666666666666,
+                    448.90000000000003
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "30.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 7,
+            "name": "Cavity plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "217.4",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 8,
+            "name": "Cavity",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 7
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 112.4,
+                    "y": 391.9
+                  },
+                  {
+                    "id": 2,
+                    "x": 207.6,
+                    "y": 391.9
+                  },
+                  {
+                    "id": 3,
+                    "x": 207.6,
+                    "y": 448.1
+                  },
+                  {
+                    "id": 4,
+                    "x": 112.4,
+                    "y": 448.1
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  217.4
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 9,
+            "name": "Cavity",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 8,
+                  "point": [
+                    175.86666666666667,
+                    410.6333333333334
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "172.6",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 10,
+            "name": "Outer corners",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "fillet",
+              "edges": [
+                {
+                  "kind": "edge",
+                  "point": [
+                    110.0,
+                    389.5,
+                    302.5
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 8
+                    },
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 5
+                    }
+                  ]
+                },
+                {
+                  "kind": "edge",
+                  "point": [
+                    210.0,
+                    389.5,
+                    302.5
+                  ],
+                  "name": [
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 6
+                    },
+                    {
+                      "feature": 3,
+                      "role": "side",
+                      "n": 5
+                    }
+                  ]
+                }
+              ],
+              "radius": "4",
+              "variable": false,
+              "end_radius": "4"
+            }
+          },
+          {
+            "id": 11,
+            "name": "Back wall inner face",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Front"
+              },
+              "offset": "-448.1",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 12,
+            "name": "Hanging windows",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 11
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 134.5,
+                    "y": 399.5
+                  },
+                  {
+                    "id": 2,
+                    "x": 145.5,
+                    "y": 399.5
+                  },
+                  {
+                    "id": 3,
+                    "x": 145.5,
+                    "y": 413.4
+                  },
+                  {
+                    "id": 4,
+                    "x": 134.5,
+                    "y": 413.4
+                  },
+                  {
+                    "id": 9,
+                    "x": 174.5,
+                    "y": 399.5
+                  },
+                  {
+                    "id": 10,
+                    "x": 185.5,
+                    "y": 399.5
+                  },
+                  {
+                    "id": 11,
+                    "x": 185.5,
+                    "y": 413.4
+                  },
+                  {
+                    "id": 12,
+                    "x": 174.5,
+                    "y": 413.4
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  },
+                  {
+                    "id": 13,
+                    "type": "line",
+                    "a": 9,
+                    "b": 10,
+                    "construction": false
+                  },
+                  {
+                    "id": 14,
+                    "type": "line",
+                    "a": 10,
+                    "b": 11,
+                    "construction": false
+                  },
+                  {
+                    "id": 15,
+                    "type": "line",
+                    "a": 11,
+                    "b": 12,
+                    "construction": false
+                  },
+                  {
+                    "id": 16,
+                    "type": "line",
+                    "a": 12,
+                    "b": 9,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 13
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 15
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 14
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 16
+                  }
+                ],
+                "next_id": 16,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  448.1,
+                  0.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 13,
+            "name": "Windows that hang on the cleat pegs",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 12,
+                  "point": [
+                    141.83333333333334,
+                    404.1333333333334
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 12,
+                  "point": [
+                    181.83333333333334,
+                    404.1333333333334
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "3.4",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 14,
+            "name": "Brush block end",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Right"
+              },
+              "offset": "114.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 15,
+            "name": "Brush block profile",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 14
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 389.5,
+                    "y": 394.0
+                  },
+                  {
+                    "id": 2,
+                    "x": 405.1,
+                    "y": 394.0
+                  },
+                  {
+                    "id": 3,
+                    "x": 405.1,
+                    "y": 385.76
+                  },
+                  {
+                    "id": 4,
+                    "x": 391.4,
+                    "y": 372.05999999999995
+                  },
+                  {
+                    "id": 5,
+                    "x": 389.5,
+                    "y": 372.05999999999995
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 9,
+                    "type": "line",
+                    "a": 4,
+                    "b": 5,
+                    "construction": false
+                  },
+                  {
+                    "id": 10,
+                    "type": "line",
+                    "a": 5,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 10,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  114.0,
+                  0.0,
+                  0.0
+                ],
+                "x": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 16,
+            "name": "Brush block (underside slopes 45 deg)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 15,
+                  "point": [
+                    394.7,
+                    386.68666666666667
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "45.599999999999994",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 17,
+            "name": "Brush pocket plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "387.76",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 18,
+            "name": "Brush pocket",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 17
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 115.6,
+                    "y": 391.1
+                  },
+                  {
+                    "id": 2,
+                    "x": 158.0,
+                    "y": 391.1
+                  },
+                  {
+                    "id": 3,
+                    "x": 158.0,
+                    "y": 403.5
+                  },
+                  {
+                    "id": 4,
+                    "x": 115.6,
+                    "y": 403.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  387.76
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 19,
+            "name": "Pocket for the silicone brush",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 18,
+                  "point": [
+                    143.86666666666667,
+                    395.23333333333335
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "7.240000000000009",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 20,
+            "name": "Brush footprint plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "387.76",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 21,
+            "name": "Brush footprint",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 20
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 115.8,
+                    "y": 391.3
+                  },
+                  {
+                    "id": 2,
+                    "x": 157.8,
+                    "y": 391.3
+                  },
+                  {
+                    "id": 3,
+                    "x": 157.8,
+                    "y": 403.3
+                  },
+                  {
+                    "id": 4,
+                    "x": 115.8,
+                    "y": 403.3
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  387.76
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 22,
+            "name": "Silicone brush 42x12x15 (bought)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 21,
+                  "point": [
+                    143.8,
+                    395.3
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "brush_h",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 23,
+            "name": "Cleat footprint plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "401.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 24,
+            "name": "Cleat footprint",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 23
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 110.0,
+                    "y": 450.5
+                  },
+                  {
+                    "id": 2,
+                    "x": 210.0,
+                    "y": 450.5
+                  },
+                  {
+                    "id": 3,
+                    "x": 210.0,
+                    "y": 456.5
+                  },
+                  {
+                    "id": 4,
+                    "x": 110.0,
+                    "y": 456.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  401.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 25,
+            "name": "Cleat",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 24,
+                  "point": [
+                    176.66666666666666,
+                    452.5
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "20.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 26,
+            "name": "Peg 1 side",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Right"
+              },
+              "offset": "135.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 27,
+            "name": "Peg 1 profile",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 26
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 451.0,
+                    "y": 403.0
+                  },
+                  {
+                    "id": 2,
+                    "x": 445.5,
+                    "y": 403.0
+                  },
+                  {
+                    "id": 3,
+                    "x": 445.5,
+                    "y": 416.0
+                  },
+                  {
+                    "id": 4,
+                    "x": 451.0,
+                    "y": 410.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  135.0,
+                  0.0,
+                  0.0
+                ],
+                "x": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 28,
+            "name": "Peg 1 (top slopes 45 deg toward the rail)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 27,
+                  "point": [
+                    447.3333333333333,
+                    409.8333333333333
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "10.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 29,
+            "name": "Peg 2 side",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Right"
+              },
+              "offset": "175.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 30,
+            "name": "Peg 2 profile",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 29
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 451.0,
+                    "y": 403.0
+                  },
+                  {
+                    "id": 2,
+                    "x": 445.5,
+                    "y": 403.0
+                  },
+                  {
+                    "id": 3,
+                    "x": 445.5,
+                    "y": 416.0
+                  },
+                  {
+                    "id": 4,
+                    "x": 451.0,
+                    "y": 410.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  175.0,
+                  0.0,
+                  0.0
+                ],
+                "x": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 31,
+            "name": "Peg 2 (top slopes 45 deg toward the rail)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 30,
+                  "point": [
+                    447.3333333333333,
+                    409.8333333333333
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "10.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 32,
+            "name": "Cleat front face",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Front"
+              },
+              "offset": "-450.5",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 33,
+            "name": "Screw holes",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 32
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 122.0,
+                    "y": 411.0
+                  },
+                  {
+                    "id": 3,
+                    "x": 198.0,
+                    "y": 411.0
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 2.75,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 2.75,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 4,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  450.5,
+                  0.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 34,
+            "name": "M5 clearance holes",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 33,
+                  "point": [
+                    122.0,
+                    411.0
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 33,
+                  "point": [
+                    198.0,
+                    411.0
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "7.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 35,
+            "name": "Counterbores",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 32
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 122.0,
+                    "y": 411.0
+                  },
+                  {
+                    "id": 3,
+                    "x": 198.0,
+                    "y": 411.0
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 5.0,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 5.0,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 4,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  450.5,
+                  0.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 36,
+            "name": "Counterbores for M5 button heads",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 35,
+                  "point": [
+                    120.93352268663985,
+                    410.22515887669095
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 35,
+                  "point": [
+                    196.93352268663986,
+                    410.22515887669095
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "3.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          }
+        ],
+        "rollback": null,
+        "next_id": 36,
+        "parts": {
+          "22:0": {
+            "name": "Silicone nozzle brush 42x12x15",
+            "color": [
+              200,
+              60,
+              50
+            ],
+            "material": null
+          },
+          "25:0": {
+            "name": "Purge bucket cleat",
+            "color": [
+              40,
+              40,
+              44
+            ],
+            "material": null
+          },
+          "3:0": {
+            "name": "Purge bucket",
+            "color": [
+              232,
+              120,
+              32
+            ],
+            "material": null
+          }
+        },
+        "configs": [],
+        "active_config": null
+      }
     }
   ],
   "assemblies": [
@@ -37807,7 +39726,7 @@
               1.0
             ],
             "t": [
-              0.000010189784005573536,
+              1.0189784005573536e-05,
               -6.465540006814574e-19,
               -9.988118634591953e-19
             ]
@@ -37865,7 +39784,7 @@
               1.0
             ],
             "t": [
-              0.000010189783930516176,
+              1.0189783930516176e-05,
               2.1825945273451815e-14,
               2.4747138768733734e-14
             ]
@@ -38987,7 +40906,7 @@
               1.0
             ],
             "t": [
-              1.897690253827022e-7,
+              1.897690253827022e-07,
               2.1214937298304545e-23,
               5.185844111000648e-23
             ]
@@ -39422,7 +41341,7 @@
               1.0
             ],
             "t": [
-              1.897690253827022e-7,
+              1.897690253827022e-07,
               -3.8085556535880575e-24,
               7.158898085127808e-23
             ]
@@ -39538,7 +41457,7 @@
               1.0
             ],
             "t": [
-              -1.8973605664807228e-7,
+              -1.8973605664807228e-07,
               7.682368761696405e-21,
               1.6015676853431364e-20
             ]
@@ -39712,7 +41631,7 @@
               1.0
             ],
             "t": [
-              1.89769025382525e-7,
+              1.89769025382525e-07,
               1.4262962692042092e-19,
               2.7069908642824653e-19
             ]
@@ -39828,7 +41747,7 @@
               1.0
             ],
             "t": [
-              1.897690253827022e-7,
+              1.897690253827022e-07,
               1.7386980809565656e-24,
               4.072086768797548e-23
             ]
@@ -47984,9 +49903,9 @@
               1.0
             ],
             "t": [
-              -5.8984616137234794e-8,
+              -5.8984616137234794e-08,
               -1.8572949016231135e-11,
-              -4.370426831026337e-7
+              -4.370426831026337e-07
             ]
           },
           "fixed": false,
@@ -48164,7 +50083,7 @@
             ]
           },
           "fixed": true,
-          "hidden": false
+          "hidden": true
         },
         {
           "id": 10,
@@ -48216,9 +50135,9 @@
               1.0
             ],
             "t": [
-              -5.8982340922243703e-8,
+              -5.8982340922243703e-08,
               -1.847354722236246e-11,
-              -4.370249284648177e-7
+              -4.370249284648177e-07
             ]
           },
           "fixed": false,
@@ -50977,7 +52896,7 @@
             ],
             "t": [
               5.187246188143035e-10,
-              -1.2250141308110937e-9,
+              -1.2250141308110937e-09,
               -3.836646556010237e-10
             ]
           },
@@ -51100,6 +53019,36 @@
           },
           "fixed": false,
           "hidden": false
+        },
+        {
+          "id": 36,
+          "name": "Purge bucket <1>",
+          "studio": 0,
+          "body": [
+            0,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0,
+              0,
+              0,
+              1.0,
+              0,
+              0,
+              0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false,
+          "sub": 31
         }
       ],
       "mates": [
@@ -51817,7 +53766,7 @@
           "suppressed": false
         }
       ],
-      "next_id": 36,
+      "next_id": 37,
       "relations": [
         {
           "id": 13,
@@ -77747,6 +79696,101 @@
       ],
       "mates": [],
       "next_id": 13,
+      "relations": []
+    },
+    {
+      "name": "Purge bucket",
+      "instances": [
+        {
+          "id": 1,
+          "name": "Purge bucket <1>",
+          "studio": 33,
+          "body": [
+            3,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0,
+              0,
+              0,
+              1.0,
+              0,
+              0,
+              0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        },
+        {
+          "id": 2,
+          "name": "Purge bucket cleat <1>",
+          "studio": 33,
+          "body": [
+            25,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0,
+              0,
+              0,
+              1.0,
+              0,
+              0,
+              0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        },
+        {
+          "id": 3,
+          "name": "Silicone nozzle brush 42x12x15 <1>",
+          "studio": 33,
+          "body": [
+            22,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0,
+              0,
+              0,
+              1.0,
+              0,
+              0,
+              0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        }
+      ],
+      "mates": [],
+      "next_id": 4,
       "relations": []
     }
   ],
