@@ -179,3 +179,7 @@ These are kept for reference, and they use scratch paths.
 - **Not checked.** Wires or tubes along the right wall aren't modelled, and neither is what sits on the outside of the panel where the two M3 holes go.
 - **Renders:** `renders/webcam-wall.png`, `webcam-wall-close.png` and `webcam-mount-side.png` (from inside the chamber, door and Trad Rack hidden). **STEP:** `step/Webcam mount + bezel.step`. The STLs for printing are in `webcam/print/`.
 - **Scripts:** `scripts/webcam/mkbox.py`, `print_files.py`, `hide_upper_pir.py` and `splice_cam.py`.
+
+## Changes on 2026-11-17: top lid with gas springs and a seal
+
+The top panel is now a lid hinged along the back, turning on two printed corner hinges with 623 bearings, held shut and held open by two over-centre gas springs outside the side panels, with a hollow silicone seal on the top extrusions and the top PIR board bonded underneath. Details, numbers and renders: [`lid/README.md`](lid/README.md). Scripts: `scripts/lid/`.
