@@ -1,0 +1,2464 @@
+{
+ "source": "X-carriage-no-belts.json",
+ "frame": "nozzle tip at the origin; printer (firmware) axes: X = CAD -Y, Y = CAD +X, Z up",
+ "nozzle_tip_cad_mm": [
+  156.159,
+  293.202,
+  401.755
+ ],
+ "gantry_lowest_above_tip_mm": 29.25,
+ "toolhead_bbox_nozzle_frame_mm": [
+  [
+   -25.1,
+   -23.67,
+   0.0
+  ],
+  [
+   55.9,
+   64.33,
+   135.25
+  ]
+ ],
+ "profile_steps": [
+  {
+   "radius": 1.0,
+   "height": 0.0
+  },
+  {
+   "radius": 1.5,
+   "height": 0.24
+  },
+  {
+   "radius": 2.0,
+   "height": 0.85
+  },
+  {
+   "radius": 2.5,
+   "height": 1.41
+  },
+  {
+   "radius": 4.0,
+   "height": 2.0
+  },
+  {
+   "radius": 4.5,
+   "height": 2.07
+  },
+  {
+   "radius": 6.0,
+   "height": 4.5
+  },
+  {
+   "radius": 6.5,
+   "height": 4.71
+  },
+  {
+   "radius": 7.0,
+   "height": 5.15
+  },
+  {
+   "radius": 7.5,
+   "height": 11.19
+  },
+  {
+   "radius": 8.0,
+   "height": 4.63
+  },
+  {
+   "radius": 9.0,
+   "height": 4.33
+  },
+  {
+   "radius": 9.5,
+   "height": 1.49
+  },
+  {
+   "radius": 11.5,
+   "height": 1.0
+  },
+  {
+   "radius": 12.0,
+   "height": 1.06
+  },
+  {
+   "radius": 12.5,
+   "height": 2.1
+  },
+  {
+   "radius": 13.0,
+   "height": 2.13
+  },
+  {
+   "radius": 13.5,
+   "height": 2.18
+  },
+  {
+   "radius": 14.0,
+   "height": 2.16
+  },
+  {
+   "radius": 14.5,
+   "height": 2.11
+  },
+  {
+   "radius": 15.0,
+   "height": 2.03
+  },
+  {
+   "radius": 15.5,
+   "height": 1.95
+  },
+  {
+   "radius": 47.0,
+   "height": 1.13
+  },
+  {
+   "radius": 51.5,
+   "height": 17.25
+  },
+  {
+   "radius": 52.0,
+   "height": 14.88
+  },
+  {
+   "radius": 55.0,
+   "height": 14.75
+  },
+  {
+   "radius": 57.0,
+   "height": 15.25
+  },
+  {
+   "radius": 57.5,
+   "height": 15.52
+  },
+  {
+   "radius": 60.5,
+   "height": 17.25
+  },
+  {
+   "radius": 65.0,
+   "height": 26.6
+  },
+  {
+   "radius": 65.5,
+   "height": 26.77
+  },
+  {
+   "radius": 68.0,
+   "height": 26.85
+  },
+  {
+   "radius": 68.5,
+   "height": 26.93
+  },
+  {
+   "radius": 69.0,
+   "height": 27.74
+  },
+  {
+   "radius": 1000.0,
+   "height": 29.25
+  }
+ ],
+ "profile_simple": [
+  {
+   "radius": 1.5,
+   "height": 0.0
+  },
+  {
+   "radius": 2.5,
+   "height": 0.85
+  },
+  {
+   "radius": 4.5,
+   "height": 2.0
+  },
+  {
+   "radius": 6.5,
+   "height": 4.5
+  },
+  {
+   "radius": 7.0,
+   "height": 5.15
+  },
+  {
+   "radius": 7.5,
+   "height": 11.19
+  },
+  {
+   "radius": 9.0,
+   "height": 4.33
+  },
+  {
+   "radius": 12.0,
+   "height": 1.0
+  },
+  {
+   "radius": 15.5,
+   "height": 1.95
+  },
+  {
+   "radius": 47.0,
+   "height": 1.13
+  },
+  {
+   "radius": 51.5,
+   "height": 17.25
+  },
+  {
+   "radius": 57.0,
+   "height": 14.75
+  },
+  {
+   "radius": 57.5,
+   "height": 15.52
+  },
+  {
+   "radius": 60.5,
+   "height": 17.25
+  },
+  {
+   "radius": 68.5,
+   "height": 26.6
+  },
+  {
+   "radius": 69.0,
+   "height": 27.74
+  },
+  {
+   "radius": 1000.0,
+   "height": 29.2
+  }
+ ],
+ "orca": {
+  "toolhead_clearance_profile": "1.5x0, 2.5x0.85, 4.5x2, 6.5x4.5, 7x5.15, 7.5x11.19, 9x4.33, 12x1, 15.5x1.95, 47x1.13, 51.5x17.25, 57x14.75, 57.5x15.52, 60.5x17.25, 68.5x26.6, 69x27.74, 1000x29.2",
+  "toolhead_clearance_mesh": "toolhead-nozzle-frame.stl",
+  "toolhead_clearance_margin": 0.2
+ },
+ "parts_by_lowest_point": [
+  {
+   "part": "Beacon_RevH",
+   "group": "Toolhead",
+   "sensing_volume_ignored": true,
+   "lowest_mm": -1.461,
+   "at_xy_mm": [
+    -7.46,
+    28.38
+   ],
+   "radius_mm": [
+    15.63,
+    32.63
+   ],
+   "x_range_mm": [
+    -8.6,
+    8.4
+   ],
+   "y_range_mm": [
+    15.6,
+    32.6
+   ]
+  },
+  {
+   "part": "Beacon_RevH",
+   "group": "Toolhead",
+   "sensing_volume_ignored": true,
+   "lowest_mm": -0.4,
+   "at_xy_mm": [
+    -0.85,
+    39.88
+   ],
+   "radius_mm": [
+    39.88,
+    40.52
+   ],
+   "x_range_mm": [
+    -5.2,
+    5.1
+   ],
+   "y_range_mm": [
+    38.2,
+    48.7
+   ]
+  },
+  {
+   "part": "LSD Air cooled_1",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 0.0,
+   "at_xy_mm": [
+    -0.0,
+    0.0
+   ],
+   "radius_mm": [
+    0.0,
+    1.07
+   ],
+   "x_range_mm": [
+    -13.6,
+    11.6
+   ],
+   "y_range_mm": [
+    -11.9,
+    22.1
+   ]
+  },
+  {
+   "part": "Part cooling duct (Part 10)",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 1.0,
+   "at_xy_mm": [
+    0.77,
+    -11.22
+   ],
+   "radius_mm": [
+    10.9,
+    11.47
+   ],
+   "x_range_mm": [
+    -0.9,
+    55.9
+   ],
+   "y_range_mm": [
+    -23.7,
+    16.5
+   ]
+  },
+  {
+   "part": "Beacon_RevH",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 1.139,
+   "at_xy_mm": [
+    -18.46,
+    41.18
+   ],
+   "radius_mm": [
+    15.63,
+    46.54
+   ],
+   "x_range_mm": [
+    -19.1,
+    18.9
+   ],
+   "y_range_mm": [
+    15.6,
+    43.1
+   ]
+  },
+  {
+   "part": "Probe mount (Part 6)",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 2.75,
+   "at_xy_mm": [
+    18.9,
+    24.76
+   ],
+   "radius_mm": [
+    26.06,
+    37.0
+   ],
+   "x_range_mm": [
+    -19.1,
+    18.9
+   ],
+   "y_range_mm": [
+    22.8,
+    40.6
+   ]
+  },
+  {
+   "part": "Beacon_RevH",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 2.75,
+   "at_xy_mm": [
+    5.68,
+    30.36
+   ],
+   "radius_mm": [
+    15.63,
+    32.63
+   ],
+   "x_range_mm": [
+    -9.5,
+    9.3
+   ],
+   "y_range_mm": [
+    14.8,
+    33.5
+   ]
+  },
+  {
+   "part": "Beacon_RevH",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 2.75,
+   "at_xy_mm": [
+    17.9,
+    35.36
+   ],
+   "radius_mm": [
+    39.64,
+    46.54
+   ],
+   "x_range_mm": [
+    -19.1,
+    18.9
+   ],
+   "y_range_mm": [
+    35.4,
+    43.1
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 40 x 18",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 14.75,
+   "at_xy_mm": [
+    53.12,
+    12.19
+   ],
+   "radius_mm": [
+    51.84,
+    54.84
+   ],
+   "x_range_mm": [
+    49.2,
+    54.6
+   ],
+   "y_range_mm": [
+    9.6,
+    15.1
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 40 x 18",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 15.25,
+   "at_xy_mm": [
+    21.12,
+    -19.81
+   ],
+   "radius_mm": [
+    26.48,
+    29.48
+   ],
+   "x_range_mm": [
+    17.2,
+    22.6
+   ],
+   "y_range_mm": [
+    -22.4,
+    -16.9
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 40 x 18",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 15.25,
+   "at_xy_mm": [
+    53.12,
+    -19.81
+   ],
+   "radius_mm": [
+    54.0,
+    57.0
+   ],
+   "x_range_mm": [
+    49.2,
+    54.6
+   ],
+   "y_range_mm": [
+    -22.4,
+    -16.9
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 40 x 18",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 15.25,
+   "at_xy_mm": [
+    21.12,
+    12.19
+   ],
+   "radius_mm": [
+    21.91,
+    24.91
+   ],
+   "x_range_mm": [
+    17.2,
+    22.6
+   ],
+   "y_range_mm": [
+    9.6,
+    15.1
+   ]
+  },
+  {
+   "part": "Carriage fan plate (Part 3)",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 22.25,
+   "at_xy_mm": [
+    -12.04,
+    37.43
+   ],
+   "radius_mm": [
+    11.4,
+    59.19
+   ],
+   "x_range_mm": [
+    -25.1,
+    55.9
+   ],
+   "y_range_mm": [
+    -23.7,
+    43.3
+   ]
+  },
+  {
+   "part": "Carriage side plate (Part 2)",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 22.25,
+   "at_xy_mm": [
+    -23.1,
+    46.33
+   ],
+   "radius_mm": [
+    49.01,
+    51.77
+   ],
+   "x_range_mm": [
+    -25.1,
+    24.9
+   ],
+   "y_range_mm": [
+    43.3,
+    58.3
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 10",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 23.042,
+   "at_xy_mm": [
+    19.9,
+    49.03
+   ],
+   "radius_mm": [
+    49.83,
+    53.65
+   ],
+   "x_range_mm": [
+    17.1,
+    22.6
+   ],
+   "y_range_mm": [
+    36.3,
+    49.3
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 10",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 23.042,
+   "at_xy_mm": [
+    -20.1,
+    49.03
+   ],
+   "radius_mm": [
+    49.9,
+    53.73
+   ],
+   "x_range_mm": [
+    -22.9,
+    -17.4
+   ],
+   "y_range_mm": [
+    36.3,
+    49.3
+   ]
+  },
+  {
+   "part": "Belt clamp block (Part 5)",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 26.6,
+   "at_xy_mm": [
+    -14.1,
+    58.33
+   ],
+   "radius_mm": [
+    50.34,
+    63.11
+   ],
+   "x_range_mm": [
+    -25.1,
+    -14.1
+   ],
+   "y_range_mm": [
+    46.8,
+    58.3
+   ]
+  },
+  {
+   "part": "Belt clamp plate (Part 4)",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 26.6,
+   "at_xy_mm": [
+    -11.1,
+    58.33
+   ],
+   "radius_mm": [
+    59.11,
+    65.26
+   ],
+   "x_range_mm": [
+    -14.1,
+    24.9
+   ],
+   "y_range_mm": [
+    58.3,
+    61.3
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 10",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 26.85,
+   "at_xy_mm": [
+    21.9,
+    64.03
+   ],
+   "radius_mm": [
+    64.62,
+    68.34
+   ],
+   "x_range_mm": [
+    19.2,
+    24.7
+   ],
+   "y_range_mm": [
+    51.3,
+    64.3
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 10",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 26.85,
+   "at_xy_mm": [
+    -11.1,
+    64.03
+   ],
+   "radius_mm": [
+    62.07,
+    65.47
+   ],
+   "x_range_mm": [
+    -13.8,
+    -8.3
+   ],
+   "y_range_mm": [
+    51.3,
+    64.3
+   ]
+  },
+  {
+   "part": "1199135-40X40X28-FAN176906",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 27.25,
+   "at_xy_mm": [
+    19.22,
+    -15.61
+   ],
+   "radius_mm": [
+    17.89,
+    59.5
+   ],
+   "x_range_mm": [
+    15.9,
+    55.9
+   ],
+   "y_range_mm": [
+    -23.6,
+    16.3
+   ]
+  },
+  {
+   "part": "Rear gantry end (Part 1)",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 29.25,
+   "at_xy_mm": [
+    -180.8,
+    3.11
+   ],
+   "radius_mm": [
+    136.76,
+    190.85
+   ],
+   "x_range_mm": [
+    -183.3,
+    -135.3
+   ],
+   "y_range_mm": [
+    2.4,
+    57.4
+   ]
+  },
+  {
+   "part": "Front gantry end (Part 1)",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 29.25,
+   "at_xy_mm": [
+    278.82,
+    2.57
+   ],
+   "radius_mm": [
+    269.44,
+    321.08
+   ],
+   "x_range_mm": [
+    268.7,
+    316.7
+   ],
+   "y_range_mm": [
+    2.4,
+    57.4
+   ]
+  },
+  {
+   "part": "3010 fan mount (Part 6)",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 32.25,
+   "at_xy_mm": [
+    -15.1,
+    -3.67
+   ],
+   "radius_mm": [
+    10.96,
+    20.37
+   ],
+   "x_range_mm": [
+    -15.1,
+    14.9
+   ],
+   "y_range_mm": [
+    -13.7,
+    -3.7
+   ]
+  },
+  {
+   "part": "Belt clamp (Part 8)",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 32.8,
+   "at_xy_mm": [
+    11.9,
+    57.73
+   ],
+   "radius_mm": [
+    47.69,
+    65.37
+   ],
+   "x_range_mm": [
+    8.9,
+    29.9
+   ],
+   "y_range_mm": [
+    46.3,
+    58.1
+   ]
+  },
+  {
+   "part": "GT2 20T Idler Gates 9mm:1",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 33.3,
+   "at_xy_mm": [
+    -169.75,
+    48.02
+   ],
+   "radius_mm": [
+    163.71,
+    178.7
+   ],
+   "x_range_mm": [
+    -170.8,
+    -155.8
+   ],
+   "y_range_mm": [
+    43.9,
+    58.9
+   ]
+  },
+  {
+   "part": "GT2 20T Idler Gates 9mm:1(Mirror)",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 33.3,
+   "at_xy_mm": [
+    -167.72,
+    50.6
+   ],
+   "radius_mm": [
+    166.71,
+    175.71
+   ],
+   "x_range_mm": [
+    -167.8,
+    -158.8
+   ],
+   "y_range_mm": [
+    46.9,
+    55.9
+   ]
+  },
+  {
+   "part": "1 inch tube (X beam)",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 33.35,
+   "at_xy_mm": [
+    -154.62,
+    33.89
+   ],
+   "radius_mm": [
+    148.7,
+    290.01
+   ],
+   "x_range_mm": [
+    -154.6,
+    288.0
+   ],
+   "y_range_mm": [
+    17.0,
+    42.9
+   ]
+  },
+  {
+   "part": "F695 flanged bearing",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 34.3,
+   "at_xy_mm": [
+    285.92,
+    43.82
+   ],
+   "radius_mm": [
+    279.53,
+    294.53
+   ],
+   "x_range_mm": [
+    276.5,
+    291.5
+   ],
+   "y_range_mm": [
+    33.9,
+    48.9
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 8",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 36.2,
+   "at_xy_mm": [
+    -16.8,
+    52.33
+   ],
+   "radius_mm": [
+    52.7,
+    56.46
+   ],
+   "x_range_mm": [
+    -17.1,
+    -6.1
+   ],
+   "y_range_mm": [
+    49.6,
+    55.1
+   ]
+  },
+  {
+   "part": "695 bearing",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 38.3,
+   "at_xy_mm": [
+    284.02,
+    38.74
+   ],
+   "radius_mm": [
+    280.53,
+    293.53
+   ],
+   "x_range_mm": [
+    277.5,
+    290.5
+   ],
+   "y_range_mm": [
+    34.9,
+    47.9
+   ]
+  },
+  {
+   "part": "corps 3010",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 39.25,
+   "at_xy_mm": [
+    -6.35,
+    -16.77
+   ],
+   "radius_mm": [
+    17.87,
+    27.3
+   ],
+   "x_range_mm": [
+    -15.1,
+    14.9
+   ],
+   "y_range_mm": [
+    -23.7,
+    -13.7
+   ]
+  },
+  {
+   "part": "impeller",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 40.238,
+   "at_xy_mm": [
+    -0.38,
+    -21.18
+   ],
+   "radius_mm": [
+    18.99,
+    22.64
+   ],
+   "x_range_mm": [
+    -14.1,
+    13.9
+   ],
+   "y_range_mm": [
+    -22.7,
+    -16.2
+   ]
+  },
+  {
+   "part": "F695 flanged bearing",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 42.3,
+   "at_xy_mm": [
+    284.02,
+    44.14
+   ],
+   "radius_mm": [
+    280.53,
+    293.53
+   ],
+   "x_range_mm": [
+    276.5,
+    291.5
+   ],
+   "y_range_mm": [
+    33.9,
+    48.9
+   ]
+  },
+  {
+   "part": "GT2 20T Idler Gates 9mm:1(Mirror)",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 44.3,
+   "at_xy_mm": [
+    -164.46,
+    47.09
+   ],
+   "radius_mm": [
+    166.71,
+    175.71
+   ],
+   "x_range_mm": [
+    -167.8,
+    -158.8
+   ],
+   "y_range_mm": [
+    46.9,
+    55.9
+   ]
+  },
+  {
+   "part": "GT2 20T Idler Gates 9mm:1(Mirror)",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 45.3,
+   "at_xy_mm": [
+    292.53,
+    49.76
+   ],
+   "radius_mm": [
+    296.63,
+    305.63
+   ],
+   "x_range_mm": [
+    292.2,
+    301.2
+   ],
+   "y_range_mm": [
+    46.9,
+    55.9
+   ]
+  },
+  {
+   "part": "GT2 20T Idler Gates 9mm:1",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 45.3,
+   "at_xy_mm": [
+    290.15,
+    48.22
+   ],
+   "radius_mm": [
+    293.63,
+    308.63
+   ],
+   "x_range_mm": [
+    289.2,
+    304.2
+   ],
+   "y_range_mm": [
+    43.9,
+    58.9
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 45.483,
+   "at_xy_mm": [
+    -0.57,
+    -14.67
+   ],
+   "radius_mm": [
+    14.68,
+    15.68
+   ],
+   "x_range_mm": [
+    -5.3,
+    0.9
+   ],
+   "y_range_mm": [
+    -15.7,
+    -14.7
+   ]
+  },
+  {
+   "part": "Rear gantry end cap (Part 2)",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 46.3,
+   "at_xy_mm": [
+    -179.77,
+    2.66
+   ],
+   "radius_mm": [
+    173.46,
+    190.35
+   ],
+   "x_range_mm": [
+    -183.3,
+    -135.3
+   ],
+   "y_range_mm": [
+    2.4,
+    57.4
+   ]
+  },
+  {
+   "part": "F695 flanged bearing",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 46.3,
+   "at_xy_mm": [
+    -148.72,
+    43.82
+   ],
+   "radius_mm": [
+    148.72,
+    163.71
+   ],
+   "x_range_mm": [
+    -158.1,
+    -143.1
+   ],
+   "y_range_mm": [
+    33.9,
+    48.9
+   ]
+  },
+  {
+   "part": "Front gantry end cap (Part 2)",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 46.3,
+   "at_xy_mm": [
+    307.51,
+    5.79
+   ],
+   "radius_mm": [
+    283.19,
+    320.58
+   ],
+   "x_range_mm": [
+    268.7,
+    316.7
+   ],
+   "y_range_mm": [
+    2.4,
+    57.4
+   ]
+  },
+  {
+   "part": "impeller",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 46.356,
+   "at_xy_mm": [
+    0.19,
+    -16.17
+   ],
+   "radius_mm": [
+    16.17,
+    22.34
+   ],
+   "x_range_mm": [
+    -8.0,
+    7.8
+   ],
+   "y_range_mm": [
+    -22.2,
+    -16.2
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 46.75,
+   "at_xy_mm": [
+    -0.12,
+    -15.47
+   ],
+   "radius_mm": [
+    14.67,
+    15.69
+   ],
+   "x_range_mm": [
+    -7.6,
+    7.4
+   ],
+   "y_range_mm": [
+    -15.5,
+    -14.7
+   ]
+  },
+  {
+   "part": "Belt clamp (Part 7)",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 47.5,
+   "at_xy_mm": [
+    11.9,
+    46.73
+   ],
+   "radius_mm": [
+    47.69,
+    65.37
+   ],
+   "x_range_mm": [
+    8.9,
+    29.9
+   ],
+   "y_range_mm": [
+    46.3,
+    58.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 48.25,
+   "at_xy_mm": [
+    -0.17,
+    -17.07
+   ],
+   "radius_mm": [
+    16.07,
+    17.23
+   ],
+   "x_range_mm": [
+    -5.1,
+    1.6
+   ],
+   "y_range_mm": [
+    -17.1,
+    -16.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 48.25,
+   "at_xy_mm": [
+    -0.17,
+    -19.07
+   ],
+   "radius_mm": [
+    19.07,
+    20.2
+   ],
+   "x_range_mm": [
+    -5.1,
+    1.6
+   ],
+   "y_range_mm": [
+    -20.1,
+    -19.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 48.25,
+   "at_xy_mm": [
+    -0.17,
+    -19.04
+   ],
+   "radius_mm": [
+    18.09,
+    19.18
+   ],
+   "x_range_mm": [
+    -5.1,
+    1.6
+   ],
+   "y_range_mm": [
+    -19.0,
+    -18.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 48.25,
+   "at_xy_mm": [
+    -0.17,
+    -18.06
+   ],
+   "radius_mm": [
+    17.1,
+    18.2
+   ],
+   "x_range_mm": [
+    -5.1,
+    1.6
+   ],
+   "y_range_mm": [
+    -18.1,
+    -17.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 48.751,
+   "at_xy_mm": [
+    -0.02,
+    -17.07
+   ],
+   "radius_mm": [
+    15.67,
+    20.69
+   ],
+   "x_range_mm": [
+    -5.6,
+    5.4
+   ],
+   "y_range_mm": [
+    -20.7,
+    -14.7
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 49.28,
+   "at_xy_mm": [
+    0.46,
+    -18.87
+   ],
+   "radius_mm": [
+    15.62,
+    20.56
+   ],
+   "x_range_mm": [
+    -3.7,
+    1.2
+   ],
+   "y_range_mm": [
+    -20.6,
+    -15.6
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 49.284,
+   "at_xy_mm": [
+    3.27,
+    -17.07
+   ],
+   "radius_mm": [
+    16.38,
+    17.5
+   ],
+   "x_range_mm": [
+    3.2,
+    5.9
+   ],
+   "y_range_mm": [
+    -17.1,
+    -16.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 49.284,
+   "at_xy_mm": [
+    3.27,
+    -19.04
+   ],
+   "radius_mm": [
+    18.36,
+    19.43
+   ],
+   "x_range_mm": [
+    3.2,
+    5.9
+   ],
+   "y_range_mm": [
+    -19.0,
+    -18.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 49.284,
+   "at_xy_mm": [
+    3.27,
+    -19.07
+   ],
+   "radius_mm": [
+    19.33,
+    20.44
+   ],
+   "x_range_mm": [
+    3.2,
+    5.9
+   ],
+   "y_range_mm": [
+    -20.1,
+    -19.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 49.284,
+   "at_xy_mm": [
+    3.27,
+    -18.06
+   ],
+   "radius_mm": [
+    17.39,
+    18.46
+   ],
+   "x_range_mm": [
+    3.2,
+    5.9
+   ],
+   "y_range_mm": [
+    -18.1,
+    -17.1
+   ]
+  },
+  {
+   "part": "695 bearing",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 50.3,
+   "at_xy_mm": [
+    -150.62,
+    38.74
+   ],
+   "radius_mm": [
+    149.72,
+    162.71
+   ],
+   "x_range_mm": [
+    -157.1,
+    -144.1
+   ],
+   "y_range_mm": [
+    34.9,
+    47.9
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 50.637,
+   "at_xy_mm": [
+    3.32,
+    -18.87
+   ],
+   "radius_mm": [
+    16.47,
+    20.33
+   ],
+   "x_range_mm": [
+    1.5,
+    4.9
+   ],
+   "y_range_mm": [
+    -20.6,
+    -15.6
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 8",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 50.9,
+   "at_xy_mm": [
+    -16.8,
+    52.33
+   ],
+   "radius_mm": [
+    52.7,
+    56.46
+   ],
+   "x_range_mm": [
+    -17.1,
+    -6.1
+   ],
+   "y_range_mm": [
+    49.6,
+    55.1
+   ]
+  },
+  {
+   "part": "bushing",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 52.25,
+   "at_xy_mm": [
+    -0.1,
+    -14.17
+   ],
+   "radius_mm": [
+    14.17,
+    20.22
+   ],
+   "x_range_mm": [
+    -2.1,
+    1.9
+   ],
+   "y_range_mm": [
+    -20.2,
+    -14.2
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 52.538,
+   "at_xy_mm": [
+    -5.85,
+    -18.06
+   ],
+   "radius_mm": [
+    17.95,
+    19.01
+   ],
+   "x_range_mm": [
+    -6.1,
+    -3.4
+   ],
+   "y_range_mm": [
+    -18.1,
+    -17.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 52.538,
+   "at_xy_mm": [
+    -5.85,
+    -17.07
+   ],
+   "radius_mm": [
+    16.97,
+    18.08
+   ],
+   "x_range_mm": [
+    -6.1,
+    -3.4
+   ],
+   "y_range_mm": [
+    -17.1,
+    -16.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 52.538,
+   "at_xy_mm": [
+    -5.85,
+    -19.07
+   ],
+   "radius_mm": [
+    19.84,
+    20.93
+   ],
+   "x_range_mm": [
+    -6.1,
+    -3.4
+   ],
+   "y_range_mm": [
+    -20.1,
+    -19.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 52.538,
+   "at_xy_mm": [
+    -5.85,
+    -19.04
+   ],
+   "radius_mm": [
+    18.89,
+    19.95
+   ],
+   "x_range_mm": [
+    -6.1,
+    -3.4
+   ],
+   "y_range_mm": [
+    -19.0,
+    -18.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 52.99,
+   "at_xy_mm": [
+    -3.27,
+    -18.87
+   ],
+   "radius_mm": [
+    16.41,
+    20.28
+   ],
+   "x_range_mm": [
+    -5.1,
+    -1.7
+   ],
+   "y_range_mm": [
+    -20.6,
+    -15.6
+   ]
+  },
+  {
+   "part": "pin",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 53.25,
+   "at_xy_mm": [
+    -0.1,
+    -22.17
+   ],
+   "radius_mm": [
+    13.17,
+    22.19
+   ],
+   "x_range_mm": [
+    -1.1,
+    0.9
+   ],
+   "y_range_mm": [
+    -22.2,
+    -13.2
+   ]
+  },
+  {
+   "part": "F695 flanged bearing",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 54.3,
+   "at_xy_mm": [
+    -150.62,
+    44.14
+   ],
+   "radius_mm": [
+    149.72,
+    162.71
+   ],
+   "x_range_mm": [
+    -158.1,
+    -143.1
+   ],
+   "y_range_mm": [
+    33.9,
+    48.9
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 55.873,
+   "at_xy_mm": [
+    2.81,
+    -18.87
+   ],
+   "radius_mm": [
+    15.68,
+    20.61
+   ],
+   "x_range_mm": [
+    -1.4,
+    3.5
+   ],
+   "y_range_mm": [
+    -20.6,
+    -15.6
+   ]
+  },
+  {
+   "part": "GT2 20T Idler Gates 9mm:1(Mirror)",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 56.3,
+   "at_xy_mm": [
+    294.48,
+    47.52
+   ],
+   "radius_mm": [
+    296.63,
+    305.63
+   ],
+   "x_range_mm": [
+    292.2,
+    301.2
+   ],
+   "y_range_mm": [
+    46.9,
+    55.9
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 57.505,
+   "at_xy_mm": [
+    4.7,
+    -16.07
+   ],
+   "radius_mm": [
+    16.58,
+    17.75
+   ],
+   "x_range_mm": [
+    -1.8,
+    4.9
+   ],
+   "y_range_mm": [
+    -17.1,
+    -16.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 57.505,
+   "at_xy_mm": [
+    4.7,
+    -17.1
+   ],
+   "radius_mm": [
+    17.58,
+    18.7
+   ],
+   "x_range_mm": [
+    -1.8,
+    4.9
+   ],
+   "y_range_mm": [
+    -18.1,
+    -17.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 57.505,
+   "at_xy_mm": [
+    4.7,
+    -19.07
+   ],
+   "radius_mm": [
+    19.5,
+    20.65
+   ],
+   "x_range_mm": [
+    -1.8,
+    4.9
+   ],
+   "y_range_mm": [
+    -20.1,
+    -19.1
+   ]
+  },
+  {
+   "part": "plate_electronic",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 57.505,
+   "at_xy_mm": [
+    4.7,
+    -18.09
+   ],
+   "radius_mm": [
+    18.54,
+    19.66
+   ],
+   "x_range_mm": [
+    -1.8,
+    4.9
+   ],
+   "y_range_mm": [
+    -19.0,
+    -18.1
+   ]
+  },
+  {
+   "part": "MGN9 Rail 400mm",
+   "group": "X gantry",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 59.25,
+   "at_xy_mm": [
+    266.42,
+    25.3
+   ],
+   "radius_mm": [
+    29.26,
+    268.62
+   ],
+   "x_range_mm": [
+    -133.6,
+    266.4
+   ],
+   "y_range_mm": [
+    25.3,
+    34.3
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 10",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 60.25,
+   "at_xy_mm": [
+    -11.1,
+    64.03
+   ],
+   "radius_mm": [
+    62.07,
+    65.47
+   ],
+   "x_range_mm": [
+    -13.8,
+    -8.3
+   ],
+   "y_range_mm": [
+    51.3,
+    64.3
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 10",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 60.25,
+   "at_xy_mm": [
+    21.9,
+    64.03
+   ],
+   "radius_mm": [
+    64.62,
+    68.34
+   ],
+   "x_range_mm": [
+    19.2,
+    24.7
+   ],
+   "y_range_mm": [
+    51.3,
+    64.3
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 10",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 61.25,
+   "at_xy_mm": [
+    11.21,
+    -9.69
+   ],
+   "radius_mm": [
+    13.23,
+    16.22
+   ],
+   "x_range_mm": [
+    9.1,
+    14.6
+   ],
+   "y_range_mm": [
+    -11.4,
+    -5.9
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 10",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 61.25,
+   "at_xy_mm": [
+    -12.79,
+    -9.69
+   ],
+   "radius_mm": [
+    13.39,
+    16.39
+   ],
+   "x_range_mm": [
+    -14.9,
+    -9.4
+   ],
+   "y_range_mm": [
+    -11.4,
+    -5.9
+   ]
+  },
+  {
+   "part": "Part 6",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 61.25,
+   "at_xy_mm": [
+    -15.05,
+    39.43
+   ],
+   "radius_mm": [
+    24.89,
+    44.19
+   ],
+   "x_range_mm": [
+    -19.1,
+    -15.0
+   ],
+   "y_range_mm": [
+    19.8,
+    39.8
+   ]
+  },
+  {
+   "part": "Part 5",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 61.25,
+   "at_xy_mm": [
+    19.85,
+    35.33
+   ],
+   "radius_mm": [
+    27.43,
+    44.5
+   ],
+   "x_range_mm": [
+    19.0,
+    19.9
+   ],
+   "y_range_mm": [
+    19.8,
+    39.8
+   ]
+  },
+  {
+   "part": "Part 7",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 61.25,
+   "at_xy_mm": [
+    -20.05,
+    35.33
+   ],
+   "radius_mm": [
+    27.56,
+    44.59
+   ],
+   "x_range_mm": [
+    -20.0,
+    -19.1
+   ],
+   "y_range_mm": [
+    19.8,
+    39.8
+   ]
+  },
+  {
+   "part": "Part 2",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 61.25,
+   "at_xy_mm": [
+    14.85,
+    34.73
+   ],
+   "radius_mm": [
+    24.77,
+    44.11
+   ],
+   "x_range_mm": [
+    14.9,
+    19.0
+   ],
+   "y_range_mm": [
+    19.8,
+    39.8
+   ]
+  },
+  {
+   "part": "Part 1",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 61.25,
+   "at_xy_mm": [
+    -15.05,
+    20.13
+   ],
+   "radius_mm": [
+    24.77,
+    42.58
+   ],
+   "x_range_mm": [
+    -15.0,
+    14.9
+   ],
+   "y_range_mm": [
+    19.8,
+    39.8
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M2.5x0.45 x 8",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 62.7,
+   "at_xy_mm": [
+    5.71,
+    -6.83
+   ],
+   "radius_mm": [
+    6.8,
+    9.3
+   ],
+   "x_range_mm": [
+    3.3,
+    7.8
+   ],
+   "y_range_mm": [
+    -8.1,
+    -3.6
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M2.5x0.45 x 8",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 62.7,
+   "at_xy_mm": [
+    -5.61,
+    -6.83
+   ],
+   "radius_mm": [
+    6.94,
+    9.44
+   ],
+   "x_range_mm": [
+    -8.0,
+    -3.5
+   ],
+   "y_range_mm": [
+    -8.1,
+    -3.6
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M2.5x0.45 x 8",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 62.7,
+   "at_xy_mm": [
+    5.71,
+    4.49
+   ],
+   "radius_mm": [
+    6.56,
+    9.06
+   ],
+   "x_range_mm": [
+    3.3,
+    7.8
+   ],
+   "y_range_mm": [
+    3.2,
+    7.7
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M2.5x0.45 x 8",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 62.7,
+   "at_xy_mm": [
+    -5.61,
+    4.49
+   ],
+   "radius_mm": [
+    6.7,
+    9.2
+   ],
+   "x_range_mm": [
+    -8.0,
+    -3.5
+   ],
+   "y_range_mm": [
+    3.2,
+    7.7
+   ]
+  },
+  {
+   "part": "Carriage top plate (Part 1)",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 64.25,
+   "at_xy_mm": [
+    16.15,
+    16.33
+   ],
+   "radius_mm": [
+    16.69,
+    23.11
+   ],
+   "x_range_mm": [
+    -25.1,
+    24.9
+   ],
+   "y_range_mm": [
+    -23.7,
+    43.3
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 12",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.05,
+   "at_xy_mm": [
+    6.67,
+    37.23
+   ],
+   "radius_mm": [
+    36.65,
+    39.65
+   ],
+   "x_range_mm": [
+    5.2,
+    10.7
+   ],
+   "y_range_mm": [
+    34.6,
+    40.1
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 12",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.05,
+   "at_xy_mm": [
+    -9.33,
+    22.23
+   ],
+   "radius_mm": [
+    22.25,
+    25.25
+   ],
+   "x_range_mm": [
+    -10.8,
+    -5.3
+   ],
+   "y_range_mm": [
+    19.6,
+    25.1
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 12",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.05,
+   "at_xy_mm": [
+    6.67,
+    22.23
+   ],
+   "radius_mm": [
+    22.18,
+    25.18
+   ],
+   "x_range_mm": [
+    5.2,
+    10.7
+   ],
+   "y_range_mm": [
+    19.6,
+    25.1
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 12",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.05,
+   "at_xy_mm": [
+    -9.33,
+    22.23
+   ],
+   "radius_mm": [
+    22.25,
+    25.25
+   ],
+   "x_range_mm": [
+    -10.8,
+    -5.3
+   ],
+   "y_range_mm": [
+    19.6,
+    25.1
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 12",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.05,
+   "at_xy_mm": [
+    -9.33,
+    37.23
+   ],
+   "radius_mm": [
+    36.7,
+    39.7
+   ],
+   "x_range_mm": [
+    -10.8,
+    -5.3
+   ],
+   "y_range_mm": [
+    34.6,
+    40.1
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 12",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.05,
+   "at_xy_mm": [
+    -9.33,
+    37.23
+   ],
+   "radius_mm": [
+    36.7,
+    39.7
+   ],
+   "x_range_mm": [
+    -10.8,
+    -5.3
+   ],
+   "y_range_mm": [
+    34.6,
+    40.1
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 12",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.05,
+   "at_xy_mm": [
+    6.67,
+    22.23
+   ],
+   "radius_mm": [
+    22.18,
+    25.18
+   ],
+   "x_range_mm": [
+    5.2,
+    10.7
+   ],
+   "y_range_mm": [
+    19.6,
+    25.1
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 12",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.05,
+   "at_xy_mm": [
+    6.67,
+    37.23
+   ],
+   "radius_mm": [
+    36.65,
+    39.65
+   ],
+   "x_range_mm": [
+    5.2,
+    10.7
+   ],
+   "y_range_mm": [
+    34.6,
+    40.1
+   ]
+  },
+  {
+   "part": "Part 3",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.865,
+   "at_xy_mm": [
+    18.95,
+    24.09
+   ],
+   "radius_mm": [
+    29.86,
+    31.66
+   ],
+   "x_range_mm": [
+    19.0,
+    20.2
+   ],
+   "y_range_mm": [
+    22.8,
+    25.4
+   ]
+  },
+  {
+   "part": "Part 4",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.865,
+   "at_xy_mm": [
+    18.95,
+    35.57
+   ],
+   "radius_mm": [
+    39.4,
+    41.3
+   ],
+   "x_range_mm": [
+    19.0,
+    20.2
+   ],
+   "y_range_mm": [
+    34.3,
+    36.9
+   ]
+  },
+  {
+   "part": "Part 9",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.865,
+   "at_xy_mm": [
+    -19.15,
+    35.57
+   ],
+   "radius_mm": [
+    39.5,
+    41.39
+   ],
+   "x_range_mm": [
+    -20.4,
+    -19.1
+   ],
+   "y_range_mm": [
+    34.3,
+    36.9
+   ]
+  },
+  {
+   "part": "Part 8",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 65.865,
+   "at_xy_mm": [
+    -19.15,
+    24.09
+   ],
+   "radius_mm": [
+    29.98,
+    31.78
+   ],
+   "x_range_mm": [
+    -20.4,
+    -19.1
+   ],
+   "y_range_mm": [
+    22.8,
+    25.4
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 10",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 72.5,
+   "at_xy_mm": [
+    -20.1,
+    49.03
+   ],
+   "radius_mm": [
+    49.9,
+    53.73
+   ],
+   "x_range_mm": [
+    -22.9,
+    -17.4
+   ],
+   "y_range_mm": [
+    36.3,
+    49.3
+   ]
+  },
+  {
+   "part": "Hex socket head cap screw M3x0.50 x 10",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 72.5,
+   "at_xy_mm": [
+    19.9,
+    49.03
+   ],
+   "radius_mm": [
+    49.83,
+    53.65
+   ],
+   "x_range_mm": [
+    17.1,
+    22.6
+   ],
+   "y_range_mm": [
+    36.3,
+    49.3
+   ]
+  },
+  {
+   "part": "Cable chain mount",
+   "group": "Toolhead",
+   "sensing_volume_ignored": false,
+   "lowest_mm": 80.25,
+   "at_xy_mm": [
+    -19.5,
+    27.28
+   ],
+   "radius_mm": [
+    28.48,
+    46.6
+   ],
+   "x_range_mm": [
+    -20.1,
+    19.9
+   ],
+   "y_range_mm": [
+    25.3,
+    43.0
+   ]
+  }
+ ],
+ "not_meshed": []
+}
