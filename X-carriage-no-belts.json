@@ -39554,6 +39554,1360 @@
         "configs": [],
         "active_config": null
       }
+    },
+    {
+      "name": "SFS V2 holder",
+      "doc": {
+        "format": "cad-rust-app/1",
+        "units": "mm",
+        "variables": [
+          {
+            "name": "plate_t",
+            "expr": "5.0"
+          },
+          {
+            "name": "seat_pad",
+            "expr": "6.0"
+          }
+        ],
+        "features": [
+          {
+            "id": 1,
+            "name": "Plate footprint plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "343.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 2,
+            "name": "Plate footprint",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 1
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 168.7,
+                    "y": -62.3
+                  },
+                  {
+                    "id": 2,
+                    "x": 263.2,
+                    "y": -62.3
+                  },
+                  {
+                    "id": 3,
+                    "x": 263.2,
+                    "y": -33.6
+                  },
+                  {
+                    "id": 4,
+                    "x": 168.7,
+                    "y": -33.6
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  343.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 3,
+            "name": "Plate on the extrusion top face",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 2,
+                  "point": [
+                    231.69999999999996,
+                    -52.73333333333333
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "plate_t",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 4,
+            "name": "Seat plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "348.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 5,
+            "name": "Seat",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 4
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 189.6,
+                    "y": -61.57
+                  },
+                  {
+                    "id": 2,
+                    "x": 242.7,
+                    "y": -61.57
+                  },
+                  {
+                    "id": 3,
+                    "x": 242.7,
+                    "y": -34.27
+                  },
+                  {
+                    "id": 4,
+                    "x": 189.6,
+                    "y": -34.27
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  348.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 6,
+            "name": "Raised seat under the SFS",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 5,
+                  "point": [
+                    225.0,
+                    -52.47
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "seat_pad",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 7,
+            "name": "M5 holes plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "343.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 8,
+            "name": "M5 holes",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 7
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 258.7,
+                    "y": -49.06
+                  },
+                  {
+                    "id": 3,
+                    "x": 173.6,
+                    "y": -49.06
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 2.75,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 2.75,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 4,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  343.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 9,
+            "name": "M5 clearance holes (T-nuts in the top slot)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 8,
+                  "point": [
+                    258.7,
+                    -49.06
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 8,
+                  "point": [
+                    173.6,
+                    -49.06
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "6.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 10,
+            "name": "M3 holes plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "343.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 11,
+            "name": "M3 holes",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 10
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 203.88,
+                    "y": -42.32
+                  },
+                  {
+                    "id": 3,
+                    "x": 203.88,
+                    "y": -54.72
+                  },
+                  {
+                    "id": 5,
+                    "x": 228.63,
+                    "y": -42.32
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 1.7,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 1.7,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "circle",
+                    "c": 5,
+                    "r": 1.7,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 6,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  343.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 12,
+            "name": "M3 clearance holes to the SFS inserts",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 11,
+                  "point": [
+                    203.88,
+                    -42.70762282910243
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 11,
+                  "point": [
+                    203.88,
+                    -55.10762282910243
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 11,
+                  "point": [
+                    228.63,
+                    -42.70762282910243
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "12.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 13,
+            "name": "M3 counterbores plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "343.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 14,
+            "name": "M3 counterbores",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 13
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 203.88,
+                    "y": -42.32
+                  },
+                  {
+                    "id": 3,
+                    "x": 203.88,
+                    "y": -54.72
+                  },
+                  {
+                    "id": 5,
+                    "x": 228.63,
+                    "y": -42.32
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 3.0,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 3.0,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "circle",
+                    "c": 5,
+                    "r": 3.0,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 6,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  343.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 15,
+            "name": "Counterbores for M3 heads (from below)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 14,
+                  "point": [
+                    203.88,
+                    -42.32
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 14,
+                  "point": [
+                    203.88,
+                    -54.72
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 14,
+                  "point": [
+                    228.63,
+                    -42.32
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "5.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 16,
+            "name": "Tie slots plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "348.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 17,
+            "name": "Tie slots",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 16
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 247.7,
+                    "y": -42.6
+                  },
+                  {
+                    "id": 2,
+                    "x": 251.7,
+                    "y": -42.6
+                  },
+                  {
+                    "id": 3,
+                    "x": 251.7,
+                    "y": -35.6
+                  },
+                  {
+                    "id": 4,
+                    "x": 247.7,
+                    "y": -35.6
+                  },
+                  {
+                    "id": 9,
+                    "x": 180.6,
+                    "y": -42.6
+                  },
+                  {
+                    "id": 10,
+                    "x": 184.6,
+                    "y": -42.6
+                  },
+                  {
+                    "id": 11,
+                    "x": 184.6,
+                    "y": -35.6
+                  },
+                  {
+                    "id": 12,
+                    "x": 180.6,
+                    "y": -35.6
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  },
+                  {
+                    "id": 13,
+                    "type": "line",
+                    "a": 9,
+                    "b": 10,
+                    "construction": false
+                  },
+                  {
+                    "id": 14,
+                    "type": "line",
+                    "a": 10,
+                    "b": 11,
+                    "construction": false
+                  },
+                  {
+                    "id": 15,
+                    "type": "line",
+                    "a": 11,
+                    "b": 12,
+                    "construction": false
+                  },
+                  {
+                    "id": 16,
+                    "type": "line",
+                    "a": 12,
+                    "b": 9,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 13
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 15
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 14
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 16
+                  }
+                ],
+                "next_id": 16,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  348.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 18,
+            "name": "Cable-tie slots for the sensor lead",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 17,
+                  "point": [
+                    250.36666666666665,
+                    -40.26666666666667
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 17,
+                  "point": [
+                    183.26666666666665,
+                    -40.26666666666667
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "6.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 19,
+            "name": "SFS body plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "354.0",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 20,
+            "name": "SFS body",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 19
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 189.6,
+                    "y": -61.57
+                  },
+                  {
+                    "id": 2,
+                    "x": 242.7,
+                    "y": -61.57
+                  },
+                  {
+                    "id": 3,
+                    "x": 242.7,
+                    "y": -34.27
+                  },
+                  {
+                    "id": 4,
+                    "x": 189.6,
+                    "y": -34.27
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  354.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 21,
+            "name": "BTT SFS V2.0 (bought)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 20,
+                  "point": [
+                    225.0,
+                    -52.47
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "28.8",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 22,
+            "name": "SFS end (anchor side)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Right"
+              },
+              "offset": "189.6",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 23,
+            "name": "Fitting anchor side",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 22
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -49.06,
+                    "y": 369.2
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 5.0,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 2,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  189.6,
+                  0.0,
+                  0.0
+                ],
+                "x": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 24,
+            "name": "Push-fit fitting (anchor side)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 23,
+                  "point": [
+                    -50.12647731336015,
+                    368.4251588766909
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "13.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 25,
+            "name": "SFS end (motor side)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Right"
+              },
+              "offset": "242.7",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 26,
+            "name": "Fitting motor side",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 25
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -49.06,
+                    "y": 369.2
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 5.0,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 2,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  242.7,
+                  0.0,
+                  0.0
+                ],
+                "x": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 27,
+            "name": "Push-fit fitting (motor side)",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 26,
+                  "point": [
+                    -50.12647731336015,
+                    368.4251588766909
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "13.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          }
+        ],
+        "rollback": null,
+        "next_id": 27,
+        "parts": {
+          "21:0": {
+            "name": "BTT SFS V2.0 filament sensor",
+            "color": [
+              30,
+              30,
+              34
+            ],
+            "material": null
+          },
+          "24:0": {
+            "name": "SFS push-fit (anchor side)",
+            "color": [
+              190,
+              190,
+              195
+            ],
+            "material": null
+          },
+          "27:0": {
+            "name": "SFS push-fit (motor side)",
+            "color": [
+              190,
+              190,
+              195
+            ],
+            "material": null
+          },
+          "3:0": {
+            "name": "SFS V2 holder (Trad Rack)",
+            "color": [
+              232,
+              120,
+              32
+            ],
+            "material": null
+          }
+        },
+        "configs": [],
+        "active_config": null
+      }
     }
   ],
   "assemblies": [
@@ -53049,6 +54403,36 @@
           "fixed": true,
           "hidden": false,
           "sub": 31
+        },
+        {
+          "id": 35,
+          "name": "SFS V2 filament sensor <1>",
+          "studio": 0,
+          "body": [
+            0,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0,
+              0,
+              0,
+              1.0,
+              0,
+              0,
+              0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false,
+          "sub": 32
         }
       ],
       "mates": [
@@ -53734,7 +55118,7 @@
           "suppressed": false
         }
       ],
-      "next_id": 35,
+      "next_id": 36,
       "relations": [],
       "turns": {
         "15": 0.0,
@@ -79728,6 +81112,130 @@
       ],
       "mates": [],
       "next_id": 4,
+      "relations": []
+    },
+    {
+      "name": "SFS V2 filament sensor",
+      "instances": [
+        {
+          "id": 1,
+          "name": "SFS V2 holder (Trad Rack) <1>",
+          "studio": 34,
+          "body": [
+            3,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0,
+              0,
+              0,
+              1.0,
+              0,
+              0,
+              0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        },
+        {
+          "id": 2,
+          "name": "BTT SFS V2.0 filament sensor <1>",
+          "studio": 34,
+          "body": [
+            21,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0,
+              0,
+              0,
+              1.0,
+              0,
+              0,
+              0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        },
+        {
+          "id": 3,
+          "name": "SFS push-fit (anchor side) <1>",
+          "studio": 34,
+          "body": [
+            24,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0,
+              0,
+              0,
+              1.0,
+              0,
+              0,
+              0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        },
+        {
+          "id": 4,
+          "name": "SFS push-fit (motor side) <1>",
+          "studio": 34,
+          "body": [
+            27,
+            0
+          ],
+          "pose": {
+            "r": [
+              1.0,
+              0,
+              0,
+              0,
+              1.0,
+              0,
+              0,
+              0,
+              1.0
+            ],
+            "t": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fixed": true,
+          "hidden": false
+        }
+      ],
+      "mates": [],
+      "next_id": 5,
       "relations": []
     }
   ],

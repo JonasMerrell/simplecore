@@ -1,0 +1,696 @@
+[
+{
+"tool": "new_document",
+"args": {}
+},
+{
+"tool": "set_variable",
+"args": {
+"name": "plate_t",
+"expr": "5.0"
+}
+},
+{
+"tool": "set_variable",
+"args": {
+"name": "seat_pad",
+"expr": "6.0"
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "plane",
+"name": "Plate footprint plane",
+"params": {
+"base": {
+"kind": "origin_plane",
+"plane": "Top"
+},
+"offset": "343.0"
+}
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 1
+},
+"name": "Plate footprint"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 2,
+"items": [
+{
+"type": "rect",
+"corner1": [
+168.7,
+-62.3
+],
+"corner2": [
+263.2,
+-33.6
+]
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "Plate on the extrusion top face",
+"params": {
+"profiles": [
+{
+"sketch": 2
+}
+],
+"depth": "plate_t",
+"opposite": false,
+"op": "new"
+}
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "plane",
+"name": "Seat plane",
+"params": {
+"base": {
+"kind": "origin_plane",
+"plane": "Top"
+},
+"offset": "348.0"
+}
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 4
+},
+"name": "Seat"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 5,
+"items": [
+{
+"type": "rect",
+"corner1": [
+189.6,
+-61.57
+],
+"corner2": [
+242.7,
+-34.27
+]
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "Raised seat under the SFS",
+"params": {
+"profiles": [
+{
+"sketch": 5
+}
+],
+"depth": "seat_pad",
+"opposite": false,
+"op": "add"
+}
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "plane",
+"name": "M5 holes plane",
+"params": {
+"base": {
+"kind": "origin_plane",
+"plane": "Top"
+},
+"offset": "343.0"
+}
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 7
+},
+"name": "M5 holes"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 8,
+"items": [
+{
+"type": "circle",
+"center": [
+258.7,
+-49.06
+],
+"radius": 2.75
+},
+{
+"type": "circle",
+"center": [
+173.6,
+-49.06
+],
+"radius": 2.75
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "M5 clearance holes (T-nuts in the top slot)",
+"params": {
+"profiles": [
+{
+"sketch": 8
+}
+],
+"depth": "6.0",
+"opposite": false,
+"op": "remove"
+}
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "plane",
+"name": "M3 holes plane",
+"params": {
+"base": {
+"kind": "origin_plane",
+"plane": "Top"
+},
+"offset": "343.0"
+}
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 10
+},
+"name": "M3 holes"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 11,
+"items": [
+{
+"type": "circle",
+"center": [
+203.88,
+-42.32
+],
+"radius": 1.7
+},
+{
+"type": "circle",
+"center": [
+203.88,
+-54.72
+],
+"radius": 1.7
+},
+{
+"type": "circle",
+"center": [
+228.63,
+-42.32
+],
+"radius": 1.7
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "M3 clearance holes to the SFS inserts",
+"params": {
+"profiles": [
+{
+"sketch": 11
+}
+],
+"depth": "12.0",
+"opposite": false,
+"op": "remove"
+}
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "plane",
+"name": "M3 counterbores plane",
+"params": {
+"base": {
+"kind": "origin_plane",
+"plane": "Top"
+},
+"offset": "343.0"
+}
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 13
+},
+"name": "M3 counterbores"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 14,
+"items": [
+{
+"type": "circle",
+"center": [
+203.88,
+-42.32
+],
+"radius": 3.0
+},
+{
+"type": "circle",
+"center": [
+203.88,
+-54.72
+],
+"radius": 3.0
+},
+{
+"type": "circle",
+"center": [
+228.63,
+-42.32
+],
+"radius": 3.0
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "Counterbores for M3 heads (from below)",
+"params": {
+"profiles": [
+{
+"sketch": 14
+}
+],
+"depth": "5.0",
+"opposite": false,
+"op": "remove"
+}
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "plane",
+"name": "Tie slots plane",
+"params": {
+"base": {
+"kind": "origin_plane",
+"plane": "Top"
+},
+"offset": "348.0"
+}
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 16
+},
+"name": "Tie slots"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 17,
+"items": [
+{
+"type": "rect",
+"corner1": [
+247.7,
+-42.6
+],
+"corner2": [
+251.7,
+-35.6
+]
+},
+{
+"type": "rect",
+"corner1": [
+180.6,
+-42.6
+],
+"corner2": [
+184.6,
+-35.6
+]
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "Cable-tie slots for the sensor lead",
+"params": {
+"profiles": [
+{
+"sketch": 17
+}
+],
+"depth": "6.0",
+"opposite": true,
+"op": "remove"
+}
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "plane",
+"name": "SFS body plane",
+"params": {
+"base": {
+"kind": "origin_plane",
+"plane": "Top"
+},
+"offset": "354.0"
+}
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 19
+},
+"name": "SFS body"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 20,
+"items": [
+{
+"type": "rect",
+"corner1": [
+189.6,
+-61.57
+],
+"corner2": [
+242.7,
+-34.27
+]
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "BTT SFS V2.0 (bought)",
+"params": {
+"profiles": [
+{
+"sketch": 20
+}
+],
+"depth": "28.8",
+"opposite": false,
+"op": "new"
+}
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "plane",
+"name": "SFS end (anchor side)",
+"params": {
+"base": {
+"kind": "origin_plane",
+"plane": "Right"
+},
+"offset": "189.6"
+}
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 22
+},
+"name": "Fitting anchor side"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 23,
+"items": [
+{
+"type": "circle",
+"center": [
+-49.06,
+369.2
+],
+"radius": 5.0
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "Push-fit fitting (anchor side)",
+"params": {
+"profiles": [
+{
+"sketch": 23
+}
+],
+"depth": "13.0",
+"opposite": true,
+"op": "new"
+}
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "plane",
+"name": "SFS end (motor side)",
+"params": {
+"base": {
+"kind": "origin_plane",
+"plane": "Right"
+},
+"offset": "242.7"
+}
+}
+},
+{
+"tool": "create_sketch",
+"args": {
+"plane": {
+"kind": "feature_plane",
+"feature": 25
+},
+"name": "Fitting motor side"
+}
+},
+{
+"tool": "sketch_add",
+"args": {
+"sketch_id": 26,
+"items": [
+{
+"type": "circle",
+"center": [
+-49.06,
+369.2
+],
+"radius": 5.0
+}
+]
+}
+},
+{
+"tool": "add_feature",
+"args": {
+"kind": "extrude",
+"name": "Push-fit fitting (motor side)",
+"params": {
+"profiles": [
+{
+"sketch": 26
+}
+],
+"depth": "13.0",
+"opposite": false,
+"op": "new"
+}
+}
+},
+{
+"tool": "set_part",
+"args": {
+"body": [
+3,
+0
+],
+"name": "SFS V2 holder (Trad Rack)",
+"color": [
+232,
+120,
+32
+]
+}
+},
+{
+"tool": "set_part",
+"args": {
+"body": [
+21,
+0
+],
+"name": "BTT SFS V2.0 filament sensor",
+"color": [
+30,
+30,
+34
+]
+}
+},
+{
+"tool": "set_part",
+"args": {
+"body": [
+24,
+0
+],
+"name": "SFS push-fit (anchor side)",
+"color": [
+190,
+190,
+195
+]
+}
+},
+{
+"tool": "set_part",
+"args": {
+"body": [
+27,
+0
+],
+"name": "SFS push-fit (motor side)",
+"color": [
+190,
+190,
+195
+]
+}
+},
+{
+"tool": "describe",
+"args": {}
+},
+{
+"tool": "printability",
+"args": {}
+},
+{
+"tool": "render",
+"args": {
+"path": "sfs-holder.png",
+"width": 1200,
+"height": 900,
+"direction": [
+-0.7,
+0.9,
+0.8
+]
+}
+},
+{
+"tool": "render",
+"args": {
+"path": "sfs-holder-below.png",
+"width": 1200,
+"height": 900,
+"direction": [
+-0.5,
+0.6,
+-0.8
+]
+}
+},
+{
+"tool": "save_document",
+"args": {
+"path": "sfs-doc.json"
+}
+}
+]
