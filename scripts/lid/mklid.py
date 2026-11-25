@@ -17,15 +17,20 @@ Z1=Z0+LID_T             # lid top 598.2
 HX,HZ=444.0,Z1+3.75     # hinge axis (along Y): x 444, z 601.95 (10.5 behind the lid's back edge, 3.75 above its top)
 PIR_T=25.4
 # gas spring ball centres, closed (from the over-centre search, relative to the hinge axis)
-B=(151.0,577.0)         # on the frame bracket, level with the top side rail's slot
-L=(HX-100.0,HZ-65.0)    # on the lid's spring lever: (344, 536.95), 27 mm in front of the filament tube hole
-OPEN=85.0               # the springs are fully extended (250) at 85 deg: that is the open stop
+# HUOPO 10 in / 18 lb kit (Jonas, 2026-11-25): 245 ball centre to ball centre, 150 compressed (95 stroke), balls on
+# Ø29 screw plates (3 holes on a Ø20 circle), ball centre 14 off the plate
+B=(175.5,571.0)         # on the frame bracket, below the top side rail's slot
+L=(HX-100.0,HZ-50.0)    # on the lid's spring lever: (344, 551.95), 27.6 mm from the filament tube hole over the whole travel
+OPEN=85.0               # the springs are fully extended (245) at 85 deg: that is the open stop
+LEXT,STROKE=245.0,95.0
+PLATE_R=14.5; PLATE_BCD=20.0; BALL_OFF=14.0   # kit ball-stud plate
 TUBE=(371.5,554.0)      # filament tube hole in the right side panel (Jonas's photos: 36 below the panel top, 62 from its rear edge)
 YC=226.5                # enclosure centre line (side panels' outer faces -27.5 / 480.5)
 PANEL_O=-27.5
+FB_W,FB_S,FB_Z0=32.0,22.0,552.0   # frame bracket half length, M5 holes at bx +- 22 (clear of the plate and of the panel screws), bottom edge
 FB_T=13.0               # frame bracket plate on the panel: y -40.5..-27.5, with a 3.2 deep channel over the panel's M5 button heads
 LB_Y=(-40.5,-32.5)      # lid spring lever (8 mm plate), 5 mm off the panel: 2.2 mm over the M5 button heads (2.75 high)
-BALL_Y=-50.0            # ball centres (spring plane), right side
+BALL_Y=-40.5-BALL_OFF   # ball centres (spring plane), right side: plates on the outer faces of the lever and bracket (y -40.5)
 HINGE_Y=(14.0,439.0)    # hinge centres: at the corners, right beside the spring levers
 BOSS_R=5.5              # tongue boss round the pin
 ARM_T=HZ-Z1+BOSS_R      # corner arm thickness 9.25: its top is level with the top of the boss, so it prints top face down
@@ -48,6 +53,8 @@ def xplane(x,name): return feat('plane',name,{'base':{'kind':'origin_plane','pla
 def poly(pts): return {'type':'polyline','points':[[round(a,4),round(b,4)] for a,b in pts],'closed':True}
 def rect(a,b): return {'type':'rect','corner1':[round(v,4) for v in a],'corner2':[round(v,4) for v in b]}
 def circ(p,r): return {'type':'circle','center':[round(v,4) for v in p],'radius':r}
+def plate_holes(c):   # 3x M4 tapped (3.3 drill) on the plate's Ø20 circle, one at the top, and a Ø9 clearance for the stud's rivet
+    return [circ([c[0]+PLATE_BCD/2*math.cos(math.radians(a)),c[1]+PLATE_BCD/2*math.sin(math.radians(a))],1.65) for a in (90,210,330)]+[circ(list(c),4.5)]
 def ext(pl,name,items,depth,op='new',opp=False):
     sk=sketch({'kind':'feature_plane','feature':pl},name+' sketch',items)
     return feat('extrude',name,{'profiles':[{'sketch':sk}],'depth':str(depth),'op':op,'opposite':opp})
@@ -62,11 +69,11 @@ def lever(sgn,tag):
     ya,yb=sorted([m(LB_Y[0]),m(LB_Y[1])])
     p=yplane(ya,f'Lid spring lever {tag} plane')
     lx,lz=L
-    ext(p,f'Lid spring lever {tag}',[poly([(lx-22,Z1+ARM_T),(lx+14,Z1+ARM_T),(lx+14,572.0),(lx+10,lz),(lx-10,lz),(lx-22,572.0)])],8.0,opp=True)
-    ext(p,f'Lid spring lever {tag} round end',[circ([lx,lz],10.0)],8.0,op='add',opp=True)
-    ext(p,f'Lid spring lever {tag} ball stud hole',[circ([lx,lz],2.5)],8.0,op='remove',opp=True)
+    ext(p,f'Lid spring lever {tag}',[poly([(lx-22,Z1+ARM_T),(lx+14,Z1+ARM_T),(lx+14,575.0),(lx+16,lz),(lx-16,lz),(lx-22,575.0)])],8.0,opp=True)
+    ext(p,f'Lid spring lever {tag} round end',[circ([lx,lz],16.0)],8.0,op='add',opp=True)
+    ext(p,f'Lid spring lever {tag} ball plate holes',plate_holes((lx,lz)),8.0,op='remove',opp=True)
     ym=(ya+yb)/2
-    fillets.append((f'Lid spring lever {tag} shoulders',[[lx-22,ym,572.0],[lx+14,ym,572.0]],20.0))
+    fillets.append((f'Lid spring lever {tag} shoulders',[[lx-22,ym,575.0],[lx+14,ym,575.0]],10.0))
 if not PRINT_ONLY: lever(+1,'right'); lever(-1,'left')
 # 2 frame spring brackets: 10 mm plates on the side panels, 2x M5 through the panel into the top side rail's slot (z 580)
 def fbracket(sgn,tag):
@@ -74,13 +81,13 @@ def fbracket(sgn,tag):
     ya,yb=sorted([m(PANEL_O-FB_T),m(PANEL_O)])
     p=yplane(ya,f'Frame spring bracket {tag} plane')
     bx,bz=B
-    ext(p,f'Frame spring bracket {tag}',[rect([bx-30,558.0],[bx+30,RAIL_TOP])],FB_T,opp=True)
-    ext(p,f'Frame spring bracket {tag} holes',[circ([bx-20,580.0],2.75),circ([bx+20,580.0],2.75),circ([bx,bz],2.5)],FB_T,op='remove',opp=True)
+    ext(p,f'Frame spring bracket {tag}',[rect([bx-FB_W,FB_Z0],[bx+FB_W,RAIL_TOP])],FB_T,opp=True)
+    ext(p,f'Frame spring bracket {tag} holes',[circ([bx-FB_S,580.0],2.75),circ([bx+FB_S,580.0],2.75)]+plate_holes((bx,bz)),FB_T,op='remove',opp=True)
     pc=yplane(yb-3.2 if sgn>0 else ya,f'Frame spring bracket {tag} channel plane')
-    ext(pc,f'Frame spring bracket {tag} channel over the button heads',[rect([bx-30,574.0],[bx+30,586.0])],3.2,op='remove',opp=True)
+    ext(pc,f'Frame spring bracket {tag} channel over the button heads',[rect([bx-FB_W,574.0],[bx+FB_W,586.0])],3.2,op='remove',opp=True)
     ym=(ya+yb)/2
-    for cx in (bx-30,bx+30):
-        fillets.append((f'Frame spring bracket {tag} corners {cx}',[[cx,ym,RAIL_TOP],[cx,ym,558.0]],6.0))
+    for cx in (bx-FB_W,bx+FB_W):
+        fillets.append((f'Frame spring bracket {tag} corners {cx}',[[cx,ym,RAIL_TOP],[cx,ym,FB_Z0]],6.0))
 if not PRINT_ONLY: fbracket(+1,'right'); fbracket(-1,'left')
 # 3 printed corner hinges. Frame block on the rear-most top rail (2x M5 into T-nuts) with two ears and a 623 bearing
 #   pressed into each from the slot side. Corner arm on the lid: a thick pad over the lid's rear corner (4x M4 outside
@@ -161,9 +168,9 @@ add({'tool':'describe','args':{}})
 add({'tool':'new_part_studio','args':{'name':'Lid gas springs'}})
 for f in ('gas_spring_body','gas_spring_rod','ball_stud'):
     add({'tool':'import_file','args':{'path':os.path.abspath(os.path.join(OUT,f+'.step')),'name':f}})
-add({'tool':'set_parts','args':{'parts':[{'body':[1,0],'name':'Gas spring body, 250 mm / 80 stroke, 80 N (18 lb) (Ø15 tube)','color':'#202020'},{'body':[2,0],'name':'Gas spring rod with ball socket (Ø6 rod)','color':'#c8c8c8'},{'body':[3,0],'name':'Ball stud M6, Ø10 ball','color':'#c8c8c8'}]}})
+add({'tool':'set_parts','args':{'parts':[{'body':[1,0],'name':'Gas spring body, HUOPO 10 in: 245 mm / 95 stroke, 80 N (18 lb)','color':'#202020'},{'body':[2,0],'name':'Gas spring rod with ball socket (Ø6 rod)','color':'#c8c8c8'},{'body':[3,0],'name':'Ball stud on Ø29 plate (strut kit), Ø10 ball','color':'#c8c8c8'}]}})
 add({'tool':'describe','args':{}})
 add({'tool':'save_document','args':{'path':os.path.abspath(os.path.join(OUT,'lid-doc.json'))}})
 json.dump(S,open(os.path.join(OUT,'lid_run.json'),'w'),indent=0)
-json.dump(dict(B=B,L=L,H=[HX,HZ],BALL_Y=BALL_Y,YC=YC,LB_Y=LB_Y,FB_T=FB_T,PANEL_O=PANEL_O,Z0=Z0,Z1=Z1,PAD_X0=PAD_X0,OPEN=OPEN,TUBE=TUBE,BOSS_R=BOSS_R,EAR_R=EAR_R),open(os.path.join(OUT,'lid_geom.json'),'w'))
+json.dump(dict(B=B,L=L,LEXT=LEXT,STROKE=STROKE,FB_W=FB_W,FB_S=FB_S,H=[HX,HZ],BALL_Y=BALL_Y,YC=YC,LB_Y=LB_Y,FB_T=FB_T,PANEL_O=PANEL_O,Z0=Z0,Z1=Z1,PAD_X0=PAD_X0,OPEN=OPEN,TUBE=TUBE,BOSS_R=BOSS_R,EAR_R=EAR_R),open(os.path.join(OUT,'lid_geom.json'),'w'))
 print(len(S),'steps')
