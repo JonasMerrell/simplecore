@@ -2,9 +2,9 @@
 # usage: python3 torque_plot.py OUT.png   (needs matplotlib)
 import sys, numpy as np
 from oc import evaluate
-H=np.array([444.0,601.95]); B=np.array([151.0,577.0])      # hinge axis and frame ball centre, see mklid.py
-U,V=100.0,-65.0                                             # lid ball: 100 in front of the hinge axis, 65 below it
-LEXT,STROKE,OPEN=250,80,85                                  # spring size, and the angle where it is fully extended
+H=np.array([444.0,601.95]); B=np.array([175.5,571.0])      # hinge axis and frame ball centre, see mklid.py
+U,V=100.0,-50.0                                             # lid ball: 100 in front of the hinge axis, 50 below it
+LEXT,STROKE,OPEN=245,95,85                                  # HUOPO 10 in kit (245 ball to ball, 95 stroke); fully extended at 85 deg
 MASS,UCG,VCG=2.6,239.0,-11.0                                 # lid + PIR + brackets (kg), CG from the hinge axis
 F1,K=80.0,1.3                                               # force at full extension per spring (N), F2/F1
 R=evaluate(H,B,U,V,LEXT,STROKE,F1,K,MASS,UCG,VCG,OPEN,n=2)

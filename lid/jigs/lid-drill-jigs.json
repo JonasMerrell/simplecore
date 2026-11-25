@@ -1,1 +1,2217 @@
-{"format": "cad-rust-app/workspace-1", "studios": [{"name": "Part Studio 1", "doc": {"format": "cad-rust-app/1", "units": "mm", "variables": [], "features": [{"id": 1, "name": "Lid top plane", "suppressed": false, "hidden": false, "op": {"type": "plane", "base": {"kind": "origin_plane", "plane": "Top"}, "offset": "598.2", "mode": "offset", "refs": [], "angle": "45", "flip": false}}, {"id": 2, "name": "Lip bottom plane", "suppressed": false, "hidden": false, "op": {"type": "plane", "base": {"kind": "origin_plane", "plane": "Top"}, "offset": "595.4", "mode": "offset", "refs": [], "angle": "45", "flip": false}}, {"id": 3, "name": "Corner jig plate sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 1}, "sketch": {"points": [{"id": 1, "x": 316.0, "y": -27.5}, {"id": 2, "x": 433.5, "y": -27.5}, {"id": 3, "x": 433.5, "y": 40.0}, {"id": 4, "x": 396.0, "y": 40.0}, {"id": 5, "x": 396.0, "y": -4.0}, {"id": 6, "x": 316.0, "y": -4.0}], "curves": [{"id": 7, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 8, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 9, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 10, "type": "line", "a": 4, "b": 5, "construction": false}, {"id": 11, "type": "line", "a": 5, "b": 6, "construction": false}, {"id": 12, "type": "line", "a": 6, "b": 1, "construction": false}], "constraints": [], "next_id": 12, "texts": []}, "frame": {"origin": [0.0, 0.0, 598.2], "x": [1.0, 0.0, 0.0], "y": [0.0, 1.0, 0.0], "normal": [0.0, 0.0, 1.0]}}}, {"id": 4, "name": "Corner jig plate", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 3, "point": [381.8333333333333, -19.666666666666668]}], "end": "blind", "depth": "8.0", "opposite": false, "second": false, "depth2": "10", "up_to": null, "op": "new", "draft": "0"}}, {"id": 5, "name": "Corner jig rear lip sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 2}, "sketch": {"points": [{"id": 1, "x": 433.5, "y": -31.5}, {"id": 2, "x": 437.5, "y": -31.5}, {"id": 3, "x": 437.5, "y": 40.0}, {"id": 4, "x": 433.5, "y": 40.0}], "curves": [{"id": 5, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 6, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 7, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 8, "type": "line", "a": 4, "b": 1, "construction": false}], "constraints": [{"type": "horizontal", "l": 5}, {"type": "horizontal", "l": 7}, {"type": "vertical", "l": 6}, {"type": "vertical", "l": 8}], "next_id": 8, "texts": []}, "frame": {"origin": [0.0, 0.0, 595.4], "x": [1.0, 0.0, 0.0], "y": [0.0, 1.0, 0.0], "normal": [0.0, 0.0, 1.0]}}}, {"id": 6, "name": "Corner jig rear lip", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 5, "point": [436.1666666666667, -7.666666666666667]}], "end": "blind", "depth": "10.8", "opposite": false, "second": false, "depth2": "10", "up_to": null, "op": "add", "draft": "0"}}, {"id": 7, "name": "Corner jig side lip sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 2}, "sketch": {"points": [{"id": 1, "x": 316.0, "y": -31.5}, {"id": 2, "x": 433.5, "y": -31.5}, {"id": 3, "x": 433.5, "y": -27.5}, {"id": 4, "x": 316.0, "y": -27.5}], "curves": [{"id": 5, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 6, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 7, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 8, "type": "line", "a": 4, "b": 1, "construction": false}], "constraints": [{"type": "horizontal", "l": 5}, {"type": "horizontal", "l": 7}, {"type": "vertical", "l": 6}, {"type": "vertical", "l": 8}], "next_id": 8, "texts": []}, "frame": {"origin": [0.0, 0.0, 595.4], "x": [1.0, 0.0, 0.0], "y": [0.0, 1.0, 0.0], "normal": [0.0, 0.0, 1.0]}}}, {"id": 8, "name": "Corner jig side lip", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 7, "point": [394.3333333333333, -30.166666666666668]}], "end": "blind", "depth": "10.8", "opposite": false, "second": false, "depth2": "10", "up_to": null, "op": "add", "draft": "0"}}, {"id": 9, "name": "Corner jig guide holes sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 1}, "sketch": {"points": [{"id": 1, "x": 426.5, "y": 28.0}, {"id": 3, "x": 426.5, "y": 2.0}, {"id": 5, "x": 426.5, "y": -23.0}, {"id": 7, "x": 402.0, "y": -23.0}, {"id": 9, "x": 373.0, "y": -23.0}, {"id": 11, "x": 340.0, "y": -23.0}], "curves": [{"id": 2, "type": "circle", "c": 1, "r": 1.7, "construction": false}, {"id": 4, "type": "circle", "c": 3, "r": 1.7, "construction": false}, {"id": 6, "type": "circle", "c": 5, "r": 1.7, "construction": false}, {"id": 8, "type": "circle", "c": 7, "r": 1.7, "construction": false}, {"id": 10, "type": "circle", "c": 9, "r": 1.7, "construction": false}, {"id": 12, "type": "circle", "c": 11, "r": 1.7, "construction": false}], "constraints": [], "next_id": 12, "texts": []}, "frame": {"origin": [0.0, 0.0, 598.2], "x": [1.0, 0.0, 0.0], "y": [0.0, 1.0, 0.0], "normal": [0.0, 0.0, 1.0]}}}, {"id": 10, "name": "Corner jig guide holes", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 9, "point": [426.5, 27.612377170897577]}, {"kind": "region", "sketch": 9, "point": [426.5, 1.6123771708975756]}, {"kind": "region", "sketch": 9, "point": [426.5, -23.387622829102423]}, {"kind": "region", "sketch": 9, "point": [402.0, -23.387622829102423]}, {"kind": "region", "sketch": 9, "point": [373.0, -23.387622829102423]}, {"kind": "region", "sketch": 9, "point": [340.0, -23.387622829102423]}], "end": "blind", "depth": "8.0", "opposite": false, "second": false, "depth2": "10", "up_to": null, "op": "remove", "draft": "0"}}, {"id": 11, "name": "Corner jig corner relief sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 2}, "sketch": {"points": [{"id": 1, "x": 433.5, "y": -27.5}], "curves": [{"id": 2, "type": "circle", "c": 1, "r": 1.5, "construction": false}], "constraints": [], "next_id": 2, "texts": []}, "frame": {"origin": [0.0, 0.0, 595.4], "x": [1.0, 0.0, 0.0], "y": [0.0, 1.0, 0.0], "normal": [0.0, 0.0, 1.0]}}}, {"id": 12, "name": "Corner jig corner relief", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 11, "point": [433.5, -27.84202014332567]}], "end": "blind", "depth": "10.8", "opposite": false, "second": false, "depth2": "10", "up_to": null, "op": "remove", "draft": "0"}}, {"id": 13, "name": "Handle jig plate sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 1}, "sketch": {"points": [{"id": 1, "x": -25.5, "y": 166.5}, {"id": 2, "x": 12.0, "y": 166.5}, {"id": 3, "x": 12.0, "y": 286.5}, {"id": 4, "x": -25.5, "y": 286.5}], "curves": [{"id": 5, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 6, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 7, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 8, "type": "line", "a": 4, "b": 1, "construction": false}], "constraints": [{"type": "horizontal", "l": 5}, {"type": "horizontal", "l": 7}, {"type": "vertical", "l": 6}, {"type": "vertical", "l": 8}], "next_id": 8, "texts": []}, "frame": {"origin": [0.0, 0.0, 598.2], "x": [1.0, 0.0, 0.0], "y": [0.0, 1.0, 0.0], "normal": [0.0, 0.0, 1.0]}}}, {"id": 14, "name": "Handle jig plate", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 13, "point": [-0.5, 206.5]}], "end": "blind", "depth": "8.0", "opposite": false, "second": false, "depth2": "10", "up_to": null, "op": "new", "draft": "0"}}, {"id": 15, "name": "Handle jig front lip sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 2}, "sketch": {"points": [{"id": 1, "x": -29.5, "y": 166.5}, {"id": 2, "x": -25.5, "y": 166.5}, {"id": 3, "x": -25.5, "y": 286.5}, {"id": 4, "x": -29.5, "y": 286.5}], "curves": [{"id": 5, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 6, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 7, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 8, "type": "line", "a": 4, "b": 1, "construction": false}], "constraints": [{"type": "horizontal", "l": 5}, {"type": "horizontal", "l": 7}, {"type": "vertical", "l": 6}, {"type": "vertical", "l": 8}], "next_id": 8, "texts": []}, "frame": {"origin": [0.0, 0.0, 595.4], "x": [1.0, 0.0, 0.0], "y": [0.0, 1.0, 0.0], "normal": [0.0, 0.0, 1.0]}}}, {"id": 16, "name": "Handle jig front lip", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 15, "point": [-26.833333333333332, 206.5]}], "end": "blind", "depth": "10.8", "opposite": false, "second": false, "depth2": "10", "up_to": null, "op": "add", "draft": "0"}}, {"id": 17, "name": "Handle jig guide holes sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 1}, "sketch": {"points": [{"id": 1, "x": -1.0, "y": 179.0}, {"id": 3, "x": -1.0, "y": 274.0}], "curves": [{"id": 2, "type": "circle", "c": 1, "r": 1.7, "construction": false}, {"id": 4, "type": "circle", "c": 3, "r": 1.7, "construction": false}], "constraints": [], "next_id": 4, "texts": []}, "frame": {"origin": [0.0, 0.0, 598.2], "x": [1.0, 0.0, 0.0], "y": [0.0, 1.0, 0.0], "normal": [0.0, 0.0, 1.0]}}}, {"id": 18, "name": "Handle jig guide holes", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 17, "point": [-1.0000000000000002, 178.6123771708976]}, {"kind": "region", "sketch": 17, "point": [-1.0000000000000002, 273.6123771708976]}], "end": "blind", "depth": "8.0", "opposite": false, "second": false, "depth2": "10", "up_to": null, "op": "remove", "draft": "0"}}, {"id": 19, "name": "Handle jig centre sight slot sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 1}, "sketch": {"points": [{"id": 1, "x": 2.0, "y": 225.9}, {"id": 2, "x": 12.0, "y": 225.9}, {"id": 3, "x": 12.0, "y": 227.1}, {"id": 4, "x": 2.0, "y": 227.1}, {"id": 9, "x": -18.0, "y": 201.5}, {"id": 10, "x": -4.0, "y": 201.5}, {"id": 11, "x": -4.0, "y": 251.5}, {"id": 12, "x": -18.0, "y": 251.5}], "curves": [{"id": 5, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 6, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 7, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 8, "type": "line", "a": 4, "b": 1, "construction": false}, {"id": 13, "type": "line", "a": 9, "b": 10, "construction": false}, {"id": 14, "type": "line", "a": 10, "b": 11, "construction": false}, {"id": 15, "type": "line", "a": 11, "b": 12, "construction": false}, {"id": 16, "type": "line", "a": 12, "b": 9, "construction": false}], "constraints": [{"type": "horizontal", "l": 5}, {"type": "horizontal", "l": 7}, {"type": "vertical", "l": 6}, {"type": "vertical", "l": 8}, {"type": "horizontal", "l": 13}, {"type": "horizontal", "l": 15}, {"type": "vertical", "l": 14}, {"type": "vertical", "l": 16}], "next_id": 16, "texts": []}, "frame": {"origin": [0.0, 0.0, 598.2], "x": [1.0, 0.0, 0.0], "y": [0.0, 1.0, 0.0], "normal": [0.0, 0.0, 1.0]}}}, {"id": 20, "name": "Handle jig centre sight slot", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 19, "point": [8.666666666666666, 226.3]}, {"kind": "region", "sketch": 19, "point": [-8.666666666666666, 218.16666666666663]}], "end": "blind", "depth": "8.0", "opposite": false, "second": false, "depth2": "10", "up_to": null, "op": "remove", "draft": "0"}}, {"id": 21, "name": "Panel jig outer plane", "suppressed": false, "hidden": false, "op": {"type": "plane", "base": {"kind": "origin_plane", "plane": "Front"}, "offset": "39.5", "mode": "offset", "refs": [], "angle": "45", "flip": false}}, {"id": 22, "name": "Panel jig plate sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 21}, "sketch": {"points": [{"id": 1, "x": -25.5, "y": 562.0}, {"id": 2, "x": 185.0, "y": 562.0}, {"id": 3, "x": 185.0, "y": 590.2}, {"id": 4, "x": -25.5, "y": 590.2}], "curves": [{"id": 5, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 6, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 7, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 8, "type": "line", "a": 4, "b": 1, "construction": false}], "constraints": [{"type": "horizontal", "l": 5}, {"type": "horizontal", "l": 7}, {"type": "vertical", "l": 6}, {"type": "vertical", "l": 8}], "next_id": 8, "texts": []}, "frame": {"origin": [0.0, -39.5, 0.0], "x": [1.0, 0.0, 0.0], "y": [0.0, 0.0, 1.0], "normal": [0.0, -1.0, 0.0]}}}, {"id": 23, "name": "Panel jig plate", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 22, "point": [114.83333333333331, 571.4]}], "end": "blind", "depth": "12.0", "opposite": true, "second": false, "depth2": "10", "up_to": null, "op": "new", "draft": "0"}}, {"id": 24, "name": "Panel jig top lip sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 21}, "sketch": {"points": [{"id": 1, "x": -25.5, "y": 590.2}, {"id": 2, "x": 185.0, "y": 590.2}, {"id": 3, "x": 185.0, "y": 594.2}, {"id": 4, "x": -25.5, "y": 594.2}], "curves": [{"id": 5, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 6, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 7, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 8, "type": "line", "a": 4, "b": 1, "construction": false}], "constraints": [{"type": "horizontal", "l": 5}, {"type": "horizontal", "l": 7}, {"type": "vertical", "l": 6}, {"type": "vertical", "l": 8}], "next_id": 8, "texts": []}, "frame": {"origin": [0.0, -39.5, 0.0], "x": [1.0, 0.0, 0.0], "y": [0.0, 0.0, 1.0], "normal": [0.0, -1.0, 0.0]}}}, {"id": 25, "name": "Panel jig top lip", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 24, "point": [114.83333333333331, 591.5333333333334]}], "end": "blind", "depth": "17.0", "opposite": true, "second": false, "depth2": "10", "up_to": null, "op": "add", "draft": "0"}}, {"id": 26, "name": "Panel jig front lip sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 21}, "sketch": {"points": [{"id": 1, "x": -29.5, "y": 562.0}, {"id": 2, "x": -25.5, "y": 562.0}, {"id": 3, "x": -25.5, "y": 594.2}, {"id": 4, "x": -29.5, "y": 594.2}], "curves": [{"id": 5, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 6, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 7, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 8, "type": "line", "a": 4, "b": 1, "construction": false}], "constraints": [{"type": "horizontal", "l": 5}, {"type": "horizontal", "l": 7}, {"type": "vertical", "l": 6}, {"type": "vertical", "l": 8}], "next_id": 8, "texts": []}, "frame": {"origin": [0.0, -39.5, 0.0], "x": [1.0, 0.0, 0.0], "y": [0.0, 0.0, 1.0], "normal": [0.0, -1.0, 0.0]}}}, {"id": 27, "name": "Panel jig front lip", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 26, "point": [-26.833333333333332, 572.7333333333333]}], "end": "blind", "depth": "15.0", "opposite": true, "second": false, "depth2": "10", "up_to": null, "op": "add", "draft": "0"}}, {"id": 28, "name": "Panel jig guide holes sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 21}, "sketch": {"points": [{"id": 1, "x": 131.0, "y": 580.0}, {"id": 3, "x": 171.0, "y": 580.0}], "curves": [{"id": 2, "type": "circle", "c": 1, "r": 1.7, "construction": false}, {"id": 4, "type": "circle", "c": 3, "r": 1.7, "construction": false}], "constraints": [], "next_id": 4, "texts": []}, "frame": {"origin": [0.0, -39.5, 0.0], "x": [1.0, 0.0, 0.0], "y": [0.0, 0.0, 1.0], "normal": [0.0, -1.0, 0.0]}}}, {"id": 29, "name": "Panel jig guide holes", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 28, "point": [131.0, 579.6123771708975]}, {"kind": "region", "sketch": 28, "point": [171.0, 579.6123771708975]}], "end": "blind", "depth": "12.0", "opposite": true, "second": false, "depth2": "10", "up_to": null, "op": "remove", "draft": "0"}}, {"id": 30, "name": "Panel jig channel plane", "suppressed": false, "hidden": false, "op": {"type": "plane", "base": {"kind": "origin_plane", "plane": "Front"}, "offset": "30.7", "mode": "offset", "refs": [], "angle": "45", "flip": false}}, {"id": 31, "name": "Panel jig channel over the button heads sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 30}, "sketch": {"points": [{"id": 1, "x": -25.5, "y": 574.0}, {"id": 2, "x": 185.0, "y": 574.0}, {"id": 3, "x": 185.0, "y": 586.0}, {"id": 4, "x": -25.5, "y": 586.0}], "curves": [{"id": 5, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 6, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 7, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 8, "type": "line", "a": 4, "b": 1, "construction": false}], "constraints": [{"type": "horizontal", "l": 5}, {"type": "horizontal", "l": 7}, {"type": "vertical", "l": 6}, {"type": "vertical", "l": 8}], "next_id": 8, "texts": []}, "frame": {"origin": [0.0, -30.7, 0.0], "x": [1.0, 0.0, 0.0], "y": [0.0, 0.0, 1.0], "normal": [0.0, -1.0, 0.0]}}}, {"id": 32, "name": "Panel jig channel over the button heads", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 31, "point": [114.83333333333331, 578.0]}], "end": "blind", "depth": "3.2", "opposite": true, "second": false, "depth2": "10", "up_to": null, "op": "remove", "draft": "0"}}, {"id": 33, "name": "Panel jig lightening windows sketch", "suppressed": false, "hidden": false, "op": {"type": "sketch", "plane": {"kind": "feature_plane", "feature": 21}, "sketch": {"points": [{"id": 1, "x": 0.0, "y": 566.0}, {"id": 2, "x": 50.0, "y": 566.0}, {"id": 3, "x": 50.0, "y": 571.0}, {"id": 4, "x": 0.0, "y": 571.0}, {"id": 9, "x": 60.0, "y": 566.0}, {"id": 10, "x": 110.0, "y": 566.0}, {"id": 11, "x": 110.0, "y": 571.0}, {"id": 12, "x": 60.0, "y": 571.0}], "curves": [{"id": 5, "type": "line", "a": 1, "b": 2, "construction": false}, {"id": 6, "type": "line", "a": 2, "b": 3, "construction": false}, {"id": 7, "type": "line", "a": 3, "b": 4, "construction": false}, {"id": 8, "type": "line", "a": 4, "b": 1, "construction": false}, {"id": 13, "type": "line", "a": 9, "b": 10, "construction": false}, {"id": 14, "type": "line", "a": 10, "b": 11, "construction": false}, {"id": 15, "type": "line", "a": 11, "b": 12, "construction": false}, {"id": 16, "type": "line", "a": 12, "b": 9, "construction": false}], "constraints": [{"type": "horizontal", "l": 5}, {"type": "horizontal", "l": 7}, {"type": "vertical", "l": 6}, {"type": "vertical", "l": 8}, {"type": "horizontal", "l": 13}, {"type": "horizontal", "l": 15}, {"type": "vertical", "l": 14}, {"type": "vertical", "l": 16}], "next_id": 16, "texts": []}, "frame": {"origin": [0.0, -39.5, 0.0], "x": [1.0, 0.0, 0.0], "y": [0.0, 0.0, 1.0], "normal": [0.0, -1.0, 0.0]}}}, {"id": 34, "name": "Panel jig lightening windows", "suppressed": false, "hidden": false, "op": {"type": "extrude", "profiles": [{"kind": "region", "sketch": 33, "point": [33.333333333333336, 567.6666666666666]}, {"kind": "region", "sketch": 33, "point": [93.33333333333331, 567.6666666666666]}], "end": "blind", "depth": "12.0", "opposite": true, "second": false, "depth2": "10", "up_to": null, "op": "remove", "draft": "0"}}], "rollback": null, "next_id": 34, "parts": {"14:0": {"name": "Drill jig, handle (print)", "color": [47, 158, 106], "material": null}, "23:0": {"name": "Drill jig, side panel bracket holes (print; mirror for the left)", "color": [47, 158, 106], "material": null}, "4:0": {"name": "Drill jig, lid corner (print; mirror for the left)", "color": [47, 158, 106], "material": null}}, "configs": [], "active_config": null}}], "assemblies": [{"name": "Lid drill jigs", "instances": [{"id": 1, "name": "Drill jig, lid corner <1>", "studio": 0, "body": [4, 0], "pose": {"r": [1.0, 0, 0, 0, 1.0, 0, 0, 0, 1.0], "t": [0.0, 0.0, 0.0]}, "fixed": true, "hidden": false}, {"id": 2, "name": "Drill jig, handle <1>", "studio": 0, "body": [14, 0], "pose": {"r": [1.0, 0, 0, 0, 1.0, 0, 0, 0, 1.0], "t": [0.0, 0.0, 0.0]}, "fixed": true, "hidden": false}, {"id": 3, "name": "Drill jig, side panel <1>", "studio": 0, "body": [23, 0], "pose": {"r": [1.0, 0, 0, 0, 1.0, 0, 0, 0, 1.0], "t": [0.0, 0.0, 0.0]}, "fixed": true, "hidden": false}], "mates": [], "next_id": 4, "relations": []}], "drawings": [], "active": {"Studio": 0}, "versions": []}
+{
+  "format": "cad-rust-app/workspace-1",
+  "studios": [
+    {
+      "name": "Part Studio 1",
+      "doc": {
+        "format": "cad-rust-app/1",
+        "units": "mm",
+        "variables": [],
+        "features": [
+          {
+            "id": 1,
+            "name": "Lid top plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "598.2",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 2,
+            "name": "Lip bottom plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Top"
+              },
+              "offset": "595.4",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 3,
+            "name": "Corner jig plate sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 1
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 316.0,
+                    "y": -27.5
+                  },
+                  {
+                    "id": 2,
+                    "x": 433.5,
+                    "y": -27.5
+                  },
+                  {
+                    "id": 3,
+                    "x": 433.5,
+                    "y": 40.0
+                  },
+                  {
+                    "id": 4,
+                    "x": 396.0,
+                    "y": 40.0
+                  },
+                  {
+                    "id": 5,
+                    "x": 396.0,
+                    "y": -4.0
+                  },
+                  {
+                    "id": 6,
+                    "x": 316.0,
+                    "y": -4.0
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 9,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 10,
+                    "type": "line",
+                    "a": 4,
+                    "b": 5,
+                    "construction": false
+                  },
+                  {
+                    "id": 11,
+                    "type": "line",
+                    "a": 5,
+                    "b": 6,
+                    "construction": false
+                  },
+                  {
+                    "id": 12,
+                    "type": "line",
+                    "a": 6,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 12,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  598.2
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 4,
+            "name": "Corner jig plate",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 3,
+                  "point": [
+                    381.8333333333333,
+                    -19.666666666666668
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "8.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 5,
+            "name": "Corner jig rear lip sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 2
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 433.5,
+                    "y": -31.5
+                  },
+                  {
+                    "id": 2,
+                    "x": 437.5,
+                    "y": -31.5
+                  },
+                  {
+                    "id": 3,
+                    "x": 437.5,
+                    "y": 40.0
+                  },
+                  {
+                    "id": 4,
+                    "x": 433.5,
+                    "y": 40.0
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  595.4
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 6,
+            "name": "Corner jig rear lip",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 5,
+                  "point": [
+                    436.1666666666667,
+                    -7.666666666666667
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "10.8",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 7,
+            "name": "Corner jig side lip sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 2
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 316.0,
+                    "y": -31.5
+                  },
+                  {
+                    "id": 2,
+                    "x": 433.5,
+                    "y": -31.5
+                  },
+                  {
+                    "id": 3,
+                    "x": 433.5,
+                    "y": -27.5
+                  },
+                  {
+                    "id": 4,
+                    "x": 316.0,
+                    "y": -27.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  595.4
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 8,
+            "name": "Corner jig side lip",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 7,
+                  "point": [
+                    394.3333333333333,
+                    -30.166666666666668
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "10.8",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 9,
+            "name": "Corner jig guide holes sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 1
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 426.5,
+                    "y": 28.0
+                  },
+                  {
+                    "id": 3,
+                    "x": 426.5,
+                    "y": 2.0
+                  },
+                  {
+                    "id": 5,
+                    "x": 426.5,
+                    "y": -23.0
+                  },
+                  {
+                    "id": 7,
+                    "x": 402.0,
+                    "y": -23.0
+                  },
+                  {
+                    "id": 9,
+                    "x": 373.0,
+                    "y": -23.0
+                  },
+                  {
+                    "id": 11,
+                    "x": 340.0,
+                    "y": -23.0
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 1.7,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 1.7,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "circle",
+                    "c": 5,
+                    "r": 1.7,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "circle",
+                    "c": 7,
+                    "r": 1.7,
+                    "construction": false
+                  },
+                  {
+                    "id": 10,
+                    "type": "circle",
+                    "c": 9,
+                    "r": 1.7,
+                    "construction": false
+                  },
+                  {
+                    "id": 12,
+                    "type": "circle",
+                    "c": 11,
+                    "r": 1.7,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 12,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  598.2
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 10,
+            "name": "Corner jig guide holes",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 9,
+                  "point": [
+                    426.5,
+                    27.612377170897574
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 9,
+                  "point": [
+                    426.5,
+                    1.6123771708975756
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 9,
+                  "point": [
+                    426.5,
+                    -23.387622829102426
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 9,
+                  "point": [
+                    402.0,
+                    -23.387622829102426
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 9,
+                  "point": [
+                    373.0,
+                    -23.387622829102426
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 9,
+                  "point": [
+                    340.0,
+                    -23.387622829102426
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "8.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 11,
+            "name": "Corner jig corner relief sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 2
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 433.5,
+                    "y": -27.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 1.5,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 2,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  595.4
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 12,
+            "name": "Corner jig corner relief",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 11,
+                  "point": [
+                    433.5,
+                    -27.84202014332567
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "10.8",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 13,
+            "name": "Handle jig plate sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 1
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -25.5,
+                    "y": 166.5
+                  },
+                  {
+                    "id": 2,
+                    "x": 12.0,
+                    "y": 166.5
+                  },
+                  {
+                    "id": 3,
+                    "x": 12.0,
+                    "y": 286.5
+                  },
+                  {
+                    "id": 4,
+                    "x": -25.5,
+                    "y": 286.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  598.2
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 14,
+            "name": "Handle jig plate",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 13,
+                  "point": [
+                    -0.5,
+                    206.5
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "8.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 15,
+            "name": "Handle jig front lip sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 2
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -29.5,
+                    "y": 166.5
+                  },
+                  {
+                    "id": 2,
+                    "x": -25.5,
+                    "y": 166.5
+                  },
+                  {
+                    "id": 3,
+                    "x": -25.5,
+                    "y": 286.5
+                  },
+                  {
+                    "id": 4,
+                    "x": -29.5,
+                    "y": 286.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  595.4
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 16,
+            "name": "Handle jig front lip",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 15,
+                  "point": [
+                    -26.833333333333332,
+                    206.5
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "10.8",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 17,
+            "name": "Handle jig guide holes sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 1
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -1.0,
+                    "y": 179.0
+                  },
+                  {
+                    "id": 3,
+                    "x": -1.0,
+                    "y": 274.0
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 1.7,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 1.7,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 4,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  598.2
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 18,
+            "name": "Handle jig guide holes",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 17,
+                  "point": [
+                    -1.0000000000000002,
+                    178.6123771708976
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 17,
+                  "point": [
+                    -1.0000000000000002,
+                    273.6123771708976
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "8.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 19,
+            "name": "Handle jig centre sight slot sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 1
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 2.0,
+                    "y": 225.9
+                  },
+                  {
+                    "id": 2,
+                    "x": 12.0,
+                    "y": 225.9
+                  },
+                  {
+                    "id": 3,
+                    "x": 12.0,
+                    "y": 227.1
+                  },
+                  {
+                    "id": 4,
+                    "x": 2.0,
+                    "y": 227.1
+                  },
+                  {
+                    "id": 9,
+                    "x": -18.0,
+                    "y": 201.5
+                  },
+                  {
+                    "id": 10,
+                    "x": -4.0,
+                    "y": 201.5
+                  },
+                  {
+                    "id": 11,
+                    "x": -4.0,
+                    "y": 251.5
+                  },
+                  {
+                    "id": 12,
+                    "x": -18.0,
+                    "y": 251.5
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  },
+                  {
+                    "id": 13,
+                    "type": "line",
+                    "a": 9,
+                    "b": 10,
+                    "construction": false
+                  },
+                  {
+                    "id": 14,
+                    "type": "line",
+                    "a": 10,
+                    "b": 11,
+                    "construction": false
+                  },
+                  {
+                    "id": 15,
+                    "type": "line",
+                    "a": 11,
+                    "b": 12,
+                    "construction": false
+                  },
+                  {
+                    "id": 16,
+                    "type": "line",
+                    "a": 12,
+                    "b": 9,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 13
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 15
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 14
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 16
+                  }
+                ],
+                "next_id": 16,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  0.0,
+                  598.2
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 20,
+            "name": "Handle jig centre sight slot",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 19,
+                  "point": [
+                    8.666666666666666,
+                    226.29999999999998
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 19,
+                  "point": [
+                    -8.666666666666666,
+                    218.16666666666666
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "8.0",
+              "opposite": false,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 21,
+            "name": "Panel jig outer plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Front"
+              },
+              "offset": "39.5",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 22,
+            "name": "Panel jig plate sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 21
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -25.5,
+                    "y": 562.0
+                  },
+                  {
+                    "id": 2,
+                    "x": 211.5,
+                    "y": 562.0
+                  },
+                  {
+                    "id": 3,
+                    "x": 211.5,
+                    "y": 590.2
+                  },
+                  {
+                    "id": 4,
+                    "x": -25.5,
+                    "y": 590.2
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  -39.5,
+                  0.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 23,
+            "name": "Panel jig plate",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 22,
+                  "point": [
+                    132.5,
+                    571.4
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "12.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "new",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 24,
+            "name": "Panel jig top lip sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 21
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -25.5,
+                    "y": 590.2
+                  },
+                  {
+                    "id": 2,
+                    "x": 211.5,
+                    "y": 590.2
+                  },
+                  {
+                    "id": 3,
+                    "x": 211.5,
+                    "y": 594.2
+                  },
+                  {
+                    "id": 4,
+                    "x": -25.5,
+                    "y": 594.2
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  -39.5,
+                  0.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 25,
+            "name": "Panel jig top lip",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 24,
+                  "point": [
+                    132.5,
+                    591.5333333333334
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "17.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 26,
+            "name": "Panel jig front lip sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 21
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -29.5,
+                    "y": 562.0
+                  },
+                  {
+                    "id": 2,
+                    "x": -25.5,
+                    "y": 562.0
+                  },
+                  {
+                    "id": 3,
+                    "x": -25.5,
+                    "y": 594.2
+                  },
+                  {
+                    "id": 4,
+                    "x": -29.5,
+                    "y": 594.2
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  -39.5,
+                  0.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 27,
+            "name": "Panel jig front lip",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 26,
+                  "point": [
+                    -26.833333333333332,
+                    572.7333333333333
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "15.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "add",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 28,
+            "name": "Panel jig guide holes sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 21
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 153.5,
+                    "y": 580.0
+                  },
+                  {
+                    "id": 3,
+                    "x": 197.5,
+                    "y": 580.0
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 2,
+                    "type": "circle",
+                    "c": 1,
+                    "r": 1.7,
+                    "construction": false
+                  },
+                  {
+                    "id": 4,
+                    "type": "circle",
+                    "c": 3,
+                    "r": 1.7,
+                    "construction": false
+                  }
+                ],
+                "constraints": [],
+                "next_id": 4,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  -39.5,
+                  0.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 29,
+            "name": "Panel jig guide holes",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 28,
+                  "point": [
+                    153.5,
+                    579.6123771708975
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 28,
+                  "point": [
+                    197.5,
+                    579.6123771708975
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "12.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 30,
+            "name": "Panel jig channel plane",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "plane",
+              "base": {
+                "kind": "origin_plane",
+                "plane": "Front"
+              },
+              "offset": "30.7",
+              "mode": "offset",
+              "refs": [],
+              "angle": "45",
+              "flip": false
+            }
+          },
+          {
+            "id": 31,
+            "name": "Panel jig channel over the button heads sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 30
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": -25.5,
+                    "y": 574.0
+                  },
+                  {
+                    "id": 2,
+                    "x": 211.5,
+                    "y": 574.0
+                  },
+                  {
+                    "id": 3,
+                    "x": 211.5,
+                    "y": 586.0
+                  },
+                  {
+                    "id": 4,
+                    "x": -25.5,
+                    "y": 586.0
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  }
+                ],
+                "next_id": 8,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  -30.7,
+                  0.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 32,
+            "name": "Panel jig channel over the button heads",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 31,
+                  "point": [
+                    132.5,
+                    578.0
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "3.2",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          },
+          {
+            "id": 33,
+            "name": "Panel jig lightening windows sketch",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "sketch",
+              "plane": {
+                "kind": "feature_plane",
+                "feature": 21
+              },
+              "sketch": {
+                "points": [
+                  {
+                    "id": 1,
+                    "x": 0.0,
+                    "y": 566.0
+                  },
+                  {
+                    "id": 2,
+                    "x": 50.0,
+                    "y": 566.0
+                  },
+                  {
+                    "id": 3,
+                    "x": 50.0,
+                    "y": 571.0
+                  },
+                  {
+                    "id": 4,
+                    "x": 0.0,
+                    "y": 571.0
+                  },
+                  {
+                    "id": 9,
+                    "x": 60.0,
+                    "y": 566.0
+                  },
+                  {
+                    "id": 10,
+                    "x": 110.0,
+                    "y": 566.0
+                  },
+                  {
+                    "id": 11,
+                    "x": 110.0,
+                    "y": 571.0
+                  },
+                  {
+                    "id": 12,
+                    "x": 60.0,
+                    "y": 571.0
+                  }
+                ],
+                "curves": [
+                  {
+                    "id": 5,
+                    "type": "line",
+                    "a": 1,
+                    "b": 2,
+                    "construction": false
+                  },
+                  {
+                    "id": 6,
+                    "type": "line",
+                    "a": 2,
+                    "b": 3,
+                    "construction": false
+                  },
+                  {
+                    "id": 7,
+                    "type": "line",
+                    "a": 3,
+                    "b": 4,
+                    "construction": false
+                  },
+                  {
+                    "id": 8,
+                    "type": "line",
+                    "a": 4,
+                    "b": 1,
+                    "construction": false
+                  },
+                  {
+                    "id": 13,
+                    "type": "line",
+                    "a": 9,
+                    "b": 10,
+                    "construction": false
+                  },
+                  {
+                    "id": 14,
+                    "type": "line",
+                    "a": 10,
+                    "b": 11,
+                    "construction": false
+                  },
+                  {
+                    "id": 15,
+                    "type": "line",
+                    "a": 11,
+                    "b": 12,
+                    "construction": false
+                  },
+                  {
+                    "id": 16,
+                    "type": "line",
+                    "a": 12,
+                    "b": 9,
+                    "construction": false
+                  }
+                ],
+                "constraints": [
+                  {
+                    "type": "horizontal",
+                    "l": 5
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 7
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 6
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 8
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 13
+                  },
+                  {
+                    "type": "horizontal",
+                    "l": 15
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 14
+                  },
+                  {
+                    "type": "vertical",
+                    "l": 16
+                  }
+                ],
+                "next_id": 16,
+                "texts": []
+              },
+              "frame": {
+                "origin": [
+                  0.0,
+                  -39.5,
+                  0.0
+                ],
+                "x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "normal": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "id": 34,
+            "name": "Panel jig lightening windows",
+            "suppressed": false,
+            "hidden": false,
+            "op": {
+              "type": "extrude",
+              "profiles": [
+                {
+                  "kind": "region",
+                  "sketch": 33,
+                  "point": [
+                    33.333333333333336,
+                    567.6666666666666
+                  ]
+                },
+                {
+                  "kind": "region",
+                  "sketch": 33,
+                  "point": [
+                    93.33333333333333,
+                    567.6666666666666
+                  ]
+                }
+              ],
+              "end": "blind",
+              "depth": "12.0",
+              "opposite": true,
+              "second": false,
+              "depth2": "10",
+              "up_to": null,
+              "op": "remove",
+              "draft": "0"
+            }
+          }
+        ],
+        "rollback": null,
+        "next_id": 34,
+        "parts": {},
+        "configs": [],
+        "active_config": null
+      }
+    }
+  ],
+  "assemblies": [],
+  "drawings": [],
+  "active": {
+    "Studio": 0
+  },
+  "versions": []
+}

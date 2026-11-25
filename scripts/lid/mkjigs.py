@@ -8,7 +8,7 @@
 import json, sys, os
 OUT=sys.argv[1] if len(sys.argv)>1 else '.'
 Z1=598.2; RAIL_TOP=590.2; YC=226.5; PANEL_O=-27.5
-HX=444.0; L=(HX-100.0,0); B=(151.0,577.0); HINGE_Y=14.0
+HX=444.0; L=(HX-100.0,0); B=(175.5,571.0); FB_S=22.0; HINGE_Y=14.0   # B, FB_S: see mklid.py
 T=8.0; LIP=4.0; LIP_D=2.8; G=1.7      # plate thickness, lip thickness, lip depth below the lid's top face, guide hole radius
 S=[{'tool':'new_document','args':{}},{'tool':'switch_part_studio','args':{'index':0}}]
 add=S.append; fid=[0]
@@ -41,12 +41,12 @@ ext(pz,'Handle jig centre sight slot',[rect([2.0,YC-0.6],[12.0,YC+0.6]),rect([-1
 # 3 side panel jig (right panel outer face y -27.5, top edge z 590.2, front edge x -25.5)
 JT=12.0; ya=PANEL_O-JT
 py=yplane(ya,'Panel jig outer plane')
-ext(py,'Panel jig plate',[rect([-25.5,562.0],[B[0]+34,RAIL_TOP])],JT,opp=True)
-ext(py,'Panel jig top lip',[rect([-25.5,RAIL_TOP],[B[0]+34,RAIL_TOP+LIP])],JT+5.0,op='add',opp=True)
+ext(py,'Panel jig plate',[rect([-25.5,562.0],[B[0]+FB_S+14,RAIL_TOP])],JT,opp=True)
+ext(py,'Panel jig top lip',[rect([-25.5,RAIL_TOP],[B[0]+FB_S+14,RAIL_TOP+LIP])],JT+5.0,op='add',opp=True)
 ext(py,'Panel jig front lip',[rect([-25.5-LIP,562.0],[-25.5,RAIL_TOP+LIP])],JT+3.0,op='add',opp=True)
-ext(py,'Panel jig guide holes',[circ((B[0]-20,580.0),G),circ((B[0]+20,580.0),G)],JT,op='remove',opp=True)
+ext(py,'Panel jig guide holes',[circ((B[0]-FB_S,580.0),G),circ((B[0]+FB_S,580.0),G)],JT,op='remove',opp=True)
 pc=yplane(PANEL_O-3.2,'Panel jig channel plane')
-ext(pc,'Panel jig channel over the button heads',[rect([-25.5,574.0],[B[0]+34,586.0])],3.2,op='remove',opp=True)
+ext(pc,'Panel jig channel over the button heads',[rect([-25.5,574.0],[B[0]+FB_S+14,586.0])],3.2,op='remove',opp=True)
 ext(py,'Panel jig lightening windows',[rect([0.0,566.0],[50.0,571.0]),rect([60.0,566.0],[110.0,571.0])],JT,op='remove',opp=True)
 add({'tool':'describe','args':{}})
 add({'tool':'export','args':{'format':'stl','path':os.path.abspath(os.path.join(OUT,'lid-jigs.stl'))}})
