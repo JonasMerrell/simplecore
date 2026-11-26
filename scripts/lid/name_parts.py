@@ -19,7 +19,7 @@ for p in parts:
     elif eq(x0,-8): name,c='Lid handle (print, ASA)',PRINT
     elif eq(x0,HX-5) and eq(y1-y0,4):
         k=f'b{n}'; seen[k]=seen.get(k,0)+1; name,c=f'Lid hinge {n} bearing 623 (3 x 10 x 4), {"+Y" if seen[k]==1 else "-Y"}',STEEL
-    elif eq(x0,HX-1.45): name,c=f'Lid hinge {n} pin, M3 x 25 screw and locknut','#303030'
+    elif eq(x0,HX-1.45): name,c=f'Lid hinge {n} pin, M3 x 30 screw and locknut','#303030'
     elif eq(z0,590.2) and eq(x0,-20.5): name,c='Lid seal, hollow silicone D 10 x 8 (shown compressed to 5)','#c03a2b'
     elif eq(z0,569.8): name,c='Lid insulation, PIR 25.4 mm (bonded under the lid)','#e2cc78'
     elif eq(x0,-25.5): name,c='Top lid panel (3 mm 6061)','#b0b4ba'

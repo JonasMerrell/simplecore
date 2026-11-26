@@ -32,16 +32,18 @@ FACE_Y=-44.5            # outer faces of the printed levers and brackets (right 
 FB_T=17.0               # printed frame bracket on the panel: y -44.5..-27.5, with a 3.2 deep channel over the panel's M5 button heads
 LB_Y=(FACE_Y,-32.5)     # printed lid spring lever (12 mm), 5 mm off the panel: 2.2 mm over the M5 button heads (2.75 high)
 BALL_Y=FACE_Y-BALL_OFF  # ball centres (spring plane), right side: plates on the outer faces of the lever and bracket
-# heat-set inserts (printed parts): kit ball-stud plates on M4 (M4 x 8.1 x 5.6 type), handle on M3 (M3 x 5 x 4 type)
+# heat-set inserts (printed parts, Jonas's: M4 Ø6 x 5 long, M3 Ø5 x 4 long; holes 0.4 under the insert's diameter):
+#   kit ball-stud plates on M4, handle on M3
 M4_INS_R,M4_INS_D=2.8,9.0
-M3_INS_R,M3_INS_D=2.25,6.0
+M3_INS_R,M3_INS_D=2.3,6.0
 HINGE_Y=(14.0,439.0)    # hinge centres: at the corners, right beside the spring levers
 BOSS_R=5.5              # tongue boss round the pin
 ARM_T=HZ-Z1+BOSS_R      # corner arm thickness 9.25: its top is level with the top of the boss, so it prints top face down
 EAR_R=9.5               # hinge ear radius: 4.5 mm of plastic round the 10 mm bearing (the lid's back edge passes at 11.1)
 TONGUE=6.0              # tongue half width (12 mm tongue)
 SLOT=6.3                # slot half width (0.3 mm shoulders each side bear on the bearings' inner races)
-EAR_W=10.0              # ear thickness: 4 for the bearing, 6 for the screw head or nut
+EAR_W=10.0              # ear thickness: 1.2 lip on the slot side, 4 bearing, 4.8 recess for the screw head or nut
+LIP=1.2                 # lip between the slot and each bearing: the bearings go in from the ears' outer faces and stop on it
 BLK=SLOT+EAR_W          # block half width 16.3
 S=[{'tool':'new_document','args':{}},{'tool':'switch_part_studio','args':{'index':0}}]
 add=S.append
@@ -102,9 +104,10 @@ def fbracket(sgn,tag):
         fillets.append((f'Frame spring bracket {tag} corners {cx}',[[cx,ym,RAIL_TOP],[cx,ym,FB_Z0]],6.0))
 fbracket(+1,'right'); fbracket(-1,'left')
 # 3 printed corner hinges. Frame block on the rear-most top rail (2x M5 into T-nuts) with two ears and a 623 bearing
-#   pressed into each from the slot side. Corner arm on the lid: a thick pad over the lid's rear corner (4x M4 outside
+#   pressed into each from the ear's outer face against a 1.2 mm lip. Corner arm on the lid: a thick pad over the lid's rear corner (4x M4 outside
 #   the seal line) with the tongue that sits between the ears, and the spring lever bolted to its outer side, so the
-#   spring force goes lever -> arm -> pin without loading the 3 mm lid. M3 x 25 screw through both bearings as the pin.
+#   spring force goes lever -> arm -> pin without loading the 3 mm lid. M3 x 30 screw through both bearings as the pin;
+#   the tongue's shoulders reach through the lips' Ø6.8 holes to the inner races, so the screw clamps the races to it.
 PAD_X0=L[0]-22.0; PAD_XM=400.0
 for i,yc in enumerate(HINGE_Y):
     n=i+1; sgn=1 if i==0 else -1; tag='right' if i==0 else 'left'
@@ -115,9 +118,10 @@ for i,yc in enumerate(HINGE_Y):
     ps=yplane(yc-SLOT,f'Hinge {n} slot plane')
     ext(ps,f'Hinge {n} slot for the tongue',[rect([430.0,586.0],[HX+BOSS_R+1.5,616.0])],2*SLOT,op='remove',opp=True)
     ext(p,f'Hinge {n} pin bore (screw head and nut pockets)',[circ([HX,HZ],3.4)],2*BLK,op='remove',opp=True)
-    pe=yplane(yc+SLOT,f'Hinge {n} ear face plane')
-    ext(pe,f'Hinge {n} bearing pocket +Y',[circ([HX,HZ],5.0)],4,op='remove',opp=True)
-    ext(ps,f'Hinge {n} bearing pocket -Y',[circ([HX,HZ],5.0)],4,op='remove')
+    pe=yplane(yc+SLOT+LIP,f'Hinge {n} bearing seat plane +Y')
+    pw=yplane(yc-SLOT-LIP,f'Hinge {n} bearing seat plane -Y')
+    ext(pe,f'Hinge {n} bearing bore +Y (from the outer face)',[circ([HX,HZ],5.0)],EAR_W-LIP,op='remove',opp=True)
+    ext(pw,f'Hinge {n} bearing bore -Y (from the outer face)',[circ([HX,HZ],5.0)],EAR_W-LIP,op='remove')
     pt=zplane(608.0,f'Hinge {n} block top plane')
     ext(pt,f'Hinge {n} M5 counterbores',[circ([464.5,yc-9],4.75),circ([464.5,yc+9],4.75)],11.8,op='remove',opp=True)
     ext(pt,f'Hinge {n} M5 holes',[circ([464.5,yc-9],2.75),circ([464.5,yc+9],2.75)],18,op='remove',opp=True)
@@ -126,8 +130,8 @@ for i,yc in enumerate(HINGE_Y):
     pa=yplane(yc-TONGUE,f'Hinge {n} tongue plane')
     ext(pa,f'Hinge {n} tongue',[rect([428.0,Z1],[HX,Z1+ARM_T])],2*TONGUE,op='add',opp=True)
     ext(pa,f'Hinge {n} tongue boss',[circ([HX,HZ],BOSS_R)],2*TONGUE,op='add',opp=True)
-    ext(ps,f'Hinge {n} race shoulders',[circ([HX,HZ],2.6)],2*SLOT,op='add',opp=True)
-    ext(ps,f'Hinge {n} M3 pin hole',[circ([HX,HZ],1.6)],2*SLOT,op='remove',opp=True)
+    ext(pw,f'Hinge {n} race shoulders',[circ([HX,HZ],2.6)],2*(SLOT+LIP),op='add',opp=True)
+    ext(pw,f'Hinge {n} M3 pin hole',[circ([HX,HZ],1.6)],2*(SLOT+LIP),op='remove',opp=True)
     ext(pz1,f'Hinge {n} corner arm M4 holes',[circ([426.5,yc+sgn*14],2.1),circ([426.5,yc-sgn*12],2.1),circ([426.5,m(-23.0)],2.1),circ([L[0]+58,m(-23.0)],2.1),circ([L[0]+29,m(-23.0)],2.1),circ([L[0]-4,m(-23.0)],2.1)],ARM_T,op='remove')
     # the lever's two M5 screws: through the lever and 22 mm into the pad, nuts in slots cut from the top
     pl=yplane(min(m(LB_Y[0]),m(LB_Y[0]+31.0)),f'Hinge {n} lever screw plane')
@@ -137,7 +141,7 @@ for i,yc in enumerate(HINGE_Y):
     ext(pn,f'Lever {tag} M5 nut slots',[rect([L[0]-15-4.15,yn[0]],[L[0]-15+4.15,yn[1]]),rect([L[0]+7-4.15,yn[0]],[L[0]+7+4.15,yn[1]])],ARM_T/2+4.7,op='remove',opp=True)
     fillets.append((f'Hinge {n} corner arm inner corner',[[PAD_XM,m(-8.0),Z1+ARM_T/2]],10.0))
     fillets.append((f'Hinge {n} corner arm front corners',[[PAD_X0,m(-8.0),Z1+ARM_T/2]],6.0))
-    late.append((n,yc,ps,pe))
+    late.append((n,yc,pw,pe))
 # 4 handle at the front, printed arch 110 long with an 80 x 16 finger opening, 2x M3 x 8 from under the lid into
 #   heat-set inserts in its legs (95 apart, the handle jig's holes)
 hd=ext(pz1,'Lid handle',[rect([-8.0,YC-55],[6.0,YC+55])],22)
@@ -153,9 +157,9 @@ if not PRINT_ONLY:
         b1=ext(pe,f'Hinge {n} bearing +Y',[circ([HX,HZ],5.0),circ([HX,HZ],1.5)],4,opp=True)
         b2=ext(ps,f'Hinge {n} bearing -Y',[circ([HX,HZ],5.0),circ([HX,HZ],1.5)],4)
         parts.append((b1,f'Lid hinge {n} bearing 623 (3 x 10 x 4), +Y','#c8c8c8')); parts.append((b2,f'Lid hinge {n} bearing 623 (3 x 10 x 4), -Y','#c8c8c8'))
-        pp=yplane(yc-13.3,f'Hinge {n} pin plane')
-        pin=ext(pp,f'Hinge {n} pin',[circ([HX,HZ],1.45)],27.6,opp=True)
-        parts.append((pin,f'Lid hinge {n} pin, M3 x 25 screw and locknut','#303030'))
+        pp=yplane(yc-SLOT-LIP-4-3,f'Hinge {n} pin plane')   # head (3) on the -Y bearing, 30 shank through the +Y locknut
+        pin=ext(pp,f'Hinge {n} pin',[circ([HX,HZ],1.45)],33.0,opp=True)
+        parts.append((pin,f'Lid hinge {n} pin, M3 x 30 screw and locknut','#303030'))
     # filament tube stub where it leaves the right side panel (reference only)
     pt2=yplane(PANEL_O-30.0,'Filament tube plane')
     ext(pt2,'Filament tube (reference)',[circ(list(TUBE),2.0)],30.0,opp=True)
