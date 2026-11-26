@@ -13,8 +13,8 @@ for p in parts:
     (x0,y0,z0),(x1,y1,z1)=p['bbox_mm']; n=1 if y0<200 else 2; side='right' if y0<200 else 'left'
     if eq(x0,G['PAD_X0']) and eq(x1,HX+G['BOSS_R']): name,c=f'Lid hinge {n}, corner arm (print, ASA)',PRINT
     elif eq(x0,HX-G['EAR_R']) and eq(x1,474.5): name,c=f'Lid hinge {n}, frame block (print, ASA)',PRINT
-    elif eq(x0,G['B'][0]-G['FB_W']): name,c=f'Frame spring bracket, {side} (13 mm 6061, CNC)',ALU
-    elif eq(x0,G['L'][0]-22) and eq(y1-y0,8): name,c=f'Lid spring lever, {side} (8 mm 6061, CNC)',ALU
+    elif eq(x0,G['B'][0]-G['FB_W']): name,c=f'Frame spring bracket, {side} (print, ASA, 3x M4 inserts)',PRINT
+    elif eq(x0,G['L'][0]-22) and eq(y1-y0,G['LB_Y'][1]-G['LB_Y'][0]): name,c=f'Lid spring lever, {side} (print, ASA, 3x M4 inserts)',PRINT
     elif eq(x0,G['TUBE'][0]-2): name,c='Filament tube (reference, from the photos)','#9fd0ff'
     elif eq(x0,-8): name,c='Lid handle (print, ASA)',PRINT
     elif eq(x0,HX-5) and eq(y1-y0,4):

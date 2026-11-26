@@ -28,9 +28,13 @@ TUBE=(371.5,554.0)      # filament tube hole in the right side panel (Jonas's ph
 YC=226.5                # enclosure centre line (side panels' outer faces -27.5 / 480.5)
 PANEL_O=-27.5
 FB_W,FB_S,FB_Z0=32.0,22.0,552.0   # frame bracket half length, M5 holes at bx +- 22 (clear of the plate and of the panel screws), bottom edge
-FB_T=13.0               # frame bracket plate on the panel: y -40.5..-27.5, with a 3.2 deep channel over the panel's M5 button heads
-LB_Y=(-40.5,-32.5)      # lid spring lever (8 mm plate), 5 mm off the panel: 2.2 mm over the M5 button heads (2.75 high)
-BALL_Y=-40.5-BALL_OFF   # ball centres (spring plane), right side: plates on the outer faces of the lever and bracket (y -40.5)
+FACE_Y=-44.5            # outer faces of the printed levers and brackets (right side), where the kit's ball-stud plates sit
+FB_T=17.0               # printed frame bracket on the panel: y -44.5..-27.5, with a 3.2 deep channel over the panel's M5 button heads
+LB_Y=(FACE_Y,-32.5)     # printed lid spring lever (12 mm), 5 mm off the panel: 2.2 mm over the M5 button heads (2.75 high)
+BALL_Y=FACE_Y-BALL_OFF  # ball centres (spring plane), right side: plates on the outer faces of the lever and bracket
+# heat-set inserts (printed parts): kit ball-stud plates on M4 (M4 x 8.1 x 5.6 type), handle on M3 (M3 x 5 x 4 type)
+M4_INS_R,M4_INS_D=2.8,9.0
+M3_INS_R,M3_INS_D=2.25,6.0
 HINGE_Y=(14.0,439.0)    # hinge centres: at the corners, right beside the spring levers
 BOSS_R=5.5              # tongue boss round the pin
 ARM_T=HZ-Z1+BOSS_R      # corner arm thickness 9.25: its top is level with the top of the boss, so it prints top face down
@@ -53,8 +57,9 @@ def xplane(x,name): return feat('plane',name,{'base':{'kind':'origin_plane','pla
 def poly(pts): return {'type':'polyline','points':[[round(a,4),round(b,4)] for a,b in pts],'closed':True}
 def rect(a,b): return {'type':'rect','corner1':[round(v,4) for v in a],'corner2':[round(v,4) for v in b]}
 def circ(p,r): return {'type':'circle','center':[round(v,4) for v in p],'radius':r}
-def plate_holes(c):   # 3x M4 tapped (3.3 drill) on the plate's Ø20 circle, one at the top, and a Ø9 clearance for the stud's rivet
-    return [circ([c[0]+PLATE_BCD/2*math.cos(math.radians(a)),c[1]+PLATE_BCD/2*math.sin(math.radians(a))],1.65) for a in (90,210,330)]+[circ(list(c),4.5)]
+def plate_holes(c):   # 3x M4 heat-set insert holes on the plate's Ø20 circle, one at the top (blind, from the outer face)
+    return [circ([c[0]+PLATE_BCD/2*math.cos(math.radians(a)),c[1]+PLATE_BCD/2*math.sin(math.radians(a))],M4_INS_R) for a in (90,210,330)]
+def rivet_hole(c): return [circ(list(c),4.5)]   # Ø9 clearance behind the plate's centre for the stud's rivet
 def ext(pl,name,items,depth,op='new',opp=False):
     sk=sketch({'kind':'feature_plane','feature':pl},name+' sketch',items)
     return feat('extrude',name,{'profiles':[{'sketch':sk}],'depth':str(depth),'op':op,'opposite':opp})
@@ -62,33 +67,40 @@ for k,v in (('lid_t',LID_T),('seal_h',SEAL_H),('lid_pir_t',PIR_T)): add({'tool':
 parts=[]; fillets=[]; late=[]
 PRINT='#e07020'; ALU='#5a6470'
 pz1=zplane(Z1,'Lid top plane')
-# 1 lid spring levers: 8 mm 6061 plates hanging outside the side panels, bolted sideways (2x M5) to the corner arms.
+# 1 lid spring levers: printed 12 mm plates (print flat, outer face up) hanging outside the side panels, bolted sideways
+#   (2x M5) to the corner arms.
 #   Built first, so the corner arms' features don't fuse with them.
 def lever(sgn,tag):
     m=lambda y: y if sgn>0 else 2*YC-y
     ya,yb=sorted([m(LB_Y[0]),m(LB_Y[1])])
     p=yplane(ya,f'Lid spring lever {tag} plane')
     lx,lz=L
-    ext(p,f'Lid spring lever {tag}',[poly([(lx-22,Z1+ARM_T),(lx+14,Z1+ARM_T),(lx+14,575.0),(lx+16,lz),(lx-16,lz),(lx-22,575.0)])],8.0,opp=True)
-    ext(p,f'Lid spring lever {tag} round end',[circ([lx,lz],16.0)],8.0,op='add',opp=True)
-    ext(p,f'Lid spring lever {tag} ball plate holes',plate_holes((lx,lz)),8.0,op='remove',opp=True)
+    T=yb-ya
+    ext(p,f'Lid spring lever {tag}',[poly([(lx-22,Z1+ARM_T),(lx+14,Z1+ARM_T),(lx+14,575.0),(lx+16,lz),(lx-16,lz),(lx-22,575.0)])],T,opp=True)
+    ext(p,f'Lid spring lever {tag} round end',[circ([lx,lz],16.0)],T,op='add',opp=True)
+    ext(p,f'Lid spring lever {tag} rivet hole',rivet_hole((lx,lz)),T,op='remove',opp=True)
+    po=yplane(m(FACE_Y),f'Lid spring lever {tag} outer face plane')
+    ext(po,f'Lid spring lever {tag} M4 insert holes',plate_holes((lx,lz)),M4_INS_D,op='remove',opp=sgn>0)
     ym=(ya+yb)/2
     fillets.append((f'Lid spring lever {tag} shoulders',[[lx-22,ym,575.0],[lx+14,ym,575.0]],10.0))
-if not PRINT_ONLY: lever(+1,'right'); lever(-1,'left')
-# 2 frame spring brackets: 10 mm plates on the side panels, 2x M5 through the panel into the top side rail's slot (z 580)
+lever(+1,'right'); lever(-1,'left')
+# 2 frame spring brackets: printed 17 mm blocks (print outer face up) on the side panels, 2x M5 through the panel into
+#   the top side rail's slot (z 580)
 def fbracket(sgn,tag):
     m=lambda y: y if sgn>0 else 2*YC-y
     ya,yb=sorted([m(PANEL_O-FB_T),m(PANEL_O)])
     p=yplane(ya,f'Frame spring bracket {tag} plane')
     bx,bz=B
     ext(p,f'Frame spring bracket {tag}',[rect([bx-FB_W,FB_Z0],[bx+FB_W,RAIL_TOP])],FB_T,opp=True)
-    ext(p,f'Frame spring bracket {tag} holes',[circ([bx-FB_S,580.0],2.75),circ([bx+FB_S,580.0],2.75)]+plate_holes((bx,bz)),FB_T,op='remove',opp=True)
+    ext(p,f'Frame spring bracket {tag} holes',[circ([bx-FB_S,580.0],2.75),circ([bx+FB_S,580.0],2.75)]+rivet_hole((bx,bz)),FB_T,op='remove',opp=True)
+    po=yplane(m(FACE_Y),f'Frame spring bracket {tag} outer face plane')
+    ext(po,f'Frame spring bracket {tag} M4 insert holes',plate_holes((bx,bz)),M4_INS_D,op='remove',opp=sgn>0)
     pc=yplane(yb-3.2 if sgn>0 else ya,f'Frame spring bracket {tag} channel plane')
     ext(pc,f'Frame spring bracket {tag} channel over the button heads',[rect([bx-FB_W,574.0],[bx+FB_W,586.0])],3.2,op='remove',opp=True)
     ym=(ya+yb)/2
     for cx in (bx-FB_W,bx+FB_W):
         fillets.append((f'Frame spring bracket {tag} corners {cx}',[[cx,ym,RAIL_TOP],[cx,ym,FB_Z0]],6.0))
-if not PRINT_ONLY: fbracket(+1,'right'); fbracket(-1,'left')
+fbracket(+1,'right'); fbracket(-1,'left')
 # 3 printed corner hinges. Frame block on the rear-most top rail (2x M5 into T-nuts) with two ears and a 623 bearing
 #   pressed into each from the slot side. Corner arm on the lid: a thick pad over the lid's rear corner (4x M4 outside
 #   the seal line) with the tongue that sits between the ears, and the spring lever bolted to its outer side, so the
@@ -109,7 +121,7 @@ for i,yc in enumerate(HINGE_Y):
     pt=zplane(608.0,f'Hinge {n} block top plane')
     ext(pt,f'Hinge {n} M5 counterbores',[circ([464.5,yc-9],4.75),circ([464.5,yc+9],4.75)],11.8,op='remove',opp=True)
     ext(pt,f'Hinge {n} M5 holes',[circ([464.5,yc-9],2.75),circ([464.5,yc+9],2.75)],18,op='remove',opp=True)
-    y_out=m(LB_Y[1]); y_in=yc+sgn*20.0
+    y_out=m(LB_Y[1]+0.1); y_in=yc+sgn*20.0   # 0.1 off the lever, so the two never share a face (STL split)
     ext(pz1,f'Hinge {n} corner arm pad',[poly([(PAD_X0,y_out),(433.5,y_out),(433.5,y_in),(PAD_XM,y_in),(PAD_XM,m(-8.0)),(PAD_X0,m(-8.0))])],ARM_T)
     pa=yplane(yc-TONGUE,f'Hinge {n} tongue plane')
     ext(pa,f'Hinge {n} tongue',[rect([428.0,Z1],[HX,Z1+ARM_T])],2*TONGUE,op='add',opp=True)
@@ -126,10 +138,12 @@ for i,yc in enumerate(HINGE_Y):
     fillets.append((f'Hinge {n} corner arm inner corner',[[PAD_XM,m(-8.0),Z1+ARM_T/2]],10.0))
     fillets.append((f'Hinge {n} corner arm front corners',[[PAD_X0,m(-8.0),Z1+ARM_T/2]],6.0))
     late.append((n,yc,ps,pe))
-# 4 handle at the front, printed arch 110 long with an 80 x 16 finger opening, 2x M4 from under the lid
+# 4 handle at the front, printed arch 110 long with an 80 x 16 finger opening, 2x M3 x 8 from under the lid into
+#   heat-set inserts in its legs (95 apart, the handle jig's holes)
 hd=ext(pz1,'Lid handle',[rect([-8.0,YC-55],[6.0,YC+55])],22)
 px=xplane(-8.0,'Handle front plane')
 ext(px,'Lid handle finger opening',[rect([YC-40,Z1-1],[YC+40,Z1+15])],14,op='remove')
+ext(pz1,'Lid handle M3 insert holes',[circ([-1.0,YC-47.5],M3_INS_R),circ([-1.0,YC+47.5],M3_INS_R)],M3_INS_D,op='remove')
 parts.append((hd,'Lid handle (print, ASA)',PRINT))
 fillets.append(('Lid handle top corners',[[-1.0,YC-55,Z1+22],[-1.0,YC+55,Z1+22]],9.0))
 fillets.append(('Lid handle opening corners',[[-1.0,YC-40,Z1+15],[-1.0,YC+40,Z1+15]],6.0))
@@ -172,5 +186,5 @@ add({'tool':'set_parts','args':{'parts':[{'body':[1,0],'name':'Gas spring body, 
 add({'tool':'describe','args':{}})
 add({'tool':'save_document','args':{'path':os.path.abspath(os.path.join(OUT,'lid-doc.json'))}})
 json.dump(S,open(os.path.join(OUT,'lid_run.json'),'w'),indent=0)
-json.dump(dict(B=B,L=L,LEXT=LEXT,STROKE=STROKE,FB_W=FB_W,FB_S=FB_S,H=[HX,HZ],BALL_Y=BALL_Y,YC=YC,LB_Y=LB_Y,FB_T=FB_T,PANEL_O=PANEL_O,Z0=Z0,Z1=Z1,PAD_X0=PAD_X0,OPEN=OPEN,TUBE=TUBE,BOSS_R=BOSS_R,EAR_R=EAR_R),open(os.path.join(OUT,'lid_geom.json'),'w'))
+json.dump(dict(B=B,L=L,LEXT=LEXT,STROKE=STROKE,FB_W=FB_W,FB_S=FB_S,H=[HX,HZ],BALL_Y=BALL_Y,YC=YC,LB_Y=LB_Y,FB_T=FB_T,FACE_Y=FACE_Y,PANEL_O=PANEL_O,Z0=Z0,Z1=Z1,PAD_X0=PAD_X0,OPEN=OPEN,TUBE=TUBE,BOSS_R=BOSS_R,EAR_R=EAR_R),open(os.path.join(OUT,'lid_geom.json'),'w'))
 print(len(S),'steps')
